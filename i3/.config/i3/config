@@ -15,8 +15,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # Change gap size
-gaps outer 20
-gaps inner 20
+gaps outer 10
+gaps inner 10
 # gaps top 5
 # gaps bottom 10
 
@@ -49,13 +49,15 @@ bindsym $mod+n exec pcmanfm
 bindsym $mod+shift+q kill
 
 # Start rofi drun menu
-bindsym $mod+space exec rofi -show drun 
+bindsym $mod+space exec rofi -show drun
 
 # start dmenu_run
-bindsym $mod+r exec dmenu_run
+bindsym $mod+r exec dmenu_run -dim 0.2  -l 10 -fn iosevka
 
 bindsym $mod+shift+p exec rofi-pass
-bindsym Mod1+Control+h exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+# bindsym Mod1+Control+h exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+bindsym Mod1+Control+h exec clipmenu -i -fn Iosevka
+
 
 # Bind key to betterlockscreen (-git)
 # bindsym --release $mod+l exec betterlockscreen -l blur
@@ -202,14 +204,18 @@ bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
 # for_window [class="mpv"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="ColorGrab"] floating enable
-for_window [class="xdman-Main"] floating enable
+for_window [class="xdman"] floating enable
+for_window [class="xpad"] floating enable
+
+
+
 
 # Make sure fonts are loaded right
 exec_always xset +fp /home/deve/.fonts/
-exec_always xset fp rehash
+# exec_always xset fp rehash
 
 # Run startup wallpaper
-exec_always feh --bg-fill '/home/deve/pictures/thumb-1920-1039414.png'
+exec_always feh --bg-fill '/home/deve/pictures/wallpapers/wp6524586.jpg'
 
 # Allow scripts to interface with dbus
 exec_always --no-startup-id ~/Scripts/xdbus.sh
@@ -225,7 +231,7 @@ exec_always --no-startup-id ~/Scripts/xdbus.sh
 # Startup daemons for compositor and status bar
 # exec_always --no-startup-id pkill picom; picom --no-use-damage
 
-exec_always --no-startup-id pkill picom; picom
+exec_always --no-startup-id pkill xcompmgr; xcompmgr
 # exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Increase screen contrast (disable for better displays)
@@ -236,7 +242,7 @@ exec_always --no-startup-id xrdb ~/.Xresources
 
 # Parcelite clipboard manager
 # exec parcellite
-exec --no-startup-id greenclip daemon
+exec --no-startup-id clipmenud --disable-primary
 
 # polkit agent daemond
 # exec  /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

@@ -1,0 +1,269 @@
+# Set mod variable to super key
+set $mod Mod4
+font xft:Iosevka 8
+
+# Turn borders off
+for_window [class="^.*"] border pixel 2
+# new_window pixel 4
+# new_float pixel 4
+client.focused          #8C00FD #8C00FD #ffffff #8C00FD   #8C00FDff
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+# Change gap size
+gaps outer 20
+gaps inner 20
+# gaps top 5
+# gaps bottom 10
+
+# rounded for i3
+smart_borders on
+# smart_borders no_gaps
+# border_radius 8
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+# smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+# smart_borders on
+
+# Drag floating windows
+floating_modifier $mod
+
+# Start a URxvt terminal emulator instance
+# st -f "Iosevka Term,Iosevka Nerd Font Mono:size=12"
+# bindsym $mod+Return exec st -f 'Iosevka Term:size=12'
+bindsym $mod+Return exec stmux
+
+
+# vscode, files, browser, notes shortcuts
+# bindsym $mod+c exec code
+bindsym $mod+n exec pcmanfm
+# bindsym $mod+t exec typora
+# Kill focused window
+bindsym $mod+shift+q kill
+
+# Start rofi drun menu
+bindsym $mod+space exec rofi -show drun 
+
+# start dmenu_run
+bindsym $mod+r exec dmenu_run
+
+bindsym $mod+shift+p exec rofi-pass
+bindsym Mod1+Control+h exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+# Bind key to betterlockscreen (-git)
+# bindsym --release $mod+l exec betterlockscreen -l blur
+
+# Set up screenshots and partial screenshots
+bindsym --release Print exec flameshot gui
+bindsym $mod+Print exec --no-startup-id ssrt
+
+# bindsym --release Print exec maim ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+# bindsym --release Shift+Print exec maim -s ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+
+# Bind audio keys to pactl volume control
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+
+# Bind brightness keys to light interface
+bindsym XF86MonBrightnessUp exec  brightnessctl set +2%
+bindsym XF86MonBrightnessDown exec brightnessctl set 2%-
+
+# i3 uses jkl; instead of hjkl -- fix that
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# These are more like the tmux config we will get to later, but are intuitive
+# bindsym $mod+backspace  split horizontal
+bindsym $mod+backslash  split horizontal
+bindsym $mod+bar        split horizontal
+bindsym $mod+apostrophe split vertical
+bindsym $mod+quotedbl   split vertical
+bindsym $mod+minus      split vertical
+
+# Move focus with the arrow keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move windows with shift + arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# # Split in specified direction
+# bindsym $mod+h split h
+# bindsym $mod+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+
+# change focus toogle
+bindsym $mod+Tab focus mode_toggle
+
+# Change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+Control+space focus mode_toggle
+
+# Bind keys to switch to next workspace
+bindsym $mod+bracketright workspace next
+bindsym $mod+bracketleft workspace prev
+
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace
+bindsym $mod+Shift+r restart
+
+# Exit i3
+# bindsym $mod+Shift+e exec ~/Scripts/rofi/launch.sh powermenu
+
+# launch emoji picker
+bindsym $mod+Shift+e exec rofimoji
+
+# launch todo / note manager
+bindsym $mod+p exec rofi-todo -f ~/.rofi-todo
+
+# Add resize keybindings in place of mode
+bindsym $mod+Control+Left resize shrink width 10 px or 10
+bindsym $mod+Control+Down resize grow height 10 px or 10
+bindsym $mod+Control+Up resize shrink height 10 px or 10
+bindsym $mod+Control+Right resize grow width 10 px or 10
+bindsym $mod+Shift+Control+Left resize shrink width 1 px or 1
+bindsym $mod+Shift+Control+Down resize grow height 1 px or 1
+bindsym $mod+Shift+Control+Up resize shrink height 1 px or 1
+bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
+
+# mpv music controller bindings
+# set $controller ~/Scripts/mpv-controller.sh
+# bindsym $mod+Shift+P exec $controller pause
+# bindsym $mod+Shift+bracketleft exec $controller prev
+# bindsym $mod+Shift+bracketright exec $controller next
+# bindsym $mod+Shift+semicolon exec $controller skip -10
+# bindsym $mod+Shift+apostrophe exec $controller skip 10
+# bindsym $mod+Shift+comma exec $controller skipper -5
+# bindsym $mod+Shift+period exec $controller skipper 5
+# bindsym $mod+Shift+m exec ~/Scripts/rofi/launch.sh music
+# bindsym $mod+Shift+l exec $controller stop
+# bindsym $mod+Shift+o exec $controller info
+# bindsym $mod+Shift+minus exec $controller vol -10
+# bindsym $mod+Shift+equal exec $controller vol 10
+
+# Always float certain windows
+# for_window [class="mpv"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="ColorGrab"] floating enable
+for_window [class="xdman-Main"] floating enable
+
+# Make sure fonts are loaded right
+exec_always xset +fp /home/deve/.fonts/
+exec_always xset fp rehash
+
+# Run startup wallpaper
+exec_always feh --bg-fill '/home/deve/pictures/thumb-1920-1039414.png'
+
+# Allow scripts to interface with dbus
+exec_always --no-startup-id ~/Scripts/xdbus.sh
+
+
+# Start notification daemon
+# exec_always --no-startup-id dunst
+
+# Enable tap to click - will need to change input
+# device id and property number. See [link] for more
+# exec_always --no-startup-id xinput set-prop 12 284 1 > /dev/null 2>&1
+
+# Startup daemons for compositor and status bar
+# exec_always --no-startup-id pkill picom; picom --no-use-damage
+
+exec_always --no-startup-id pkill picom; picom
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Increase screen contrast (disable for better displays)
+exec_always --no-startup-id xrandr --output eDP --gamma 0.8:0.8:0.8
+
+# Use URxvt settings from Xresources
+exec_always --no-startup-id xrdb ~/.Xresources
+
+# Parcelite clipboard manager
+# exec parcellite
+exec --no-startup-id greenclip daemon
+
+# polkit agent daemond
+# exec  /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec lxpolkit
+
+bar {
+  mode dock
+  position bottom
+  # font xft:Iosevka 14
+  font pango:DejaVu Sans Mono, FontAwesome 8
+
+
+  colors {
+    # background #20293A
+    # statusline #aaaaaa
+    # separator  #566E9C 
+
+    focused_workspace  #20293A #8C00FD #ffffff
+    active_workspace   #ff8c00 #20293A #ffffff
+    inactive_workspace #20293A #20293A #aaaaaa
+    urgent_workspace   #20293A #20293A #FCF5C7
+  }
+  status_command i3status-rs
+  
+
+  # font pango:lolstat 20
+  # status_command ~/.config/i3/lolstat
+}
+
+

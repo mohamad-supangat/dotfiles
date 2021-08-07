@@ -3,7 +3,6 @@ icons = "awesome"
 
 [[ block ]]
 block = "net"
-device = "enp3s0"
 format = "{ip} {speed_down;K*B} {graph_down;K*B} {speed_up;K*B} {graph_up;K*B}"
 interval = 1
 

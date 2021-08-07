@@ -1,5 +1,5 @@
 *.font:	Iosevka:pixelsize=12:antialias=true:autohint=true;
-*.alpha: 0.95
+*.alpha: 1
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Gruvbox Material Dark

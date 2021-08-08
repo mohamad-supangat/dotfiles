@@ -1,6 +1,7 @@
 theme = "gruvbox-dark"
 icons = "awesome"
 
+
 [[ block ]]
 block = "net"
 format = "{ip} {speed_down;K*B} {graph_down;K*B} {speed_up;K*B} {graph_up;K*B}"
@@ -30,6 +31,11 @@ interval = 1
 block = "load"
 interval = 1
 format = "{1m}"
+
+[[ block ]]
+block = "battery"
+interval = 2
+
 
 [[block]]
 block = "time"

@@ -1,4 +1,7 @@
-*.font:	Iosevka:pixelsize=12:antialias=true:autohint=true;
+/* *.font:	Iosevka:pixelsize=12:antialias=true:autohint=true; */
+
+
+*.font:	Iosevka:pixelsize=12;
 *.alpha: 1
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

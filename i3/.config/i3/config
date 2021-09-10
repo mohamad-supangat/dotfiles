@@ -52,7 +52,7 @@ bindsym $mod+shift+q kill
 bindsym $mod+space exec rofi -show drun
 
 # start dmenu_run
-bindsym $mod+r exec dmenu_run -dim 0.2  -l 10 -fn iosevka
+bindsym $mod+r exec dmenu_run -l 10 -fn iosevka
 
 bindsym $mod+shift+p exec rofi-pass
 # bindsym Mod1+Control+h exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'

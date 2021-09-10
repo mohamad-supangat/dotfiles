@@ -5,7 +5,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "custom/storage", "pulseaudio", "network", "idle_inhibitor", "battery", "clock"],
+    "modules-right": ["tray", "memory", "pulseaudio", "network", "idle_inhibitor", "battery", "clock"],
     "sway/mode": {
         "format": " {}"
     },
@@ -16,6 +16,11 @@
     "sway/window": {
         "max-length": 80,
         "tooltip": false
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{}% ram",
+        "max-length": 10
     },
     "clock": {
         "format": "{:%a %d %b %H:%M}",

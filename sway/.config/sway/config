@@ -1,6 +1,6 @@
 # Variables
 set $mod Mod4
-set $lock ~/.local/bin/scripts/lock.sh
+# set $lock ~/.local/bin/scripts/lock.sh
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
 set $term stmux
@@ -9,9 +9,9 @@ set $menu rofi -show drun
 set $screenshot grim -g "$(slurp)" - | swappy -f -
 set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $clipboard_manager clipman pick -t wofi
-set $file_manager pcmanfm
+set $file_manager thunar
 
-set $dmenu bemenu-run -l 20 --fn iosevka [12]
+set $dmenu bemenu-run --fn iosevka [12]
 # set $background ~/Pictures/H3Nc0F.jpg
 
 
@@ -73,7 +73,9 @@ for_window [class="xpad"] floating enable
 
 
 smart_gaps on
-gaps inner 10
+gaps inner 5
+# gaps outer 20
+
 
 # Output configuration
 # output * bg #C9E8FD $background fill
@@ -131,11 +133,11 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 20-
 #bindsym $mod+Home exec --no-startup-id pkill -USR1 redshift
 
 # Idle configuration
-exec swayidle \
-    timeout 300 'exec $lock' \
-    timeout 600 'swaymsg "output * dpms off"' \
-    after-resume 'swaymsg "output * dpms on"' \
-    before-sleep 'exec $lock'
+# exec swayidle \
+    # timeout 300 'exec $lock' \
+    # timeout 600 'swaymsg "output * dpms off"' \
+    # after-resume 'swaymsg "output * dpms on"' \
+    # before-sleep 'exec $lock'
 
 
 
@@ -266,6 +268,8 @@ exec wl-paste -t text --watch clipman store
 exec swaync
 
 
+exec "systemctl --user import-environment"
+
 
 
 ## gtk application theme
@@ -283,3 +287,8 @@ exec_always {
 }
 
 # include ~/.config/sway/$(hostname)/*
+
+
+## include generate config
+include .generated_settings/input_pointer.conf
+include .generated_settings/input_touchpad.conf

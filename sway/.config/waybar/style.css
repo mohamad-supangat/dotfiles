@@ -1,7 +1,6 @@
 * {
     border:        none;
-    border-radius: 0;
-    font-family:   Sans;
+    border-radius: 0; font-family:   Sans;
     font-size:     12px;
     box-shadow:    none;
     text-shadow:   none;
@@ -20,7 +19,7 @@ window#waybar.solo {
 }
 
 #workspaces {
-    margin: 0 5px;
+    /* margin: 0 5px; */
 }
 
 #workspaces button {
@@ -33,8 +32,9 @@ window#waybar.solo {
 }
 
 #workspaces button.focused {
-    border-top: 3px solid rgba(217, 216, 216, 1);
-    border-bottom: 3px solid rgba(217, 216, 216, 0);
+    background: #000;
+    /* border-top: 3px solid rgba(217, 216, 216, 1); */
+    /* border-bottom: 3px solid rgba(217, 216, 216, 0); */
 }
 
 #workspaces button.urgent {

@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$HOME/.config/composer/vendor/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/deve/.oh-my-zsh"
@@ -42,7 +42,7 @@ ZSH_THEME="bureau"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
@@ -103,3 +103,24 @@ source $ZSH/oh-my-zsh.sh
 
 alias art="./artisan"
 alias dc="sudo docker-compose"
+
+
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+  export CM_LAUNCHER=rofi
+  export CM_DIR=~/.cache/clipmenu
+  export LC_ALL=en_US.UTF-8
+  export MOZ_ENABLE_WAYLAND=1
+  export QT_QPA_PLATFORM=xcb
+  export QT_QPA_PLATFORMTHEME=qt5ct
+  # export QT_STYLE_OVERRIDE=adwaita
+  export SDL_VIDEODRIVER=wayland
+  export XDG_SESSION_TYPE=wayland
+  export CLUTTER_BACKEND=wayland
+  export SDL_VIDEODRIVER=wayland
+  export XDG_CURRENT_DESKTOP=sway
+  export BEMENU_BACKEND=wayland
+  export PATH="$PATH:~/.scripts:~/.local/bin"
+
+  export EDITOR='nvim'
+  exec sway
+fi

@@ -1,108 +1,40 @@
 window {
-
-color: #fff;
-
-margin: 5px;
-
-border: 2px solid #333;
-
-background-color: #333;
-
+margin: 0px;
+border: 1px solid #bd93f9;
+background-color: #282a36;
 }
-
-
 
 #input {
-
 margin: 5px;
-
-border: 2px solid #333;
-
-background-color: #666;
-
-color: #fff;
-
-
+border: none;
+color: #f8f8f2;
+background-color: #44475a;
 }
-
-
 
 #inner-box {
-
-/* margin: 5px; */
-
-/* border: 2px solid #333; */
-
-background-color: #333;
-
+margin: 5px;
+border: none;
+background-color: #282a36;
 }
-
-
 
 #outer-box {
-
-/* margin: 5px; */
-
-/* border: 2px solid #333; */
-
-background-color: #333;
-
+margin: 5px;
+border: none;
+background-color: #282a36;
 }
-
-
 
 #scroll {
-
-margin: 5px;
-
-border: 2px solid #333;
-
-/* background-color: #777; */
-
-}
-
-
-#entry {
-
-margin: 0;
-
+margin: 0px;
 border: none;
-
-background-color: #333;
-
 }
-
-#entry:selected {
-
-background-color: #444;
-
-}
-
-/* #text:selected { */
-
-/* background-color: red; */
-
-/* } */
-
-#entry::selected {
-
-margin: 0;
-
-border: none;
-
-background-color: #333;
-
-}
-
-
-
 
 #text {
-
-margin: 5px 10px;
-
-/* border: 2px solid #333; */
-
-/* background-color: #333; */
-
+margin: 5px;
+border: none;
+color: #f8f8f2;
 } 
+
+#entry:selected {
+background-color: #44475a;
+}
+

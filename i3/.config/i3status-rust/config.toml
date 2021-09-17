@@ -4,7 +4,7 @@ icons = "awesome"
 
 [[ block ]]
 block = "net"
-format = "{ip} {speed_down;K*B} {graph_down;K*B} {speed_up;K*B} {graph_up;K*B}"
+format = "{ip} {speed_down;K*B} {speed_up;K*B}"
 interval = 1
 
 [[block]]
@@ -27,10 +27,10 @@ format_swap = "{swap_used_percents}"
 block = "cpu"
 interval = 1
 
-[[block]]
-block = "load"
-interval = 1
-format = "{1m}"
+# [[block]]
+# block = "load"
+# interval = 1
+# format = "{1m}"
 
 [[ block ]]
 block = "battery"

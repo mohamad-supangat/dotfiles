@@ -4,14 +4,14 @@ set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
 set $term stmux
-set $menu wofi --show drun
+set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
 set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
-set $clipboard_manager clipman pick -t wofi
+set $clipboard_manager clipman pick -t rofi
 set $file_manager thunar
 
-set $dmenu bemenu-run --fn iosevka [12]
+set $dmenu kickoff
 # set $background ~/Pictures/H3Nc0F.jpg
 
 
@@ -114,14 +114,11 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 20-
 #bindsym $mod+Home exec --no-startup-id pkill -USR1 redshift
 
 # Idle configuration
-# exec swayidle \
-    # timeout 300 'exec $lock' \
-    # timeout 600 'swaymsg "output * dpms off"' \
-    # after-resume 'swaymsg "output * dpms on"' \
-    # before-sleep 'exec $lock'
-
-
-
+exec swayidle \
+    timeout 300 'exec $lock' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    after-resume 'swaymsg "output * dpms on"' \
+    before-sleep 'exec $lock'
 
 
 # i3 uses jkl; instead of hjkl -- fix that
@@ -246,7 +243,7 @@ bindsym $mod+Shift+e mode "$mode_system"
 # exec_always --no-startup-id xrdb ~/.Xresources
 # exec lxqt-policykit-agent # poolkit agent
 exec wl-paste -t text --watch clipman store
-# exec swaync
+exec swaync
 # exec sworkstyle &> /tmp/sworkstyle.log
 
 exec "systemctl --user import-environment"

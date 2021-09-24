@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+export CM_LAUNCHER=rofi
+export CM_DIR=~/.cache/clipmenu
+export LC_ALL=en_US.UTF-8
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORM=xcb
+export QT_QPA_PLATFORMTHEME=qt5ct
+# export QT_STYLE_OVERRIDE=adwaita
+export SDL_VIDEODRIVER=wayland
+export XDG_SESSION_TYPE=wayland
+export CLUTTER_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland
+export XDG_CURRENT_DESKTOP=sway
+export BEMENU_BACKEND=wayland
+export PATH="$PATH:~/.scripts:~/.local/bin"
+
+export EDITOR='nvim'
+
+export GTK_THEME="Gruvbox-Material-Dark"
+export ICON_THEME="Gruvbox-Material-Dark"
+export FONT_NAME="Iosevka 11"
+
+
+export GDK_CORE_DEVICE_EVENTS=1
+export NO_AT_BRIDGE=1
+
+
+exec /usr/bin/sway

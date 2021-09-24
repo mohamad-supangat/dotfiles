@@ -1,0 +1,15 @@
+#!/bin/bash
+
+dir="/run/media/deve/77adb73b-0d96-4064-89f2-e17be7d3f554"
+if ! pkill -INT -P "$(pgrep -xo record-screen)" wf-recorder 2>/dev/null; then
+    geometry="$(slurp -d)"
+    if [ -n "$geometry" ]; then
+        pkill -USR1 -x record-screend
+        mkdir -p ~/Videos/Recordings
+        notify-send "Start Record Screen"
+        wf-recorder -f "$dir/screen-record-$(date +%Y-%m-%d-%H-%M-%S).mp4" -g "$geometry"
+        pkill -USR2 -x record-screend
+    fi
+else
+  notify-send "Stop Record Screen"
+fi

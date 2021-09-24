@@ -6,6 +6,13 @@
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": ["tray", "memory", "pulseaudio", "network", "idle_inhibitor", "battery", "clock"],
+
+    "custom/recording": {
+        "exec": "exec ~/.scripts/record-screend",
+        "format": "record",
+        "exec-on-event": false,
+        "on-click": "pkill -INT -P \"$(pgrep -xo record-screen)\" wf-recorder"
+    },
     "sway/mode": {
         "format": " {}"
     },

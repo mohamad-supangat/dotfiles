@@ -7,8 +7,11 @@ set $term stmux
 set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 # set $screenshot grim -g "$(slurp)" - | swappy -f -
-set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
-set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
+# set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
+
+set $screenshot flameshot gui
+
+# set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 
 set $recordscreen ~/.scripts/record-screen
 
@@ -245,7 +248,6 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
-exec_always ~/.config/waybar/waybar.sh
 # exec_always --no-startup-id xrdb ~/.Xresources
 # exec lxqt-policykit-agent # poolkit agent
 exec wl-paste -t text --watch clipman store --max-items=100
@@ -266,10 +268,11 @@ exec_always {
 
     # gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
 
-    # gsettings set $gnome-schema font-name 'Iosevka 11'
+   # gsettings set $gnome-schema font-name 'Iosevka 11'
 
 }
 
+exec_always ~/.config/waybar/waybar.sh
 
 # bar {
 #     position top
@@ -287,9 +290,14 @@ exec_always {
 #     font Iosevka 8
 # }
 
-# include ~/.config/sway/$(hostname)/*
+include ~/.config/sway/$(hostname)/*
 
 
 ## include generate config
 include .generated_settings/input_pointer.conf
 include .generated_settings/input_touchpad.conf
+
+
+for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
+set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
+bindsym $mod+d exec $menu

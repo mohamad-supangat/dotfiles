@@ -1,0 +1,3 @@
+#!/bin/sh
+
+apk-signer -f $1 -a hantamkoding -k ~/hantamkoding.keystore -s pangat

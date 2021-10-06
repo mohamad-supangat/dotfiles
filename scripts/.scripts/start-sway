@@ -19,8 +19,8 @@ export PATH="$PATH:/opt/android-sdk/build-tools/31.0.0"
 
 export EDITOR='nvim'
 
-export GTK_THEME="Gruvbox-Material-Dark"
-export ICON_THEME="Gruvbox-Material-Dark"
+export GTK_THEME="Matcha-dark-sea"
+export ICON_THEME="Breeze Dark"
 export FONT_NAME="Iosevka 11"
 
 

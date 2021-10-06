@@ -16,7 +16,7 @@ set $screenshot flameshot gui
 set $recordscreen ~/.scripts/record-screen
 
 set $clipboard_manager clipman pick -t rofi
-set $file_manager thunar
+set $file_manager pcmanfm-qt
 
 set $dmenu kickoff
 # set $background ~/Pictures/H3Nc0F.jpg
@@ -54,6 +54,35 @@ for_window [class="ColorGrab"] floating enable
 for_window [class="xdman"] floating enable
 for_window [class="xpad"] floating enable
 
+ # Wayland default floats
+for_window [app_id="gnome-(calendar|calculator|power-statistics|control-center)"] floating enable
+for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable
+for_window [app_id="(pavucontrol|psensor)"] floating enable
+for_window [app_id="evolution-alarm-notify"] floating enable
+for_window [app_id="nemo"] floating disable
+for_window [app_id="solaar"] floating enable
+for_window [app_id="evolution" title="Compose Message"] floating enable
+for_window [app_id="evolution" title="Re(.*)"] floating enable
+for_window [app_id="evolution" title="Fwd(.*)"] floating enable
+for_window [app_id="mpv"] floating enable
+for_window [app_id="mpv"] resize set 960 540
+for_window [app_id="mpv"] border pixel 0
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
+for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
+for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
+for_window [class="Gimp-2.10"] floating disable
+for_window [class="Gimp-2.10" title="New Image"] floating enable
+for_window [class="Gimp-2.10" title="Layer"] floating enable
+for_window [class="Gimp-2.10" title="Tool"] floating enable
+for_window [class="Gimp-2.10" title="Option"] floating enable
+for_window [class="Gimp-2.10" title="Change"] floating enable
+
+# Brave, chrome, chromium
+for_window [title="Picture-in-picture"] floating enable
+
+# XWayland default floats
+#for_window [class="[.]*"] floating enable
 
 smart_gaps on
 gaps inner 5
@@ -82,8 +111,8 @@ bindsym Print exec $screenshot
 bindsym $mod+Shift+r exec $recordscreen
 
 # bindsym $mod+Shift+Print exec $screenclip
-bindsym $mod+r exec $dmenu 
-bindsym $mod+space exec $menu 
+bindsym $mod+r exec $dmenu
+bindsym $mod+space exec $menu
 bindsym $mod+n exec $file_manager
 bindsym Mod1+Control+h exec $clipboard_manager
 
@@ -278,7 +307,7 @@ exec_always ~/.config/waybar/waybar.sh
 #     position top
 #     # Keep in mind that the current directory of this config file is $HOME
 #     # status_command while ~/.config/sway/status.sh; do sleep 1; done
-    
+
 #     status_command i3status-rs
 
 #     colors {

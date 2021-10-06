@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="/run/media/deve/77adb73b-0d96-4064-89f2-e17be7d3f554"
+dir="/tmp/record"
 if ! pkill -INT -P "$(pgrep -xo record-screen)" wf-recorder 2>/dev/null; then
     geometry="$(slurp -d)"
     if [ -n "$geometry" ]; then

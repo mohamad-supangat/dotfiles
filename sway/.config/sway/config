@@ -27,10 +27,10 @@ set $dmenu kickoff
 floating_modifier $mod
 
 
-set $cl_high #009ddc
+set $cl_high #A8A8A8
 set $cl_indi #d9d8d8
-set $cl_back #231f20
-set $cl_fore #d9d8d8
+set $cl_back #32302F
+set $cl_fore #ffffff
 set $cl_urge #ee2e24
 
 # Colors                border   bg       text     indi     childborder

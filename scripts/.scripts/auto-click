@@ -1,14 +1,11 @@
 #!/bin/bash
 
-if ! pkill -INT -P "$(pgrep -xo auto-click)" xdotool 2>/dev/null; then
-    pkill -USR1 -x auto-clickd
+path="/home/deve/.scripts/auto-clickd"
+if ! pgrep -f "$path"
+then
     notify-send "Start auto click"
-
-    while [ 1 ]; do
-        xdotool click 1
-    done
-
-    pkill -USR2 -x auto-clickd
+    nohup "$path" &
 else
-  notify-send "Stop auto click"
+    pkill -f $path
+    notify-send "Stop auto click"
 fi

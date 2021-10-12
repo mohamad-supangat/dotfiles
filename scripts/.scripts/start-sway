@@ -1,11 +1,12 @@
 #!/bin/zsh
 
-export CM_LAUNCHER=rofi
-export CM_DIR=~/.cache/clipmenu
-export LC_ALL=en_US.UTF-8
+if [ -e ~/.profile ]
+then
+    source ~/.profile
+fi
+
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
-export QT_QPA_PLATFORMTHEME=qt5ct
 # export QT_STYLE_OVERRIDE=adwaita
 export SDL_VIDEODRIVER=wayland
 export XDG_SESSION_TYPE=wayland
@@ -14,29 +15,8 @@ export SDL_VIDEODRIVER=wayland
 export XDG_CURRENT_DESKTOP=sway
 export BEMENU_BACKEND=wayland
 
-export PATH="$PATH:~/.scripts:~/.local/bin"
-export PATH="$PATH:/opt/android-sdk/build-tools/31.0.0"
-
-export EDITOR='nvim'
-
-# export GTK_THEME="Matcha-dark-sea"
-# export ICON_THEME="Breeze Dark"
-export FONT_NAME="Iosevka 11"
-
-
 export GDK_CORE_DEVICE_EVENTS=1
 export NO_AT_BRIDGE=1
-
-
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-# For Android Studio
-export _JAVA_AWT_WM_NONREPARENTING=1
-export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk
-
-# For Gradle
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 exec /usr/bin/sway

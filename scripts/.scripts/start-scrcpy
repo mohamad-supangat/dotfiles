@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/bin/scrcpy -w  -S --prefer-text  --forward-all-clicks

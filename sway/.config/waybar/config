@@ -3,9 +3,9 @@
     "position": "top",
     "height": 1,
 
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["tray", "cpu", "memory", "backlight", "network", "idle_inhibitor", "battery", "clock"],
+    "modules-left": ["sway/mode", "sway/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "cpu", "memory", "backlight", "network", "idle_inhibitor", "battery"],
 
     "custom/recording": {
         "exec": "exec ~/.scripts/record-screend",

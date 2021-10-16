@@ -94,7 +94,7 @@ gaps inner 5
 # output * bg #C9E8FD $background fill
 
 # wallpaper
-exec_always swaybg --image /home/deve/Pictures/H3Nc0F.jpg -m fit -c '#c9e8fd'
+# exec_always swaybg --image /home/deve/Pictures/H3Nc0F.jpg -m fit -c '#c9e8fd'
 
 # Default workspaces for common programs
 # assign [class="^Chromium$"] $ws1

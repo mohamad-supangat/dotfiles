@@ -6,10 +6,10 @@ set $wifi ~/.config/rofi/modi/nmcli
 set $term stmux
 set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
-# set $screenshot grim -g "$(slurp)" - | swappy -f -
+set $screenshot grim -g "$(slurp)" - | swappy -f -
 # set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
 
-set $screenshot flameshot gui
+# set $screenshot flameshot gui
 
 # set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 
@@ -71,6 +71,7 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating ena
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
+for_window [app_id="QtScrcpy"] floating enable
 for_window [class="Gimp-2.10"] floating disable
 for_window [class="Gimp-2.10" title="New Image"] floating enable
 for_window [class="Gimp-2.10" title="Layer"] floating enable
@@ -115,6 +116,9 @@ bindsym $mod+r exec $dmenu
 bindsym $mod+space exec $menu
 bindsym $mod+n exec $file_manager
 bindsym Mod1+Control+h exec $clipboard_manager
+
+bindsym $mod+Shift+a exec ~/.scripts/auto-click
+
 
 
 bindsym $mod+Shift+q kill
@@ -330,3 +334,5 @@ include .generated_settings/input_touchpad.conf
 for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
 set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 bindsym $mod+d exec $menu
+
+xwayland disable

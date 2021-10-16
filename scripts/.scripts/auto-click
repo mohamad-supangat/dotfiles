@@ -7,5 +7,7 @@ then
     nohup "$path" &
 else
     pkill -f $path
+    # killall auto-clickd
+    # doas killall ydotool
     notify-send "Stop auto click"
 fi

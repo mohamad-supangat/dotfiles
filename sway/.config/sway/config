@@ -40,7 +40,7 @@ client.unfocused        $cl_back $cl_back $cl_fore $cl_back $cl_back
 client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 
 # Font
-font xft:Iosevka 10
+font xft:Iosevka 8
 
 # Window borders
 default_border pixel 1

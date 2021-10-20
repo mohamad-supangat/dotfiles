@@ -9,7 +9,7 @@ set $menu rofi -modi drun -show drun
 set $screenshot grim -g "$(slurp)" - | swappy -f -
 # set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
 
-# set $screenshot flameshot gui
+set $screenshot flameshot gui
 
 # set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 
@@ -61,6 +61,7 @@ for_window [app_id="(pavucontrol|psensor)"] floating enable
 for_window [app_id="evolution-alarm-notify"] floating enable
 for_window [app_id="nemo"] floating disable
 for_window [app_id="solaar"] floating enable
+for_window [app_id="otpclient"] floating enable
 for_window [app_id="evolution" title="Compose Message"] floating enable
 for_window [app_id="evolution" title="Re(.*)"] floating enable
 for_window [app_id="evolution" title="Fwd(.*)"] floating enable

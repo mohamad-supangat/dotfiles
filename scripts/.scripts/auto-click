@@ -4,11 +4,14 @@ path="/home/deve/.scripts/auto-clickd"
 if ! pgrep -f "$path"
 then
     notify-send "Start auto click"
-    sleep_time=$(zenity --forms --add-entry=sleep --text="Auto click config")
-    echo $sleep_time
-    if [ ! -z "$sleep_time" ]
+    forms=$(zenity --forms --add-entry="Sleep Time" --add-list="Tool using" --list-values="ydotool|xdotool" --text="Auto click config" )
+
+    sleep_time="$(cut -d'|' -f1 <<<$forms)"
+    tool_using="$(cut -d'|' -f2 <<<$forms)"
+
+    if [ ! -z "$sleep_time" ] && [ ! -z "$tool_using" ]
     then
-        nohup "$path" &
+        nohup "$path" $sleep_time $tool_using &
     fi
 
 else

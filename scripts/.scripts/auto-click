@@ -4,7 +4,13 @@ path="/home/deve/.scripts/auto-clickd"
 if ! pgrep -f "$path"
 then
     notify-send "Start auto click"
-    nohup "$path" &
+    sleep_time=$(zenity --forms --add-entry=sleep --text="Auto click config")
+    echo $sleep_time
+    if [ ! -z "$sleep_time" ]
+    then
+        nohup "$path" &
+    fi
+
 else
     pkill -f $path
     # killall auto-clickd

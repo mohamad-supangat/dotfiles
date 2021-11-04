@@ -60,6 +60,7 @@ for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable
 for_window [app_id="(pavucontrol|psensor)"] floating enable
 for_window [app_id="evolution-alarm-notify"] floating enable
 for_window [app_id="nemo"] floating disable
+for_window [app_id="zenity"] floating enable
 for_window [app_id="solaar"] floating enable
 for_window [app_id="otpclient"] floating enable
 for_window [app_id="evolution" title="Compose Message"] floating enable
@@ -96,7 +97,7 @@ gaps inner 5
 
 # wallpaper
 # exec_always swaybg --image /home/deve/Pictures/H3Nc0F.jpg -m fit -c '#c9e8fd'
-
+# exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
 # Default workspaces for common programs
 # assign [class="^Chromium$"] $ws1
 # assign [class="^code-oss$"] $ws2
@@ -336,4 +337,4 @@ for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 p
 set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 bindsym $mod+d exec $menu
 
-xwayland disable
+# xwayland disable

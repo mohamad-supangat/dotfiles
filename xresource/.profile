@@ -13,3 +13,6 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 # export GTK_THEME="Matcha-dark-sea"
 # export ICON_THEME="Breeze Dark"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"

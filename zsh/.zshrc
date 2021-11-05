@@ -112,3 +112,4 @@ alias pm="python manage.py"
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
   exec start-sway
 fi
+eval "$(pyenv init -)"

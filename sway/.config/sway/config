@@ -87,13 +87,13 @@ for_window [title="Picture-in-picture"] floating enable
 # XWayland default floats
 #for_window [class="[.]*"] floating enable
 
-smart_gaps on
-gaps inner 5
-# gaps outer 20
+# smart_gaps on
+gaps inner 40
+gaps outer 100
 
 
 # Output configuration
-# output * bg #C9E8FD $background fill
+# output * bg 323232 fill
 
 # wallpaper
 # exec_always swaybg --image /home/deve/Pictures/H3Nc0F.jpg -m fit -c '#c9e8fd'

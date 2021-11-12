@@ -20,21 +20,20 @@ set $file_manager pcmanfm-qt
 
 set $dmenu kickoff
 # set $background ~/Pictures/H3Nc0F.jpg
-
+output * bg #26292C solid_color
 
 
 # Drag floating windows
 floating_modifier $mod
 
-
-set $cl_high #A8A8A8
+set $cl_high #50fa7b
 set $cl_indi #d9d8d8
-set $cl_back #32302F
+set $cl_back #282a36
 set $cl_fore #ffffff
 set $cl_urge #ee2e24
 
 # Colors                border   bg       text     indi     childborder
-client.focused          $cl_high $cl_high $cl_fore $cl_indi $cl_high
+client.focused          $cl_high $cl_high $cl_back $cl_indi $cl_high
 client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
 client.unfocused        $cl_back $cl_back $cl_fore $cl_back $cl_back
 client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
@@ -88,8 +87,8 @@ for_window [title="Picture-in-picture"] floating enable
 #for_window [class="[.]*"] floating enable
 
 # smart_gaps on
-gaps inner 40
-gaps outer 100
+gaps inner 20
+gaps outer 20
 
 
 # Output configuration

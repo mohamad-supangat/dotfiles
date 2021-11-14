@@ -11,6 +11,9 @@ export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk
 # For Gradle
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
+
+# default editor
+export EDITOR=nvim
 # export GTK_THEME="Matcha-dark-sea"
 # export ICON_THEME="Breeze Dark"
 export PYENV_ROOT="$HOME/.pyenv"

@@ -4,7 +4,7 @@ set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
 set $term stmux
-set $menu rofi -modi drun -show drun
+set $menu wofi --show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
 # set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
@@ -15,12 +15,12 @@ set $screenshot flameshot gui
 
 set $recordscreen ~/.scripts/record-screen
 
-set $clipboard_manager clipman pick -t rofi
+set $clipboard_manager clipman pick -t wofi
 set $file_manager pcmanfm-qt
 
 set $dmenu kickoff
 # set $background ~/Pictures/H3Nc0F.jpg
-output * bg #26292C solid_color
+# output * bg #26292C solid_color
 
 
 # Drag floating windows
@@ -336,4 +336,4 @@ for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 p
 set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 bindsym $mod+d exec $menu
 
-# xwayland disable
+xwayland disable

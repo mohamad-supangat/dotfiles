@@ -1,0 +1,2 @@
+#!/bin/sh
+clipman pick -t CUSTOM -T dmenu-term-wl

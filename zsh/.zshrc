@@ -106,8 +106,8 @@ alias artisan="./artisan"
 
 alias dc="sudo docker-compose"
 alias pm="python manage.py"
-
-
+alias tmuxproject="tmuxinator"
+alias se="sudo -E"
 
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
   exec start-sway

@@ -15,12 +15,12 @@ set $screenshot flameshot gui
 
 set $recordscreen ~/.scripts/record-screen
 
-set $clipboard_manager clipman pick -t wofi
+set $clipboard_manager ~/.scripts/clipman-fzf
 set $file_manager pcmanfm-qt
 
-set $dmenu kickoff
+set $dmenu wofi --show run
 # set $background ~/Pictures/H3Nc0F.jpg
-# output * bg #26292C solid_color
+output * bg #000000 solid_color
 
 
 # Drag floating windows
@@ -61,7 +61,9 @@ for_window [app_id="evolution-alarm-notify"] floating enable
 for_window [app_id="nemo"] floating disable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="solaar"] floating enable
-for_window [app_id="otpclient"] floating enable
+for_window [app_id="otpclient"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 30
+
+
 for_window [app_id="evolution" title="Compose Message"] floating enable
 for_window [app_id="evolution" title="Re(.*)"] floating enable
 for_window [app_id="evolution" title="Fwd(.*)"] floating enable
@@ -91,11 +93,9 @@ gaps inner 20
 gaps outer 20
 
 
-# Output configuration
-# output * bg 323232 fill
-
 # wallpaper
-# exec_always swaybg --image /home/deve/Pictures/H3Nc0F.jpg -m fit -c '#c9e8fd'
+# exec_always killall swaybg
+# exec_always swaybg --image /home/deve/Documents/logo/hantamkoding/logo-white.png -m fit -c '#000000'
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
 # Default workspaces for common programs
 # assign [class="^Chromium$"] $ws1
@@ -333,7 +333,9 @@ include .generated_settings/input_touchpad.conf
 
 
 for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
+for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
+
 set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 bindsym $mod+d exec $menu
 
-xwayland disable
+#xwayland disable

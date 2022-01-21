@@ -102,25 +102,14 @@ source $ZSH/oh-my-zsh.sh
 
 
 alias art="./artisan"
-alias dc="sudo docker-compose"
+alias artisan="./artisan"
 
+alias dc="sudo docker-compose"
+alias pm="python manage.py"
+alias tmuxproject="tmuxinator"
+alias se="sudo -E"
 
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-  export CM_LAUNCHER=rofi
-  export CM_DIR=~/.cache/clipmenu
-  export LC_ALL=en_US.UTF-8
-  export MOZ_ENABLE_WAYLAND=1
-  export QT_QPA_PLATFORM=xcb
-  export QT_QPA_PLATFORMTHEME=qt5ct
-  # export QT_STYLE_OVERRIDE=adwaita
-  export SDL_VIDEODRIVER=wayland
-  export XDG_SESSION_TYPE=wayland
-  export CLUTTER_BACKEND=wayland
-  export SDL_VIDEODRIVER=wayland
-  export XDG_CURRENT_DESKTOP=sway
-  export BEMENU_BACKEND=wayland
-  export PATH="$PATH:~/.scripts:~/.local/bin"
-
-  export EDITOR='nvim'
-  exec sway
+  exec start-sway
 fi
+eval "$(pyenv init -)"

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ export SDL_VIDEODRIVER=x11
+/usr/bin/scrcpy -w  -S --prefer-text

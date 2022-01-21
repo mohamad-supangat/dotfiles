@@ -1,0 +1,22 @@
+#!/bin/bash
+
+path="/home/deve/.scripts/auto-clickd"
+if ! pgrep -f "$path"
+then
+    notify-send "Start auto click"
+    forms=$(zenity --forms --add-entry="Sleep Time" --add-list="Tool using" --list-values="ydotool|xdotool" --text="Auto click config" )
+
+    sleep_time="$(cut -d'|' -f1 <<<$forms)"
+    tool_using="$(cut -d'|' -f2 <<<$forms)"
+
+    if [ ! -z "$sleep_time" ] && [ ! -z "$tool_using" ]
+    then
+        nohup "$path" $sleep_time $tool_using &
+    fi
+
+else
+    pkill -f $path
+    # killall auto-clickd
+    # doas killall ydotool
+    notify-send "Stop auto click"
+fi

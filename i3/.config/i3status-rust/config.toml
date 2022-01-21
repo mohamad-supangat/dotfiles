@@ -32,9 +32,9 @@ interval = 1
 # interval = 1
 # format = "{1m}"
 
-[[ block ]]
-block = "battery"
-interval = 2
+# [[ block ]]
+# block = "battery"
+# interval = 2
 
 
 [[block]]

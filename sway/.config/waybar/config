@@ -3,9 +3,16 @@
     "position": "top",
     "height": 1,
 
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["tray", "memory", "pulseaudio", "network", "idle_inhibitor", "battery", "clock"],
+    "modules-left": ["sway/mode", "sway/workspaces"],
+    "modules-center": ["clock", "custom/binance"],
+    "modules-right": ["tray", "cpu", "memory", "backlight", "network", "idle_inhibitor", "battery"],
+
+    "custom/recording": {
+        "exec": "exec ~/.scripts/record-screend",
+        "format": "record",
+        "exec-on-event": false,
+        "on-click": "pkill -INT -P \"$(pgrep -xo record-screen)\" wf-recorder"
+    },
     "sway/mode": {
         "format": " {}"
     },
@@ -21,6 +28,10 @@
         "interval": 30,
         "format": "{}% ram",
         "max-length": 10
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
     },
     "clock": {
         "format": "{:%a %d %b %H:%M}",
@@ -76,13 +87,19 @@
         "interval": 60,
         "exec": "~/.config/waybar/modules/storage.sh"
     },
+    "custom/binance": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 1,
+        "exec": "~/.config/waybar/modules/binance-price.sh"
+    },
     "backlight": {
         "format": "{icon}",
         "format-alt": "{percent}% {icon}",
         "format-alt-click": "click-right",
         "format-icons": ["", ""],
-        "on-scroll-down": "light -A 1",
-        "on-scroll-up": "light -U 1"
+        "on-scroll-down": " brightnessctl set 20-",
+        "on-scroll-up": "brightnessctl set +20"
     },
     "custom/weather": {
         "format": "{}",
@@ -117,6 +134,7 @@
         "interval": 5
     },
     "tray": {
-        "icon-size": 18
+        "icon-size": 18,
+        "spacing": 10
     }
 }

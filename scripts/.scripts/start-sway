@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+if [ -e ~/.profile ]
+then
+    source ~/.profile
+fi
+
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORM=wayland
+# export QT_STYLE_OVERRIDE=adwaita
+export XDG_SESSION_TYPE=wayland
+export CLUTTER_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland
+export XDG_CURRENT_DESKTOP=sway
+export BEMENU_BACKEND=wayland
+
+# export GDK_CORE_DEVICE_EVENTS=1
+export NO_AT_BRIDGE=1
+export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+
+exec /usr/bin/sway

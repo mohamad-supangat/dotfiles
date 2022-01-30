@@ -202,10 +202,17 @@ bindsym $mod+Control+Left resize shrink width 10 px or 10
 bindsym $mod+Control+Down resize grow height 10 px or 10
 bindsym $mod+Control+Up resize shrink height 10 px or 10
 bindsym $mod+Control+Right resize grow width 10 px or 10
-bindsym $mod+Shift+Control+Left resize shrink width 1 px or 1
-bindsym $mod+Shift+Control+Down resize grow height 1 px or 1
-bindsym $mod+Shift+Control+Up resize shrink height 1 px or 1
-bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
+
+bindsym $mod+Control+h resize shrink width 10 px or 10
+bindsym $mod+Control+j resize grow height 10 px or 10
+bindsym $mod+Control+k resize shrink height 10 px or 10
+bindsym $mod+Control+l resize grow width 10 px or 10
+
+
+# bindsym $mod+Shift+Control+Left resize shrink width 1 px or 1
+# bindsym $mod+Shift+Control+Down resize grow height 1 px or 1
+# bindsym $mod+Shift+Control+Up resize shrink height 1 px or 1
+# bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
 
 # Switch to workspace
 bindsym $mod+1 workspace number 1
@@ -335,7 +342,7 @@ include .generated_settings/input_touchpad.conf
 for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
 for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
 
-set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
-bindsym $mod+d exec $menu
+# set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
+# bindsym $mod+d exec $menu
 
-#xwayland disable
+xwayland disable

@@ -61,14 +61,12 @@ OSH_THEME="zork"
 completions=(
   git
   composer
-  ssh
   docker-compose
   django
   npm
   pip
   pip3
   tmux
-
 )
 
 # Which aliases would you like to load? (aliases can be found in ~/.oh-my-bash/aliases/*)
@@ -88,7 +86,6 @@ plugins=(
   bashmarks
   npm
   pyenv
-  tmux-autoattach
 )
 
 # Which plugins would you like to conditionally load? (plugins can be found in ~/.oh-my-bash/plugins/*)

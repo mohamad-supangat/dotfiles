@@ -4,7 +4,7 @@ set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
 set $term stmux
-set $menu rofi -show drun
+set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
 # set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
@@ -19,7 +19,7 @@ set $recordscreen ~/.scripts/record-screen
 set $clipboard_manager clipman pick -t rofi
 set $file_manager pcmanfm-qt
 
-set $dmenu rofi -show run
+set $dmenu rofi -modi run -show run
 # set $background ~/Pictures/H3Nc0F.jpg
 output * bg #000000 solid_color
 

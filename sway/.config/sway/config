@@ -17,7 +17,7 @@ set $recordscreen ~/.scripts/record-screen
 
 # set $clipboard_manager ~/.scripts/clipman-fzf
 set $clipboard_manager clipman pick -t rofi
-set $file_manager pcmanfm-qt
+set $file_manager pcmanfm
 
 set $dmenu rofi -modi run -show run
 # set $background ~/Pictures/H3Nc0F.jpg
@@ -314,23 +314,23 @@ exec_always {
 
 }
 
-exec_always ~/.config/waybar/waybar.sh
+# exec_always ~/.config/waybar/waybar.sh
 
-# bar {
-#     position top
-#     # Keep in mind that the current directory of this config file is $HOME
-#     # status_command while ~/.config/sway/status.sh; do sleep 1; done
+bar {
+    position top
+    # Keep in mind that the current directory of this config file is $HOME
+    # status_command while ~/.config/sway/status.sh; do sleep 1; done
 
-#     status_command i3status-rs
+    status_command i3status-rs
 
-#     colors {
-#         # Text color of status bar
-#         statusline #ffffff
-#         # Background of status bar
-#         background #323232
-#     }
-#     font Iosevka 8
-# }
+    colors {
+        # Text color of status bar
+        statusline #ffffff
+        # Background of status bar
+        background #323232
+    }
+    font Iosevka 8
+}
 
 include ~/.config/sway/$(hostname)/*
 

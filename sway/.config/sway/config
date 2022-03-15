@@ -21,7 +21,7 @@ set $file_manager pcmanfm
 
 set $dmenu rofi -modi run -show run
 # set $background ~/Pictures/H3Nc0F.jpg
-output * bg #000000 solid_color
+output * bg #1C1C1C solid_color
 
 
 # Drag floating windows
@@ -327,7 +327,7 @@ bar {
         # Text color of status bar
         statusline #ffffff
         # Background of status bar
-        background #323232
+        background #1C1C1C
     }
     font Iosevka 8
 }

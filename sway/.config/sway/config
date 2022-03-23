@@ -1,4 +1,4 @@
-# Variables
+# Vllariables
 set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
@@ -20,7 +20,8 @@ set $clipboard_manager clipman pick -t rofi
 set $file_manager pcmanfm
 
 set $dmenu rofi -modi run -show run
-# set $background ~/Pictures/H3Nc0F.jpg
+set $background ~/Pictures/H3Nc0F.jpg
+set $backgroundFill '#C9E7FF'
 # output * bg #1C1C1C solid_color
 
 
@@ -38,7 +39,11 @@ client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
-output * bg $base00 solid_color
+
+
+exec_always swaybg --image $background -m fit -c $backgroundFill
+
+# output * bg $base01 solid_color
 
 
 
@@ -98,8 +103,6 @@ gaps outer 20
 
 
 # wallpaper
-# exec_always killall swaybg
-# exec_always swaybg --image /home/deve/Documents/logo/hantamkoding/logo-white.png -m fit -c '#000000'
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
 # Default workspaces for common programs
 # assign [class="^Chromium$"] $ws1

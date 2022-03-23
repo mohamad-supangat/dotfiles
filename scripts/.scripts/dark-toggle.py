@@ -15,6 +15,11 @@ config = {
     },
     'alacritty': {
         'enable': True,
+    },
+    'sway': {
+        'enable': True,
+        'dark': 'gruvbox-dark-hard',
+        'light': 'windows-10-light'
     }
 }
 
@@ -63,6 +68,12 @@ def change_alacritty_theme():
         new_file = re.sub(r"\*light", "*dark", file, flags = re.M)
     doc.write(new_file)
 
+def change_sway_theme():
+    print('change sway theme %s ' % get_target_theme('sway'))
+    os.system("curl https://raw.githubusercontent.com/rkubosz/base16-sway/master/themes/base16-%s.config > ~/.config/sway/colorscheme" % get_target_theme('sway'))
+    os.system('sway reload')
+
+
 
 ## main scripts
 if config['gtk']['enable']:
@@ -72,3 +83,8 @@ if config['icon']['enable']:
 
 if config['alacritty']['enable']:
     change_alacritty_theme()
+
+
+
+if config['sway']['enable']:
+    change_sway_theme()

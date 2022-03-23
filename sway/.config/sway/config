@@ -21,23 +21,26 @@ set $file_manager pcmanfm
 
 set $dmenu rofi -modi run -show run
 # set $background ~/Pictures/H3Nc0F.jpg
-output * bg #1C1C1C solid_color
+# output * bg #1C1C1C solid_color
 
 
 # Drag floating windows
 floating_modifier $mod
 
-set $cl_high #50fa7b
-set $cl_indi #d9d8d8
-set $cl_back #282a36
-set $cl_fore #ffffff
-set $cl_urge #ee2e24
 
-# Colors                border   bg       text     indi     childborder
-client.focused          $cl_high $cl_high $cl_back $cl_indi $cl_high
-client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
-client.unfocused        $cl_back $cl_back $cl_fore $cl_back $cl_back
-client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
+
+include colorscheme
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
+output * bg $base00 solid_color
+
+
 
 # Font
 font xft:Iosevka 8
@@ -90,8 +93,8 @@ for_window [title="Picture-in-picture"] floating enable
 #for_window [class="[.]*"] floating enable
 
 # smart_gaps on
-# gaps inner 20
-# gaps outer 20
+gaps inner 20
+gaps outer 20
 
 
 # wallpaper
@@ -324,11 +327,18 @@ bar {
     status_command i3status-rs
 
     colors {
-        # Text color of status bar
-        statusline #ffffff
-        # Background of status bar
-        background #1C1C1C
+        background $base00
+        separator  $base01
+        statusline $base04
+
+        # State             Border  BG      Text
+        focused_workspace   $base05 $base0D $base00
+        active_workspace    $base05 $base03 $base00
+        inactive_workspace  $base03 $base01 $base05
+        urgent_workspace    $base08 $base08 $base00
+        binding_mode        $base00 $base0A $base00
     }
+
     font Iosevka 8
 }
 
@@ -346,4 +356,4 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
 
-# xwayland disable
+xwayland disable

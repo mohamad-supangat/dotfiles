@@ -63,7 +63,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.1
+  opacity: 1
 
   # Startup Mode (changes require restart)
   #
@@ -804,35 +804,88 @@ key_bindings:
   # Print all received window events.
   #print_events: false
 
-# github Alacritty Colors
-colors:
-  # Default colors
-  primary:
-    background: '#0D1117'
-    foreground: '0xb3b1ad'
 
-  # Normal colors
-  normal:
-    black:   '0x484f58'
-    red:     '0xff7b72'
-    green:   '0x3fb950'
-    yellow:  '0xd29922'
-    blue:    '0x58a6ff'
-    magenta: '0xbc8cff'
-    cyan:    '0x39c5cf'
-    white:   '0xb3b1ad'
+schemes:
+ ## Color Schemas
+  dark: &dark
+    # Default colors
+    primary:
+      background: '0x1c1c1c'
+      foreground: '0x808080'
 
-  # Bright colors
-  bright:
-    black:   '0x6e7681'
-    red:     '0xffa198'
-    green:   '0x56d364'
-    yellow:  '0xe3b341'
-    blue:    '0x79c0ff'
-    magenta: '0xd2a8ff'
-    cyan:    '0x39c5cf'
-    white:   '0xb3b1ad'
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '0x1c1c1c'
+      cursor: '0x808080'
 
-  indexed_colors:
-    - { index: 16, color: '0xd18616' }
-    - { index: 17, color: '0xffa198' }
+    # Normal colors
+    normal:
+      black:   '0x1c1c1c'
+      red:     '0x585858'
+      green:   '0xaf87d7'
+      yellow:  '0xafd700'
+      blue:    '0xff5faf'
+      magenta: '0x00afaf'
+      cyan:    '0xffaf00'
+      white:   '0x808080'
+
+    # Bright colors
+    bright:
+      black:   '0xd7af5f'
+      red:     '0x585858'
+      green:   '0xaf87d7'
+      yellow:  '0xafd700'
+      blue:    '0xff5faf'
+      magenta: '0x00afaf'
+      cyan:    '0xffaf00'
+      white:   '0xd0d0d0'
+
+    indexed_colors:
+      - { index: 16, color: '0x5faf5f' }
+      - { index: 17, color: '0x5f8787' }
+      - { index: 18, color: '0xaf005f' }
+      - { index: 19, color: '0x5faf00' }
+      - { index: 20, color: '0x5fafd7' }
+      - { index: 21, color: '0xd7875f' }
+  light: &light
+      # Default colors
+    primary:
+      background: '0xeeeeee'
+      foreground: '0x444444'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '0xeeeeee'
+      cursor: '0x444444'
+
+    # Normal colors
+    normal:
+      black:   '0xeeeeee'
+      red:     '0xbcbcbc'
+      green:   '0x8700af'
+      yellow:  '0xd70087'
+      blue:    '0xd75f00'
+      magenta: '0x005faf'
+      cyan:    '0xd75f00'
+      white:   '0x444444'
+
+    # Bright colors
+    bright:
+      black:   '0x5f8700'
+      red:     '0xbcbcbc'
+      green:   '0x8700af'
+      yellow:  '0xd70087'
+      blue:    '0xd75f00'
+      magenta: '0x005faf'
+      cyan:    '0xd75f00'
+      white:   '0x878787'
+
+    indexed_colors:
+      - { index: 16, color: '0xd70000' }
+      - { index: 17, color: '0x005f87' }
+      - { index: 18, color: '0xaf0000' }
+      - { index: 19, color: '0x008700' }
+      - { index: 20, color: '0x0087af' }
+      - { index: 21, color: '0x005f87' }
+
+colors: *dark # or *ayu-mirage

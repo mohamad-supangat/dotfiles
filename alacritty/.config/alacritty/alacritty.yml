@@ -107,9 +107,9 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Iosevka Term
+    family: Iosevka
     # The `style` can be specified to pick a specific face.
-    #style: Regular
+    style: Regular
 
   # Bold font face
   bold:
@@ -804,36 +804,37 @@ key_bindings:
   # Print all received window events.
   #print_events: false
 
-
 schemes:
- ## Color Schemas
-  dark: &dark
+  ## Color Schemas
+  dark:
+    &dark
     colors:
       primary:
         background: '0x282828k'
         foreground: '0xdfbf8e'
       normal:
-        black:   '0x665c54'
-        red:     '0xea6962'
-        green:   '0xa9b665'
-        yellow:  '0xe78a4e'
-        blue:    '0x7daea3'
+        black: '0x665c54'
+        red: '0xea6962'
+        green: '0xa9b665'
+        yellow: '0xe78a4e'
+        blue: '0x7daea3'
         magenta: '0xd3869b'
-        cyan:    '0x89b482'
-        white:   '0xdfbf8e'
+        cyan: '0x89b482'
+        white: '0xdfbf8e'
 
       bright:
-        black:   '0x928374'
-        red:     '0xea6962'
-        green:   '0xa9b665'
-        yellow:  '0xe3a84e'
-        blue:    '0x7daea3'
+        black: '0x928374'
+        red: '0xea6962'
+        green: '0xa9b665'
+        yellow: '0xe3a84e'
+        blue: '0x7daea3'
         magenta: '0xd3869b'
-        cyan:    '0x89b482'
-        white:   '0xdfbf8e'
+        cyan: '0x89b482'
+        white: '0xdfbf8e'
 
-  light: &light
-      # Default colors
+  light:
+    # Default colors
+    &light
     primary:
       background: '0xeeeeee'
       foreground: '0x444444'
@@ -845,25 +846,25 @@ schemes:
 
     # Normal colors
     normal:
-      black:   '0xeeeeee'
-      red:     '0xbcbcbc'
-      green:   '0x8700af'
-      yellow:  '0xd70087'
-      blue:    '0xd75f00'
+      black: '0xeeeeee'
+      red: '0xbcbcbc'
+      green: '0x8700af'
+      yellow: '0xd70087'
+      blue: '0xd75f00'
       magenta: '0x005faf'
-      cyan:    '0xd75f00'
-      white:   '0x444444'
+      cyan: '0xd75f00'
+      white: '0x444444'
 
     # Bright colors
     bright:
-      black:   '0x5f8700'
-      red:     '0xbcbcbc'
-      green:   '0x8700af'
-      yellow:  '0xd70087'
-      blue:    '0xd75f00'
+      black: '0x5f8700'
+      red: '0xbcbcbc'
+      green: '0x8700af'
+      yellow: '0xd70087'
+      blue: '0xd75f00'
       magenta: '0x005faf'
-      cyan:    '0xd75f00'
-      white:   '0x878787'
+      cyan: '0xd75f00'
+      white: '0x878787'
 
     indexed_colors:
       - { index: 16, color: '0xd70000' }
@@ -873,4 +874,30 @@ schemes:
       - { index: 20, color: '0x0087af' }
       - { index: 21, color: '0x005f87' }
 
-colors: *dark # or *ayu-mirage
+colors:
+  name: 3024 (dark)
+  author: Chris Kempson
+  primary:
+    background: "#090300"
+    foreground: "#a5a2a2"
+  cursor:
+    text: "#090300"
+    cursor: "#a5a2a2"
+  normal:
+    black: "#090300"
+    red: "#db2d20"
+    green: "#01a252"
+    yellow: "#fded02"
+    blue: "#01a0e4"
+    magenta: "#a16a94"
+    cyan: "#b5e4f4"
+    white: "#a5a2a2"
+  bright:
+    black: "#5c5855"
+    red: "#db2d20"
+    green: "#01a252"
+    yellow: "#fded02"
+    blue: "#01a0e4"
+    magenta: "#a16a94"
+    cyan: "#b5e4f4"
+    white: "#f7f7f7"

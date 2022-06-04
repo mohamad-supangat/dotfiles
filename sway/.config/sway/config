@@ -96,6 +96,7 @@ for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 for_window [app_id="QtScrcpy"] floating enable
+for_window [app_id="scrcpy"] floating enable
 for_window [class="Gimp-2.10"] floating disable
 for_window [class="Gimp-2.10" title="New Image"] floating enable
 for_window [class="Gimp-2.10" title="Layer"] floating enable
@@ -105,6 +106,11 @@ for_window [class="Gimp-2.10" title="Change"] floating enable
 
 # Brave, chrome, chromium
 for_window [title="Picture-in-picture"] floating enable
+
+# floating for dmenu and launcher app_id
+for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
+for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
+
 
 # XWayland default floats
 #for_window [class="[.]*"] floating enable
@@ -130,6 +136,8 @@ for_window [title="Picture-in-picture"] floating enable
 bindsym $mod+Return exec $term
 bindsym Print exec $screenshot
 bindsym $mod+Shift+r exec $recordscreen
+bindsym $mod+Shift+s exec start-scrcpy
+
 
 # bindsym $mod+Shift+Print exec $screenclip
 bindsym $mod+r exec $dmenu
@@ -308,15 +316,17 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
+
+# auto start apps section
 # exec_always --no-startup-id xrdb ~/.Xresources
 # exec lxqt-policykit-agent # poolkit agent
 exec wl-paste -t text --watch clipman store --max-items=100
 exec swaync
 # exec sworkstyle &> /tmp/sworkstyle.log
 
-exec "systemctl --user import-environment"
 
-
+exec_always "systemctl --user import-environment"
+exec_always wlsunset
 
 ## gtk application theme
 set $gnome-schema org.gnome.desktop.interface
@@ -367,8 +377,6 @@ include .generated_settings/input_pointer.conf
 include .generated_settings/input_touchpad.conf
 
 
-for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
-for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu

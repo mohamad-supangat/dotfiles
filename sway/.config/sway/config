@@ -63,8 +63,8 @@ client.background       $bg
 font xft:Iosevka 8
 
 # Window borders
-default_border pixel 1
-default_floating_border normal
+default_border pixel 7
+# default_floating_border normal
 hide_edge_borders smart
 
 # for_window [class="^.*"] border pixel 2
@@ -90,7 +90,7 @@ for_window [app_id="evolution" title="Re(.*)"] floating enable
 for_window [app_id="evolution" title="Fwd(.*)"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="mpv"] resize set 960 540
-for_window [app_id="mpv"] border pixel 1
+for_window [app_id="mpv"] border pixel 10
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
@@ -105,12 +105,12 @@ for_window [class="Gimp-2.10" title="Option"] floating enable
 for_window [class="Gimp-2.10" title="Change"] floating enable
 
 # Brave, chrome, chromium
-for_window [title="Picture-in-picture"] floating enable
+for_window [title="Picture-in-picture"] floating enable, sticky enable
 
 # floating for dmenu and launcher app_id
-for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
-for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
-
+# for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
+# for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
+#
 
 # XWayland default floats
 #for_window [class="[.]*"] floating enable
@@ -137,6 +137,8 @@ bindsym $mod+Return exec $term
 bindsym Print exec $screenshot
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec start-scrcpy
+bindsym $mod+Shift+b exec qbpm choose
+
 
 
 # bindsym $mod+Shift+Print exec $screenclip

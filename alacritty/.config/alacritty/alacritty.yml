@@ -57,7 +57,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: none
+  decorations: full
 
   # Background opacity
   #
@@ -806,98 +806,98 @@ key_bindings:
 
 schemes:
   ## Color Schemas
-  dark:
-    &dark
+  dark: &dark
     colors:
       primary:
-        background: '0x282828k'
-        foreground: '0xdfbf8e'
+        background: "0x282828k"
+        foreground: "0xdfbf8e"
       normal:
-        black: '0x665c54'
-        red: '0xea6962'
-        green: '0xa9b665'
-        yellow: '0xe78a4e'
-        blue: '0x7daea3'
-        magenta: '0xd3869b'
-        cyan: '0x89b482'
-        white: '0xdfbf8e'
+        black: "0x665c54"
+        red: "0xea6962"
+        green: "0xa9b665"
+        yellow: "0xe78a4e"
+        blue: "0x7daea3"
+        magenta: "0xd3869b"
+        cyan: "0x89b482"
+        white: "0xdfbf8e"
 
       bright:
-        black: '0x928374'
-        red: '0xea6962'
-        green: '0xa9b665'
-        yellow: '0xe3a84e'
-        blue: '0x7daea3'
-        magenta: '0xd3869b'
-        cyan: '0x89b482'
-        white: '0xdfbf8e'
+        black: "0x928374"
+        red: "0xea6962"
+        green: "0xa9b665"
+        yellow: "0xe3a84e"
+        blue: "0x7daea3"
+        magenta: "0xd3869b"
+        cyan: "0x89b482"
+        white: "0xdfbf8e"
 
   light:
     # Default colors
     &light
     primary:
-      background: '0xeeeeee'
-      foreground: '0x444444'
+      background: "0xeeeeee"
+      foreground: "0x444444"
 
     # Colors the cursor will use if `custom_cursor_colors` is true
     cursor:
-      text: '0xeeeeee'
-      cursor: '0x444444'
+      text: "0xeeeeee"
+      cursor: "0x444444"
 
     # Normal colors
     normal:
-      black: '0xeeeeee'
-      red: '0xbcbcbc'
-      green: '0x8700af'
-      yellow: '0xd70087'
-      blue: '0xd75f00'
-      magenta: '0x005faf'
-      cyan: '0xd75f00'
-      white: '0x444444'
+      black: "0xeeeeee"
+      red: "0xbcbcbc"
+      green: "0x8700af"
+      yellow: "0xd70087"
+      blue: "0xd75f00"
+      magenta: "0x005faf"
+      cyan: "0xd75f00"
+      white: "0x444444"
 
     # Bright colors
     bright:
-      black: '0x5f8700'
-      red: '0xbcbcbc'
-      green: '0x8700af'
-      yellow: '0xd70087'
-      blue: '0xd75f00'
-      magenta: '0x005faf'
-      cyan: '0xd75f00'
-      white: '0x878787'
+      black: "0x5f8700"
+      red: "0xbcbcbc"
+      green: "0x8700af"
+      yellow: "0xd70087"
+      blue: "0xd75f00"
+      magenta: "0x005faf"
+      cyan: "0xd75f00"
+      white: "0x878787"
 
     indexed_colors:
-      - { index: 16, color: '0xd70000' }
-      - { index: 17, color: '0x005f87' }
-      - { index: 18, color: '0xaf0000' }
-      - { index: 19, color: '0x008700' }
-      - { index: 20, color: '0x0087af' }
-      - { index: 21, color: '0x005f87' }
+      - { index: 16, color: "0xd70000" }
+      - { index: 17, color: "0x005f87" }
+      - { index: 18, color: "0xaf0000" }
+      - { index: 19, color: "0x008700" }
+      - { index: 20, color: "0x0087af" }
+      - { index: 21, color: "0x005f87" }
 
 colors:
-  name: 3024 (dark)
+  name: Brewer (dark)
   author: Chris Kempson
   primary:
-    background: "#090300"
-    foreground: "#a5a2a2"
+    background: "#0c0d0e"
+    foreground: "#b7b8b9"
   cursor:
-    text: "#090300"
-    cursor: "#a5a2a2"
+    text: "#0c0d0e"
+    cursor: "#b7b8b9"
   normal:
-    black: "#090300"
-    red: "#db2d20"
-    green: "#01a252"
-    yellow: "#fded02"
-    blue: "#01a0e4"
-    magenta: "#a16a94"
-    cyan: "#b5e4f4"
-    white: "#a5a2a2"
+    black: "#0c0d0e"
+    red: "#e31a1c"
+    green: "#31a354"
+    yellow: "#dca060"
+    blue: "#3182bd"
+    magenta: "#756bb1"
+    cyan: "#80b1d3"
+    white: "#b7b8b9"
   bright:
-    black: "#5c5855"
-    red: "#db2d20"
-    green: "#01a252"
-    yellow: "#fded02"
-    blue: "#01a0e4"
-    magenta: "#a16a94"
-    cyan: "#b5e4f4"
-    white: "#f7f7f7"
+    black: "#737475"
+    red: "#e31a1c"
+    green: "#31a354"
+    yellow: "#dca060"
+    blue: "#3182bd"
+    magenta: "#756bb1"
+    cyan: "#80b1d3"
+    white: "#fcfdfe"
+theme: Brewer.dark

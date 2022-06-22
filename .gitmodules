@@ -1,3 +1,6 @@
 [submodule "neovim/.config/nvim"]
 	path = neovim/.config/nvim
 	url = https://gitlab.com/hantamkoding-dotfiles/neovim
+[submodule "qtile/.config/qtile"]
+	path = qtile/.config/qtile
+	url = git@github.com:mohamad-supangat/qtile.git

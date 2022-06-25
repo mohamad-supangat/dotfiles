@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ -z "$*" ]; then
+	exec $1 -e tmuxa
+else
+	export SHELL=/usr/bin/tmux
+	exec $1 -e "$@"
+fi
+

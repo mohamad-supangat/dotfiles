@@ -1,4 +1,44 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
- # export SDL_VIDEODRIVER=x11
-/usr/bin/scrcpy -w  -S --prefer-text -K
+export SDL_VIDEODRIVER=x11
+# /usr/bin/scrcpy -w -S --shortcut-mod=rctrl+ralt,rsuper
+# /usr/bin/scrcpy -Sw -K --window-borderless --always-on-top --raw-key-events
+
+
+# File              : droidapps
+# License           : MIT License
+# Author            : M. Nabil Adani <nblid48[at]gmail[dot]com>
+# Date              : Sabtu, 10/07/2021 09:44 WIB
+# Last Modified Date: Sabtu, 10/07/2021 18:43 WIB
+# Last Modified By  : M. Nabil Adani <nblid48[at]gmail[dot]com>
+
+DMENU="rofi -dmenu -width 30 -i "
+
+function sendMsg() {
+    notify-send "droidapps" "$1"
+}
+
+function getDevices() {
+    amount=$(adb devices | awk '(NR > 1 && NF > 0) {print $1}' | wc -l)
+
+    if (($amount > 1)); then
+        adb devices | awk '(NR > 1 && NF > 0) {print $1}' | $DMENU
+    else
+        adb get-serialno
+    fi
+}
+
+function startApps() {
+    devices=$(getDevices)
+    if [ -n "${devices}" ]; then
+        scrcpy -Sw -s $devices
+    else
+        sendMsg "no devices/emulators found"
+    fi
+}
+
+startApps
+
+
+
+

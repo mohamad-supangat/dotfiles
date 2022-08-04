@@ -3,7 +3,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term stmux
+set $term alacritty -e tmuxa
 set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
@@ -318,7 +318,7 @@ bindsym $mod+Shift+e mode "$mode_system"
 # exec_always --no-startup-id xrdb ~/.Xresources
 # exec lxqt-policykit-agent # poolkit agent
 exec wl-paste -t text --watch clipman store --max-items=100
-exec swaync
+exec dunst
 # exec sworkstyle &> /tmp/sworkstyle.log
 
 
@@ -347,7 +347,7 @@ bar {
     # status_command while ~/.config/sway/status.sh; do sleep 1; done
 
     status_command i3status-rs
-    font Iosevka 8
+    font Iosevka 7
 
 
      colors {

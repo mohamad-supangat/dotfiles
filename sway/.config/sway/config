@@ -15,44 +15,11 @@ set $recordscreen ~/.scripts/record-screen
 set $clipboard_manager clipman pick -t rofi
 set $file_manager pcmanfm
 set $dmenu rofi -modi run -show run
-set $background ~/Pictures/H3Nc0F.jpg
+set $background /home/deve/Pictures/arch-black-4k.png
 set $backgroundFill '#1D1F21'
-output * bg $backgroundFill solid_color
-
 
 # Drag floating windows
 floating_modifier $mod
-
-
-
-###############################
-set $bg       #282828
-set $fg       #d4be98
-set $red      #ea6962
-set $orange   #e78a4e
-set $green    #a9b665
-set $blue     #7daea3
-set $purple   #d3869b
-set $aqua     #89b482
-set $darkgray #282828
-
-#######################
-#### i3 appearance ####
-#######################
-#       Gruvbox Theme   brdr        bg          text    indictr     chld_brdr
-client.focused          $orange     $orange     $bg     $orange     $orange
-client.focused_inactive $aqua       $aqua       $bg     $aqua       $aqua
-client.unfocused        $bg         $bg         $fg     $bg         $bg
-client.urgent           $red        $red        $bg     $red        $red
-client.placeholder      $bg         $bg         $bg     $bg         $bg
-client.background       $bg
-
-
-# exec_always swaybg --image $background -m fit -c $bg
-
-# output * bg $base01 solid_color
-
-
 
 # Font
 font xft:Iosevka 8
@@ -117,6 +84,12 @@ for_window [title="Picture-in-picture"] floating enable, sticky enable
 
 # wallpaper
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
+exec_always swaybg --image $background -m fit -c $backgroundFill
+
+# output * bg $base01 solid_color
+# output * bg $backgroundFill solid_color
+
+
 # Default workspaces for common programs
 # assign [class="^Chromium$"] $ws1
 # assign [class="^code-oss$"] $ws2
@@ -341,6 +314,7 @@ exec_always {
 
 # exec_always ~/.config/waybar/waybar.sh
 
+include colorscheme
 bar {
     position top
     # Keep in mind that the current directory of this config file is $HOME
@@ -352,16 +326,16 @@ bar {
 
      colors {
             # bar background color
-            background $bg
+            background $cl_back
             # text color used for blocks that do not have a color specified.
-            statusline $fg
+            statusline $cl_high
 
             # workspaces section
             #                    border     backgr.     text
-            focused_workspace    $orange    $orange     $bg
-            inactive_workspace   $bg        $aqua       $bg
-            active_workspace     $bg        $blue       $bg
-            urgent_workspace     $red       $red        $fg
+            focused_workspace    $cl_high    $cl_high     $cl_back
+            inactive_workspace   $cl_back    $cl_back     $cl_high
+            # active_workspace     $bg        $blue       $bg
+            urgent_workspace     $cl_urge       $cl_urge        $cl_back
 
     }
 }

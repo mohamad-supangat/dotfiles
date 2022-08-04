@@ -7,3 +7,6 @@
 [submodule "catppuccin/gtk"]
 	path = catppuccin/gtk
 	url = https://github.com/catppuccin/gtk
+[submodule "catppuccin/Kvantum"]
+	path = catppuccin/Kvantum
+	url = https://github.com/catppuccin/Kvantum

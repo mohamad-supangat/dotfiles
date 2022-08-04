@@ -6,7 +6,9 @@ then
 fi
 
 export MOZ_ENABLE_WAYLAND=1
-export QT_QPA_PLATFORM=wayland
+# export QT_QPA_PLATFORM=qt5ct
+
+export QT_STYLE_OVERRIDE=kvantum
 # export QT_STYLE_OVERRIDE=adwaita
 export XDG_SESSION_TYPE=wayland
 export CLUTTER_BACKEND=wayland

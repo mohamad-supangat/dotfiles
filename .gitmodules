@@ -4,3 +4,6 @@
 [submodule "qtile/.config/qtile"]
 	path = qtile/.config/qtile
 	url = git@github.com:mohamad-supangat/qtile.git
+[submodule "catppuccin/gtk"]
+	path = catppuccin/gtk
+	url = https://github.com/catppuccin/gtk

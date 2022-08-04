@@ -3,7 +3,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term stmux
+set $term alacritty -e tmuxa
 set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
@@ -378,4 +378,4 @@ include .generated_settings/input_touchpad.conf
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
 
-xwayland disable
+#xwayland disable

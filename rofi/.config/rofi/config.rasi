@@ -1,18 +1,28 @@
-configuration {
-    modi: "window,drun,ssh,combi";
-    /* theme: "solarized"; */
+configuration{
+    modi: "run,drun,window";
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: "   Window";
+    display-Network: " 󰤨  Network";
+    sidebar-mode: true;
+
     font: "Iosevka 10";
-    combi-modi: "window,drun,ssh";
     kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
     kb-row-down: "Down,Control+j";
     kb-accept-entry: "Control+m,Return,KP_Enter";
-    terminal: "mate-terminal";
     kb-remove-to-eol: "Control+Shift+e";
     /*kb-mode-next: "Shift+Right,Control+Tab,Control+l";*/
     kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
     kb-remove-char-back: "BackSpace";
 }
-@import "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
-//@theme "/usr/share/rofi/themes/docu.rasi"
-//@theme "/usr/share/rofi/themes/sidebar.rasi"
-@theme "/usr/share/rofi/themes/android_notification.rasi"
+
+
+
+@theme "./theme.rasi"

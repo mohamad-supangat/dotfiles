@@ -10,3 +10,6 @@
 [submodule "catppuccin/Kvantum"]
 	path = catppuccin/Kvantum
 	url = https://github.com/catppuccin/Kvantum
+[submodule "icons/Reversal-icon-theme"]
+	path = icons/Reversal-icon-theme
+	url = https://github.com/yeyushengfan258/Reversal-icon-theme

@@ -31,7 +31,7 @@ function getDevices() {
 function startApps() {
     devices=$(getDevices)
     if [ -n "${devices}" ]; then
-        scrcpy -Sw -s $devices
+        scrcpy -Sw --power-off-on-close -s $devices
     else
         sendMsg "no devices/emulators found"
     fi

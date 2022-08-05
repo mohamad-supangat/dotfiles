@@ -35,6 +35,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="ColorGrab"] floating enable
 for_window [class="xdman"] floating enable
 for_window [class="xpad"] floating enable
+for_window [app_id="ssh-askpass-sublime"] floating enable
 
  # Wayland default floats
 for_window [app_id="gnome-(calendar|calculator|power-statistics|control-center)"] floating enable

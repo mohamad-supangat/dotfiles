@@ -1,12 +1,21 @@
 {
     "layer": "bottom",
-    "position": "bottom",
-    "height": 1,
-
-    "modules-left": ["sway/mode", "sway/workspaces"],
-    "modules-center": ["clock", "custom/binance"],
-    "modules-right": ["tray", "cpu", "memory", "backlight", "network", "idle_inhibitor", "battery"],
-
+    "position": "top",
+    // "height": 1,
+    "modules-left": [
+        "sway/mode",
+        "sway/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "cpu",
+        "memory",
+        "backlight",
+        "network"
+    ],
     "custom/recording": {
         "exec": "exec ~/.scripts/record-screend",
         "format": "record",
@@ -18,7 +27,12 @@
     },
     "sway/workspaces": {
         "format": "{name}",
-        "disable-scroll": true
+        "disable-scroll": true,
+        "format-icons": {
+            "default": "",
+            "urgent": "",
+            "focused": "",
+        }
     },
     "sway/window": {
         "max-length": 80,
@@ -30,7 +44,7 @@
         "max-length": 10
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% cpu",
         "tooltip": false
     },
     "clock": {
@@ -40,7 +54,13 @@
     "battery": {
         "format": "{capacity}% {icon}",
         "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "format-charging": "{capacity}% ",
         "interval": 30,
         "states": {
@@ -52,12 +72,20 @@
     "network": {
         "format": "{ipaddr}/{cidr} {bandwidthUpBits} {icon}",
         "format-icons": {
-            "wifi": ["", "" ,""],
-            "ethernet": [""],
-            "disconnected": [""]
+            // "wifi": [
+            //     "",
+            //     "",
+            //     ""
+            // ],
+            // "ethernet": [
+            //     ""
+            // ],
+            // "disconnected": [
+            //     ""
+            // ]
         },
-        "on-click": "st -e nmtui",
-    "tooltip": false
+        "on-click": "alacritty -e nmtui",
+        "tooltip": false
     },
     "pulseaudio": {
         "format": "{icon}",
@@ -65,8 +93,18 @@
         "format-alt-click": "click-right",
         "format-muted": "",
         "format-icons": {
-            "phone": [" ", " ", " ", " "],
-            "default": ["", "", "", ""]
+            "phone": [
+                " ",
+                " ",
+                " ",
+                " "
+            ],
+            "default": [
+                "",
+                "",
+                "",
+                ""
+            ]
         },
         "scroll-step": 10,
         "on-click": "pavucontrol",
@@ -97,7 +135,10 @@
         "format": "{icon}",
         "format-alt": "{percent}% {icon}",
         "format-alt-click": "click-right",
-        "format-icons": ["", ""],
+        "format-icons": [
+            "",
+            ""
+        ],
         "on-scroll-down": " brightnessctl set 20-",
         "on-scroll-up": "brightnessctl set +20"
     },

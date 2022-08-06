@@ -318,33 +318,33 @@ exec_always {
 
 }
 
-exec_always ~/.config/waybar/waybar.sh
+# exec_always ~/.config/waybar/waybar.sh
 
 include colorscheme
-# bar {
-#     position top
-#     # Keep in mind that the current directory of this config file is $HOME
-#     # status_command while ~/.config/sway/status.sh; do sleep 1; done
-#
-#     status_command i3status-rs
-#     font Iosevka 7
-#
-#
-#      colors {
-#             # bar background color
-#             background $cl_back
-#             # text color used for blocks that do not have a color specified.
-#             statusline $cl_high
-#
-#             # workspaces section
-#             #                    border     backgr.     text
-#             focused_workspace    $cl_high    $cl_high     $cl_back
-#             inactive_workspace   $cl_back    $cl_back     $cl_high
-#             # active_workspace     $bg        $blue       $bg
-#             urgent_workspace     $cl_urge       $cl_urge        $cl_back
-#
-#     }
-# }
+bar {
+    position top
+    # Keep in mind that the current directory of this config file is $HOME
+    # status_command while ~/.config/sway/status.sh; do sleep 1; done
+
+    status_command i3status-rs
+    font Iosevka 7
+
+
+     colors {
+            # bar background color
+            background $cl_back
+            # text color used for blocks that do not have a color specified.
+            statusline $cl_high
+
+            # workspaces section
+            #                    border     backgr.     text
+            focused_workspace    $cl_high    $cl_high     $cl_back
+            inactive_workspace   $cl_back    $cl_back     $cl_high
+            # active_workspace     $bg        $blue       $bg
+            urgent_workspace     $cl_urge       $cl_urge        $cl_back
+
+    }
+}
 #
 # include ~/.config/sway/$(hostname)/*
 

@@ -108,6 +108,7 @@ exec_always swaybg --image $background -m fit -c $backgroundFill
 
 # Shortcuts
 bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec ~/.scripts/tmux_session.sh
 bindsym Print exec $screenshot
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec start-scrcpy

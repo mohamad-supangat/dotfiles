@@ -5,15 +5,13 @@ then
     source ~/.profile
 fi
 
-export MOZ_ENABLE_WAYLAND=1
 # export QT_QPA_PLATFORM=qt5ct
-
 export QT_STYLE_OVERRIDE=kvantum
+export MOZ_ENABLE_WAYLAND=1
 # export QT_STYLE_OVERRIDE=adwaita
 export XDG_SESSION_TYPE=wayland
 export CLUTTER_BACKEND=wayland
 export BEMENU_BACKEND=wayland
-
 export SDL_VIDEODRIVER=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
 export QT_QPA_PLATFORM=wayland
@@ -23,6 +21,8 @@ export XDG_SESSION_DESKTOP=sway
 # export GDK_CORE_DEVICE_EVENTS=1
 export NO_AT_BRIDGE=1
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+
+export TERMINAL=/usr/bin/alacritty
 
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \

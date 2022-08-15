@@ -17,3 +17,10 @@ alias tmuxproject="tmuxinator"
 alias se="sudo -E"
 alias composer7="/usr/bin/php7 /usr/bin/composer"
 
+
+
+# auto start sway
+if test (tty) = "/dev/tty1"
+  exec start-sway
+end
+

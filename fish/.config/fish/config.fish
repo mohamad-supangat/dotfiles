@@ -24,3 +24,8 @@ if test (tty) = "/dev/tty1"
   exec start-sway
 end
 
+
+# pnpm
+set -gx PNPM_HOME "/home/deve/.local/share/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end

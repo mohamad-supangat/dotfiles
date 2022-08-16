@@ -297,13 +297,17 @@ bindsym $mod+Shift+e mode "$mode_system"
 # auto start apps section
 # exec_always --no-startup-id xrdb ~/.Xresources
 # exec lxqt-policykit-agent # poolkit agent
-exec wl-paste -t text --watch clipman store --max-items=100
+exec wl-paste -t text --watch clipman store --max-items=1000
 exec dunst
 # exec sworkstyle &> /tmp/sworkstyle.log
+# exec_always wlsunset
 
 
-exec_always "systemctl --user import-environment"
-exec_always wlsunset
+# gnome keyring start
+exec dbus-update-activation-environment --all
+# exec eval $(gnome-keyring-daemon --start)
+# exec export SSH_AUTH_SOCK
+
 
 ## gtk application theme
 set $gnome-schema org.gnome.desktop.interface

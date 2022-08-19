@@ -9,6 +9,8 @@ set $menu rofi -modi drun -show drun
 set $screenshot grim -g "$(slurp)" - | swappy -f -
 # set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
 set $screenshot flameshot gui
+set $screenanonation flameshot gui --region all
+
 # set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $recordscreen ~/.scripts/record-screen
 # set $clipboard_manager ~/.scripts/clipman-fzf
@@ -110,6 +112,8 @@ exec_always swaybg --image $background -m fit -c $backgroundFill
 bindsym $mod+Return exec tmux_session.sh
 bindsym $mod+Shift+Return exec rofi-tmuxp.sh
 bindsym Print exec $screenshot
+bindsym Shift+Print exec $screenanonation
+
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec start-scrcpy
 bindsym $mod+Shift+b exec qbpm choose
@@ -363,4 +367,4 @@ include .generated_settings/input_touchpad.conf
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
 
-#xwayland disable
+xwayland disable

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-export SDL_VIDEODRIVER=x11
+# export SDL_VIDEODRIVER=x11
 # /usr/bin/scrcpy -w -S --shortcut-mod=rctrl+ralt,rsuper
 # /usr/bin/scrcpy -Sw -K --window-borderless --always-on-top --raw-key-events
 

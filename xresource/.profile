@@ -1,7 +1,7 @@
 export CM_LAUNCHER=rofi
 export CM_DIR=~/.cache/clipmenu
-export LC_ALL=en_US.UTF-8
-export QT_QPA_PLATFORMTHEME=qt5ct
+#export LC_ALL=en_US.UTF-8
+export QT_QPA_PLATFORMTHEME=kvantum
 export FONT_NAME="Iosevka 11"
 
 # For Android Studio
@@ -18,4 +18,8 @@ export EDITOR=nvim
 # export ICON_THEME="Breeze Dark"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+if [ -e $PYENV_ROOT ]
+then
+    eval "$(pyenv init --path)"
+fi
+

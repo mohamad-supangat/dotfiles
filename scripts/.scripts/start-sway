@@ -5,8 +5,8 @@ then
     source ~/.profile
 fi
 
-# export QT_QPA_PLATFORM=qt5ct
-export QT_STYLE_OVERRIDE=kvantum
+export QT_QPA_PLATFORM=gtk2
+# export QT_STYLE_OVERRIDE=kvantum
 export MOZ_ENABLE_WAYLAND=1
 # export QT_STYLE_OVERRIDE=adwaita
 export XDG_SESSION_TYPE=wayland

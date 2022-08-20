@@ -109,6 +109,7 @@ exec_always swaybg --image $background -m fit -c $backgroundFill
 # assign [class="^Spotify$"] $wsF12
 
 # Shortcuts
+bindsym Control+Mod1+t exec $term
 bindsym $mod+Return exec tmux_session.sh
 bindsym $mod+Shift+Return exec rofi-tmuxp.sh
 bindsym Print exec $screenshot

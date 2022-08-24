@@ -1,6 +1,6 @@
 export CM_LAUNCHER=rofi
 export CM_DIR=~/.cache/clipmenu
-#export LC_ALL=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 export QT_QPA_PLATFORMTHEME=kvantum
 export FONT_NAME="Iosevka 11"
 

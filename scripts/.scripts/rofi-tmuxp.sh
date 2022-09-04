@@ -1,1 +1,1 @@
-rofi -show tmuxp
+rofi -modi tmuxp:rofi-tmuxp -show tmuxp

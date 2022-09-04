@@ -8,7 +8,7 @@ set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
 # set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
-set $screenshot flameshot gui
+# set $screenshot flameshot gui
 set $screenanonation flameshot gui --region all
 
 # set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
@@ -19,6 +19,7 @@ set $file_manager pcmanfm
 set $dmenu rofi -modi run -show run
 set $background /home/deve/Pictures/wallpaper.png
 set $backgroundFill '#1D1F21'
+set $browser-selector qbpm choose -m rofi
 
 # Drag floating windows
 floating_modifier $mod
@@ -62,6 +63,7 @@ for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating en
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 for_window [class="QtScrcpy"] floating enable
 for_window [class="scrcpy"] floating enable
+for_window [app_id="scrcpy"] floating enable
 for_window [class="Gimp-2.10"] floating disable
 for_window [class="Gimp-2.10" title="New Image"] floating enable
 for_window [class="Gimp-2.10" title="Layer"] floating enable
@@ -116,9 +118,9 @@ bindsym Print exec $screenshot
 bindsym Shift+Print exec $screenanonation
 
 bindsym $mod+Shift+r exec $recordscreen
-bindsym $mod+Shift+s exec start-scrcpy
-bindsym $mod+Shift+b exec qbpm choose
-
+bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
+bindsym $mod+Shift+b exec $browser-selector
+bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
 
 
 # bindsym $mod+Shift+Print exec $screenclip
@@ -283,20 +285,22 @@ mode "resize" {
 }
 # bindsym $mod+r mode "resize"
 
-set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
-mode "$mode_system" {
-    bindsym l exec $lock, mode "default"
-    bindsym e exit
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
-    bindsym Shift+r exec --no-startup-id systemctl reboot --firmware-setup, mode "default"
+# set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
+# mode "$mode_system" {
+#     bindsym l exec $lock, mode "default"
+#     bindsym e exit
+#     bindsym s exec --no-startup-id systemctl suspend, mode "default"
+#     bindsym r exec --no-startup-id systemctl reboot, mode "default"
+#     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+#     bindsym Shift+r exec --no-startup-id systemctl reboot --firmware-setup, mode "default"
+#
+#     # return to default mode
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
 
-    # return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+e mode "$mode_system"
+
+# bindsym $mod+Shift+e mode "$mode_system"
 
 
 # auto start apps section

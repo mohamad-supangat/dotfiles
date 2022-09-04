@@ -16,6 +16,8 @@ alias pm="python manage.py"
 alias tmuxproject="tmuxinator"
 alias se="sudo -E"
 alias composer7="/usr/bin/php7 /usr/bin/composer"
+alias update-font-cache="fc-cache -f -v"
+
 
 
 

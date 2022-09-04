@@ -88,3 +88,7 @@
 #temperature.critical {
   color: @base0F;
 }
+
+#window {
+  color: #ddd;
+}

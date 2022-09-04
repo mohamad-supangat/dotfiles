@@ -14,21 +14,13 @@ export CLUTTER_BACKEND=wayland
 export BEMENU_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
-export QT_QPA_PLATFORM=wayland
+# export QT_QPA_PLATFORM=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
 
 # export GDK_CORE_DEVICE_EVENTS=1
 export NO_AT_BRIDGE=1
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-
-export TERMINAL=/usr/bin/alacritty
-
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
 
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 exec dbus-run-session /usr/bin/sway

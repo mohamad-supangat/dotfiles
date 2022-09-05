@@ -199,8 +199,8 @@ window#waybar.solo #workspaces button {
   margin: 5px;
   padding: 0 10px;
   border-radius: 7px;
-  color: @dark-fg;
-  background-color: @gray;
+  color: @fg;
+  background-color: @gray2;
 }
 
 /* bottom waybar */

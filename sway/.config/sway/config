@@ -86,15 +86,15 @@ for_window [title="Picture-in-picture"] floating enable, sticky enable
 #  ╭──────────────────────────────────────────────────────────╮
 #  │ gaps / padding antar aplikasi                            │
 #  ╰──────────────────────────────────────────────────────────╯
-smart_gaps on
+# smart_gaps on
 gaps inner 5
-gaps outer 5
-gaps top 10
+gaps outer 10
+gaps top 1
 
 
 # wallpaper
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
-exec_always swaybg --image $background -m fit -c $backgroundFill
+# exec_always swaybg --image $background -m fit -c $backgroundFill
 
 # output * bg $base01 solid_color
 # output * bg $backgroundFill solid_color
@@ -120,7 +120,7 @@ bindsym Shift+Print exec $screenanonation
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 bindsym $mod+Shift+b exec $browser-selector
-bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
+# bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
 
 
 # bindsym $mod+Shift+Print exec $screenclip
@@ -301,13 +301,15 @@ mode "resize" {
 
 
 # bindsym $mod+Shift+e mode "$mode_system"
+bindsym $mod+Shift+e exec wlogout
 
 
 # auto start apps section
 # exec_always --no-startup-id xrdb ~/.Xresources
 # exec lxqt-policykit-agent # poolkit agent
 exec wl-paste -t text --watch clipman store --max-items=1000
-exec dunst
+exec swaync
+exec waybar
 # exec sworkstyle &> /tmp/sworkstyle.log
 # exec_always wlsunset
 
@@ -320,7 +322,7 @@ exec dbus-update-activation-environment --all
 
 ## gtk application theme
 set $gnome-schema org.gnome.desktop.interface
-exec_always {
+# exec_always {
 
     # gsettings set $gnome-schema gtk-theme 'Mojave-dark'
 
@@ -330,35 +332,36 @@ exec_always {
 
    # gsettings set $gnome-schema font-name 'Iosevka 11'
 
-}
+# }
 
 # exec_always ~/.config/waybar/waybar.sh
 
+
 include colorscheme
-bar {
-    position top
-    # Keep in mind that the current directory of this config file is $HOME
-    # status_command while ~/.config/sway/status.sh; do sleep 1; done
-
-    status_command i3status-rs
-    font Iosevka 7
-
-
-     colors {
-            # bar background color
-            background $cl_back
-            # text color used for blocks that do not have a color specified.
-            statusline $cl_high
-
-            # workspaces section
-            #                    border     backgr.     text
-            focused_workspace    $cl_high    $cl_high     $cl_back
-            inactive_workspace   $cl_back    $cl_back     $cl_high
-            # active_workspace     $bg        $blue       $bg
-            urgent_workspace     $cl_urge       $cl_urge        $cl_back
-
-    }
-}
+# bar {
+#     position top
+#     # Keep in mind that the current directory of this config file is $HOME
+#     # status_command while ~/.config/sway/status.sh; do sleep 1; done
+#
+#     status_command i3status-rs
+#     font Iosevka 7
+#
+#
+#      colors {
+#             # bar background color
+#             background $cl_back
+#             # text color used for blocks that do not have a color specified.
+#             statusline $cl_high
+#
+#             # workspaces section
+#             #                    border     backgr.     text
+#             focused_workspace    $cl_high    $cl_high     $cl_back
+#             inactive_workspace   $cl_back    $cl_back     $cl_high
+#             # active_workspace     $bg        $blue       $bg
+#             urgent_workspace     $cl_urge       $cl_urge        $cl_back
+#
+#     }
+# }
 #
 # include ~/.config/sway/$(hostname)/*
 
@@ -372,4 +375,4 @@ include .generated_settings/input_touchpad.conf
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
 
-xwayland disable
+#xwayland disable

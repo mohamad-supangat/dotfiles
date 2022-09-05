@@ -22,11 +22,10 @@
   margin: 0;
   padding: 0;
   border-radius: 0;
-  font-family: "Iosevka", "Iosevka Aile", "JetBrainsMono Nerd Font";
-  font-size: 8pt;
+  font-family: "Iosevka Aile", "JetBrainsMono Nerd Font";
+  font-size: 12pt;
   padding-bottom: 1px;
   padding-top: 1px;
-  /* text-align: center; */
 }
 
 tooltip {
@@ -40,18 +39,17 @@ window#waybar {
   color: @lavender;
 }
 
-/* window#waybar.solo { */
-/*   background-color: @bg; */
-/*   color: @lavender; */
-/* } */
-
-window#waybar.solo #workspaces button {
-  border-radius: 5px;
+window#waybar.solo {
+  background-color: @bg;
+  color: @lavender;
 }
+
+window#waybar.solo #workspaces button { border-radius: 5px; }
 
 #custom-arch-pill {
   margin: 5px;
-  padding: 0 10px;
+  padding-left: 10px;
+  padding-right: 15px;
   border-radius: 7px;
   background-color: @lavender;
   color: @dark-fg;
@@ -127,9 +125,8 @@ window#waybar.solo #workspaces button {
 
 #network {
   margin: 5px;
-  /* padding-left: 10px; */
-  /* padding-right: 15px; */
-  padding: 0 10px;
+  padding-left: 10px;
+  padding-right: 15px;
   border-radius: 7px;
   color: @dark-fg;
 }
@@ -163,16 +160,6 @@ window#waybar.solo #workspaces button {
   background-color: @bg;
 }
 
-#custom-notification {
-  margin: 5px;
-  /* padding-left: 10px; */
-  /* padding-right: 15px; */
-  padding: 0 10px;
-  border-radius: 7px;
-  color: @dark-fg;
-  background-color: @peach;
-}
-
 #pulseaudio.muted {
   background-color: @red;
   color: @dark-fg;
@@ -183,16 +170,15 @@ window#waybar.solo #workspaces button {
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 7px;
-  color: @dark-fg;
-  background-color: @lavender;
+  color: @lavender;
+  background-color: @bg;
 }
 
-#tray {
-  margin: 5px;
-  padding: 0 10px;
-  border-radius: 7px;
-  color: @dark-fg;
-  background-color: @lavender;
-}
+/* #tray { */
+/*   margin: 5px; */
+/*   padding: 2px; */
+/*   border-radius: 7px; */
+/*   background-color: @bg; */
+/* } */
 
 /* bottom waybar */

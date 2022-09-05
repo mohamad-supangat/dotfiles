@@ -1,186 +1,122 @@
+// vim:set ft=jsonc:
 {
-  "layer": "bottom",
   "position": "top",
-  // "height": 1,
-  "modules-left": ["clock", "wlr/workspaces"],
-  "modules-center": [],
-  "modules-right": ["tray", "battery", "cpu", "memory", "backlight", "network"],
-  "hyprland/window": {
-    // "format": "👉 {}"
-  },
-  "custom/recording": {
-    "exec": "exec ~/.scripts/record-screend",
-    "format": "record",
-    "exec-on-event": false,
-    "on-click": "pkill -INT -P \"$(pgrep -xo record-screen)\" wf-recorder"
-  },
-  "wlr/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "on-click": "activate",
-    // "format": "{icon}",
+  "modules-left": [
+    "custom/arch-pill",
+    "sway/mode",
+    "sway/workspaces"
+    // "custom/scratchpad_indicator",
+    // "sway/window"
+  ],
+  // "modules-center": [
+  // "custom/playerctl",
+  // ],
+  "modules-right": [
+    "tray",
+    "custom/notification",
+    "network",
+    // "pulseaudio",
+    "clock"
+  ],
+  // Modules configuration
+  "sway/workspaces": {
+    "all-outputs": false,
+    "enable-bar-scroll": true,
+    "format": "{icon}",
     "persistent_workspaces": {
       "1": [],
       "2": [],
       "3": [],
       "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": [],
-      "10": []
+      "5": []
     },
     "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "〇",
-      "default": "一"
-    }
-  },
-
-  "sway/mode": {
-    "format": " {}"
-  },
-  "sway/workspaces": {
-    "format": "{name}",
-    "disable-scroll": true,
-    "format-icons": {
+      // "1": "一",
+      // "2": "二",
+      // "3": "三",
+      // "4": "四",
+      // "5": "五",
       "default": "",
       "urgent": "",
       "focused": ""
     }
   },
-  "sway/window": {
-    "max-length": 80,
+  "custom/arch-pill": {
+    "format": "",
+    // "on-click": "rofi",
     "tooltip": false
   },
-  "memory": {
-    "interval": 30,
-    "format": "{}% ram",
-    "max-length": 10
-  },
-  "cpu": {
-    "format": "{usage}% cpu",
-    "tooltip": false
-  },
+  "sway/window": { "format": "{}" },
   "clock": {
-    "format": "{:%a %d %b %H:%M}",
-    "tooltip": false
-  },
-  "battery": {
-    "format": "{capacity}% {icon}",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["", "", "", "", ""],
-    "format-charging": "{capacity}% ",
-    "interval": 30,
-    "states": {
-      "warning": 25,
-      "critical": 10
-    },
-    "tooltip": false
+    "format": "<span> </span><span> {:%I:%M %p}</span>",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "<span> </span><span> {:%I:%M %p  %a %d}</span>"
   },
   "network": {
-    "format": "{ipaddr}/{cidr} {bandwidthUpBits} {icon}",
-    "format-icons": {
-      // "wifi": [
-      //     "",
-      //     "",
-      //     ""
-      // ],
-      // "ethernet": [
-      //     ""
-      // ],
-      // "disconnected": [
-      //     ""
-      // ]
-    },
-    "on-click": "alacritty -e nmtui",
-    "tooltip": false
+    // "interface": "enp2s0",
+    "format": "Loading",
+    "format-wifi": "<span></span> {essid}",
+    "format-ethernet": "<span></span> {ipaddr} {bandwidthTotalBytes} {icon}",
+    "format-linked": "<span></span>",
+    "format-disconnected": "<span>睊</span>",
+    "tooltip-format-linked": "{ifname}  ",
+    "tooltip-format-disconnected": "Disconnected",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}% ",
+    "tooltip-format-ethernet": "{ifname}  "
   },
   "pulseaudio": {
-    "format": "{icon}",
-    "format-alt": "{volume} {icon}",
-    "format-alt-click": "click-right",
-    "format-muted": "",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format": "<span size='13000' foreground='#FAE3B0'>{icon} </span><span> {volume}%</span>",
+    "format-muted": "<span size='14000'>ﱝ</span>",
     "format-icons": {
-      "phone": [" ", " ", " ", " "],
-      "default": ["", "", "", ""]
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["奔", "墳"]
     },
-    "scroll-step": 10,
-    "on-click": "pavucontrol",
-    "tooltip": false
+    "on-click-right": "pavucontrol"
   },
-  "custom/spotify": {
-    "interval": 1,
+  "custom/playerctl": {
+    "format": "{icon}  <span>{}</span>",
     "return-type": "json",
-    "exec": "~/.config/waybar/modules/spotify.sh",
-    "exec-if": "pgrep spotify",
+    "max-length": 70,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click-middle": "playerctl play-pause",
+    "on-click": "playerctl previous",
+    "on-click-right": "playerctl next",
+    "format-icons": {
+      "Playing": "<span foreground='#ABE9B3'></span>",
+      "Paused": "<span foreground='#E8A2AF'></span>"
+    }
+  },
+  "custom/scratchpad_indicator": {
+    "interval": 1,
+    "exec": "swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==\"__i3_scratch\")) | .floating_nodes | length | select(. >= 1)'",
+    "format": "{}<span foreground='#E8A2AF'>  </span>",
+    "on-click": "swaymsg 'scratchpad show'",
+    "on-click-right": "swaymsg 'move scratchpad'"
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": " <span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": " <span foreground='red'><sup></sup></span>",
+      "dnd-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
-  "custom/storage": {
-    "format": "{} ",
-    "format-alt": "{percentage}% ",
-    "format-alt-click": "click-right",
-    "return-type": "json",
-    "interval": 60,
-    "exec": "~/.config/waybar/modules/storage.sh"
-  },
-  "custom/binance": {
-    "format": "{}",
-    "return-type": "json",
-    "interval": 1,
-    "exec": "~/.config/waybar/modules/binance-price.sh"
-  },
-  "backlight": {
-    "format": "{icon}",
-    "format-alt": "{percent}% {icon}",
-    "format-alt-click": "click-right",
-    "format-icons": ["", ""],
-    "on-scroll-down": " brightnessctl set 20-",
-    "on-scroll-up": "brightnessctl set +20"
-  },
-  "custom/weather": {
-    "format": "{}",
-    "format-alt": "{alt}: {}",
-    "format-alt-click": "click-right",
-    "interval": 1800,
-    "return-type": "json",
-    "exec": "~/.config/waybar/modules/weather.sh",
-    "exec-if": "ping wttr.in -c1"
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    },
-    "tooltip": false
-  },
-  "custom/mail": {
-    "format": "",
-    "format-alt": "{alt} ",
-    "format-alt-click": "click-right",
-    "interval": 60,
-    "return-type": "json",
-    "exec": "~/.config/waybar/modules/mail.py",
-    "tooltip": false
-  },
-  "custom/test": {
-    "format": "{}",
-    "exec": "/tmp/test blub",
-    "param": "blah",
-    "interval": 5
-  },
   "tray": {
-    "icon-size": 18,
-    "spacing": 10
+    "icon-size": 12,
+    "reverse-direction": true
   }
 }

@@ -195,4 +195,12 @@ window#waybar.solo #workspaces button {
   background-color: @lavender;
 }
 
+#battery {
+  margin: 5px;
+  padding: 0 10px;
+  border-radius: 7px;
+  color: @dark-fg;
+  background-color: @gray;
+}
+
 /* bottom waybar */

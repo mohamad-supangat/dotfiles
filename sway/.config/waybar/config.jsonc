@@ -14,6 +14,7 @@
   "modules-right": [
     "tray",
     "custom/notification",
+    "battery",
     "network",
     // "pulseaudio",
     "clock"
@@ -55,7 +56,7 @@
   "network": {
     // "interface": "enp2s0",
     "format": "Loading",
-    "format-wifi": "<span></span> {essid}",
+    "format-wifi": "<span></span> {essid} {bandwidthTotalBytes}",
     "format-ethernet": "<span></span> {ipaddr} {bandwidthTotalBytes} {icon}",
     "format-linked": "<span></span>",
     "format-disconnected": "<span>睊</span>",
@@ -118,5 +119,20 @@
   "tray": {
     "icon-size": 12,
     "reverse-direction": true
+  },
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}&#8239;{capacity}%",
+    "format-charging": "&#8239;{capacity}%",
+    "format-plugged": "&#8239;{capacity}%",
+    "format-alt": "{icon} {time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""]
+    // "format-icons": ["", "", "", "", ""]
   }
 }

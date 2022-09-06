@@ -203,4 +203,19 @@ window#waybar.solo #workspaces button {
   background-color: @gray2;
 }
 
+#cpu {
+  margin: 5px;
+  padding: 0 10px;
+  border-radius: 7px;
+  color: @fg;
+  background-color: @gray2;
+}
+
+#memory {
+  margin: 5px;
+  padding: 0 10px;
+  border-radius: 7px;
+  color: @dark-fg;
+  background-color: @sky;
+}
 /* bottom waybar */

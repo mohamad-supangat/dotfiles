@@ -8,17 +8,27 @@
     // "custom/scratchpad_indicator",
     // "sway/window"
   ],
-  // "modules-center": [
-  // "custom/playerctl",
-  // ],
+  "modules-center": [
+    "network",
+    "cpu",
+    "memory"
+    // "custom/playerctl",
+  ],
   "modules-right": [
     "tray",
     "custom/notification",
     "battery",
-    "network",
     // "pulseaudio",
     "clock"
   ],
+  "cpu": {
+    "format": "&#8239;{usage}%",
+    "tooltip": false,
+    "on-click": "lxtask"
+  },
+  "memory": {
+    "format": " {}%"
+  },
   // Modules configuration
   "sway/workspaces": {
     "all-outputs": false,

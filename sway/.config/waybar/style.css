@@ -16,6 +16,9 @@
 @define-color black4 #575268;
 @define-color black3 #302D41;
 @define-color maroon #E8A2AF;
+@define-color yellow #f9e2af;
+@define-color text #cdd6f4;
+@define-color white #fff;
 
 * {
   min-height: 0;
@@ -202,8 +205,18 @@ window#waybar.solo #workspaces button {
   margin: 5px;
   padding: 0 10px;
   border-radius: 7px;
-  color: @fg;
+  color: @white;
   background-color: @gray2;
+}
+
+#battery.warning {
+  background-color: @yellow;
+  color: @black3;
+}
+
+#battery.critical {
+  background-color: @red;
+  color: @white;
 }
 
 #cpu {

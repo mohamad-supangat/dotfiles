@@ -1,5 +1,6 @@
 // vim:set ft=jsonc:
 {
+  "gtk-layer-shell": false,
   "position": "top",
   "modules-left": [
     "custom/arch-pill",

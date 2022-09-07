@@ -87,11 +87,14 @@ window#waybar.solo #workspaces button {
   padding-left: 10px;
   padding-right: 10px;
   min-width: 0;
-  color: @black4;
+  color: @rosewater;
 }
 
-#workspaces button.current_output {
-  color: @lavender;
+#workspaces button.current_output,
+#workspaces button.active {
+  background-color: @rosewater;
+  color: @black4;
+  border-radius: 10px;
 }
 
 #workspaces button.focused {

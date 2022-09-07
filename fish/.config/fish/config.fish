@@ -22,9 +22,9 @@ alias update-font-cache="fc-cache -f -v"
 
 
 # auto start sway
-if test (tty) = "/dev/tty1"
-  exec start-sway
-end
+# if test (tty) = "/dev/tty1"
+#   exec start-sway
+# end
 
 
 # pnpm

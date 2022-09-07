@@ -4,7 +4,9 @@
   "modules-left": [
     "custom/arch-pill",
     "sway/mode",
-    "sway/workspaces"
+    "sway/workspaces",
+    "wlr/workspaces"
+
     // "custom/scratchpad_indicator",
     // "sway/window"
   ],
@@ -30,6 +32,9 @@
     "format": " {}%"
   },
   // Modules configuration
+  "wlr/workspaces": {
+    "sort-by-name": true
+  },
   "sway/workspaces": {
     "all-outputs": false,
     "enable-bar-scroll": true,

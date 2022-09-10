@@ -6,8 +6,11 @@
 ## rxyhn's starship configuration
 ## The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
-format = "$all"
-right_format = """$git_branch$git_status$cmd_duration$directory"""
+# format = "$all"
+format = """
+$directory$git_branch$git_status$cmd_duration
+[$character](bold green) """
+# right_format = """$git_branch$git_status$cmd_duration$directory"""
 
 # Disable the blank line at the start of the prompt
 add_newline = true
@@ -28,7 +31,7 @@ disabled = false
 [cmd_duration]
 min_time = 1
 format = "[](fg:#1c252c bg:none)[$duration]($style)[](fg:#1c252c bg:#1c252c)[](fg:#bc83e3 bg:#1c252c)[](fg:#1c252c bg:#bc83e3)[](fg:#bc83e3 bg:none) "
-disabled = false
+disabled = true
 style = "fg:#d9d7d6 bg:#1c252c"
 
 [directory]

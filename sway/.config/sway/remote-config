@@ -1,3 +1,8 @@
 include config
 
-exec_always wayvnc 0.0.0.0
+mode passthrough {
+	bindsym $mod+Pause mode default
+}
+bindsym $mod+Pause mode passthrough
+
+exec_always wayvnc

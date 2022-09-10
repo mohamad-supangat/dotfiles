@@ -89,7 +89,7 @@ for_window [title="Picture-in-picture"] floating enable, sticky enable
 # smart_gaps on
 gaps inner 5
 gaps outer 10
-gaps top 1
+gaps bottom 1
 
 
 # wallpaper

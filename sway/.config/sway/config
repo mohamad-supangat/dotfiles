@@ -215,8 +215,8 @@ bindsym $mod+Control+Up resize shrink height 10 px or 10
 bindsym $mod+Control+Right resize grow width 10 px or 10
 
 bindsym $mod+Control+h resize shrink width 10 px or 10
-bindsym $mod+Control+j resize grow height 10 px or 10
-bindsym $mod+Control+k resize shrink height 10 px or 10
+bindsym $mod+Control+k resize grow height 10 px or 10
+bindsym $mod+Control+j resize shrink height 10 px or 10
 bindsym $mod+Control+l resize grow width 10 px or 10
 
 

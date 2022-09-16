@@ -7,7 +7,6 @@
     fg-col: #cdd6f4;
     fg-col2: #89b4fa;
     grey: #6c7086;
-
     width: 600;
     font: "Iosevka 10";
 }
@@ -19,7 +18,7 @@ element-text, element-icon , mode-switcher {
 
 window {
     height: 360px;
-    border: 3px;
+    border: 0.3em;
     border-color: @border-col;
     background-color: @bg-col;
     border-radius: 1em;

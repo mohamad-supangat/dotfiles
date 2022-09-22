@@ -152,8 +152,8 @@ bindsym $mod+End exec $wifi
 # bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
 # bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
 #
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 bindsym --locked XF86AudioPlay exec playerctl play-pause
@@ -225,17 +225,28 @@ bindsym $mod+Control+l resize grow width 10 px or 10
 # bindsym $mod+Shift+Control+Up resize shrink height 1 px or 1
 # bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
 
-# Switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
+
+bindsym --no-repeat $mod+1 workspace number 1; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+2 workspace number 2; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+3 workspace number 3; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+4 workspace number 4; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+5 workspace number 5; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+6 workspace number 6; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+7 workspace number 7; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+8 workspace number 8; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+9 workspace number 9; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+0 workspace number 10; exec "echo 1 > /tmp/sovpipe"
+
+bindsym --release $mod+1 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+2 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+3 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+4 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+5 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+6 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+7 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+8 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+9 exec "echo 0 > /tmp/sovpipe"
+bindsym --release $mod+0 exec "echo 0 > /tmp/sovpipe"
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
@@ -310,6 +321,7 @@ bindsym $mod+Shift+e mode "$mode_system"
 exec wl-paste -t text --watch clipman store --max-items=1000
 exec swaync
 exec waybar
+exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 # exec sworkstyle &> /tmp/sworkstyle.log
 # exec_always wlsunset
 
@@ -319,51 +331,6 @@ exec dbus-update-activation-environment --all
 # exec eval $(gnome-keyring-daemon --start)
 # exec export SSH_AUTH_SOCK
 
-
-## gtk application theme
-set $gnome-schema org.gnome.desktop.interface
-# exec_always {
-
-    # gsettings set $gnome-schema gtk-theme 'Mojave-dark'
-
-    # gsettings set $gnome-schema icon-theme 'breeze-dark'
-
-    # gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
-
-   # gsettings set $gnome-schema font-name 'Iosevka 11'
-
-# }
-
-# exec_always ~/.config/waybar/waybar.sh
-
-
-include colorscheme
-# bar {
-#     position top
-#     # Keep in mind that the current directory of this config file is $HOME
-#     # status_command while ~/.config/sway/status.sh; do sleep 1; done
-#
-#     status_command i3status-rs
-#     font Iosevka 7
-#
-#
-#      colors {
-#             # bar background color
-#             background $cl_back
-#             # text color used for blocks that do not have a color specified.
-#             statusline $cl_high
-#
-#             # workspaces section
-#             #                    border     backgr.     text
-#             focused_workspace    $cl_high    $cl_high     $cl_back
-#             inactive_workspace   $cl_back    $cl_back     $cl_high
-#             # active_workspace     $bg        $blue       $bg
-#             urgent_workspace     $cl_urge       $cl_urge        $cl_back
-#
-#     }
-# }
-#
-# include ~/.config/sway/$(hostname)/*
 
 
 ## include generate config

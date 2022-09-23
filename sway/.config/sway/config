@@ -334,6 +334,7 @@ exec dbus-update-activation-environment --all
 
 
 ## include generate config
+include colorscheme
 include .generated_settings/input_pointer.conf
 include .generated_settings/input_touchpad.conf
 

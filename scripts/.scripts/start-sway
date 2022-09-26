@@ -5,6 +5,13 @@ then
     source ~/.profile
 fi
 
+if [ -e ~/.private-env ]
+then
+    source ~/.private-env
+fi
+
+
+
 export QT_QPA_PLATFORM=wayland
 # export QT_STYLE_OVERRIDE=kvantum
 export QT_QPA_PLATFORMTHEME=gtk2

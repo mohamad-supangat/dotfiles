@@ -134,7 +134,8 @@
   },
   "tray": {
     "icon-size": 12,
-    "reverse-direction": true
+    "reverse-direction": true,
+    "spacing": 6
   },
   "battery": {
     "states": {

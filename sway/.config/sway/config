@@ -57,13 +57,16 @@ for_window [app_id="evolution" title="Fwd(.*)"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="mpv"] resize set 960 540
 for_window [app_id="mpv"] border pixel 10
-for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable, kill
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
-for_window [class="QtScrcpy"] floating enable
+
+for_window [app_id="QtScrcpy"] floating enable
+for_window [app_id="QtScrcpy" title="Tool"] kill
+
 for_window [class="scrcpy"] floating enable
-for_window [app_id="scrcpy"] floating enable
+
 for_window [class="Gimp-2.10"] floating disable
 for_window [class="Gimp-2.10" title="New Image"] floating enable
 for_window [class="Gimp-2.10" title="Layer"] floating enable
@@ -75,8 +78,8 @@ for_window [class="Gimp-2.10" title="Change"] floating enable
 for_window [title="Picture-in-picture"] floating enable, sticky enable
 
 # floating for dmenu and launcher app_id
-# for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
-# for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
+for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
+for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
 #
 
 # XWayland default floats
@@ -87,9 +90,9 @@ for_window [title="Picture-in-picture"] floating enable, sticky enable
 #  │ gaps / padding antar aplikasi                            │
 #  ╰──────────────────────────────────────────────────────────╯
 # smart_gaps on
-gaps inner 5
-gaps outer 10
-gaps bottom 1
+gaps inner 7
+gaps outer 20
+gaps bottom 5
 
 
 # wallpaper
@@ -118,7 +121,8 @@ bindsym Print exec $screenshot
 bindsym Shift+Print exec $screenanonation
 
 bindsym $mod+Shift+r exec $recordscreen
-bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
+# bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
+bindsym $mod+Shift+s exec qtscrcpy
 bindsym $mod+Shift+b exec $browser-selector
 # bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
 
@@ -343,4 +347,4 @@ include .generated_settings/input_touchpad.conf
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
 
-#xwayland disable
+xwayland disable

@@ -90,9 +90,9 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 #  │ gaps / padding antar aplikasi                            │
 #  ╰──────────────────────────────────────────────────────────╯
 # smart_gaps on
-gaps inner 7
-gaps outer 20
-gaps bottom 5
+# gaps inner 7
+# gaps outer 20
+# gaps bottom 5
 
 
 # wallpaper
@@ -346,5 +346,3 @@ include .generated_settings/input_touchpad.conf
 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
-
-xwayland disable

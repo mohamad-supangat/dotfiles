@@ -1,0 +1,4 @@
+include config
+
+# disable x11 xwayland
+xwayland disable

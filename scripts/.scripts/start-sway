@@ -32,4 +32,11 @@ export XDG_SESSION_DESKTOP=sway
 export NO_AT_BRIDGE=1
 
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
-exec dbus-run-session /usr/bin/sway
+
+config=~/.config/sway/nox11-config
+if [[ $1 == *"x11"* ]];
+then
+    config=~/.config/sway/config
+fi
+
+exec dbus-run-session /usr/bin/sway --config $config

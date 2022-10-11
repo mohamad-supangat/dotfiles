@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Sway with x11
+Comment=Sway with x11
+Exec=/home/deve/.scripts/start-sway x11
+Type=Application

@@ -5,14 +5,14 @@ fish_add_path /usr/local/bin
 fish_add_path ~/.config/composer/vendor/bin
 
 # init starship default prompts
-starship init fish | source
+# starship init fish | source
 
 # aliases sections
 alias art="./artisan"
 alias gu="lazygit"
 alias artisan="./artisan"
 alias artisan7="php7 ./artisan"
-alias dc="sudo docker-compose"
+alias dc="docker-compose"
 alias pm="python manage.py"
 alias tmuxproject="tmuxinator"
 alias se="sudo -E"
@@ -29,7 +29,7 @@ alias create-vite-project="pnpm create vite"
 
 # auto start sway
 if test (tty) = /dev/tty1
-    exec start-sway
+    exec tbsm
 end
 
 

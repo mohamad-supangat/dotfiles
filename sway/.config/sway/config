@@ -322,6 +322,7 @@ bindsym $mod+Shift+e mode "$mode_system"
 # auto start apps section
 # exec_always --no-startup-id xrdb ~/.Xresources
 # exec lxqt-policykit-agent # poolkit agent
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste -t text --watch clipman store --max-items=1000
 exec swaync
 exec waybar

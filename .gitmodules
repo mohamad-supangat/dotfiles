@@ -1,18 +1,15 @@
 [submodule "neovim/.config/nvim"]
 	path = neovim/.config/nvim
-	url = https://gitlab.com/hantamkoding-dotfiles/neovim
-[submodule "qtile/.config/qtile"]
-	path = qtile/.config/qtile
-	url = git@github.com:mohamad-supangat/qtile.git
+	url = git@github.com:mohamad-supangat/nvim-lua.git
 [submodule "catppuccin/gtk"]
 	path = catppuccin/gtk
-	url = https://github.com/catppuccin/gtk
+	url = https://github.com/catppuccin/gtk.git
 [submodule "catppuccin/Kvantum"]
 	path = catppuccin/Kvantum
-	url = https://github.com/catppuccin/Kvantum
+	url = https://github.com/catppuccin/Kvantum.git
 [submodule "icons/Reversal-icon-theme"]
 	path = icons/Reversal-icon-theme
-	url = https://github.com/yeyushengfan258/Reversal-icon-theme
+	url = https://github.com/yeyushengfan258/Reversal-icon-theme.git
 [submodule "qutebrowser/.config/qutebrowser"]
 	path = qutebrowser/.config/qutebrowser
 	url = git@github.com:mohamad-supangat/qutebrowser.git

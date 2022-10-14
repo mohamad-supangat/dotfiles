@@ -21,6 +21,7 @@ alias update-font-cache="fc-cache -f -v"
 alias vi="nvim"
 alias v="nvim"
 alias create-vite-project="pnpm create vite"
+alias readme-md-generator="pnpx readme-md-generator"
 
 
 

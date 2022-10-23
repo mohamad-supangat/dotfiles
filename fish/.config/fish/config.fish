@@ -20,6 +20,7 @@ alias composer7="/usr/bin/php7 /usr/bin/composer"
 alias update-font-cache="fc-cache -f -v"
 alias vi="nvim"
 alias v="nvim"
+alias create-laravel-project="composer create-project laravel/laravel"
 alias create-vite-project="pnpm create vite"
 alias readme-md-generator="pnpx readme-md-generator"
 

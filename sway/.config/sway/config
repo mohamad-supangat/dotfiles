@@ -324,7 +324,7 @@ bindsym $mod+Shift+e mode "$mode_system"
 # exec lxqt-policykit-agent # poolkit agent
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste -t text --watch clipman store --max-items=1000
-exec swaync
+# exec swaync
 exec waybar
 exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 # exec sworkstyle &> /tmp/sworkstyle.log

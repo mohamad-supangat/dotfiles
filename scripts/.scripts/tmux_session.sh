@@ -13,10 +13,10 @@ echo $TMUX_SESSIONS
 echo $TMUX_SESSION
 if [[ " ${TMUX_SESSIONS[*]} " =~ " ${TMUX_SESSION} " ]]; then
     echo "select exiting"
-    rofi-sensible-terminal -e tmux attach -d -t "${TMUX_SESSION}" &
+    $1 -e tmux attach -d -t "${TMUX_SESSION}" &
 elif [[ -z "${TMUX_SESSION}" ]]; then
     echo "Cancel"
 else
     echo "new session"
-    rofi-sensible-terminal -e tmux new-session -t "${TMUX_SESSION}" &
+    $1 -e tmux new-session -t "${TMUX_SESSION}" &
 fi

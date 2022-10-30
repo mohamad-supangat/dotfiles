@@ -3,7 +3,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term alacritty
+set $term foot
 set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
@@ -115,7 +115,7 @@ exec_always swaybg --image $background -m fit -c $backgroundFill
 
 # Shortcuts
 bindsym Control+Mod1+t exec $term
-bindsym $mod+Return exec tmux_session.sh
+bindsym $mod+Return exec tmux_session.sh $term
 bindsym $mod+Shift+Return exec rofi-tmuxp.sh
 bindsym Print exec $screenshot
 bindsym Shift+Print exec $screenanonation

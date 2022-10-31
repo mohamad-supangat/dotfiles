@@ -13,6 +13,7 @@ thm_red="#e38c8f"
 thm_green="#b1e3ad"
 thm_yellow="#ebddaa"
 thm_blue="#a4b9ef"
+thm_lavender="#b4befe"
 thm_orange="#f9c096"
 thm_black4="#575268"
 
@@ -42,7 +43,9 @@ setw -g window-status-style fg="${thm_fg}",bg="${thm_bg}",none
 # --------=== Statusline
 
 set -g status-left ""
-set -g status-right "#{?client_prefix,#[fg=$thm_red],#[fg=$thm_green]}#[bg=$thm_gray]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
+set -g status-middle "asd"
+
+set -g status-right "#{?client_prefix,#[fg=$thm_red],#[fg=$thm_green]}#[bg=$thm_gray]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg]  %H:%M %d-%b-%y #[fg=$thm_fg,bg=$thm_gray] #{network_bandwidth} |  #{battery_percentage} | #S "
 
 # set -g status-right "#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_gray] #W #{?client_prefix,#[fg=$thm_red],#[fg=$thm_green]}#[bg=$thm_gray]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
 

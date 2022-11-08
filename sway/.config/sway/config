@@ -121,8 +121,7 @@ bindsym Print exec $screenshot
 bindsym Shift+Print exec $screenanonation
 
 bindsym $mod+Shift+r exec $recordscreen
-# bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
-bindsym $mod+Shift+s exec qtscrcpy
+bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 bindsym $mod+Shift+b exec $browser-selector
 # bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
 
@@ -326,7 +325,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste -t text --watch clipman store --max-items=1000
 # exec swaync
 exec waybar
-exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
+# exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 # exec sworkstyle &> /tmp/sworkstyle.log
 # exec_always wlsunset
 

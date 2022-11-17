@@ -14,7 +14,7 @@ fi
 
 export QT_QPA_PLATFORM=wayland
 # export QT_STYLE_OVERRIDE=kvantum
-# export QT_QPA_PLATFORMTHEME=gtk2
+export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 
 
@@ -30,8 +30,9 @@ export XDG_SESSION_DESKTOP=sway
 
 # export GDK_CORE_DEVICE_EVENTS=1
 export NO_AT_BRIDGE=1
-
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+export TERMINAL=/usr/bin/foot
+
 
 config=~/.config/sway/nox11-config
 if [[ $1 == *"x11"* ]];

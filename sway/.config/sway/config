@@ -50,6 +50,7 @@ for_window [app_id="zenity"] floating enable
 for_window [app_id="solaar"] floating enable
 for_window [app_id="otpclient"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 30
 
+for_window [app_id="lxqt-policykit-agent"] floating enable, sticky enable, border pixel 10
 
 for_window [app_id="evolution" title="Compose Message"] floating enable
 for_window [app_id="evolution" title="Re(.*)"] floating enable
@@ -320,11 +321,12 @@ bindsym $mod+Shift+e mode "$mode_system"
 
 # auto start apps section
 # exec_always --no-startup-id xrdb ~/.Xresources
-# exec lxqt-policykit-agent # poolkit agent
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# poolkit agent
+exec lxqt-policykit-agent
+#exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste -t text --watch clipman store --max-items=1000
 # exec swaync
-exec waybar
+# exec waybar
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 # exec sworkstyle &> /tmp/sworkstyle.log
 # exec_always wlsunset
@@ -346,3 +348,17 @@ include .generated_settings/input_touchpad.conf
 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
+bar {
+    font pango:JetBrainsMono Nerd Font, FontAwesome 6
+    position top
+    status_command i3status-rs
+    colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
+}

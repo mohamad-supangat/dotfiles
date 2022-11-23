@@ -59,14 +59,18 @@ keys = [
     # Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(),
+        desc="Move window to the left"),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(),
+        desc="Move window to the right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([mod, "control"], "h", lazy.layout.grow_left(),
+        desc="Grow window to the left"),
+    Key([mod, "control"], "l", lazy.layout.grow_right(),
+        desc="Grow window to the right"),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     # Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
@@ -84,9 +88,11 @@ keys = [
 
 
     # Toggle between different layouts as defined below
-    Key([mod, 'shift'], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod, 'shift'], "Tab", lazy.next_layout(),
+        desc="Toggle between layouts"),
     Key([mod, 'shift'], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle between layouts"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(),
+        desc="Toggle between layouts"),
 
     Key([mod, "shift"], "c", lazy.reload_config(), desc="Reload the config"),
     # Key([mod, "shift"], "c", lazy.restart(), desc="Reload the config"),
@@ -104,14 +110,17 @@ keys = [
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10-")),
 
     # Floating keybind
-    Key([mod], "Tab", utils.toggle_focus_floating(), desc="Toogle Floating window mode"),
-    Key([mod, 'shift'], "space", lazy.window.toggle_floating(), desc="Toogle Floating window mode"),
+    Key([mod], "Tab", utils.toggle_focus_floating(),
+        desc="Toogle Floating window mode"),
+    Key([mod, 'shift'], "space", lazy.window.toggle_floating(),
+        desc="Toogle Floating window mode"),
 
 
     # aplication binding
     Key([mod], "n", lazy.spawn(filemanager), desc="Open file manager"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key(['mod1', 'control'], "h", lazy.spawn(clipboard_manager), desc="Clipboard manager"),
+    Key(['mod1', 'control'], "h", lazy.spawn(
+        clipboard_manager), desc="Clipboard manager"),
     Key([mod], "r", lazy.spawn(runner), desc="runner"),
     Key([mod], "space", lazy.spawn(app_runner), desc="app_runner"),
     Key([mod, 'shift'], "b", lazy.spawn('qbpm choose'), desc="qbpm choose"),
@@ -123,7 +132,8 @@ keys = [
     # screen tools
     Key([], 'Print', lazy.spawn(screenshot), desc="Screen shoot"),
     Key([mod], 'Print', lazy.spawn(screenrecord), desc="screen record"),
-    Key([mod, 'shift'], "a", lazy.spawn(screenanonation), desc="screen annonation"),
+    Key([mod, 'shift'], "a", lazy.spawn(
+        screenanonation), desc="screen annonation"),
 
 ]
 
@@ -144,7 +154,8 @@ for i in groups:
                 [mod, "shift"],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                desc="Switch to & move focused window to group {}".format(
+                    i.name),
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
@@ -154,14 +165,16 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#ff0000", "#00ff00"], border_focus="#d75f5f", border_width=5, margin=5),
+    layout.Columns(border_focus_stack=[
+                   "#ff0000", "#00ff00"], border_focus="#d75f5f", border_width=5, margin=5),
     layout.Max(
-        margin=59
+        margin=5,
+        border_width=5
     ),
 
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
+    layout.Bsp(border_width=5),
     # layout.Matrix(),
     # layout.MonadTall(),
     # layout.MonadWide(),
@@ -221,8 +234,10 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Drag([mod], "Button1", lazy.window.set_position_floating(),
+         start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(),
+         start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
@@ -244,7 +259,6 @@ floating_layout = layout.Floating(
         Match(wm_class="scrcpy")
     ]
 )
-
 
 
 @hook.subscribe.startup_once

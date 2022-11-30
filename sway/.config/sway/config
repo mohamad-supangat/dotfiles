@@ -55,9 +55,6 @@ for_window [app_id="lxqt-policykit-agent"] floating enable, sticky enable, borde
 for_window [app_id="evolution" title="Compose Message"] floating enable
 for_window [app_id="evolution" title="Re(.*)"] floating enable
 for_window [app_id="evolution" title="Fwd(.*)"] floating enable
-for_window [app_id="mpv"] floating enable
-for_window [app_id="mpv"] resize set 960 540
-for_window [app_id="mpv"] border pixel 10
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable, kill
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable

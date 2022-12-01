@@ -26,6 +26,8 @@ alias readme-md-generator="pnpx readme-md-generator"
 alias odoo-readme-md-to-description="mkdir -p static/description && github-markdown README.md > static/description/index.html"
 alias adb-push-public-key="adb push ~/.android/adbkey.pub /data/misc/adb/adb_keys"
 alias adb-screenshot="adb exec-out screencap -p > ~/Pictures/screenshots/android-$(date +"%Y-%m-%d-%H-%M-%S").png"
+alias tmux-save-pane='tmux capture-pane -pS -'
+
 
 
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-export SDL_VIDEODRIVER=x11
+# export SDL_VIDEODRIVER=x11
 # /usr/bin/scrcpy -w -S --shortcut-mod=rctrl+ralt,rsuper
 # /usr/bin/scrcpy -Sw -K --window-borderless --always-on-top --raw-key-events
 
@@ -32,9 +32,9 @@ function startApps() {
     devices=$(getDevices)
     if [ -n "${devices}" ]; then
         if [[ $devices == *'10.5.50.38:7777'* ]]; then
-            scrcpy -Sw -s $devices
+            scrcpy -S -s $devices
         else
-            scrcpy -Sw -K --power-off-on-close -s $devices
+            scrcpy -S -s $devices
         fi
         # scrcpy  -S --power-off-on-close -s $devices
     else

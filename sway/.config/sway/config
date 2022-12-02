@@ -52,13 +52,19 @@ for_window [app_id="otpclient"] floating enable, sticky enable, resize set 30 pp
 
 for_window [app_id="lxqt-policykit-agent"] floating enable, sticky enable, border pixel 10
 
+
+# for_window [app_id="foot"] saturation set 0
+
 for_window [app_id="evolution" title="Compose Message"] floating enable
 for_window [app_id="evolution" title="Re(.*)"] floating enable
 for_window [app_id="evolution" title="Fwd(.*)"] floating enable
+for_window [app_id="mpv"] floating enable, border pixel 10, resize set 30 ppt
+# for_window [app_id="mpv"] resize set 960
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable, kill
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
+for_window [app_id="firefoxdeveloperedition" title="Firefox Developer Edition — Sharing Indicator"] floating enable, kill
 
 for_window [app_id="QtScrcpy"] floating enable
 for_window [app_id="QtScrcpy" title="Tool"] kill

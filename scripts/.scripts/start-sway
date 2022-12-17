@@ -40,4 +40,5 @@ then
     config=~/.config/sway/config
 fi
 
-exec dbus-run-session /usr/bin/sway --config $config
+exec /usr/bin/sway --config $config
+# exec dbus-run-session /usr/bin/sway --config $config

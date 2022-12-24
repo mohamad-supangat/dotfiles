@@ -28,6 +28,7 @@ alias adb-push-public-key="adb push ~/.android/adbkey.pub /data/misc/adb/adb_key
 alias adb-screenshot="adb exec-out screencap -p > ~/Pictures/screenshots/android-$(date +"%Y-%m-%d-%H-%M-%S").png"
 alias tmux-save-pane='tmux capture-pane -pS -'
 alias pnpm-install-aura-erp-installer="pnpm add -g git+ssh://git@gitlab.com:aura-erp/installer.git"
+alias pac="sudo pacman"
 
 
 

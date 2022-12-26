@@ -28,6 +28,8 @@ alias adb-push-public-key="adb push ~/.android/adbkey.pub /data/misc/adb/adb_key
 alias adb-screenshot="adb exec-out screencap -p > ~/Pictures/screenshots/android-$(date +"%Y-%m-%d-%H-%M-%S").png"
 alias tmux-save-pane='tmux capture-pane -pS -'
 alias pnpm-install-aura-erp-installer="pnpm add -g git+ssh://git@gitlab.com:aura-erp/installer.git"
+alias pac="sudo pacman"
+
 alias sync-odoo-addons="rsync -azP ~/odoo/addons/ pangat@192.168.10.112:/home/pangat/odoo-15/addons/"
 alias pulseaudi-stream-simple-protocol-tcp="pactl load-module module-simple-protocol-tcp source=102 record=true port=12345"
 alias nchat-wa="nchat -d ~/.nchat-main-wa"

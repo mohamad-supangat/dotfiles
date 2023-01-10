@@ -1,11 +1,11 @@
 * {
-    bg-col:  #1e1e2e;
-    bg-col-light: #1e1e2e;
-    border-col: #89b4fa;
-    selected-col: #1e1e2e;
-    blue: #89b4fa;
-    fg-col: #cdd6f4;
-    fg-col2: #89b4fa;
+    bg-col:  #282828;
+    bg-col-light: #282828;
+    border-col: #e78a4e;
+    selected-col: #282828;
+    blue: #e78a4e;
+    fg-col: #d4be98;
+    fg-col2: #e78a4e;
     grey: #6c7086;
     width: 600;
     font: "Iosevka 10";

@@ -352,16 +352,20 @@ include .generated_settings/input_touchpad.conf
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
 bar {
-    font pango:JetBrainsMono Nerd Font, FontAwesome 6
+    font pango:JetBrainsMono Nerd Font, FontAwesome 5
     position top
     status_command i3status-rs
     colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
-    }
+  # bar background color
+         background $bg
+         # text color used for blocks that do not have a color specified.
+         statusline $fg
+
+         # workspaces section
+         #                    border     backgr.     text
+         focused_workspace    $orange    $orange     $bg
+         inactive_workspace   $bg        $aqua       $bg
+         active_workspace     $bg        $blue       $bg
+         urgent_workspace     $red       $red        $fg
+      }
 }

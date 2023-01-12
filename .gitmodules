@@ -13,3 +13,9 @@
 [submodule "qutebrowser/.config/qutebrowser"]
 	path = qutebrowser/.config/qutebrowser
 	url = git@github.com:mohamad-supangat/qutebrowser.git
+[submodule "icons/GruvboxPlus"]
+	path = icons/GruvboxPlus
+	url = https://github.com/SylEleuth/gruvbox-plus-icon-pack
+[submodule "gruvbox/Gruvbox-GTK-Theme"]
+	path = gruvbox/Gruvbox-GTK-Theme
+	url = https://github.com/Fausto-Korpsvart/Gruvbox-GTK-Theme

@@ -3,7 +3,7 @@
     "term": "foot",
     "history": "{$HOME}/.cache/i3/i3-quickterm.order",
     "ratio": 0.6,
-    "pos": "bottom",
+    "pos": "top",
     "shells": {
         "haskell": "ghci",
         "js": "node",

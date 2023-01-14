@@ -12,13 +12,14 @@ set $screenshot flameshot gui
 set $screenanonation flameshot gui --region all
 
 # set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
-# set $recordscreen ~/.scripts/record-screen
+set $recordscreen ~/.scripts/record-screen
 # set $clipboard_manager ~/.scripts/clipman-fzf
 set $clipboard_manager clipman pick -t rofi
 set $file_manager pcmanfm
 set $dmenu rofi -modi run -show run
 set $background /home/deve/Pictures/wallpaper.png
 set $backgroundFill '#1D1F21'
+set $browser-selector qbpm choose -m rofi
 
 # Drag floating windows
 floating_modifier $mod
@@ -31,9 +32,58 @@ default_border pixel 5
 # default_floating_border normal
 hide_edge_borders smart
 
-# floating for dmenu and launcher id
-# for_window [id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
-# for_window [id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
+# for_window [class="^.*"] border pixel 2
+
+# for_window [class="Pavucontrol"] floating enable
+# for_window [class="ColorGrab"] floating enable
+# for_window [class="xdman"] floating enable
+# for_window [class="xpad"] floating enable
+# for_window [app_id="ssh-askpass-sublime"] floating enable
+#
+#  # Wayland default floats
+# for_window [app_id="gnome-(calendar|calculator|power-statistics|control-center)"] floating enable
+# for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable
+# for_window [app_id="(pavucontrol|psensor)"] floating enable
+# for_window [app_id="evolution-alarm-notify"] floating enable
+# for_window [app_id="nemo"] floating disable
+# for_window [app_id="zenity"] floating enable
+# for_window [app_id="solaar"] floating enable
+# for_window [app_id="otpclient"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 30
+#
+# for_window [app_id="lxqt-policykit-agent"] floating enable, sticky enable, border pixel 10
+
+
+# for_window [app_id="foot"] saturation set 0
+
+# for_window [app_id="evolution" title="Compose Message"] floating enable
+# for_window [app_id="evolution" title="Re(.*)"] floating enable
+# for_window [app_id="evolution" title="Fwd(.*)"] floating enable
+# for_window [app_id="mpv"] floating enable, border pixel 10, resize set 30 ppt
+# # for_window [app_id="mpv"] resize set 960
+# for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable, kill
+# for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
+# for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
+# for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
+# for_window [app_id="firefoxdeveloperedition" title="Firefox Developer Edition — Sharing Indicator"] floating enable, kill
+#
+# for_window [app_id="QtScrcpy"] floating enable
+# for_window [app_id="QtScrcpy" title="Tool"] kill
+#
+# for_window [app_id="scrcpy"] floating enable, resize set 25 ppt 80 ppt, move position 75 ppt 0 ppt
+#
+# for_window [class="Gimp-2.10"] floating disable
+# for_window [class="Gimp-2.10" title="New Image"] floating enable
+# for_window [class="Gimp-2.10" title="Layer"] floating enable
+# for_window [class="Gimp-2.10" title="Tool"] floating enable
+# for_window [class="Gimp-2.10" title="Option"] floating enable
+# for_window [class="Gimp-2.10" title="Change"] floating enable
+#
+# # Brave, chrome, chromium
+# for_window [title="Picture-in-picture"] floating enable, sticky enable
+#
+# # floating for dmenu and launcher app_id
+# for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
+# for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
 #
 
 # XWayland default floats
@@ -43,15 +93,15 @@ hide_edge_borders smart
 #  ╭──────────────────────────────────────────────────────────╮
 #  │ gaps / padding antar aplikasi                            │
 #  ╰──────────────────────────────────────────────────────────╯
-smart_gaps on
-gaps inner 5
-gaps outer 5
-gaps top 10
+# smart_gaps on
+# gaps inner 3
+# gaps outer 3
+# gaps bottom 5
 
 
 # wallpaper
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
-# exec_always swaybg --image $background -m fit -c $backgroundFill
+# exec_always swaybg --image $background -m fill -c $backgroundFill
 
 # output * bg $base01 solid_color
 # output * bg $backgroundFill solid_color
@@ -63,20 +113,39 @@ gaps top 10
 # assign [class="^Signal$"] $wsF1
 # assign [class="^Riot$"] $wsF1
 # assign [class="^Mailspring$"] $wsF2
-# assign [id="virt-manager"] $wsF8
+# assign [app_id="virt-manager"] $wsF8
 # assign [class="^KeePass2$"] $wsF11
 # assign [class="^Spotify$"] $wsF12
 
+## include generate config
+include colorscheme
+
+bar {
+    font pango:JetBrainsMono Nerd Font, FontAwesome 6
+    position top
+    status_command i3status-rs
+    colors {
+
+    }
+}
+
+# include keymaps
+
+
 # Shortcuts
-bindsym $mod+Return exec tmux_session.sh
+bindsym Control+Mod1+t exec $term
+# unbindsym $mod+b
+bindsym $mod+b exec i3-quickterm shell
+
+bindsym $mod+Return exec tmux_session.sh $term
 bindsym $mod+Shift+Return exec rofi-tmuxp.sh
 bindsym Print exec $screenshot
 bindsym Shift+Print exec $screenanonation
 
 bindsym $mod+Shift+r exec $recordscreen
-bindsym $mod+Shift+s exec start-scrcpy
-bindsym $mod+Shift+b exec qbpm choose
-
+bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
+bindsym $mod+Shift+b exec $browser-selector
+# bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
 
 
 # bindsym $mod+Shift+Print exec $screenclip
@@ -92,8 +161,8 @@ bindsym $mod+Shift+a exec ~/.scripts/auto-click
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 #bindsym $mod+Shift+e exit
-bindsym $mod+b splith
-bindsym $mod+v splitv
+# bindsym $mod+b splith
+# bindsym $mod+v splitv
 
 # bindsym $mod+l exec $lock
 bindsym $mod+Escape exec $power
@@ -108,13 +177,13 @@ bindsym $mod+End exec $wifi
 # bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
 # bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
 #
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
-bindsym --locked XF86AudioPlay exec playerctl play-pause
-bindsym --locked XF86AudioNext exec playerctl next
-bindsym --locked XF86AudioPrev exec playerctl previous
+# bindsym --locked XF86AudioPlay exec playerctl play-pause
+# bindsym --locked XF86AudioNext exec playerctl next
+# bindsym --locked XF86AudioPrev exec playerctl previous
 
 # Bind brightness keys to light interface
 bindsym XF86MonBrightnessUp exec  brightnessctl set +20
@@ -171,8 +240,8 @@ bindsym $mod+Control+Up resize shrink height 10 px or 10
 bindsym $mod+Control+Right resize grow width 10 px or 10
 
 bindsym $mod+Control+h resize shrink width 10 px or 10
-bindsym $mod+Control+j resize grow height 10 px or 10
-bindsym $mod+Control+k resize shrink height 10 px or 10
+bindsym $mod+Control+k resize grow height 10 px or 10
+bindsym $mod+Control+j resize shrink height 10 px or 10
 bindsym $mod+Control+l resize grow width 10 px or 10
 
 
@@ -181,17 +250,17 @@ bindsym $mod+Control+l resize grow width 10 px or 10
 # bindsym $mod+Shift+Control+Up resize shrink height 1 px or 1
 # bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
 
-# Switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
+
+bindsym  $mod+1 workspace number 1; exec "echo 1 > /tmp/sovpipe"
+bindsym  $mod+2 workspace number 2; exec "echo 1 > /tmp/sovpipe"
+bindsym  $mod+3 workspace number 3; exec "echo 1 > /tmp/sovpipe"
+bindsym  $mod+4 workspace number 4; exec "echo 1 > /tmp/sovpipe"
+bindsym  $mod+5 workspace number 5; exec "echo 1 > /tmp/sovpipe"
+bindsym  $mod+6 workspace number 6; exec "echo 1 > /tmp/sovpipe"
+bindsym  $mod+7 workspace number 7; exec "echo 1 > /tmp/sovpipe"
+bindsym  $mod+8 workspace number 8; exec "echo 1 > /tmp/sovpipe"
+bindsym  $mod+9 workspace number 9; exec "echo 1 > /tmp/sovpipe"
+bindsym  $mod+0 workspace number 10; exec "echo 1 > /tmp/sovpipe"
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
@@ -254,63 +323,9 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+
 bindsym $mod+Shift+e mode "$mode_system"
+# bindsym $mod+Shift+e exec wlogout
 
 
-# auto start apps section
-# exec_always --no-startup-id xrdb ~/.Xresources
-# exec lxqt-policykit-agent # poolkit agent
-# exec wl-paste -t text --watch clipman store --max-items=1000
-exec dunst
-# exec sworkstyle &> /tmp/sworkstyle.log
-# exec_always wlsunset
-
-
-# gnome keyring start
-exec dbus-update-activation-environment --all
-# exec eval $(gnome-keyring-daemon --start)
-# exec export SSH_AUTH_SOCK
-
-
-## gtk application theme
-set $gnome-schema org.gnome.desktop.interface
-exec_always {
-
-    # gsettings set $gnome-schema gtk-theme 'Mojave-dark'
-
-    # gsettings set $gnome-schema icon-theme 'breeze-dark'
-
-    # gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
-
-   # gsettings set $gnome-schema font-name 'Iosevka 11'
-
-}
-
-# exec_always ~/.config/waybar/waybar.sh
-
-include colorscheme
-bar {
-    position top
-    # Keep in mind that the current directory of this config file is $HOME
-    # status_command while ~/.config/sway/status.sh; do sleep 1; done
-
-    status_command i3status-rs
-    font Iosevka 7
-
-
-     colors {
-            # bar background color
-            background $cl_back
-            # text color used for blocks that do not have a color specified.
-            statusline $cl_high
-
-            # workspaces section
-            #                    border     backgr.     text
-            focused_workspace    $cl_high    $cl_high     $cl_back
-            inactive_workspace   $cl_back    $cl_back     $cl_high
-            # active_workspace     $bg        $blue       $bg
-            urgent_workspace     $cl_urge       $cl_urge        $cl_back
-
-    }
-}
-#

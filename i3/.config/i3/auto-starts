@@ -1,0 +1,25 @@
+# auto start apps section
+exec_always --no-startup-id xrdb ~/.Xresources
+# poolkit agent
+exec lxqt-policykit-agent
+# exec greenclip daemon
+exec xcompmgr
+#exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec wl-paste -t text --watch clipman store --max-items=1000
+# exec swaync
+# exec waybar
+# exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
+# exec sworkstyle &> /tmp/sworkstyle.log
+# exec_always wlsunset
+
+
+# gnome keyring start
+exec dbus-update-activation-environment --all
+exec systemctl --user import-environment DISPLAY
+
+exec clipnotify --disable-primary
+# exec eval $(gnome-keyring-daemon --start)
+# exec export SSH_AUTH_SOCK
+
+
+

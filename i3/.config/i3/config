@@ -342,5 +342,5 @@ for_window [instance="scratchpad"] floating enable, resize set 800 600, \
 # Move the currently focused window to the scratchpad
 # bindsym $mod+Shift+b move scratchpad
 #show scratchpad
-bindsym $mod+b scratchpad show, move position center
+bindsym $mod+b scratchpad show
 

@@ -1,1 +1,1 @@
-sshpass -p "Donatelo" ssh -o StrictHostKeyChecking=no  root@192.168.10.18
+sshpass -p "docker" ssh -o StrictHostKeyChecking=no  pangat@192.168.10.112

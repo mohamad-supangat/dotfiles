@@ -5,7 +5,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export FONT_NAME="JetBrainsMono Nerd Font 10"
 
 # For Android Studio
-export _JAVA_AWT_WM_NONREPARENTING=1
+# export _JAVA_AWT_WM_NONREPARENTING=1
 
 export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk
 # For Gradle
@@ -20,7 +20,7 @@ export PATH="$PATH:$GEM_HOME/bin"
 export EDITOR=nvim
 # export TERMINAL=/usr/bin/alacritty
 export TERMINAL=/usr/bin/alacritty
-
+export PATH=$PATH:~/.scripts
 
 
 # export FZF_DEFAULT_OPTS=" \

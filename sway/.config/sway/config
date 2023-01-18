@@ -17,7 +17,7 @@ set $recordscreen ~/.scripts/record-screen
 set $clipboard_manager clipman pick -t rofi
 set $file_manager pcmanfm
 set $dmenu rofi -modi run -show run
-set $background /home/deve/Pictures/wallpaper.png
+set $background /home/deve/Pictures/81993.jpg
 set $backgroundFill '#1D1F21'
 set $browser-selector qbpm choose -m rofi
 
@@ -32,7 +32,7 @@ default_border pixel 5
 # default_floating_border normal
 hide_edge_borders smart
 
-# for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 2
 
 for_window [class="Pavucontrol"] floating enable
 for_window [class="ColorGrab"] floating enable
@@ -94,14 +94,14 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 #  │ gaps / padding antar aplikasi                            │
 #  ╰──────────────────────────────────────────────────────────╯
 # smart_gaps on
-# gaps inner 7
-# gaps outer 20
+# gaps inner 3
+# gaps outer 3
 # gaps bottom 5
 
 
 # wallpaper
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
-exec_always swaybg --image $background -m fit -c $backgroundFill
+exec_always swaybg --image $background -m fill -c $backgroundFill
 
 # output * bg $base01 solid_color
 # output * bg $backgroundFill solid_color

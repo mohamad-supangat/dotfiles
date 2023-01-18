@@ -7,19 +7,18 @@
     "sway/mode",
     "sway/workspaces",
     "wlr/workspaces"
-
     // "custom/scratchpad_indicator",
     // "sway/window"
   ],
   "modules-center": [
-    "network",
+    // "network",
     "cpu",
     "memory"
     // "custom/playerctl",
   ],
   "modules-right": [
     "tray",
-    "custom/notification",
+    // "custom/notification",
     "battery",
     // "pulseaudio",
     "clock"
@@ -63,7 +62,9 @@
     // "on-click": "rofi",
     "tooltip": false
   },
-  "sway/window": { "format": "{}" },
+  "sway/window": {
+    "format": "{}"
+  },
   "clock": {
     "format": "<span> </span><span> {:%I:%M %p}</span>",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -92,7 +93,10 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["奔", "墳"]
+      "default": [
+        "奔",
+        "墳"
+      ]
     },
     "on-click-right": "pavucontrol"
   },
@@ -149,7 +153,13 @@
     "format-alt": "{icon} {time}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
     // "format-icons": ["", "", "", "", ""]
   }
 }

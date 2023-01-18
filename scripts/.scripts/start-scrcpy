@@ -34,7 +34,7 @@ function startApps() {
         if [[ $devices == *'10.5.50.38:7777'* ]]; then
             scrcpy -S -s $devices
         else
-            scrcpy -S -s $devices
+            scrcpy -Sw -s $devices
         fi
         # scrcpy  -S --power-off-on-close -s $devices
     else

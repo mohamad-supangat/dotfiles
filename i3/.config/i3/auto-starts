@@ -4,6 +4,7 @@ exec_always --no-startup-id xrdb ~/.Xresources
 exec lxqt-policykit-agent
 # exec greenclip daemon
 exec xcompmgr
+exec dunst
 #exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec wl-paste -t text --watch clipman store --max-items=1000
 # exec swaync

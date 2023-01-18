@@ -31,7 +31,7 @@ alias pnpm-install-aura-erp-installer="pnpm add -g git+ssh://git@gitlab.com:aura
 alias pac="sudo pacman"
 
 alias sync-odoo-addons="rsync -azP ~/odoo/addons/ pangat@192.168.10.112:/home/pangat/odoo-15/addons/"
-alias pulseaudi-stream-simple-protocol-tcp="pactl load-module module-simple-protocol-tcp source=102 record=true port=12345"
+alias pulseaudi-stream-simple-protocol-tcp="pactl load-module module-simple-protocol-tcp source=102 record=true port=12345 && adb reverse tcp:12345 tcp:12345"
 alias nchat-wa="nchat -d ~/.nchat-main-wa"
 
 

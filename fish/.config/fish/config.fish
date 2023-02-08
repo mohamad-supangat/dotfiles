@@ -8,6 +8,7 @@ fish_add_path ~/.config/composer/vendor/bin
 # starship init fish | source
 
 # aliases sections
+alias ls="ls -a --color"
 alias art="./artisan"
 alias gu="lazygit"
 alias artisan="./artisan"

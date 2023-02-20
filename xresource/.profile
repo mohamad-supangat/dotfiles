@@ -12,6 +12,10 @@ export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 
+# add ruby gem path and home
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
+
 # default editor
 export EDITOR=nvim
 # export TERMINAL=/usr/bin/alacritty

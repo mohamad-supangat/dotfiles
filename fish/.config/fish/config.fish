@@ -9,6 +9,7 @@ fish_add_path ~/.config/composer/vendor/bin
 
 # aliases sections
 alias ls="ls -a --color"
+alias ask="sgpt"
 alias art="./artisan"
 alias gu="lazygit"
 alias artisan="./artisan"

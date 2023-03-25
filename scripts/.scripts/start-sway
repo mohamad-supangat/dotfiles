@@ -34,6 +34,8 @@ export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 export TERMINAL=/usr/bin/foot
 
 
+# dbus-update-activation-environment --all &
+
 config=~/.config/sway/nox11-config
 if [[ $1 == *"x11"* ]];
 then

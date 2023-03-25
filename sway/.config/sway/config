@@ -337,7 +337,7 @@ exec wl-paste -t text --watch clipman store --max-items=1000
 
 exec --no-startup-id $term --name scratchpad
 # gnome keyring start
-exec dbus-update-activation-environment --all
+
 # exec eval $(gnome-keyring-daemon --start)
 # exec export SSH_AUTH_SOCK
 
@@ -355,16 +355,15 @@ bar {
     position top
     status_command i3status-rs
     colors {
-  # bar background color
-         background $bg
-         # text color used for blocks that do not have a color specified.
-         statusline $fg
+        background $base00
+        separator  $base01
+        statusline $base04
 
-         # workspaces section
-         #                    border     backgr.     text
-         focused_workspace    $orange    $orange     $bg
-         inactive_workspace   $bg        $aqua       $bg
-         active_workspace     $bg        $blue       $bg
-         urgent_workspace     $red       $red        $fg
-      }
+        # State             Border  BG      Text
+        focused_workspace   $base05 $base0D $base00
+        active_workspace    $base05 $base03 $base00
+        inactive_workspace  $base03 $base01 $base05
+        urgent_workspace    $base08 $base08 $base00
+        binding_mode        $base00 $base0A $base00
+    }
 }

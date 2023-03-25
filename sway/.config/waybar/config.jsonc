@@ -5,16 +5,16 @@
   "modules-left": [
     "custom/arch-pill",
     "sway/mode",
-    "sway/workspaces",
-    "wlr/workspaces"
+    "sway/workspaces"
+    // "wlr/workspaces"
 
     // "custom/scratchpad_indicator",
     // "sway/window"
   ],
   "modules-center": [
-    "network",
+    // "network",
     "cpu",
-    "memory"
+    // "memory"
     // "custom/playerctl",
   ],
   "modules-right": [
@@ -29,9 +29,9 @@
     "tooltip": false,
     "on-click": "lxtask"
   },
-  "memory": {
-    "format": " {}%"
-  },
+  // "memory": {
+  //   "format": " {}%"
+  // },
   // Modules configuration
   "wlr/workspaces": {
     "sort-by-name": true
@@ -69,18 +69,18 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "<span> </span><span> {:%I:%M %p  %a %d}</span>"
   },
-  "network": {
-    // "interface": "enp2s0",
-    "format": "Loading",
-    "format-wifi": "<span></span> {essid} {bandwidthTotalBytes}",
-    "format-ethernet": "<span></span> {ipaddr} {bandwidthTotalBytes} {icon}",
-    "format-linked": "<span></span>",
-    "format-disconnected": "<span>睊</span>",
-    "tooltip-format-linked": "{ifname}  ",
-    "tooltip-format-disconnected": "Disconnected",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}% ",
-    "tooltip-format-ethernet": "{ifname}  "
-  },
+  // "network": {
+  //   // "interface": "enp2s0",
+  //   "format": "Loading",
+  //   "format-wifi": "<span></span> {essid} {bandwidthTotalBytes}",
+  //   "format-ethernet": "<span></span> {ipaddr} {bandwidthTotalBytes} {icon}",
+  //   "format-linked": "<span></span>",
+  //   "format-disconnected": "<span>睊</span>",
+  //   "tooltip-format-linked": "{ifname}  ",
+  //   "tooltip-format-disconnected": "Disconnected",
+  //   "tooltip-format-wifi": "Signal Strenght: {signalStrength}% ",
+  //   "tooltip-format-ethernet": "{ifname}  "
+  // },
   "pulseaudio": {
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "format": "<span size='13000' foreground='#FAE3B0'>{icon} </span><span> {volume}%</span>",

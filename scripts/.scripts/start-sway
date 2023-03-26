@@ -33,6 +33,7 @@ export NO_AT_BRIDGE=1
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 export TERMINAL=/usr/bin/foot
 
+exec systemctl --user import-environment
 
 # dbus-update-activation-environment --all &
 

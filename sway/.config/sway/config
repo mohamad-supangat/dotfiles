@@ -30,7 +30,7 @@ font xft:Iosevka 8
 # Window borders
 default_border pixel 5
 # default_floating_border normal
-hide_edge_borders smart
+# hide_edge_borders smart
 
 # for_window [class="^.*"] border pixel 2
 
@@ -96,7 +96,7 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 # smart_gaps on
 gaps inner 7
 gaps outer 20
-gaps bottom 5
+# gaps bottom 5
 
 # swayfx
 corner_radius 10

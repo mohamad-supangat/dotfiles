@@ -1,41 +1,26 @@
-theme = "gruvbox-dark"
-icons = "awesome"
+icons_format = "{icon}"
 
+[theme]
+theme = "srcery"
 
-[[ block ]]
+[icons]
+icons = "awesome6"
+
+[[block]]
 block = "net"
-format = "{ip} {speed_down;K*B} {speed_up;K*B}"
-interval = 1
-
-[[block]]
-block = "disk_space"
-path = "/"
-alias = "/"
-info_type = "available"
-unit = "GB"
-interval = 20
-warning = 20.0
-alert = 10.0
-
-[[block]]
-block = "memory"
-display_type = "memory"
-format_mem = "{mem_total_used_percents}"
-format_swap = "{swap_used_percents}"
+format = " $icon {$signal_strength $ssid $frequency|Wired connection} via $device "
 
 [[block]]
 block = "cpu"
-interval = 1
 
-# [[block]]
-# block = "load"
-# interval = 1
-# format = "{1m}"
+[[block]]
+block = "memory"
+format = " $icon $mem_total_used_percents.eng(w:2) "
+format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
 
 [[ block ]]
 block = "battery"
 interval = 2
-
 
 [[block]]
 block = "time"

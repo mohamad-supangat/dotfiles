@@ -355,7 +355,7 @@ include .generated_settings/input_touchpad.conf
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
 bar {
-    font pango:JetBrainsMono Nerd Font, FontAwesome 5
+    font pango:Iosevka Nerd Font, FontAwesome 8
     position top
     status_command i3status-rs
     colors {

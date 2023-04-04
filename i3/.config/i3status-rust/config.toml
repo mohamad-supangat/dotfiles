@@ -20,9 +20,10 @@ format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
 
 [[ block ]]
 block = "battery"
+format = " $icon $percentage "
 interval = 2
 
 [[block]]
 block = "time"
 interval = 60
-format = "%a %d/%m %R"
+# format = "%a %d/%m %R"

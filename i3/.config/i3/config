@@ -148,6 +148,7 @@ bindsym Shift+Print exec $screenanonation
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 bindsym $mod+Shift+b exec $browser-selector
+bindsym $mod+Shift+p exec rofi-rbw
 # bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
 
 

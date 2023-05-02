@@ -69,7 +69,7 @@ hide_edge_borders smart
 # for_window [app_id="QtScrcpy"] floating enable
 # for_window [app_id="QtScrcpy" title="Tool"] kill
 #
-for_window [class="scrcpy"] floating enable, resize set 25 ppt 80 ppt, move position 75 ppt 0 ppt
+for_window [class="scrcpy"] floating enable, resize set 40 ppt 100 ppt, move position 30 ppt 0 ppt
 #
 # for_window [class="Gimp-2.10"] floating disable
 # for_window [class="Gimp-2.10" title="New Image"] floating enable
@@ -147,7 +147,7 @@ bindsym Shift+Print exec $screenanonation
 
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
-bindsym $mod+Shift+b exec $browser-selector
+# bindsym $mod+Shift+b exec $browser-selector
 bindsym $mod+Shift+p exec rofi-rbw
 # bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
 
@@ -336,12 +336,13 @@ include auto-starts
 
 
 ## scratchpad
-exec --no-startup-id $term --class scratchpad
-for_window [instance="scratchpad"] floating enable, resize set 800 600, \
-    move scratchpad
+# exec --no-startup-id $term --class scratchpad
+# for_window [instance="scratchpad"] floating enable, resize set 800 600, \
+#     move scratchpad
 
 # Move the currently focused window to the scratchpad
 # bindsym $mod+Shift+b move scratchpad
 #show scratchpad
+bindsym $mod+Shift+b move scratchpad
 bindsym $mod+b scratchpad show
 

@@ -1,27 +1,27 @@
-icons_format = "{icon}"
-
 [theme]
-theme = "srcery"
+theme = "gruvbox-dark"
 
 [icons]
 icons = "awesome6"
 
-[[block]]
+[[ block ]]
 block = "net"
-# format = " $icon {$signal_strength $ssid $frequency|Wired connection} via $device "
-
-[[block]]
-block = "cpu"
-
-[[block]]
-block = "memory"
-format = " $icon $mem_total_used_percents.eng(w:2) "
-format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+# format = " $icon ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
+# format = "{ip} {speed_down;K*B} {speed_up;K*B}"
+interval = 2
 
 [[ block ]]
-block = "battery"
-# format = " $icon $percentage "
-interval = 2
+block = "memory"
+
+[[ block ]]
+block = "cpu"
+
+# [[ block ]]
+# block = "storage"
+
+
+# [[ block ]]
+# block = "battery"
 
 [[block]]
 block = "time"

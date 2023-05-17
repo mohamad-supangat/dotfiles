@@ -1,5 +1,7 @@
 # auto start apps section
 exec_always --no-startup-id xrdb ~/.Xresources
+# exec . ~/.profile
+# exec . ~/.private-env
 # poolkit agent
 exec lxqt-policykit-agent
 # exec greenclip daemon
@@ -18,7 +20,8 @@ exec dunst
 exec dbus-update-activation-environment --all
 exec systemctl --user import-environment DISPLAY
 
-exec clipnotify --disable-primary
+# exec clipnotify --disable-primary
+exec clipmenud
 # exec eval $(gnome-keyring-daemon --start)
 # exec export SSH_AUTH_SOCK
 

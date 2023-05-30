@@ -34,6 +34,9 @@ default_border pixel 3
 
 for_window [class="^.*"] border pixel 4
 
+# keppass
+for_window [title="KeePassXC - Browser Access Request"] floating enable
+
 for_window [class="Pavucontrol"] floating enable
 for_window [class="ColorGrab"] floating enable
 for_window [class="xdman"] floating enable
@@ -167,8 +170,8 @@ bindsym $mod+Escape exec $power
 bindsym $mod+End exec $wifi
 
 # Notifications
-# bindsym Control+Space exec makoctl dismiss
-# bindsym Control+Shift+Space exec makoctl dismiss --all
+bindsym Control+Space exec makoctl dismiss
+bindsym Control+Shift+Space exec makoctl dismiss --all
 
 # Multimedia
 # bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%

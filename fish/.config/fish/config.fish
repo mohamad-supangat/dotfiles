@@ -3,11 +3,12 @@ fish_add_path ~/.scripts
 fish_add_path ~/.local/bin
 fish_add_path /usr/local/bin
 fish_add_path ~/.config/composer/vendor/bin
-
+fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
 # init starship default prompts
 # starship init fish | source
 
 # aliases sections
+alias ask="sgpt"
 alias ls="ls -a --color"
 alias ask="sgpt"
 alias art="./artisan"
@@ -54,3 +55,6 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+
+# ruby gem

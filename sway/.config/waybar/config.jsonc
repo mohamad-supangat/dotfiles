@@ -3,7 +3,7 @@
   "gtk-layer-shell": true,
   "position": "bottom",
   "modules-left": [
-    "custom/arch-pill",
+    // "custom/arch-pill",
     "sway/mode",
     "sway/workspaces",
     "wlr/workspaces"
@@ -58,7 +58,7 @@
     }
   },
   "custom/arch-pill": {
-    "format": "",
+    "format": " ",
     // "on-click": "rofi",
     "tooltip": false
   },

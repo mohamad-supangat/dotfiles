@@ -32,7 +32,13 @@ export GDK_BACKEND=wayland
 # export GDK_CORE_DEVICE_EVENTS=1
 export NO_AT_BRIDGE=1
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
-export TERMINAL=/usr/bin/foot
+export TERMINAL=/usr/bin/alacritty
+
+export GPG_TTY=$(tty)
+
+
+# import all systemd environment
+# systemctl --user import-environment
 
 
 config=~/.config/sway/nox11-config

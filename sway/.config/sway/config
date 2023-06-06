@@ -354,7 +354,8 @@ exec --no-startup-id $term --name scratchpad
 exec dbus-update-activation-environment --all
 exec dbus-update-activation-environment WAYLAND_DISPLAY
 
-exec kepasscx
+exec keepassxc
+exec an2linuxserver.py
 
 # exec eval $(gnome-keyring-daemon --start)
 # exec export SSH_AUTH_SOCK

@@ -1,12 +1,12 @@
 * {
-    bg-col:  #282828;
+    bg-col:  #181818;
     bg-col-light: #282828;
-    border-col: #e78a4e;
+    border-col: #7cafc2;
     selected-col: #282828;
-    blue: #e78a4e;
-    fg-col: #d4be98;
-    fg-col2: #e78a4e;
-    grey: #6c7086;
+    blue: #7cafc2;
+    fg-col: #d8d8d8;
+    fg-col2: #7cafc2;
+    grey: #d8d8d8;
     width: 600;
     font: "Iosevka 10";
 }

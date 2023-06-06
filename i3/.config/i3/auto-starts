@@ -15,6 +15,7 @@ exec dunst
 # exec sworkstyle &> /tmp/sworkstyle.log
 # exec_always wlsunset
 
+exec an2linuxserver.py
 
 # gnome keyring start
 exec dbus-update-activation-environment --all

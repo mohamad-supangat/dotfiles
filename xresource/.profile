@@ -9,8 +9,17 @@ export FONT_NAME="JetBrainsMono Nerd Font 10"
 
 export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk
 # For Gradle
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+export ANDROID_HOME=/opt/android-sdk
 
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
+export PATH=$ANDROID_HOME/cmdline-tools/latest/lib/:$PATH
+export PATH=$ANDROID_HOME/emulator/:$PATH
+export PATH=$ANDROID_HOME/platform-tools/:$PATH
+
+# for ruby
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
 
 # add ruby gem path and home
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
@@ -21,6 +30,7 @@ export EDITOR=nvim
 # export TERMINAL=/usr/bin/alacritty
 export TERMINAL=/usr/bin/alacritty
 export PATH=$PATH:~/.scripts
+export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
 
 # export FZF_DEFAULT_OPTS=" \

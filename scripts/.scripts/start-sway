@@ -34,9 +34,12 @@ export NO_AT_BRIDGE=1
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 export TERMINAL=/usr/bin/alacritty
 
-systemctl --user import-environment
+export GPG_TTY=$(tty)
 
-# dbus-update-activation-environment --all &
+
+# import all systemd environment
+# systemctl --user import-environment
+
 
 config=~/.config/sway/nox11-config
 if [[ $1 == *"x11"* ]];

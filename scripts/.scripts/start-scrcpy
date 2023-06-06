@@ -31,11 +31,11 @@ function getDevices() {
 function startApps() {
     devices=$(getDevices)
     if [ -n "${devices}" ]; then
-        if [[ $devices == *'10.5.50.38:7777'* ]]; then
-            scrcpy -S -s $devices
-        else
-            scrcpy -Sw -s $devices
-        fi
+        # if [[ $devices == *'10.5.50.38:7777'* ]]; then
+            scrcpy -s $devices
+        # else
+            # scrcpy -Sw --always-on-top -s $devices
+        # fi
         # scrcpy  -S --power-off-on-close -s $devices
     else
         sendMsg "no devices/emulators found"

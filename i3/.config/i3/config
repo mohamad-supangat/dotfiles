@@ -12,7 +12,7 @@ set $screenshot flameshot gui
 set $screenanonation flameshot gui --region all
 
 # set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
-set $recordscreen ~/.scripts/record-screen
+set $recordscreen rofi-screenshot
 # set $clipboard_manager ~/.scripts/clipman-fzf
 set $clipboard_manager CM_LAUNCHER=rofi clipmenu -i
 set $file_manager pcmanfm
@@ -58,13 +58,17 @@ hide_edge_borders smart
 # for_window [app_id="evolution" title="Compose Message"] floating enable
 # for_window [app_id="evolution" title="Re(.*)"] floating enable
 # for_window [app_id="evolution" title="Fwd(.*)"] floating enable
-# for_window [app_id="mpv"] floating enable, border pixel 10, resize set 30 ppt
-# # for_window [app_id="mpv"] resize set 960
-# for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable, kill
-# for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
-# for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
-# for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
-# for_window [app_id="firefoxdeveloperedition" title="Firefox Developer Edition — Sharing Indicator"] floating enable, kill
+for_window [class="mpv"] floating enable, border pixel 10, resize set 30 ppt
+for_window [class="mpv"] resize set 960
+
+for_window [class="gpicview"] floating enable, border pixel 10, resize set 30 ppt
+for_window [class="gpicview"] resize set 960
+
+for_window [class="firefox" title="Firefox — Sharing Indicator"] floating enable, kill
+for_window [class="firefox" title="Picture-in-Picture"] floating enable
+for_window [class="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
+for_window [class="firefox" title="About Mozilla Firefox"] floating enable
+for_window [class="firefoxdeveloperedition" title="Firefox Developer Edition — Sharing Indicator"] floating enable, kill
 #
 # for_window [app_id="QtScrcpy"] floating enable
 # for_window [app_id="QtScrcpy" title="Tool"] kill
@@ -173,8 +177,8 @@ bindsym $mod+Escape exec $power
 bindsym $mod+End exec $wifi
 
 # Notifications
-# bindsym Control+Space exec makoctl dismiss
-# bindsym Control+Shift+Space exec makoctl dismiss --all
+bindsym Control+Space exec dunstctl close
+bindsym Control+Shift+Space exec dunstctl close-all
 
 # Multimedia
 # bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%

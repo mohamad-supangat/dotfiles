@@ -27,3 +27,4 @@ configuration{
 
 
 @theme "./theme.rasi"
+/* @theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi" */

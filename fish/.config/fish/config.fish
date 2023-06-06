@@ -21,8 +21,8 @@ alias tmuxproject="tmuxinator"
 alias se="sudo -E"
 alias composer7="/usr/bin/php7 /usr/bin/composer"
 alias update-font-cache="fc-cache -f -v"
-alias vi="nvim"
-alias v="nvim"
+alias vi="vim"
+alias v="vim"
 alias create-laravel-project="composer create-project laravel/laravel"
 alias create-vite-project="pnpm create vite"
 alias readme-md-generator="pnpx readme-md-generator"
@@ -58,3 +58,11 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 
 # ruby gem
+
+#flutter
+fish_add_path /opt/flutter/bin/
+
+# android -sdk
+# fish_add_path $ANDROID_HOME/platform-tools
+# fish_add_path $ANDROID_HOME/cmdline-tools/bin
+# fish_add_path $ANDROID_HOME/tools

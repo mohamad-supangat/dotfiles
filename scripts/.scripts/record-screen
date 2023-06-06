@@ -5,7 +5,16 @@ if ! pkill -INT -P "$(pgrep -xo record-screen)" wf-recorder 2>/dev/null; then
         pkill -USR1 -x record-screend
         mkdir -p ~/Videos/Recordings
         notify-send "start recrding"
-        wf-recorder -c libx265 -f ~/Videos/Recordings/"screen-record-$(date +%Y-%m-%d-%H-%M-%S).mp4" -g "$geometry" --force-yuv
+        # wf-recorder -c libvpx-vp9 -f ~/Videos/Recordings/"screen-record-$(date +%Y-%m-%d-%H-%M-%S).webm" -g "$geometry" --force-yuv
+
+        file=~/Videos/Recordings/"screen-record-$(date +%Y-%m-%d-%H-%M-%S).mp4"
+        wf-recorder -f $file -g "$geometry" --force-yuv
+
+        gdrive_file=/tmp/record_to_gdrive.txt
+        gdrive files upload --parent 1x8koRfNslb509g1sm9p8i-JlM2WUIyCr $file > $gdrive_file
+        cat $gdrive_file | grep ViewUrl | sed 's/ViewUrl: //g' | wl-copy
+
+        rm $file
         notify-send "stop recording"
         pkill -USR2 -x record-screend
     fi

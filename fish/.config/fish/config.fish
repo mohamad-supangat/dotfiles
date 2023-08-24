@@ -4,6 +4,9 @@ fish_add_path ~/.local/bin
 fish_add_path /usr/local/bin
 fish_add_path ~/.config/composer/vendor/bin
 fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
+fish_add_path /usr/lib/jvm/java-8-openjdk/bin
+fish_add_path /opt/android-sdk/build-tools/30.0.3
+
 # init starship default prompts
 # starship init fish | source
 
@@ -38,6 +41,11 @@ alias sync-odoo-addons="rsync -azP ~/odoo/addons/ root@192.168.10.112:/home/save
 
 alias pulseaudi-stream-simple-protocol-tcp="pactl load-module module-simple-protocol-tcp source=102 record=true port=12345 && adb reverse tcp:12345 tcp:12345"
 alias nchat-wa="nchat -d ~/.nchat-main-wa"
+alias release-it-gitlab="release-it --gitlab.release"
+alias release-it-github="release-it --github.release"
+# alias glab-jvm="GITLAB_TOKEN=$GITLAB_JVM_TOKEN glab"
+# alias release-it-jvm="GITLAB_TOKEN=$GITLAB_JVM_TOKEN release-it --gitlab.release"
+
 
 
 # auto start sway

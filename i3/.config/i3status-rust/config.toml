@@ -8,7 +8,7 @@ icons = "awesome6"
 
 [[block]]
 block = "net"
-format = " $icon {$signal_strength $ssid $frequency|Wired connection} via $device "
+# format = " $icon {$signal_strength $ssid $frequency|Wired connection} via $device "
 
 [[block]]
 block = "cpu"
@@ -20,7 +20,7 @@ format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
 
 [[ block ]]
 block = "battery"
-format = " $icon $percentage "
+# format = " $icon $percentage "
 interval = 2
 
 [[block]]

@@ -94,15 +94,15 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 # gaps
 
 # smart_gaps on
-gaps inner 7
-gaps outer 20
+# gaps inner 7
+# gaps outer 20
 # gaps bottom 5
 
 # swayfx
-corner_radius 10
-smart_corner_radius off
-shadows on
-default_dim_inactive 0.3
+# corner_radius 10
+# smart_corner_radius off
+# shadows on
+# default_dim_inactive 0.3
 
 # wallpaper
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null

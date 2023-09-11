@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
-  <menu id="apps-deve-menu" label="Alat Tempur">
+  <menu id="custom-deve-menu" label="Alat Tempur">
     <item label="Alacritty">
       <action name="Execute">
         <command>alacritty</command>
@@ -18,7 +18,7 @@
 
     <item label="Scrcpy">
       <action name="Execute">
-        <command>scrcpy --window-borderless -f</command>
+        <command>scrcpy -Sw --window-borderless -f</command>
       </action>
     </item>
 
@@ -26,6 +26,13 @@
     <item label="stalonetray">
       <action name="Execute">
         <command>stalonetray</command>
+      </action>
+    </item>
+
+
+    <item label="Kotatsudl">
+      <action name="Execute">
+        <command>java -jar /home/deve/tmp/kotatsu-dl.jar</command>
       </action>
     </item>
   </menu>
@@ -425,6 +432,7 @@
   </menu>
 
   <menu id="root-menu" label="Openbox 3">
+    <menu id="custom-deve-menu" />
     <separator label="Applications" />
     <menu id="apps-accessories-menu" />
     <menu id="apps-editors-menu" />

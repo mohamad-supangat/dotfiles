@@ -3,7 +3,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term alacritty
+set $term foot
 set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
@@ -12,12 +12,12 @@ set $screenshot grim -g "$(slurp)" - | swappy -f -
 set $screenanonation flameshot gui --region all
 
 # set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
-set $recordscreen ~/.scripts/record-screen
+set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
 # set $clipboard_manager ~/.scripts/clipman-fzf
 set $clipboard_manager clipman pick -t rofi
 set $file_manager pcmanfm
 set $dmenu rofi -modi run -show run
-set $background /home/deve/Pictures/Wallpaper/asd.png
+set $background /home/deve/Pictures/Wallpaper/monterey.png
 set $backgroundFill '#1D1F21'
 set $browser-selector qbpm choose -m rofi
 
@@ -52,7 +52,7 @@ for_window [app_id="nemo"] floating disable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="solaar"] floating enable
 for_window [app_id="otpclient"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 30
-
+for_window [app_id="io.github.lainsce.Notejot"] floating enable, resize set 60 ppt 60 ppt
 for_window [app_id="lxqt-policykit-agent"] floating enable, sticky enable, border pixel 10
 
 
@@ -72,6 +72,8 @@ for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 for_window [app_id="firefoxdeveloperedition" title="Firefox Developer Edition — Sharing Indicator"] floating enable, kill
+for_window [app_id="firefoxdeveloperedition" title="Picture-in-Picture"] floating enable, sticky enable
+
 
 for_window [app_id="QtScrcpy"] floating enable
 for_window [app_id="QtScrcpy" title="Tool"] kill
@@ -95,20 +97,25 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 
 
 # swayfx config
-# corner_radius 10
+blur enable
+blur_xray enable
+corner_radius 10
 # smart_corner_radius on
-# shadows on
-# default_dim_inactive 0.3
-# titlebar_separator enable
-# titlebar_separator enable
+shadows_on_csd enable
+shadow_blur_radius 20
+
+shadows enable
+default_dim_inactive 0.4
+titlebar_separator enable
 # scratchpad_minimize enable
+
 #  ╭──────────────────────────────────────────────────────────╮
 #  │ gaps / padding antar aplikasi                            │
 #  ╰──────────────────────────────────────────────────────────╯
 # smart_gaps on
-# gaps inner 20
-# gaps outer 5
-# gaps bottom 5
+gaps inner 5
+gaps outer 5
+gaps bottom 1
 
 # swayfx
 # corner_radius 10
@@ -140,21 +147,16 @@ bindsym $mod+Return exec tmux_session.sh $term
 bindsym $mod+Shift+Return exec rofi-tmuxp.sh
 bindsym Print exec $screenshot
 bindsym Shift+Print exec $screenanonation
-
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 bindsym $mod+Shift+p exec bwmenu
-
 # bindsym $mod+Shift+b exec $browser-selector
 # bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
-
-
 # bindsym $mod+Shift+Print exec $screenclip
 bindsym $mod+r exec $dmenu
 bindsym $mod+space exec $menu
 bindsym $mod+n exec $file_manager
 bindsym Mod1+Control+h exec $clipboard_manager
-
 bindsym $mod+Shift+a exec ~/.scripts/auto-click
 
 
@@ -344,8 +346,10 @@ bindsym $mod+Shift+e mode "$mode_system"
 # auto start apps section
 # exec_always --no-startup-id xrdb ~/.Xresources
 # poolkit agent
-exec lxqt-policykit-agent
-#exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec lxqt-policykit-agent
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# clipboard manager
 exec wl-paste -t text --watch clipman store --max-items=1000
 # exec swaync
 # exec waybar
@@ -366,6 +370,8 @@ include colorscheme
 include .generated_settings/input_pointer.conf
 include .generated_settings/input_touchpad.conf
 
+
+exec waybar
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
 bar {

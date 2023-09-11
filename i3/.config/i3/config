@@ -3,7 +3,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term /usr/local/bin/st
+set $term /usr/bin/alacritty
 set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
@@ -30,9 +30,10 @@ font xft:Iosevka 8
 # Window borders
 default_border pixel 5
 # default_floating_border normal
-hide_edge_borders smart
+# hide_edge_borders smart
 
-# for_window [class="^.*"] border pixel 2
+# for_window [class=".*"] border pixel 5
+for_window [class="^.*"] border pixel 5
 
 # for_window [class="Pavucontrol"] floating enable
 # for_window [class="ColorGrab"] floating enable
@@ -126,7 +127,7 @@ include colorscheme
 
 bar {
     font pango:JetBrainsMono Nerd Font, FontAwesome 6
-    position top
+    position bottom
     status_command i3status-rs
     colors {
 
@@ -162,7 +163,7 @@ bindsym $mod+space exec $menu
 bindsym $mod+n exec $file_manager
 bindsym Mod1+Control+h exec $clipboard_manager
 
-bindsym $mod+Shift+a exec ~/.scripts/auto-click
+# bindsym $mod+Shift+a exec ~/.scripts/auto-click
 
 
 
@@ -177,8 +178,8 @@ bindsym $mod+Escape exec $power
 bindsym $mod+End exec $wifi
 
 # Notifications
-bindsym Control+Space exec dunstctl close
-bindsym Control+Shift+Space exec dunstctl close-all
+bindsym Control+space exec dunstctl close
+bindsym Control+Shift+space exec dunstctl close-all
 
 # Multimedia
 # bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%

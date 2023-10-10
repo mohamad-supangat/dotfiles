@@ -7,9 +7,9 @@ export FONT_NAME="JetBrainsMono Nerd Font 10"
 # For Android Studio
 # export _JAVA_AWT_WM_NONREPARENTING=1
 
-export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk
+# export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk
 # For Gradle
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-20-openjdk
 export ANDROID_HOME=/opt/android-sdk
 
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
@@ -37,3 +37,4 @@ export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
 # export GTK_THEME="Matcha-dark-sea"
 # export ICON_THEME="Breeze Dark"
+[ -f "${HOME}/.gdrive-downloader/gdl" ] && [ -x "${HOME}/.gdrive-downloader/gdl" ] && PATH="${HOME}/.gdrive-downloader:${PATH}"

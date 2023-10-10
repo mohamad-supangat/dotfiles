@@ -17,6 +17,7 @@
     // "custom/playerctl",
   ],
   "modules-right": [
+      "custom/clipboard",
     "tray",
     // "custom/notification",
     "battery",
@@ -120,6 +121,15 @@
     "on-click": "swaymsg 'scratchpad show'",
     "on-click-right": "swaymsg 'move scratchpad'"
   },
+  "custom/clipboard": {
+      "format": "🄯",
+      "interval": "once",
+      "return-type": "json",
+      "on-click": "swaymsg -q exec 'cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy'; pkill -RTMIN+9 waybar",
+      "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)",
+      "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
+      "signal": 9
+    },
   "custom/notification": {
     "tooltip": false,
     "format": "{icon}",

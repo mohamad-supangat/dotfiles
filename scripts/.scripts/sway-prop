@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
-
-sleep 3
-
 # https://gitlab.com/wef/dotfiles/-/blob/master/bin/sway-prop
 # shellcheck disable=SC2034
-TIME_STAMP="20220627.152259"
+TIME_STAMP="20230211.212842"
 
 # Copyright (C) 2020-2021 Bob Hepple <bob dot hepple at gmail dot com>
 
@@ -12,12 +9,12 @@ TIME_STAMP="20220627.152259"
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or (at
 # your option) any later version.
-#
+# 
 # This program is distributed in the hope that it will be useful, but
 # WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 # General Public License for more details.
-#
+# 
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
@@ -51,7 +48,7 @@ if [[ "$1" || -t 1 ]]; then
 else
     # I prefer to popup a terminal eg:
     if type foot &> /dev/null; then
-        foot -e bash -c "less $TMP"
+        foot --app-id floating -e bash -c "less $TMP"
     else
         # ... but sway doesn't have anything like i3-sensible-terminal.
         # swaynag is always installed with sway, so:

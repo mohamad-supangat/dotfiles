@@ -334,7 +334,7 @@
         </keybind>
         <keybind key="W-r">
             <action name="Execute">
-                <command>rofi</command>
+                <command>dmenu_run</command>
             </action>
         </keybind>
 

@@ -375,26 +375,25 @@ include .generated_settings/input_touchpad.conf
 
 
 exec adb reverse tcp:46352 tcp:46352
-exec waybar
 exec an2linuxserver.py
 exec systemctl --user start easyeffects
 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
-bar {
-    font pango:Iosevka Nerd Font, FontAwesome 8
-    position top
-    status_command i3status-rs
-    colors {
-        background $base00
-        separator  $base01
-        statusline $base04
-
-        # State             Border  BG      Text
-        focused_workspace   $base05 $base0D $base00
-        active_workspace    $base05 $base03 $base00
-        inactive_workspace  $base03 $base01 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
-    }
-}
+# bar {
+#     font pango:Iosevka Nerd Font, FontAwesome 8
+#     position top
+#     status_command i3status-rs
+#     colors {
+#         background $base00
+#         separator  $base01
+#         statusline $base04
+#
+#         # State             Border  BG      Text
+#         focused_workspace   $base05 $base0D $base00
+#         active_workspace    $base05 $base03 $base00
+#         inactive_workspace  $base03 $base01 $base05
+#         urgent_workspace    $base08 $base08 $base00
+#         binding_mode        $base00 $base0A $base00
+#     }
+# }

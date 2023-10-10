@@ -25,7 +25,7 @@ set $browser-selector qbpm choose -m rofi
 floating_modifier $mod
 
 # Font
-font xft:Iosevka 8
+font xft:Iosevka Nerd Font 8
 
 # Window borders
 default_border pixel 3

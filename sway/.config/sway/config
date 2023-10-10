@@ -3,7 +3,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term foot
+set $term alacritty
 set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
@@ -14,10 +14,10 @@ set $screenanonation flameshot gui --region all
 # set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
 # set $clipboard_manager ~/.scripts/clipman-fzf
-set $clipboard_manager clipman pick -t rofi
+set $clipboard_manager cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy
 set $file_manager pcmanfm
 set $dmenu rofi -modi run -show run
-set $background /home/deve/Pictures/Wallpaper/monterey.png
+set $background /home/deve/Pictures/Wallpaper/Windows-11-2.jpg
 set $backgroundFill '#1D1F21'
 set $browser-selector qbpm choose -m rofi
 
@@ -105,7 +105,7 @@ shadows_on_csd enable
 shadow_blur_radius 20
 
 shadows enable
-default_dim_inactive 0.4
+# default_dim_inactive 0.7
 titlebar_separator enable
 # scratchpad_minimize enable
 
@@ -152,7 +152,8 @@ bindsym $mod+r exec $dmenu
 bindsym $mod+space exec $menu
 bindsym $mod+n exec $file_manager
 bindsym Mod1+Control+h exec $clipboard_manager
-bindsym $mod+Shift+a exec ~/.scripts/auto-click
+# bindsym $mod+Shift+a exec ~/.scripts/auto-click
+bindsym $mod+Shift+a exec  /home/deve/projects/auto_click/start.sh
 
 
 
@@ -304,7 +305,7 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+b move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+b scratchpad show
+bindsym $mod+b exec swaymsg scratchpad show
 
 # Modes
 mode "resize" {
@@ -345,7 +346,8 @@ bindsym $mod+Shift+e mode "$mode_system"
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # clipboard manager
-exec wl-paste -t text --watch clipman store --max-items=1000
+# exec wl-paste -t text --watch clipman store --max-items=1000
+exec wl-paste --watch cliphist store
 # exec swaync
 # exec waybar
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
@@ -359,8 +361,6 @@ exec dbus-update-activation-environment --all
 exec dbus-update-activation-environment WAYLAND_DISPLAY
 
 # exec keepassxc
-# exec an2linuxserver.py
-
 # exec eval $(gnome-keyring-daemon --start)
 # exec export SSH_AUTH_SOCK
 
@@ -372,7 +372,12 @@ include .generated_settings/input_pointer.conf
 include .generated_settings/input_touchpad.conf
 
 
+
+exec adb reverse tcp:46352 tcp:46352
 exec waybar
+exec an2linuxserver.py
+exec systemctl --user start easyeffects
+
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
 # bar {

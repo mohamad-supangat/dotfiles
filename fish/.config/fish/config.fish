@@ -6,6 +6,8 @@ fish_add_path ~/.config/composer/vendor/bin
 fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
 fish_add_path /usr/lib/jvm/java-8-openjdk/bin
 fish_add_path /opt/android-sdk/build-tools/30.0.3
+fish_add_path ~/go/bin
+
 
 # init starship default prompts
 # starship init fish | source
@@ -42,6 +44,7 @@ alias pulseaudi-stream-simple-protocol-tcp="pactl load-module module-simple-prot
 alias nchat-wa="nchat -d ~/.nchat-main-wa"
 alias release-it-gitlab="release-it --gitlab.release"
 alias release-it-github="release-it --github.release"
+# alias mangal="docker run --rm -ti -e \"TERM=xterm-256color\" -v ~/Downloads/Manga/:/downloads -v ~/.config/mangal/config:/config metafates/mangal"
 # alias glab-jvm="GITLAB_TOKEN=$GITLAB_JVM_TOKEN glab"
 # alias release-it-jvm="GITLAB_TOKEN=$GITLAB_JVM_TOKEN release-it --gitlab.release"
 

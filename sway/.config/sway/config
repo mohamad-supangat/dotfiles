@@ -160,6 +160,8 @@ bindsym Mod1+Control+h exec $clipboard_manager
 # bindsym $mod+Shift+a exec ~/.scripts/auto-click
 bindsym $mod+Shift+a exec  /home/deve/projects/auto_click/start.sh
 
+# Toggle control center Notifications
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
 
 bindsym $mod+Shift+q kill
@@ -173,8 +175,13 @@ bindsym $mod+Escape exec $power
 bindsym $mod+End exec $wifi
 
 # Notifications
+# if using mako
 # bindsym Control+Space exec makoctl dismiss
 # bindsym Control+Shift+Space exec makoctl dismiss --all
+
+# if using swaync
+bindsym Control+Space exec swaync-client --hide-latest
+bindsym Control+Shift+Space exec swaync-client --close-all
 
 # Multimedia
 # bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%

@@ -17,7 +17,8 @@
     // "custom/playerctl",
   ],
   "modules-right": [
-      "custom/clipboard",
+      // "custom/clipboard",
+    "custom/notification",
     "tray",
     // "custom/notification",
     "battery",

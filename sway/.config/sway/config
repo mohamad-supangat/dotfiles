@@ -173,8 +173,8 @@ bindsym $mod+Escape exec $power
 bindsym $mod+End exec $wifi
 
 # Notifications
-bindsym Control+Space exec makoctl dismiss
-bindsym Control+Shift+Space exec makoctl dismiss --all
+# bindsym Control+Space exec makoctl dismiss
+# bindsym Control+Shift+Space exec makoctl dismiss --all
 
 # Multimedia
 # bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
@@ -353,7 +353,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # clipboard manager
 # exec wl-paste -t text --watch clipman store --max-items=1000
 exec wl-paste --watch cliphist store
-# exec swaync
+exec swaync
 # exec waybar
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 # exec sworkstyle &> /tmp/sworkstyle.log

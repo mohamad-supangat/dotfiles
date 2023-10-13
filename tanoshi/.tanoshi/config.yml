@@ -1,0 +1,25 @@
+base_url: null
+port: 1234
+database_path: /home/deve/.tanoshi/tanoshi.db
+create_database: true
+secret: UXRmjTNUnR0a1ERa
+update_interval: 3600
+auto_download_chapters: false
+plugin_path: /home/deve/.tanoshi/plugins
+local_path:
+- name: Tanoshi Dir
+  path: /home/deve/.tanoshi/manga
+- name: Home Manga
+  path: /home/deve/Manga
+- name: External HDD Normal
+  path: /run/media/deve/7660c275-a4e9-48c4-b2c8-15c122a2e299/MANGA/O
+- name: External HDD XX
+  path: /run/media/deve/7660c275-a4e9-48c4-b2c8-15c122a2e299/MANGA/XX
+download_path: /home/deve/.tanoshi/downloads
+cache_path: /home/deve/.tanoshi/cache
+enable_playground: false
+telegram: null
+pushover: null
+gotify: null
+myanimelist: null
+anilist: null

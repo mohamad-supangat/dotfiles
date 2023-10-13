@@ -37,6 +37,8 @@ alias adb-screenshot="adb exec-out screencap -p > ~/Pictures/screenshots/android
 alias tmux-save-pane='tmux capture-pane -pS -'
 alias pnpm-install-aura-erp-installer="pnpm add -g git+ssh://git@gitlab.com:aura-erp/installer.git"
 alias pac="sudo pacman"
+alias comigo="comi -c ~/.config/comigo/config.toml"
+
 
 alias sync-odoo-addons-pangat="rsync -azP ~/odoo/addons/ pangat@192.168.10.112:/home/pangat/odoo-15/addons/"
 alias sync-odoo-addons="rsync -azP ~/odoo/addons/ root@192.168.10.112:/home/saverid/odoo_22/addons/"

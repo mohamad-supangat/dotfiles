@@ -18,6 +18,22 @@ export PATH=$ANDROID_HOME/cmdline-tools/latest/lib/:$PATH
 export PATH=$ANDROID_HOME/emulator/:$PATH
 export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
+
+
+# add some global path
+export PATH="/home/$(whoami)/.scripts:$PATH"
+export PATH="/home/$(whoami)/.local/bin:$PATH"
+export PATH="/home/$(whoami)/.config/composer/vendor/bin:$PATH"
+export PATH="/home/$(whoami)/.local/share/gem/ruby/3.0.0/bin:$PATH"
+export PATH="/home/$(whoami)/go/bin:$PATH"
+
+export PATH="/usr/lib/jvm/java-8-openjdk/bin:$PATH"
+export PATH="/opt/android-sdk/build-tools/30.0.3:$PATH"
+
+
+
+
+
 # for ruby
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"

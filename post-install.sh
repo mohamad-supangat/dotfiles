@@ -34,3 +34,6 @@ sudo pacman -S python python-pipx
 # tmuxp
 sudo pacman -S tmuxp
 pipx install rofi-tmuxp
+
+# best youtube cli with mpv integration
+# pipx install yewtube

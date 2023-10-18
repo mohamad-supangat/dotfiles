@@ -23,3 +23,7 @@ echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable
 
 # best commit reader based on local cbz
 bash <(curl -s https://raw.githubusercontent.com/yumenaka/comi/master/get_comigo.sh)
+
+
+# best youtube cli with mpv integration
+# pipx install yewtube

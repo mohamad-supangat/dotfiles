@@ -8,7 +8,7 @@ sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.ta
 echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
 
 # required package
-sudo pacman -S fish tmux openssh git neovim neovim-drop-in
+sudo pacman -S fish tmux openssh git neovim neovim-drop-in dos2unix
 
 # developtment
 sudo pacman -S nodejs npm pnpm composer php php-gd
@@ -37,3 +37,7 @@ pipx install rofi-tmuxp
 
 # best youtube cli with mpv integration
 # pipx install yewtube
+#
+
+# install bebasid
+wget -P ~/.local/bin/ https://github.com/bebasid/bebasid/releases/download/v1.1/bebasid.sh && chmod +x ~/.local/bin/bebasid.sh && dos2unix ~/.local/bin/bebasid.sh

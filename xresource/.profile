@@ -9,7 +9,7 @@ export FONT_NAME="JetBrainsMono Nerd Font 10"
 
 # export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk
 # For Gradle
-export JAVA_HOME=/usr/lib/jvm/java-20-openjdk
+# export JAVA_HOME=/usr/lib/jvm/java-20-openjdk
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 export ANDROID_HOME=/opt/android-sdk
 

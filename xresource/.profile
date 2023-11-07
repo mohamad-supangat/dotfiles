@@ -1,3 +1,4 @@
+
 export CM_LAUNCHER=rofi
 export CM_DIR=~/.cache/clipmenu
 # export LC_ALL=en_US.UTF-8
@@ -59,3 +60,9 @@ export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 # export GTK_THEME="Matcha-dark-sea"
 # export ICON_THEME="Breeze Dark"
 [ -f "${HOME}/.gdrive-downloader/gdl" ] && [ -x "${HOME}/.gdrive-downloader/gdl" ] && PATH="${HOME}/.gdrive-downloader:${PATH}"
+
+if [ -e ~/.private-env ]
+then
+    source ~/.private-env
+fi
+

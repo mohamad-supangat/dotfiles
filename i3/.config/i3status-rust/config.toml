@@ -24,6 +24,18 @@ block = "cpu"
 # block = "battery"
 
 [[block]]
+block = "notify"
+format = " $icon {($notification_count.eng(w:1)) |}"
+driver = "swaync"
+[[block.click]]
+button = "left"
+action = "show"
+
+[[block.click]]
+button = "right"
+action = "toggle_paused"
+
+[[block]]
 block = "time"
 interval = 60
 # format = "%a %d/%m %R"

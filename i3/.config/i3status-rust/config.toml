@@ -4,9 +4,33 @@ theme = "gruvbox-dark"
 [icons]
 icons = "awesome6"
 
+
+[[block]]
+block = "music"
+format = " $icon {$combo.str(max_w:50,rot_interval:0.5) $prev  $play   $next | }"
+interface_name_exclude = [".*kdeconnect.*", "mpd"]
+seek_step_secs = 10
+
+[[block.click]]
+button = "up"
+action = "volume_up"
+[[block.click]]
+button = "down"
+action = "volume_down"
+[[block.click]]
+button = "forward"
+action = "seek_forward"
+[[block.click]]
+button = "back"
+action = "seek_backward"
+
+[[block]]
+block = "sound"
+step_width = 3
+
 [[ block ]]
 block = "net"
-# format = " $icon ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
+format = " $icon $ip ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) "
 # format = "{ip} {speed_down;K*B} {speed_up;K*B}"
 interval = 2
 
@@ -22,6 +46,19 @@ block = "cpu"
 
 # [[ block ]]
 # block = "battery"
+
+[[block]]
+block = "notify"
+format = " $icon {($notification_count.eng(w:1)) |}"
+driver = "dunst"
+
+[[block.click]]
+button = "left"
+action = "show"
+
+[[block.click]]
+button = "right"
+action = "toggle_paused"
 
 [[block]]
 block = "time"

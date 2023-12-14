@@ -1,3 +1,4 @@
+
 export CM_LAUNCHER=rofi
 export CM_DIR=~/.cache/clipmenu
 # export LC_ALL=en_US.UTF-8
@@ -9,7 +10,7 @@ export FONT_NAME="JetBrainsMono Nerd Font 10"
 
 # export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk
 # For Gradle
-export JAVA_HOME=/usr/lib/jvm/java-20-openjdk
+# export JAVA_HOME=/usr/lib/jvm/java-20-openjdk
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 export ANDROID_HOME=/opt/android-sdk
 
@@ -59,3 +60,9 @@ export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 # export GTK_THEME="Matcha-dark-sea"
 # export ICON_THEME="Breeze Dark"
 [ -f "${HOME}/.gdrive-downloader/gdl" ] && [ -x "${HOME}/.gdrive-downloader/gdl" ] && PATH="${HOME}/.gdrive-downloader:${PATH}"
+
+if [ -e ~/.private-env ]
+then
+    source ~/.private-env
+fi
+

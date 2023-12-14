@@ -37,7 +37,9 @@ pipx install rofi-tmuxp
 
 # best youtube cli with mpv integration
 # pipx install yewtube
-#
+
+# youtube music tui
+# wget -P ~/.local/bin/ https://github.com/sudipghimire533/ytui-music/releases/download/main/ytui_music-linux-amd64 && chmod +x ~/.local/bin/ytui_music-linux-amd64
 
 # install bebasid
 wget -P ~/.local/bin/ https://github.com/bebasid/bebasid/releases/download/v1.1/bebasid.sh && chmod +x ~/.local/bin/bebasid.sh && dos2unix ~/.local/bin/bebasid.sh

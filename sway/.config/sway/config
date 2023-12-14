@@ -17,7 +17,7 @@ set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
 set $clipboard_manager cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy
 set $file_manager pcmanfm
 set $dmenu rofi -modi run -show run
-set $background /home/deve/Pictures/Wallpaper/Windows-11-2.jpg
+set $background /home/deve/Pictures/swayfx_mascot_1920x1080.png
 set $backgroundFill '#1D1F21'
 set $browser-selector qbpm choose -m rofi
 
@@ -25,7 +25,7 @@ set $browser-selector qbpm choose -m rofi
 floating_modifier $mod
 
 # Font
-font xft:Iosevka Nerd Font 8
+font xft:Iosevka Nerd Font 7
 
 # Window borders
 default_border pixel 3
@@ -97,16 +97,16 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 
 
 # swayfx config
-blur enable
-blur_xray enable
-corner_radius 10
+# blur enable
+# blur_xray enable
+# corner_radius 10
 # smart_corner_radius on
-shadows_on_csd enable
-shadow_blur_radius 20
+# shadows_on_csd enable
+# shadow_blur_radius 20
 
-shadows enable
+# shadows enable
 # default_dim_inactive 0.7
-titlebar_separator enable
+# titlebar_separator enable
 # scratchpad_minimize enable
 
 #  ╭──────────────────────────────────────────────────────────╮
@@ -176,12 +176,18 @@ bindsym $mod+End exec $wifi
 
 # Notifications
 # if using mako
+# exec mako
 # bindsym Control+Space exec makoctl dismiss
 # bindsym Control+Shift+Space exec makoctl dismiss --all
 
+# dunst notification
+exec dunst
+bindsym Control+Space exec dunstctl close
+bindsym Control+Shift+Space exec dunstctl close-all
+
 # if using swaync
-bindsym Control+Space exec swaync-client --hide-latest
-bindsym Control+Shift+Space exec swaync-client --close-all
+# bindsym Control+Space exec swaync-client --hide-latest
+# bindsym Control+Shift+Space exec swaync-client --close-all
 
 # Multimedia
 # bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
@@ -359,8 +365,9 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # clipboard manager
 # exec wl-paste -t text --watch clipman store --max-items=1000
-exec wl-paste --watch cliphist store
-exec swaync
+exec wl-paste --watch cliphist -max-items 100 store
+
+
 # exec waybar
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 # exec sworkstyle &> /tmp/sworkstyle.log
@@ -387,20 +394,20 @@ exec systemctl --user start easyeffects
 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
-# bar {
-#     font pango:Iosevka Nerd Font, FontAwesome 8
-#     position top
-#     status_command i3status-rs
-#     colors {
-#         background $base00
-#         separator  $base01
-#         statusline $base04
-#
-#         # State             Border  BG      Text
-#         focused_workspace   $base05 $base0D $base00
-#         active_workspace    $base05 $base03 $base00
-#         inactive_workspace  $base03 $base01 $base05
-#         urgent_workspace    $base08 $base08 $base00
-#         binding_mode        $base00 $base0A $base00
-#     }
-# }
+bar {
+    font pango:Iosevka Nerd Font, FontAwesome 8
+    position top
+    status_command i3status-rs
+    colors {
+        background $base00
+        separator  $base01
+        statusline $base04
+
+        # State             Border  BG      Text
+        focused_workspace   $base05 $base0D $base00
+        active_workspace    $base05 $base03 $base00
+        inactive_workspace  $base03 $base01 $base05
+        urgent_workspace    $base08 $base08 $base00
+        binding_mode        $base00 $base0A $base00
+    }
+}

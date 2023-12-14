@@ -2,3 +2,8 @@
 fish/.config/fish/fish_variables
 
 **/*.bak
+inkscape/.config/inkscape/extension-errors.log
+inkscape/.config/inkscape/fontcollections/recently_used_fonts.log
+inkscape/.config/inkscape/cphistory.xml
+inkscape/.config/inkscape/dialogs-state-ex.ini
+comigo/.config/comigo/comigo.sqlite

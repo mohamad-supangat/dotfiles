@@ -1,3 +1,6 @@
+set fish_greeting "Semangat jangan menyerah 😃"
+
+
 # add some path
 fish_add_path ~/.scripts
 fish_add_path ~/.local/bin

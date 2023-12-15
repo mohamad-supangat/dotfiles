@@ -28,11 +28,11 @@ floating_modifier $mod
 font xft:Iosevka Nerd Font 7
 
 # Window borders
-default_border pixel 3
+default_border pixel 1
 # default_floating_border normal
 # hide_edge_borders smart
 
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 1
 
 # keppass
 for_window [title="KeePassXC - Browser Access Request"] floating enable
@@ -113,9 +113,9 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 #  │ gaps / padding antar aplikasi                            │
 #  ╰──────────────────────────────────────────────────────────╯
 # smart_gaps on
-gaps inner 5
-gaps outer 5
-gaps bottom 1
+# gaps inner 5
+# gaps outer 5
+# gaps bottom 1
 
 # swayfx
 # corner_radius 10
@@ -150,6 +150,9 @@ bindsym Shift+Print exec $screenanonation
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 bindsym $mod+Shift+p exec bwmenu
+bindsym $mod+x exec rofi -modi emoji -show emoji
+
+
 # bindsym $mod+Shift+b exec $browser-selector
 # bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
 # bindsym $mod+Shift+Print exec $screenclip
@@ -161,7 +164,7 @@ bindsym Mod1+Control+h exec $clipboard_manager
 bindsym $mod+Shift+a exec  /home/deve/projects/auto_click/start.sh
 
 # Toggle control center Notifications
-bindsym $mod+Shift+n exec swaync-client -t -sw
+# bindsym $mod+Shift+n exec swaync-client -t -swa
 
 
 bindsym $mod+Shift+q kill
@@ -189,18 +192,27 @@ bindsym Control+Shift+Space exec dunstctl close-all
 # bindsym Control+Space exec swaync-client --hide-latest
 # bindsym Control+Shift+Space exec swaync-client --close-all
 
+
+# if using swaync
+# bindsym Control+Space exec swaync-client --hide-latest
+# bindsym Control+Shift+Space exec swaync-client --close-all
+#
 # Multimedia
 # bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
 # bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
 # bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
 #
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2% bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 bindsym --locked XF86AudioPlay exec playerctl play-pause
+# bindsym --locked XF86AudioPlayPause exec playerctl play-pause
 bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
+
+bindsym --locked $mod+Mod1+Right exec playerctl next
+bindsym --locked $mod+Mod1+Left exec playerctl previous
+
 
 # Bind brightness keys to light interface
 bindsym XF86MonBrightnessUp exec  brightnessctl set +20
@@ -373,14 +385,6 @@ exec wl-paste --watch cliphist -max-items 100 store
 # exec sworkstyle &> /tmp/sworkstyle.log
 # exec_always wlsunset
 
-exec --no-startup-id $term --name scratchpad
-# gnome keyring start
-
-# exec eval $(gnome-keyring-daemon --start)
-# exec export SSH_AUTH_SOCK
-
-
-
 ## include generate config and color scheme
 include colorscheme
 include .generated_settings/input_pointer.conf
@@ -388,9 +392,9 @@ include .generated_settings/input_touchpad.conf
 
 
 
-exec adb reverse tcp:46352 tcp:46352
+# exec adb reverse tcp:46352 tcp:46352
 exec an2linuxserver.py
-exec systemctl --user start easyeffects
+# exec systemctl --user start easyeffects
 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu

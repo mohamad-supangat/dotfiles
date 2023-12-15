@@ -46,7 +46,14 @@
             "app-name": "Spotify"
         }
     },
-    "widgets": ["inhibitors", "title", "dnd", "notifications"],
+    "widgets": [
+        "inhibitors",
+        "mpris",
+        "volume",
+        "title",
+        "dnd",
+        "notifications"
+    ],
     "widget-config": {
         "inhibitors": {
             "text": "Inhibitors",

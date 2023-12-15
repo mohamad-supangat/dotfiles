@@ -45,11 +45,17 @@ alias comigo="comi -c ~/.config/comigo/config.toml"
 
 alias sync-odoo-addons-pangat="rsync -azP ~/odoo/addons/ pangat@192.168.10.112:/home/pangat/odoo-15/addons/"
 alias sync-odoo-addons="rsync -azP ~/odoo/addons/ root@192.168.10.112:/home/saverid/odoo_22/addons/"
+alias sync-odoo-addons-beta="rsync -azP ~/odoo/addons/ root@192.168.10.34:/opt/odoo/addons/"
+
 
 alias pulseaudi-stream-simple-protocol-tcp="pactl load-module module-simple-protocol-tcp source=102 record=true port=12345 && adb reverse tcp:12345 tcp:12345"
 alias nchat-wa="nchat -d ~/.nchat-main-wa"
 alias release-it-gitlab="release-it --gitlab.release"
 alias release-it-github="release-it --github.release"
+
+alias tlenid="trans en:id"
+alias tliden="trans id:en"
+
 # alias mangal="docker run --rm -ti -e \"TERM=xterm-256color\" -v ~/Downloads/Manga/:/downloads -v ~/.config/mangal/config:/config metafates/mangal"
 # alias glab-jvm="GITLAB_TOKEN=$GITLAB_JVM_TOKEN glab"
 # alias release-it-jvm="GITLAB_TOKEN=$GITLAB_JVM_TOKEN release-it --gitlab.release"

@@ -43,3 +43,8 @@ pipx install rofi-tmuxp
 
 # install bebasid
 wget -P ~/.local/bin/ https://github.com/bebasid/bebasid/releases/download/v1.1/bebasid.sh && chmod +x ~/.local/bin/bebasid.sh && dos2unix ~/.local/bin/bebasid.sh
+
+
+
+# editorconfig generator
+pnpm add -g generate generate-editorconfig

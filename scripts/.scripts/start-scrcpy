@@ -32,7 +32,7 @@ function startApps() {
     devices=$(getDevices)
     if [ -n "${devices}" ]; then
         # if [[ $devices == *'10.5.50.38:7777'* ]]; then
-            scrcpy -Sw  -K -s $devices
+            scrcpy -Sw --audio-codec=flac --audio-encoder='OMX.google.flac.encoder' --v4l2-sink=/dev/video0 -K -s $devices
         # else
             # scrcpy -Sw --always-on-top -s $devices
         # fi

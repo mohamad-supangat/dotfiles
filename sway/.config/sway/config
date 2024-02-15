@@ -32,7 +32,7 @@ default_border pixel 1
 # default_floating_border normal
 # hide_edge_borders smart
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 
 # keppass
 for_window [title="KeePassXC - Browser Access Request"] floating enable
@@ -97,14 +97,17 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 
 
 # swayfx config
-# blur enable
+blur enable
+# blur_radius 5
+# blur_passes 5
 # blur_xray enable
-# corner_radius 10
+corner_radius 10
 # smart_corner_radius on
 # shadows_on_csd enable
 # shadow_blur_radius 20
 
-# shadows enable
+shadows enable
+# shadow_blur_radius 50
 # default_dim_inactive 0.7
 # titlebar_separator enable
 # scratchpad_minimize enable
@@ -113,8 +116,8 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 #  │ gaps / padding antar aplikasi                            │
 #  ╰──────────────────────────────────────────────────────────╯
 # smart_gaps on
-# gaps inner 5
-# gaps outer 5
+gaps inner 5
+gaps outer 5
 # gaps bottom 1
 
 # swayfx
@@ -125,7 +128,8 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 
 # wallpaper
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
-exec_always swaybg --image $background -m fill -c $backgroundFill
+# exec_always swaybg --image $background -m fill -c $backgroundFill
+exec_always swallpaper
 
 # output * bg $base01 solid_color
 # output * bg $backgroundFill solid_color

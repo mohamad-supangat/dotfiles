@@ -411,3 +411,6 @@ bar {
         binding_mode        $base00 $base0A $base00
     }
 }
+
+
+xwayland disable

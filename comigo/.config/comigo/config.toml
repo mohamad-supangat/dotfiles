@@ -31,7 +31,7 @@ PrintAllPossibleQRCode = false
 # 开启Debug模式
 Debug = false
 # 是否同时打开浏览器，windows默认true，其他默认false
-OpenBrowser = true
+OpenBrowser = false
 # 只在本机提供阅读服务，不对外共享，此项配置不支持热重载
 DisableLAN = true
 # 默认阅读模式，默认为空，可以设置为scroll或flip
@@ -51,7 +51,7 @@ CertFile = ''
 # TLS/SSL key文件路径 (default:
 KeyFile = ''
 # 开启本地图片缓存，可以加快二次读取，但会占用硬盘空间
-UseCache = true
+UseCache = false
 # 本地图片缓存位置，默认系统临时文件夹
 CachePath = '/tmp/comigo_cache'
 # 退出程序的时候，清理web图片缓存
@@ -59,7 +59,7 @@ ClearCacheExit = true
 # 启用本地数据库，保存扫描到的书籍数据。此项配置不支持热重载。
 EnableDatabase = true
 # 启用本地数据库时，扫描完成后，清除不存在的书籍。
-ClearDatabaseWhenExit = true
+ClearDatabaseWhenExit = false
 # 是否保存程序Log到本地文件。默认不保存。
 LogToFile = false
 # Log文件的保存位置

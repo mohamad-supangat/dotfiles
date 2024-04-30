@@ -7,7 +7,7 @@ function tmux_sessions()
     tmux list-session -F '#S'
 }
 TMUX_SESSIONS=$(tmux_sessions)
-TMUX_SESSION=$( (tmux_sessions) | rofi -dmenu -p "Select tmux session")
+TMUX_SESSION=$( (tmux_sessions) | fuzzel --dmenu)
 TMUX_SESSIONS=(${TMUX_SESSIONS//$'\n'/ })
 echo $TMUX_SESSIONS
 echo $TMUX_SESSION

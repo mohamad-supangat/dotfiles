@@ -980,8 +980,8 @@
      id="desktop"
      style="fill:#f9f9f9;-inkscape-font-specification:'Liberation Sans';font-family:'Liberation Sans';stroke-width:3.99496073;stroke:#000000">
     <group
-       width="752"
-       height="723"
+       width="1592"
+       height="855"
        x="0"
        y="0"
        maximized="1"
@@ -1098,7 +1098,7 @@
      flattening="0" />
   <group
      id="theme"
-     defaultPreferDarkTheme="0"
+     defaultPreferDarkTheme="1"
      defaultIconTheme="Adwaita"
      defaultGtkTheme="Adwaita"
      narrowSpinButton="1"

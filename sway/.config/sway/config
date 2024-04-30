@@ -4,7 +4,7 @@ set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
 set $term alacritty
-set $menu rofi -modi drun -show drun
+set $menu fuzzel
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
 # set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
@@ -14,9 +14,9 @@ set $screenanonation flameshot gui --region all
 # set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
 # set $clipboard_manager ~/.scripts/clipman-fzf
-set $clipboard_manager cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy
-set $file_manager pcmanfm
-set $dmenu rofi -modi run -show run
+set $clipboard_manager cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
+set $file_manager pcmanfm-qt
+set $dmenu fuzzel
 set $background /home/deve/Pictures/swayfx_mascot_1920x1080.png
 set $backgroundFill '#1D1F21'
 set $browser-selector qbpm choose -m rofi
@@ -125,7 +125,9 @@ gaps bottom 1
 
 # wallpaper
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
-exec_always swaybg --image $background -m fill -c $backgroundFill
+# exec_always swaybg --image $background -m fill -c $backgroundFill
+
+exec ~/.config/sway/bin/random-wallpaper.sh
 
 # output * bg $base01 solid_color
 # output * bg $backgroundFill solid_color
@@ -143,7 +145,7 @@ exec_always swaybg --image $background -m fill -c $backgroundFill
 
 # Shortcuts
 bindsym Control+Mod1+t exec $term
-bindsym $mod+Return exec tmux_session.sh $term
+bindsym $mod+Return exec ~/.scripts/tmux_session.sh $term
 bindsym $mod+Shift+Return exec rofi-tmuxp.sh
 bindsym Print exec $screenshot
 bindsym Shift+Print exec $screenanonation
@@ -388,9 +390,12 @@ include .generated_settings/input_touchpad.conf
 
 
 
-exec adb reverse tcp:46352 tcp:46352
-exec an2linuxserver.py
-exec systemctl --user start easyeffects
+# exec adb reverse tcp:46352 tcp:46352
+# exec an2linuxserver.py
+# exec systemctl --user start easyeffects
+
+exec dbus-sway-environment
+exec configure-gtk
 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
@@ -413,4 +418,4 @@ bar {
 }
 
 
-xwayland disable
+# xwayland disable

@@ -82,3 +82,11 @@ fish_add_path /opt/flutter/bin/
 # fish_add_path $ANDROID_HOME/platform-tools
 # fish_add_path $ANDROID_HOME/cmdline-tools/bin
 # fish_add_path $ANDROID_HOME/tools
+#
+#
+# set -x PHPENV_ROOT "/home/deve/.phpenv"
+if test -d "/home/deve/.phpenv"
+  set -x PATH "/home/deve/.phpenv/bin" $PATH
+  status --is-interactive; and . (phpenv init -|psub)
+end
+

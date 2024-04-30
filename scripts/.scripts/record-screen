@@ -13,8 +13,8 @@ if ! pkill -INT -P "$(pgrep -xo record-screen)" wf-recorder 2>/dev/null; then
         # wl-screenrec -f $file -g "$geometry"
 
         gdrive_file=/tmp/record_to_gdrive.txt
-        gdrive files upload --parent 1x8koRfNslb509g1sm9p8i-JlM2WUIyCr $file > $gdrive_file
-        cat $gdrive_file | grep ViewUrl | sed 's/ViewUrl: //g' | wl-copy
+        # gdrive files upload --parent 1x8koRfNslb509g1sm9p8i-JlM2WUIyCr $file > $gdrive_file
+        # cat $gdrive_file | grep ViewUrl | sed 's/ViewUrl: //g' | wl-copy
 
         # rm $file
         notify-send "  Stop Recording"

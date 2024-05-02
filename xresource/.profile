@@ -34,19 +34,14 @@ export PATH="/opt/android-sdk/build-tools/30.0.3:$PATH"
 
 
 
-
-# for ruby
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
-
-# add ruby gem path and home
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
-
+# # add ruby gem path and home
+# export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+# export PATH="$PATH:$GEM_HOME/bin"
+#
 # default editor
 export EDITOR=nvim
 # export TERMINAL=/usr/bin/alacritty
-export TERMINAL=/usr/bin/alacritty
+# export TERMINAL=/usr/bin/alacritty
 export PATH=$PATH:~/.scripts
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 

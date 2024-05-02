@@ -29,8 +29,9 @@ alias tmuxproject="tmuxinator"
 alias se="sudo -E"
 alias composer7="/usr/bin/php7 /usr/bin/composer"
 alias update-font-cache="fc-cache -f -v"
-alias vi="vim"
-alias v="vim"
+alias vi="nvim"
+alias v="nvim"
+alias vim="nvim"
 alias create-laravel-project="composer create-project laravel/laravel"
 alias create-vite-project="pnpm create vite"
 alias readme-md-generator="pnpx readme-md-generator"
@@ -85,8 +86,8 @@ fish_add_path /opt/flutter/bin/
 #
 #
 # set -x PHPENV_ROOT "/home/deve/.phpenv"
-if test -d "/home/deve/.phpenv"
-  set -x PATH "/home/deve/.phpenv/bin" $PATH
-  status --is-interactive; and . (phpenv init -|psub)
-end
+# if test -d "/home/deve/.phpenv"
+#   set -x PATH "/home/deve/.phpenv/bin" $PATH
+#   status --is-interactive; and . (phpenv init -|psub)
+# end
 

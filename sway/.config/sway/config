@@ -19,7 +19,7 @@ set $file_manager pcmanfm-qt
 set $dmenu fuzzel
 set $background /home/deve/Pictures/swayfx_mascot_1920x1080.png
 set $backgroundFill '#1D1F21'
-set $browser-selector qbpm choose -m rofi
+set $browser-selector floorp -p
 
 # Drag floating windows
 floating_modifier $mod
@@ -73,6 +73,10 @@ for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating en
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 for_window [app_id="firefoxdeveloperedition" title="Firefox Developer Edition — Sharing Indicator"] floating enable, kill
 for_window [app_id="firefoxdeveloperedition" title="Picture-in-Picture"] floating enable, sticky enable
+for_window [app_id="floorp" title="Floorp — Sharing Indicator"] floating enable, kill
+for_window [app_id="floorp" title="Picture-in-Picture"] floating enable, sticky enable
+
+
 
 
 for_window [app_id="QtScrcpy"] floating enable
@@ -152,7 +156,7 @@ bindsym Shift+Print exec $screenanonation
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 bindsym $mod+Shift+p exec bwmenu
-# bindsym $mod+Shift+b exec $browser-selector
+bindsym $mod+Shift+x exec $browser-selector
 # bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
 # bindsym $mod+Shift+Print exec $screenclip
 bindsym $mod+r exec $dmenu
@@ -362,8 +366,8 @@ bindsym $mod+Shift+e mode "$mode_system"
 # auto start apps section
 # exec_always --no-startup-id xrdb ~/.Xresources
 # poolkit agent
-# exec lxqt-policykit-agent
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec lxqt-policykit-agent
+# exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # clipboard manager
 # exec wl-paste -t text --watch clipman store --max-items=1000
@@ -394,8 +398,8 @@ include .generated_settings/input_touchpad.conf
 # exec an2linuxserver.py
 # exec systemctl --user start easyeffects
 
-exec dbus-sway-environment
-exec configure-gtk
+# exec dbus-sway-environment
+# exec configure-gtk
 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu

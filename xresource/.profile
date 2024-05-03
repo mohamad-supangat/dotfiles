@@ -35,13 +35,10 @@ export PATH="/opt/android-sdk/build-tools/30.0.3:$PATH"
 
 
 
-# for ruby
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
-
-# add ruby gem path and home
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
+# # for ruby
+# export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+# export PATH="$PATH:$GEM_HOME/bin"
+#
 
 # default editor
 export EDITOR=nvim

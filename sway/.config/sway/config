@@ -15,11 +15,11 @@ set $screenanonation flameshot gui --region all
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
 # set $clipboard_manager ~/.scripts/clipman-fzf
 set $clipboard_manager cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy
-set $file_manager pcmanfm
+set $file_manager pcmanfm-qt
 set $dmenu rofi -modi run -show run
 set $background /home/deve/Pictures/swayfx_mascot_1920x1080.png
 set $backgroundFill '#1D1F21'
-set $browser-selector qbpm choose -m rofi
+set $browser-selector floorp -P
 
 # Drag floating windows
 floating_modifier $mod
@@ -97,25 +97,25 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 
 
 # swayfx config
-# blur enable
+blur enable
 # blur_xray enable
-# corner_radius 10
-# smart_corner_radius on
+corner_radius 10
+smart_corner_radius on
 # shadows_on_csd enable
 # shadow_blur_radius 20
 
-# shadows enable
+shadows enable
 # default_dim_inactive 0.7
-# titlebar_separator enable
+titlebar_separator enable
 # scratchpad_minimize enable
 
 #  ╭──────────────────────────────────────────────────────────╮
 #  │ gaps / padding antar aplikasi                            │
 #  ╰──────────────────────────────────────────────────────────╯
 # smart_gaps on
-gaps inner 5
-gaps outer 5
-gaps bottom 1
+# gaps inner 5
+# gaps outer 5
+# gaps bottom 1
 
 # swayfx
 # corner_radius 10
@@ -125,8 +125,8 @@ gaps bottom 1
 
 # wallpaper
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
-exec_always swaybg --image $background -m fill -c $backgroundFill
-
+# exec_always swaybg --image $background -m fill -c $backgroundFill
+exec ~/.config/sway/bin/random-wallpaper.sh
 # output * bg $base01 solid_color
 # output * bg $backgroundFill solid_color
 
@@ -150,7 +150,7 @@ bindsym Shift+Print exec $screenanonation
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 bindsym $mod+Shift+p exec bwmenu
-# bindsym $mod+Shift+b exec $browser-selector
+bindsym $mod+Shift+x exec $browser-selector
 # bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
 # bindsym $mod+Shift+Print exec $screenclip
 bindsym $mod+r exec $dmenu
@@ -203,8 +203,8 @@ bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
 
 # Bind brightness keys to light interface
-bindsym XF86MonBrightnessUp exec  brightnessctl set +20
-bindsym XF86MonBrightnessDown exec brightnessctl set 20-
+bindsym XF86MonBrightnessUp exec  brightnessctl set +5
+bindsym XF86MonBrightnessDown exec brightnessctl set 5-
 
 # Toggle Redshift
 #bindsym $mod+Home exec --no-startup-id pkill -USR1 redshift
@@ -373,7 +373,7 @@ exec wl-paste --watch cliphist -max-items 100 store
 # exec sworkstyle &> /tmp/sworkstyle.log
 # exec_always wlsunset
 
-exec --no-startup-id $term --name scratchpad
+# exec --no-startup-id $term --name scratchpad
 # gnome keyring start
 
 # exec eval $(gnome-keyring-daemon --start)
@@ -388,9 +388,9 @@ include .generated_settings/input_touchpad.conf
 
 
 
-exec adb reverse tcp:46352 tcp:46352
-exec an2linuxserver.py
-exec systemctl --user start easyeffects
+# exec adb reverse tcp:46352 tcp:46352
+# exec an2linuxserver.py
+# exec systemctl --user start easyeffects
 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu

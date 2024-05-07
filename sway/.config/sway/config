@@ -3,8 +3,8 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term alacritty
-set $menu rofi -modi drun -show drun
+set $term foot
+set $menu fuzzel
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
 # set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
@@ -14,9 +14,9 @@ set $screenanonation flameshot gui --region all
 # set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
 # set $clipboard_manager ~/.scripts/clipman-fzf
-set $clipboard_manager cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy
+set $clipboard_manager cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
 set $file_manager pcmanfm-qt
-set $dmenu rofi -modi run -show run
+set $dmenu fuzzel
 set $background /home/deve/Pictures/swayfx_mascot_1920x1080.png
 set $backgroundFill '#1D1F21'
 set $browser-selector floorp -P
@@ -73,6 +73,9 @@ for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating en
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
 for_window [app_id="firefoxdeveloperedition" title="Firefox Developer Edition — Sharing Indicator"] floating enable, kill
 for_window [app_id="firefoxdeveloperedition" title="Picture-in-Picture"] floating enable, sticky enable
+for_window [app_id="floorp" title="Floorp — Sharing Indicator"] floating enable, kill
+for_window [app_id="floorp" title="Picture-in-Picture"] floating enable, sticky enable
+
 
 
 for_window [app_id="QtScrcpy"] floating enable
@@ -368,6 +371,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 100 store
 
 
+exec AppFlowy
 # exec waybar
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 # exec sworkstyle &> /tmp/sworkstyle.log
@@ -385,7 +389,7 @@ exec wl-paste --watch cliphist -max-items 100 store
 include colorscheme
 include .generated_settings/input_pointer.conf
 include .generated_settings/input_touchpad.conf
-
+include /etc/sway/config.d/*
 
 
 # exec adb reverse tcp:46352 tcp:46352

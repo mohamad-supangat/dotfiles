@@ -12,7 +12,7 @@
 # Last Modified Date: Sabtu, 10/07/2021 18:43 WIB
 # Last Modified By  : M. Nabil Adani <nblid48[at]gmail[dot]com>
 
-DMENU="rofi -dmenu -width 30 -i "
+DMENU="fuzzel --dmenu"
 
 function sendMsg() {
     notify-send "droidapps" "$1"

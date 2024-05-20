@@ -1,3 +1,4 @@
+export PHP_CS_FIXER_IGNORE_ENV=true
 
 export CM_LAUNCHER=rofi
 export CM_DIR=~/.cache/clipmenu
@@ -62,4 +63,3 @@ if [ -e ~/.private-env ]
 then
     source ~/.private-env
 fi
-

@@ -1,176 +1,82 @@
-// vim:set ft=jsonc:
 {
+  "layer": "top",
+  "position": "top",
+  "height": 5,
+  "spacing": 4,
+  "exclusive": true,
   "gtk-layer-shell": true,
-  "position": "bottom",
-  "modules-left": [
-    // "custom/arch-pill",
-    "sway/mode",
-    "sway/workspaces",
-    "wlr/workspaces",
-    "custom/scratchpad_indicator"
-    // "sway/window"
-  ],
-  "modules-center": [
-    "network",
-    "cpu",
-    "memory"
-    // "custom/playerctl",
-  ],
+  "passthrough": false,
+  "fixed-center": true,
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["sway/mode"],
   "modules-right": [
-      // "custom/clipboard",
-    "custom/notification",
+    "cpu",
+    "memory",
+    "pulseaudio",
+    "clock",
+    "clock#simpleclock",
     "tray",
-    // "custom/notification",
-    "battery",
-    // "pulseaudio",
-    "clock"
   ],
-  "cpu": {
-    "format": "&#8239;{usage}%",
-    "tooltip": false,
-    "on-click": "lxtask"
+  "custom/spotify": {
+    "format": "{}",
+    "return-type": "json",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "spotifatius toggle-liked",
+    "on-click-middle": "playerctl -p spotify next",
+    "exec": "spotifatius monitor",
   },
-  // "memory": {
-  //   "format": " {}%"
-  // },
-  // Modules configuration
   "wlr/workspaces": {
-    "sort-by-name": true
+    "on-click": "activate",
+    "format": "{name}",
+    "all-outputs": true,
+    "disable-scroll": false,
+    "active-only": false,
   },
-  "sway/workspaces": {
-    "all-outputs": false,
-    "enable-bar-scroll": true,
-    "format": "{icon}",
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": []
-    },
-    "format-icons": {
-      // "1": "一",
-      // "2": "二",
-      // "3": "三",
-      // "4": "四",
-      // "5": "五",
-      "default": "",
-      "urgent": "",
-      "focused": ""
-    }
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10,
   },
-  "custom/arch-pill": {
-    "format": " ",
-    // "on-click": "rofi",
-    "tooltip": false
-  },
-  "sway/window": {
-    "format": "{}"
+  "clock#simpleclock": {
+    "tooltip": false,
+    "format": "  {:%H:%M}",
   },
   "clock": {
-    "format": "<span> </span><span> {:%I:%M %p}</span>",
+    "format": "  {:L%a %d %b}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "<span> </span><span> {:%I:%M %p  %a %d}</span>"
   },
-  "network": {
-  //   // "interface": "enp2s0",
-  //   "format": "Loading",
-    "format-wifi": "<span></span> {essid} {bandwidthTotalBytes}",
-     "format-ethernet": "<span></span> {ipaddr} {bandwidthTotalBytes} {icon}",
-     "format-linked": "<span></span>",
-     "format-disconnected": "<span>睊</span>",
-     "tooltip-format-linked": "{ifname}  ",
-     "tooltip-format-disconnected": "Disconnected",
-     "tooltip-format-wifi": "Signal Strenght: {signalStrength}% ",
-     "tooltip-format-ethernet": "{ifname}  "
+  "cpu": {
+    "format": "  {usage}%",
+    "tooltip": true,
+    "interval": 1,
+  },
+  "memory": {
+    "format": "  {used:0.2f}G",
   },
   "pulseaudio": {
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "format": "<span size='13000' foreground='#FAE3B0'>{icon} </span><span> {volume}%</span>",
-    "format-muted": "<span size='14000'>ﱝ</span>",
+    "format": "{icon} {volume}%",
+    "format-muted": "  muted",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
+      "headphone": " ",
+      "hands-free": "󰂑",
+      "headset": "󰂑",
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "奔",
-        "墳"
-      ]
+      "default": [" ", " ", " "],
     },
-    "on-click-right": "pavucontrol"
+    "on-click": "pavucontrol",
   },
-  "custom/playerctl": {
-    "format": "{icon}  <span>{}</span>",
-    "return-type": "json",
-    "max-length": 70,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    "on-click-middle": "playerctl play-pause",
-    "on-click": "playerctl previous",
-    "on-click-right": "playerctl next",
-    "format-icons": {
-      "Playing": "<span foreground='#ABE9B3'></span>",
-      "Paused": "<span foreground='#E8A2AF'></span>"
-    }
-  },
-  "custom/scratchpad_indicator": {
-    "interval": 3,
-    "exec": "swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==\"__i3_scratch\")) | .floating_nodes | length | select(. >= 1)'",
-    "format": "{}<span foreground='#E8A2AF'>  </span>",
-    "on-click": "swaymsg 'scratchpad show'",
-    "on-click-right": "swaymsg 'move scratchpad'"
-  },
-  "custom/clipboard": {
-      "format": "🄯",
-      "interval": "once",
-      "return-type": "json",
-      "on-click": "swaymsg -q exec 'cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy'; pkill -RTMIN+9 waybar",
-      "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)",
-      "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
-      "signal": 9
-    },
-  "custom/notification": {
+  "custom/logo": {
+    "format": "",
     "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": " <span foreground='red'><sup></sup></span>",
-      "none": "",
-      "dnd-notification": " <span foreground='red'><sup></sup></span>",
-      "dnd-none": " "
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
   },
-  "tray": {
-    "icon-size": 12,
-    "reverse-direction": true,
-    "spacing": 6
+  "custom/sep": {
+    "format": "|",
+    "tooltip": false,
   },
-  "battery": {
-    "states": {
-      // "good": 95,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon}&#8239;{capacity}%",
-    "format-charging": "charging : {capacity}%",
-    "format-plugged": "Plugged {capacity}%",
-    "format-alt": "{icon} {time}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-    // "format-icons": ["", "", "", "", ""]
-  }
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout -p layer-shell &",
+    "format": "⏻ ",
+  },
 }

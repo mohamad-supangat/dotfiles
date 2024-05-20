@@ -75,8 +75,7 @@ for_window [app_id="firefoxdeveloperedition" title="Firefox Developer Edition �
 for_window [app_id="firefoxdeveloperedition" title="Picture-in-Picture"] floating enable, sticky enable
 for_window [app_id="floorp" title="Floorp — Sharing Indicator"] floating enable, kill
 for_window [app_id="floorp" title="Picture-in-Picture"] floating enable, sticky enable
-
-
+for_window [app_id="floorp" title="Floorp - Choose User Profile"] floating enable, sticky enable, resize set 30
 
 for_window [app_id="QtScrcpy"] floating enable
 for_window [app_id="QtScrcpy" title="Tool"] kill
@@ -116,15 +115,9 @@ titlebar_separator enable
 #  │ gaps / padding antar aplikasi                            │
 #  ╰──────────────────────────────────────────────────────────╯
 # smart_gaps on
-# gaps inner 5
-# gaps outer 5
+gaps inner 3
+gaps outer 3
 # gaps bottom 1
-
-# swayfx
-# corner_radius 10
-# smart_corner_radius off
-# shadows on
-# default_dim_inactive 0.3
 
 # wallpaper
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
@@ -165,7 +158,7 @@ bindsym $mod+Shift+a exec  /home/deve/projects/auto_click/start.sh
 
 # Toggle control center Notifications
 bindsym $mod+Shift+n exec swaync-client -t -sw
-
+exec swaync
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
@@ -184,9 +177,9 @@ bindsym $mod+End exec $wifi
 # bindsym Control+Shift+Space exec makoctl dismiss --all
 
 # dunst notification
-exec dunst
-bindsym Control+Space exec dunstctl close
-bindsym Control+Shift+Space exec dunstctl close-all
+# exec dunst
+# bindsym Control+Space exec dunstctl close
+# bindsym Control+Shift+Space exec dunstctl close-all
 
 # if using swaync
 # bindsym Control+Space exec swaync-client --hide-latest
@@ -368,11 +361,12 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # clipboard manager
 # exec wl-paste -t text --watch clipman store --max-items=1000
-exec wl-paste --watch cliphist -max-items 100 store
+exec wl-paste --watch cliphist -max-items 500 store
 
 
 exec AppFlowy
-# exec waybar
+exec kdeconnect-indicator
+exec waybar
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 # exec sworkstyle &> /tmp/sworkstyle.log
 # exec_always wlsunset
@@ -398,20 +392,20 @@ include /etc/sway/config.d/*
 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
-bar {
-    font pango:Iosevka Nerd Font, FontAwesome 8
-    position top
-    status_command i3status-rs
-    colors {
-        background $base00
-        separator  $base01
-        statusline $base04
-
-        # State             Border  BG      Text
-        focused_workspace   $base05 $base0D $base00
-        active_workspace    $base05 $base03 $base00
-        inactive_workspace  $base03 $base01 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
-    }
-}
+# bar {
+#     font pango:Iosevka Nerd Font, FontAwesome 8
+#     position top
+#     status_command i3status-rs
+#     colors {
+#         background $base00
+#         separator  $base01
+#         statusline $base04
+#
+#         # State             Border  BG      Text
+#         focused_workspace   $base05 $base0D $base00
+#         active_workspace    $base05 $base03 $base00
+#         inactive_workspace  $base03 $base01 $base05
+#         urgent_workspace    $base08 $base08 $base00
+#         binding_mode        $base00 $base0A $base00
+#     }
+# }

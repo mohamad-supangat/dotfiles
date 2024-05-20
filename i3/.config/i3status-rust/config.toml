@@ -50,7 +50,7 @@ block = "cpu"
 [[block]]
 block = "notify"
 format = " $icon {($notification_count.eng(w:1)) |}"
-driver = "dunst"
+driver = "swaync"
 
 [[block.click]]
 button = "left"

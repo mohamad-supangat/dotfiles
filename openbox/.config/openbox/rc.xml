@@ -320,7 +320,22 @@
       <action name="Execute">
         <command>pcmanfm-qt</command>
       </action>
+      </keybind>
+
+
+   <keybind key="W-S-r">
+      <action name="Reconfigure">
+        <command>lxqt-leave --logout</command>
+      </action>
     </keybind>
+
+
+    <keybind key="W-S-e">
+      <action name="Execute">
+        <command>lxqt-leave --logout</command>
+      </action>
+    </keybind>
+
     <keybind key="C-A-t">
       <action name="Execute">
         <command>alacritty</command>

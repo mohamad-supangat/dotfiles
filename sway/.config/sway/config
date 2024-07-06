@@ -3,7 +3,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term foot
+set $term alacritty
 set $menu fuzzel
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $screenshot grim -g "$(slurp)" - | swappy -f -
@@ -364,9 +364,9 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 500 store
 
 
-exec AppFlowy
-exec kdeconnect-indicator
-exec waybar
+# exec AppFlowy
+# exec kdeconnect-indicator
+# exec waybar
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 # exec sworkstyle &> /tmp/sworkstyle.log
 # exec_always wlsunset
@@ -392,20 +392,20 @@ include /etc/sway/config.d/*
 
 # set $menu exec alacritty --class=launcher -e /usr/bin/sway-launcher-desktop
 # bindsym $mod+d exec $menu
-# bar {
-#     font pango:Iosevka Nerd Font, FontAwesome 8
-#     position top
-#     status_command i3status-rs
-#     colors {
-#         background $base00
-#         separator  $base01
-#         statusline $base04
-#
-#         # State             Border  BG      Text
-#         focused_workspace   $base05 $base0D $base00
-#         active_workspace    $base05 $base03 $base00
-#         inactive_workspace  $base03 $base01 $base05
-#         urgent_workspace    $base08 $base08 $base00
-#         binding_mode        $base00 $base0A $base00
-#     }
-# }
+bar {
+    font pango:Iosevka, FontAwesome 8
+    position top
+    status_command i3status-rs
+    colors {
+        background $base00
+        separator  $base01
+        statusline $base04
+
+        # State             Border  BG      Text
+        focused_workspace   $base05 $base0D $base00
+        active_workspace    $base05 $base03 $base00
+        inactive_workspace  $base03 $base01 $base05
+        urgent_workspace    $base08 $base08 $base00
+        binding_mode        $base00 $base0A $base00
+    }
+}

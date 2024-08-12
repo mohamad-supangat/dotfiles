@@ -16,6 +16,7 @@ fish_add_path ~/go/bin
 # starship init fish | source
 
 # aliases sections
+alias ace="node ace"
 alias ask="sgpt"
 alias ls="ls -a --color"
 alias ask="sgpt"

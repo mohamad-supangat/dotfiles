@@ -31,7 +31,7 @@ export GDK_BACKEND=wayland
 # export GDK_CORE_DEVICE_EVENTS=1
 export NO_AT_BRIDGE=1
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
-export TERMINAL=/usr/bin/alacritty
+export TERMINAL=/usr/bin/foot
 
 export GPG_TTY=$(tty)
 

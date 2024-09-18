@@ -7,19 +7,21 @@ fish_add_path ~/.local/bin
 fish_add_path /usr/local/bin
 fish_add_path ~/.config/composer/vendor/bin
 fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
-fish_add_path /usr/lib/jvm/java-8-openjdk/bin
+fish_add_path ~/.local/share/gem/ruby/3.2.0/bin
+fish_add_path /usr/lib/jvm/default-runtime/bin
 fish_add_path /opt/android-sdk/build-tools/30.0.3
 fish_add_path ~/go/bin
 
 
 # init starship default prompts
-# starship init fish | source
+starship init fish | source
 
 # aliases sections
 alias ask="sgpt"
 alias ls="ls -a --color"
 alias ask="sgpt"
 alias art="./artisan"
+alias ace="node ace"
 alias gu="lazygit"
 alias artisan="./artisan"
 alias artisan7="php7 ./artisan"
@@ -35,6 +37,7 @@ alias create-laravel-project="composer create-project laravel/laravel"
 alias create-vite-project="pnpm create vite"
 alias readme-md-generator="pnpx readme-md-generator"
 alias odoo-readme-md-to-description="mkdir -p static/description && github-markdown README.md > static/description/index.html"
+# alias adb="adb.exe"
 alias adb-push-public-key="adb push ~/.android/adbkey.pub /data/misc/adb/adb_keys"
 alias adb-screenshot="adb exec-out screencap -p > ~/Pictures/screenshots/android-$(date +"%Y-%m-%d-%H-%M-%S").png"
 alias tmux-save-pane='tmux capture-pane -pS -'
@@ -76,17 +79,21 @@ set --export PATH $BUN_INSTALL/bin $PATH
 # ruby gem
 
 #flutter
-fish_add_path /opt/flutter/bin/
+fish_add_path ~/tools/flutter/bin/
 
 # android -sdk
-# fish_add_path $ANDROID_HOME/platform-tools
-# fish_add_path $ANDROID_HOME/cmdline-tools/bin
-# fish_add_path $ANDROID_HOME/tools
+set -gx ANDROID_HOME "/home/deve/tools/android/sdk/"
+fish_add_path $ANDROID_HOME/platform-tools
+fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
+fish_add_path $ANDROID_HOME/tools
 #
 #
 # set -x PHPENV_ROOT "/home/deve/.phpenv"
-if test -d "/home/deve/.phpenv"
-  set -x PATH "/home/deve/.phpenv/bin" $PATH
-  status --is-interactive; and . (phpenv init -|psub)
-end
-
+# if test -d "/home/deve/.phpenv"
+#   set -x PATH "/home/deve/.phpenv/bin" $PATH
+#   status --is-interactive; and . (phpenv init -|psub)
+# end
+#
+#set -gx JAVA_HOME "/usr/lib/jvm/java-17-openjdk/"
+set -gx EDITOR "nvim"
+source ~/.private-env

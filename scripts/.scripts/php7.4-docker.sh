@@ -1,1 +1,1 @@
-docker run -it --rm --name php7.4 -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:7.4-cli php $1
+docker run -it --rm --name php7.4 -v /usr/bin/composer:/usr/bin/composer -v "$PWD":/usr/src/myapp -w /usr/src/myapp netpositivehu/php7.4 $@

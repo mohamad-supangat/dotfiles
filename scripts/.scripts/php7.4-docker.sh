@@ -1,1 +1,1 @@
-docker run -it --rm --name php7.4 -v /usr/bin/composer:/usr/bin/composer -v "$PWD":/usr/src/myapp -w /usr/src/myapp netpositivehu/php7.4 $@
+docker run -it --rm -v /usr/bin/composer:/usr/bin/composer -v "$PWD":/usr/src/myapp -w /usr/src/myapp -p 8000:8000 netpositivehu/php7.4 $@

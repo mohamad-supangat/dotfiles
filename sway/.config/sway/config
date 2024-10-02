@@ -6,7 +6,9 @@ set $wifi ~/.config/rofi/modi/nmcli
 set $term foot
 set $menu fuzzel
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
-set $screenshot grim -g "$(slurp)" - | swappy -f -
+# set $screenshot grim -g "$(slurp)" - | swappy -f -
+set $screenshot grim -g "$(slurp -d)" - | wl-copy
+
 # set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
 # set $screenshot flameshot gui
 set $screenanonation flameshot gui --region all

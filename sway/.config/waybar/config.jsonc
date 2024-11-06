@@ -10,6 +10,7 @@
   "modules-left": ["sway/workspaces", "hyprland/workspaces"],
   "modules-center": ["sway/mode", "hyprland/window", "hyprland/submap"],
   "modules-right": [
+    "network",
     "cpu",
     "memory",
     "pulseaudio",
@@ -89,4 +90,16 @@
     "on-click": "wlogout -p layer-shell &",
     "format": "⏻ ",
   },
+  "network": {
+  //   // "interface": "enp2s0",
+  //   "format": "Loading",
+    "format-wifi": "<span></span> {essid} {bandwidthTotalBytes}",
+     "format-ethernet": "<span></span> {ipaddr} {bandwidthTotalBytes} {icon}",
+     "format-linked": "<span></span>",
+     "format-disconnected": "<span>睊</span>",
+     "tooltip-format-linked": "{ifname}  ",
+     "tooltip-format-disconnected": "Disconnected",
+     "tooltip-format-wifi": "Signal Strenght: {signalStrength}% ",
+     "tooltip-format-ethernet": "{ifname}  "
+  }
 }

@@ -348,7 +348,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>dmenu_run</command>
+        <command>rofi  -modi drun -show drun</command>
       </action>
     </keybind>
     <!-- Screenshot -->

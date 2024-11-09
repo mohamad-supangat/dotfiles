@@ -5,7 +5,8 @@ set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
 set $term foot
 # set $menu fuzzel
-set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
+# set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
+set $menu rofi -modi drun -show drun
 # set $screenshot grim -g "$(slurp)" - | swappy -f -
 set $screenshot grim -g "$(slurp -d)" - | wl-copy
 
@@ -146,8 +147,8 @@ exec ~/.config/sway/bin/random-wallpaper.sh
 
 # Shortcuts
 bindsym Control+Mod1+t exec $term
-bindsym $mod+Return exec tmux_session.sh $term
-bindsym $mod+Shift+Return exec rofi-tmuxp.sh
+bindsym $mod+Return exec ~/.scripts/tmux_session.sh $term
+bindsym $mod+Shift+Return exec ~/.scripts/rofi-tmuxp.sh $term
 bindsym Print exec grim -g "$(slurp -d)" - | wl-copy
 bindsym Mod1+Print exec grim -g "$(slurp)" - | swappy -f -
 
@@ -373,7 +374,8 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 500 store
 
 
-# exec AppFlowy
+exec AppFlowy
+exec Floorp
 # exec kdeconnect-indicator
 exec waybar
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
@@ -383,7 +385,7 @@ exec waybar
 # exec --no-startup-id $term --name scratchpad
 # gnome keyring start
 
-# exec eval $(gnome-keyring-daemon --start)
+exec eval $(gnome-keyring-daemon --start)
 # exec export SSH_AUTH_SOCK
 
 

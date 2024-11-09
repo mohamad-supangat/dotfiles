@@ -1,25 +1,26 @@
 
 
-set $base00 #181818
-set $base01 #282828
-set $base02 #383838
-set $base03 #585858
-set $base04 #b8b8b8
-set $base05 #d8d8d8
-set $base06 #e8e8e8
-set $base07 #f8f8f8
-set $base08 #ab4642
-set $base09 #dc9656
-set $base0A #f7ca88
-set $base0B #a1b56c
-set $base0C #86c1b9
-set $base0D #7cafc2
-set $base0E #ba8baf
-set $base0F #a16946
+set $base00  #191724
+set $base01  #1f1d2e
+set $base02  #26233a
+set $base03  #555169
+set $base04  #6e6a86
+set $base05  #e0def4
+set $base06  #f0f0f3
+set $base07  #c5c3ce
+set $base08  #e2e1e7
+set $base09  #eb6f92
+set $base0A  #f6c177
+set $base0B  #ebbcba
+set $base0C  #31748f
+set $base0D  #9ccfd8
+set $base0E  #c4a7e7
+set $base0F  #e5e5e5
+
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused          $base0B $base0B $base00 $base0B $base0B
 client.focused_inactive $base01 $base01 $base05 $base03 $base01
 client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08

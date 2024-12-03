@@ -11,10 +11,11 @@ fish_add_path ~/.local/share/gem/ruby/3.2.0/bin
 fish_add_path /usr/lib/jvm/default-runtime/bin
 fish_add_path /opt/android-sdk/build-tools/30.0.3
 fish_add_path ~/go/bin
+fish_add_path /home/deve/.cargo/bin/
 
 
 # init starship default prompts
-starship init fish | source
+# starship init fish | source
 
 # aliases sections
 alias ask="sgpt"
@@ -97,3 +98,13 @@ fish_add_path $ANDROID_HOME/tools
 #set -gx JAVA_HOME "/usr/lib/jvm/java-17-openjdk/"
 set -gx EDITOR "nvim"
 source ~/.private-env
+
+
+
+if status is-interactive
+and not set -q TMUX
+    exec tmuxa
+end
+
+
+# exec dbus-launch true

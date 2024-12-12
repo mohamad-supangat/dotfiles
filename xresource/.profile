@@ -1,5 +1,5 @@
 export PHP_CS_FIXER_IGNORE_ENV=true
-
+export NVIM_BACKGROUND=dark
 export CM_LAUNCHER=rofi
 export CM_DIR=~/.cache/clipmenu
 # export LC_ALL=en_US.UTF-8

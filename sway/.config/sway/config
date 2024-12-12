@@ -7,8 +7,8 @@ set $term foot
 # set $menu fuzzel
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $menu rofi -modi drun -show drun
-# set $screenshot grim -g "$(slurp)" - | swappy -f -
-set $screenshot grim -g "$(slurp -d)" - | wl-copy
+set $screenshot grim -g "$(slurp)" - | swappy -f -
+# set $screenshot grim -g "$(slurp -d)" - | wl-copy
 
 # set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
 # set $screenshot flameshot gui
@@ -53,7 +53,7 @@ for_window [app_id="ssh-askpass-sublime"] floating enable
 
  # Wayland default floats
 for_window [app_id="gnome-(calendar|calculator|power-statistics|control-center)"] floating enable
-for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable
+# for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable
 for_window [app_id="(pavucontrol|psensor)"] floating enable
 for_window [app_id="evolution-alarm-notify"] floating enable
 for_window [app_id="nemo"] floating disable
@@ -84,6 +84,10 @@ for_window [app_id="firefoxdeveloperedition" title="Picture-in-Picture"] floatin
 for_window [app_id="floorp" title="Floorp — Sharing Indicator"] floating enable, kill
 for_window [app_id="floorp" title="Picture-in-Picture"] floating enable, sticky enable
 for_window [app_id="floorp" title="Floorp - Choose User Profile"] floating enable, sticky enable, resize set 30
+for_window [title="Zen Browser — Sharing Indicator"] floating enable, kill
+for_window [title="Picture-in-Picture"] floating enable, sticky enable
+for_window [title="Zen Browser - Choose User Profile"] floating enable, sticky enable, resize set 30
+
 
 for_window [app_id="QtScrcpy"] floating enable
 for_window [app_id="QtScrcpy" title="Tool"] kill
@@ -110,7 +114,7 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 blur enable
 # blur_xray enable
 corner_radius 10
-smart_corner_radius on
+# smart_corner_radius on
 # shadows_on_csd enable
 # shadow_blur_radius 20
 
@@ -123,9 +127,9 @@ titlebar_separator enable
 #  │ gaps / padding antar aplikasi                            │
 #  ╰──────────────────────────────────────────────────────────╯
 # smart_gaps on
-# gaps inner 3
-# gaps outer 3
-# gaps bottom 1
+gaps inner 3
+gaps outer 3
+gaps bottom 1
 
 # wallpaper
 # exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
@@ -374,8 +378,8 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 500 store
 
 
-exec AppFlowy
-exec Floorp
+# exec AppFlowy
+# exec Floorp
 # exec kdeconnect-indicator
 exec waybar
 # exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov

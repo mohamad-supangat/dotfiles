@@ -58,9 +58,9 @@ alias release-it-github="release-it --github.release"
 
 
 # auto start sway
-if test (tty) = /dev/tty1
-    exec tbsm
-end
+# if test (tty) = /dev/tty1
+#     exec tbsm
+# end
 
 
 # pnpm

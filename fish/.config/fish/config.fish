@@ -1,5 +1,10 @@
 set fish_greeting "Semangat jangan menyerah 😃"
 
+set -g theme_nerd_fonts yes
+# set -g theme_color_scheme light
+set -g theme_display_user ssh
+set -g theme_display_date no
+set -g theme_newline_cursor yes
 
 # add some path
 fish_add_path ~/.scripts
@@ -38,7 +43,7 @@ alias create-laravel-project="composer create-project laravel/laravel"
 alias create-vite-project="pnpm create vite"
 alias readme-md-generator="pnpx readme-md-generator"
 alias odoo-readme-md-to-description="mkdir -p static/description && github-markdown README.md > static/description/index.html"
-# alias adb="adb.exe"
+alias adb="adb.exe"
 alias adb-push-public-key="adb push ~/.android/adbkey.pub /data/misc/adb/adb_keys"
 alias adb-screenshot="adb exec-out screencap -p > ~/Pictures/screenshots/android-$(date +"%Y-%m-%d-%H-%M-%S").png"
 alias tmux-save-pane='tmux capture-pane -pS -'
@@ -108,3 +113,4 @@ end
 
 
 # exec dbus-launch true
+set -gx NVIM_BACKGROUND "light"

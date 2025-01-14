@@ -106,10 +106,10 @@ source ~/.private-env
 
 
 
-if status is-interactive
-and not set -q TMUX
-    exec tmuxa
-end
+# if status is-interactive
+# and not set -q TMUX
+#     exec tmuxa
+# end
 
 
 # exec dbus-launch true

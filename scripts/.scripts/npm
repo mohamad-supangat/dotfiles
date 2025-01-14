@@ -2,7 +2,7 @@
 # /usr/bin/npm
 
 # Set this to the executable of your choice
-newcmd="bun" # Default command, you can change this to 'pnpm', 'bun', etc.
+newcmd="pnpm" # Default command, you can change this to 'pnpm', 'bun', etc.
 
 # Set this to 'true' to enable debugging logs, or 'false' to disable.
 # Some programs don't play nice with the extra debug output

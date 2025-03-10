@@ -113,4 +113,4 @@ source ~/.private-env
 
 
 # exec dbus-launch true
-set -gx NVIM_BACKGROUND "light"
+set -gx NVIM_BACKGROUND "dark"

@@ -1,0 +1,2 @@
+#!/bin/bash
+GITLAB_TOKEN=$GITLAB_COM_TOKEN glab $@

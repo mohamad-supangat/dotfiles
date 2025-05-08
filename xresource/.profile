@@ -63,4 +63,4 @@ if [ -e ~/.private-env ]
 then
     source ~/.private-env
 fi
-. "/home/deve/.deno/env"
+#. "/home/deve/.deno/env"

@@ -7,8 +7,10 @@ set $term foot
 # set $menu fuzzel
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $menu rofi -modi drun -show drun
+# set $screenshot grim -g "$(slurp)" - | swappy -f -
+# set $screenshot grim -g "$(slurp -d)" - | wl-copy
+set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 
-set $screenshot grim -g "$(slurp -o -r -c '#ff0000ff')" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
 set $clipboard_manager cliphist list | rofi -dmenu | cliphist decode | wl-copy
 

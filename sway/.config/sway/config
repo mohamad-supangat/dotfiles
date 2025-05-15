@@ -29,7 +29,7 @@ gaps outer 10
 gaps bottom 10
 
 
-hide_edge_borders smart
+# hide_edge_borders smart
 for_window [class="^.*"] border pixel 4
 
 for_window [title="KeePassXC - Browser Access Request"] floating enable

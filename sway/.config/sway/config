@@ -1,49 +1,43 @@
-#default_dim_inactiv Vllariables
 set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
 set $term foot
-# set $menu fuzzel
-# set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
 set $menu rofi -modi drun -show drun
-# set $screenshot grim -g "$(slurp)" - | swappy -f -
-# set $screenshot grim -g "$(slurp -d)" - | wl-copy
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
-
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
 set $clipboard_manager cliphist list | rofi -dmenu | cliphist decode | wl-copy
-
 set $file_manager nautilus
-
 set $dmenu rofi -modi run -show run
-#set $background /home/deve/Pictures/swayfx_mascot_1920x1080.png
 set $backgroundFill '#1D1F21'
 set $browser-selector floorp -P
 
-# Drag floating windows
 floating_modifier $mod
 
-# Font
 font xft:Iosevka Nerd Font 7
+blur enable
+corner_radius 10
+smart_corner_radius on
 
-# Window borders
-default_border pixel 3
-# default_floating_border normal
-# hide_edge_borders smart
+shadows enable
+# default_dim_inactive 0.7
+# scratchpad_minimize enable
 
+# smart_gaps on
+gaps inner 10
+gaps outer 10
+gaps bottom 10
+
+
+hide_edge_borders smart
 for_window [class="^.*"] border pixel 4
 
-# keppass
 for_window [title="KeePassXC - Browser Access Request"] floating enable
-
 for_window [class="Pavucontrol"] floating enable
 for_window [class="ColorGrab"] floating enable
 for_window [class="xdman"] floating enable
 for_window [class="xpad"] floating enable
 for_window [app_id="ssh-askpass-sublime"] floating enable
-
- # Wayland default floats
 for_window [app_id="gnome-(calendar|calculator|power-statistics|control-center)"] floating enable
 # for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable
 for_window [app_id="(pavucontrol|psensor)"] floating enable
@@ -54,14 +48,11 @@ for_window [app_id="solaar"] floating enable
 for_window [app_id="otpclient"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 30
 for_window [app_id="io.github.lainsce.Notejot"] floating enable, resize set 60 ppt 60 ppt
 for_window [app_id="lxqt-policykit-agent"] floating enable, sticky enable, border pixel 10
-
-
 for_window [app_id="one.alynx.showmethekey" title="Floating Window - Show Me The Key"] {
   floating enable
   sticky enable
 }
 # for_window [app_id="foot"] saturation set 0
-
 for_window [app_id="evolution" title="Compose Message"] floating enable
 for_window [app_id="evolution" title="Re(.*)"] floating enable
 for_window [app_id="evolution" title="Fwd(.*)"] floating enable
@@ -79,56 +70,19 @@ for_window [app_id="floorp" title="Floorp - Choose User Profile"] floating enabl
 for_window [title="Zen Browser — Sharing Indicator"] floating enable, kill
 for_window [title="Picture-in-Picture"] floating enable, sticky enable
 for_window [title="Zen Browser - Choose User Profile"] floating enable, sticky enable, resize set 30
-
-
 for_window [app_id="QtScrcpy"] floating enable
 for_window [app_id="QtScrcpy" title="Tool"] kill
-
 for_window [app_id="scrcpy"] floating enable, resize set 35 ppt 100 ppt, move position 30 ppt 0 ppt
-
 for_window [class="Gimp-2.10"] floating disable
 for_window [class="Gimp-2.10" title="New Image"] floating enable
 for_window [class="Gimp-2.10" title="Layer"] floating enable
 for_window [class="Gimp-2.10" title="Tool"] floating enable
 for_window [class="Gimp-2.10" title="Option"] floating enable
 for_window [class="Gimp-2.10" title="Change"] floating enable
-
 # Brave, chrome, chromium
 for_window [title="Picture-in-picture"] floating enable, sticky enable
-
-# floating for dmenu and launcher app_id
 for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
 for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
-
-
-
-# swayfx config
-blur enable
-# blur_xray enable
-corner_radius 10
-# smart_corner_radius on
- shadows_on_csd enable
-# shadow_blur_radius 20
-
-shadows enable
-# default_dim_inactive 0.7
-#titlebar_separator enable
-# scratchpad_minimize enable
-
-#  ╭──────────────────────────────────────────────────────────╮
-#  │ gaps / padding antar aplikasi                            │
-#  ╰──────────────────────────────────────────────────────────╯
-# smart_gaps on
-gaps inner 10
-gaps outer 10
-gaps bottom 10
-
-# wallpaper
-# exec_always mpvpaper VGA-1 -o "no-audio --loop-playlist shuffle" ~/pictures/live\ wallpaper &> /dev/null
-# exec_always swaybg --image $background -m fill -c $backgroundFill
-exec ~/.config/sway/bin/random-wallpaper.sh
-# output * bg $base01 solid_color
-# output * bg $backgroundFill solid_color
 
 
 # Default workspaces for common programs
@@ -175,26 +129,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Escape exec $power
 bindsym $mod+End exec $wifi
 
-# Notifications
-# if using mako
-# exec mako
-# bindsym Control+Space exec makoctl dismiss
-# bindsym Control+Shift+Space exec makoctl dismiss --all
-
-# dunst notification
-# exec dunst
-# bindsym Control+Space exec dunstctl close
-# bindsym Control+Shift+Space exec dunstctl close-all
-
-# if using swaync
-# bindsym Control+Space exec swaync-client --hide-latest
-# bindsym Control+Shift+Space exec swaync-client --close-all
-
-# Multimedia
-# bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
-# bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
-# bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
-#
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
@@ -206,9 +140,6 @@ bindsym --locked XF86AudioPrev exec playerctl previous
 # Bind brightness keys to light interface
 bindsym XF86MonBrightnessUp exec  brightnessctl set +500
 bindsym XF86MonBrightnessDown exec brightnessctl set 500-
-
-# Toggle Redshift
-#bindsym $mod+Home exec --no-startup-id pkill -USR1 redshift
 
 # Idle configuration
 # exec swayidle \
@@ -238,7 +169,6 @@ bindsym $mod+apostrophe split vertical
 bindsym $mod+quotedbl   split vertical
 bindsym $mod+minus      split vertical
 
-
 # Move your focus around
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -267,7 +197,6 @@ bindsym $mod+Control+l resize grow width 10 px or 10
 # bindsym $mod+Shift+Control+Down resize grow height 1 px or 1
 # bindsym $mod+Shift+Control+Up resize shrink height 1 px or 1
 # bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
-
 
 bindsym --no-repeat $mod+1 workspace number 1; exec "echo 1 > /tmp/sovpipe"
 bindsym --no-repeat $mod+2 workspace number 2; exec "echo 1 > /tmp/sovpipe"
@@ -355,37 +284,14 @@ mode "$mode_system" {
 
 
 bindsym $mod+Shift+e mode "$mode_system"
-# bindsym $mod+Shift+e exec wlogout
-
 
 # auto start apps section
-# exec_always --no-startup-id xrdb ~/.Xresources
-# poolkit agent
-# exec lxqt-policykit-agent
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec wl-paste --watch cliphist -max-items 10000 store
 
-# clipboard manager
-# exec wl-paste -t text --watch clipman store --max-items=1000
-exec wl-paste --watch cliphist -max-items 500 store
-
-
-# exec AppFlowy
-# exec Floorp
-# exec kdeconnect-indicator
 exec waybar
-# exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
-# exec sworkstyle &> /tmp/sworkstyle.log
-# exec_always wlsunset
-
-# exec --no-startup-id $term --name scratchpad
-# gnome keyring start
 exec eval $(gnome-keyring-daemon --start)
-# exec export SSH_AUTH_SOCK
-
-# email client
 exec geary
-
-
 
 ## include generate config and color scheme
 include colorscheme
@@ -393,13 +299,6 @@ include .generated_settings/input_pointer.conf
 include .generated_settings/input_touchpad.conf
 include /etc/sway/config.d/*
 
-
-# exec adb reverse tcp:46352 tcp:46352
-# exec an2linuxserver.py
-# exec systemctl --user start easyeffects
-
-# set $menu exec foot --class=launcher -e /usr/bin/sway-launcher-desktop
-# bindsym $mod+d exec $menu
 # bar {
 #     font pango:Iosevka, FontAwesome 8
 #     position bottom

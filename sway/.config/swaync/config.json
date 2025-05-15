@@ -1,73 +1,107 @@
 {
-    "$schema": "/etc/xdg/swaync/configSchema.json",
-    "positionX": "right",
-    "positionY": "top",
-    "layer": "overlay",
-    "control-center-layer": "top",
-    "layer-shell": true,
-    "cssPriority": "application",
-    "control-center-margin-top": 0,
-    "control-center-margin-bottom": 0,
-    "control-center-margin-right": 0,
-    "control-center-margin-left": 0,
-    "notification-2fa-action": true,
-    "notification-inline-replies": false,
-    "notification-icon-size": 64,
-    "notification-body-image-height": 80,
-    "notification-body-image-width": 80,
-    "timeout": 10,
-    "timeout-low": 5,
-    "timeout-critical": 0,
-    "fit-to-screen": true,
-    "control-center-width": 500,
-    "control-center-height": 600,
-    "notification-window-width": 500,
-    "keyboard-shortcuts": true,
-    "image-visibility": "when-available",
-    "transition-time": 200,
-    "hide-on-clear": false,
-    "hide-on-action": true,
-    "script-fail-notify": true,
-    "scripts": {
-        "example-script": {
-            "exec": "echo 'Do something...'",
-            "urgency": "Normal"
-        },
-        "example-action-script": {
-            "exec": "echo 'Do something actionable!'",
-            "urgency": "Normal",
-            "run-on": "action"
-        }
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "layer-shell": true,
+  "cssPriority": "application",
+  "control-center-width": 380,
+  "control-center-margin-top": 0,
+  "control-center-margin-bottom": 0,
+  "control-center-margin-right": 0,
+  "control-center-margin-left": 0,
+  "notification-2fa-action": true,
+  "notification-inline-replies": false,
+  "notification-window-width": 380,
+  "notification-icon-size": 48,
+  "notification-body-image-height": 180,
+  "notification-body-image-width": 180,
+  "timeout": 8,
+  "timeout-low": 4,
+  "timeout-critical": 0,
+  "fit-to-screen": true,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 150,
+  "hide-on-clear": true,
+  "hide-on-action": true,
+  "script-fail-notify": true,
+  "widgets": [
+    "mpris",
+    "title",
+    "notifications",
+    "volume",
+    "backlight",
+    "buttons-grid"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear"
     },
-    "notification-visibility": {
-        "example-name": {
-            "state": "muted",
-            "urgency": "Low",
-            "app-name": "Spotify"
-        }
+    "mpris": {
+      "image-size": 80,
+      "image-radius": 10
     },
-    "widgets": ["inhibitors", "title", "dnd", "notifications"],
-    "widget-config": {
-        "inhibitors": {
-            "text": "Inhibitors",
-            "button-text": "Clear All",
-            "clear-all-button": true
+    "volume": {
+      "label": "",
+      "step": 5
+    },
+    "backlight": {
+      "label": "󰃞",
+      "step": 5
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "",
+          "command": "kitty nmtui",
+          "tooltip": "Network"
         },
-        "title": {
-            "text": "Notifications",
-            "clear-all-button": true,
-            "button-text": "Clear All"
+        {
+          "label": "",
+          "command": "blueman-manager",
+          "tooltip": "Bluetooth"
         },
-        "dnd": {
-            "text": "Do Not Disturb"
+        {
+          "label": "󰂛",
+          "command": "swaync-client -d",
+          "type": "toggle",
+          "tooltip": "DND"
         },
-        "label": {
-            "max-lines": 5,
-            "text": "Label Text"
+        {
+          "label": "󰍜",
+          "command": "gnome-network-displays",
+          "tooltip": "Screens"
         },
-        "mpris": {
-            "image-size": 96,
-            "image-radius": 12
+        {
+          "label": "󰈙",
+          "command": "kitty bash -i -c 'Docs'",
+          "tooltip": "Files"
+        },
+        {
+          "label": "",
+          "command": "kitty bash -i -c 'Settings'",
+          "tooltip": "Settings"
+        },
+        {
+          "label": "",
+          "command": "hyprlock",
+          "tooltip": "Lock"
+        },
+        {
+          "label": "󰜉",
+          "command": "reboot",
+          "tooltip": "Reboot"
+        },
+        {
+          "label": "⏻",
+          "command": "shutdown now",
+          "tooltip": "Power Off"
         }
+      ]
     }
+  }
 }

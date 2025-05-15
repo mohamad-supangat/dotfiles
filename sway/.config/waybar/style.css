@@ -49,6 +49,7 @@ window#waybar.hidden {
   background-color: #f38ba8;
 }
 
+#custom-notification,
 #clock,
 #pulseaudio,
 #custom-logo,

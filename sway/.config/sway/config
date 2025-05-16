@@ -104,20 +104,17 @@ bindsym Print exec $screenshot
 
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
-bindsym $mod+Shift+p exec bwmenu
 bindsym $mod+Shift+x exec $browser-selector
-# bindsym $mod+Shift+e exec sh ~/.config/rofi/powermenu/type-5/powermenu.sh
-# bindsym $mod+Shift+Print exec $screenclip
 bindsym $mod+r exec $dmenu
 bindsym $mod+space exec $menu
 bindsym $mod+n exec $file_manager
 bindsym Mod1+Control+h exec $clipboard_manager
 # bindsym $mod+Shift+a exec ~/.scripts/auto-click
-bindsym $mod+Shift+a exec  /home/deve/projects/auto_click/start.sh
+# bindsym $mod+Shift+a exec  /home/deve/projects/auto_click/start.sh
 
-# Toggle control center Notifications
 bindsym $mod+Shift+n exec swaync-client -t -sw
-exec swaync
+bindsym $mod+Shift+g exec geary
+
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
@@ -286,10 +283,12 @@ mode "$mode_system" {
 bindsym $mod+Shift+e mode "$mode_system"
 
 # auto start apps section
+exec ~/.config/sway/bin/random-wallpaper.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
 
 exec waybar
+exec swaync
 exec eval $(gnome-keyring-daemon --start)
 exec geary
 

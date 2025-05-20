@@ -7,7 +7,7 @@ set $menu rofi -modi drun -show drun
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
 set $clipboard_manager cliphist list | rofi -dmenu | cliphist decode | wl-copy
-set $file_manager nautilus
+set $file_manager pcmanfm
 set $dmenu rofi -modi run -show run
 set $backgroundFill '#1D1F21'
 set $browser-selector floorp -P
@@ -62,8 +62,9 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating ena
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
-for_window [app_id="firefoxdeveloperedition" title="Firefox Developer Edition — Sharing Indicator"] floating enable, kill
-for_window [app_id="firefoxdeveloperedition" title="Picture-in-Picture"] floating enable, sticky enable
+for_window [app_id="firefox-developer-edition" title="Firefox Developer Edition — Sharing Indicator"] floating enable, kill
+for_window [app_id="firefox-developer-edition" title="Picture-in-Picture"] floating enable, sticky enable
+for_window [app_id="firefox-developer-edition" title="Extension: (Sidebery) - PanelConfig — Firefox Developer Edition"] floating enable
 for_window [app_id="floorp" title="Floorp — Sharing Indicator"] floating enable, kill
 for_window [app_id="floorp" title="Picture-in-Picture"] floating enable, sticky enable
 for_window [app_id="floorp" title="Floorp - Choose User Profile"] floating enable, sticky enable, resize set 30

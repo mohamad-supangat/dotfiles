@@ -15,18 +15,18 @@ set $browser-selector floorp -P
 floating_modifier $mod
 
 font xft:Iosevka Nerd Font 7
-blur enable
-corner_radius 10
-smart_corner_radius on
+# blur enable
+# corner_radius 10
+# smart_corner_radius on
 
-shadows enable
+# shadows enable
 # default_dim_inactive 0.7
 # scratchpad_minimize enable
 
 # smart_gaps on
-gaps inner 10
-gaps outer 10
-gaps bottom 10
+# gaps inner 10
+# gaps outer 10
+# gaps bottom 10
 
 
 # hide_edge_borders smart

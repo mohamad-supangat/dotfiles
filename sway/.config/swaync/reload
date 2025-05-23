@@ -1,12 +1,6 @@
 #!/bin/bash
-killall swaync
-
-sleep 1
-swaync &
-
-sleep 1
-
 swaync-client -R -rs
+sleep 1
 
 notify-send -u critical "Test message: critical test 1"
 notify-send -u normal "Test message: normal test 2"

@@ -14,7 +14,7 @@
     "hyprland/submap",
     "custom/notification",
     "clock",
-    "clock#simpleclock",
+    "clock#simpleclock"
   ],
   "modules-right": [
     "network",

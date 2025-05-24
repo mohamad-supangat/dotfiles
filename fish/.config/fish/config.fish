@@ -10,6 +10,7 @@ fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
 fish_add_path /usr/lib/jvm/java-8-openjdk/bin
 fish_add_path /opt/android-sdk/build-tools/30.0.3
 fish_add_path ~/go/bin
+fish_add_path ~/.local/share/soar/bin
 
 
 # init starship default prompts
@@ -96,3 +97,8 @@ if test -d "/home/deve/.phpenv"
   set -x PATH "/home/deve/.phpenv/bin" $PATH
   status --is-interactive; and . (phpenv init -|psub)
 end
+if test "~/.private-env"
+    source ~/.private-env
+end
+
+set NVIM_BACKGROUND dark

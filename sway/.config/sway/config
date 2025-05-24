@@ -6,27 +6,29 @@ set $term foot
 set $menu rofi -modi drun -show drun
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
-set $clipboard_manager cliphist list | rofi -dmenu | cliphist decode | wl-copy
-set $file_manager pcmanfm
+set $clipboard_manager clipman pick -t rofi
+set $file_manager nautilus
 set $dmenu rofi -modi run -show run
 set $backgroundFill '#1D1F21'
 set $browser-selector floorp -P
 
 floating_modifier $mod
 
-font xft:Iosevka Nerd Font 7
-blur enable
-corner_radius 10
-smart_corner_radius on
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
-shadows enable
+font xft:Iosevka Nerd Font 7
+# blur enable
+# corner_radius 10
+# smart_corner_radius on
+
+# shadows enable
 # default_dim_inactive 0.7
 # scratchpad_minimize enable
 
 # smart_gaps on
-gaps inner 10
-gaps outer 10
-gaps bottom 10
+# gaps inner 10
+# gaps outer 10
+# gaps bottom 10
 
 
 # hide_edge_borders smart
@@ -110,20 +112,10 @@ bindsym $mod+r exec $dmenu
 bindsym $mod+space exec $menu
 bindsym $mod+n exec $file_manager
 bindsym Mod1+Control+h exec $clipboard_manager
-# bindsym $mod+Shift+a exec ~/.scripts/auto-click
-# bindsym $mod+Shift+a exec  /home/deve/projects/auto_click/start.sh
-
-bindsym $mod+Shift+n exec swaync-client -t -sw
-bindsym $mod+Shift+g exec geary
-
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
-#bindsym $mod+Shift+e exit
-# bindsym $mod+b splith
-# bindsym $mod+v splitv
 
-# bindsym $mod+l exec $lock
 bindsym $mod+Escape exec $power
 bindsym $mod+End exec $wifi
 
@@ -253,6 +245,11 @@ bindsym $mod+Shift+b move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+b exec swaymsg scratchpad show
 
+# if using mako
+exec mako
+bindsym Control+Space exec makoctl dismiss
+bindsym Control+Shift+Space exec makoctl dismiss --all
+
 # Modes
 mode "resize" {
     bindsym Left resize shrink width 10px
@@ -284,14 +281,11 @@ mode "$mode_system" {
 bindsym $mod+Shift+e mode "$mode_system"
 
 # auto start apps section
-exec ~/.config/sway/bin/random-wallpaper.sh
+# exec ~/.config/sway/bin/random-wallpaper.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec wl-paste --watch cliphist -max-items 10000 store
+exec wl-paste -t text --watch clipman store
 
-exec waybar
-exec swaync
 exec eval $(gnome-keyring-daemon --start)
-exec geary
 
 ## include generate config and color scheme
 include colorscheme
@@ -299,20 +293,23 @@ include .generated_settings/input_pointer.conf
 include .generated_settings/input_touchpad.conf
 include /etc/sway/config.d/*
 
-# bar {
-#     font pango:Iosevka, FontAwesome 8
-#     position bottom
-#     status_command i3status-rs
-#     colors {
-#         background $base00
-#         separator  $base01
-#         statusline $base04
-#
-#         # State             Border  BG      Text
-#         focused_workspace   $base05 $base0D $base00
-#         active_workspace    $base05 $base03 $base00
-#         inactive_workspace  $base03 $base01 $base05
-#         urgent_workspace    $base08 $base08 $base00
-#         binding_mode        $base00 $base0A $base00
-#     }
-# }
+bar {
+    font pango:Iosevka, FontAwesome 8
+    position bottom
+    status_command i3status-rs
+    colors {
+        background $base00
+        separator  $base01
+        statusline $base04
+
+        # State             Border  BG      Text
+        focused_workspace   $base05 $base0D $base00
+        active_workspace    $base05 $base03 $base00
+        inactive_workspace  $base03 $base01 $base05
+        urgent_workspace    $base08 $base08 $base00
+        binding_mode        $base00 $base0A $base00
+    }
+}
+
+# exec nautilus /home/deve/home.ssd/deve/Videos
+xwayland disable

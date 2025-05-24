@@ -1,3 +1,4 @@
+
 export PHP_CS_FIXER_IGNORE_ENV=true
 export NVIM_BACKGROUND=dark
 export CM_LAUNCHER=rofi
@@ -47,7 +48,7 @@ export EDITOR=nvim
 export TERMINAL=/usr/bin/alacritty
 export PATH=$PATH:~/.scripts
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
-
+export NVIM_BACKGROUND=dark
 
 # export FZF_DEFAULT_OPTS=" \
 # --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \

@@ -47,10 +47,10 @@ block = "cpu"
 # [[ block ]]
 # block = "battery"
 
-[[block]]
-block = "notify"
-format = " $icon {($notification_count.eng(w:1)) |}"
-driver = "swaync"
+# [[block]]
+# block = "notify"
+# format = " $icon {($notification_count.eng(w:1)) |}"
+# driver = "dunst"
 
 [[block.click]]
 button = "left"

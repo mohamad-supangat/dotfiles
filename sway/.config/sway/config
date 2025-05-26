@@ -7,26 +7,26 @@ set $menu rofi -modi drun -show drun
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
 set $clipboard_manager cliphist list | rofi -dmenu | cliphist decode | wl-copy
-set $file_manager pcmanfm
+set $file_manager nautilus
 set $dmenu rofi -modi run -show run
 set $backgroundFill '#1D1F21'
 set $browser-selector floorp -P
 
 floating_modifier $mod
 
-font xft:Iosevka Nerd Font 7
-# blur enable
-# corner_radius 10
+font xft:Iosevka 11
+blur enable
+corner_radius 10
 # smart_corner_radius on
 
-# shadows enable
+shadows enable
 # default_dim_inactive 0.7
 # scratchpad_minimize enable
 
 # smart_gaps on
-# gaps inner 10
-# gaps outer 10
-# gaps bottom 10
+gaps inner 10
+gaps outer 10
+gaps bottom 10
 
 
 # hide_edge_borders smart
@@ -101,7 +101,8 @@ bindsym Control+Mod1+t exec $term
 bindsym $mod+Return exec ~/.scripts/tmux_session.sh $term
 bindsym $mod+Shift+Return exec ~/.scripts/rofi-tmuxp.sh $term
 bindsym Print exec $screenshot
-# bindsym Mod1+Print exec grim -g "$(slurp)" - | swappy -f -
+# color picker
+bindsym $mod+Shift+p exec sway-color-picker
 
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
@@ -288,7 +289,7 @@ exec ~/.config/sway/bin/random-wallpaper.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
 
-exec waybar
+exec start-waybar
 exec swaync
 exec eval $(gnome-keyring-daemon --start)
 exec geary
@@ -299,20 +300,42 @@ include .generated_settings/input_pointer.conf
 include .generated_settings/input_touchpad.conf
 include /etc/sway/config.d/*
 
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
+
 # bar {
-#     font pango:Iosevka, FontAwesome 8
+# colors {
+#     background $base00
+#     separator  $base01
+#     statusline $base04
+#
+#     # State             Border  BG      Text
+#     focused_workspace   $base05 $base0D $base00
+#     active_workspace    $base05 $base03 $base00
+#     inactive_workspace  $base03 $base01 $base05
+#     urgent_workspace    $base08 $base08 $base00
+#     binding_mode        $base00 $base0A $base00
+# }
+#
+  #     font pango:Iosevka, FontAwesome 8
 #     position bottom
 #     status_command i3status-rs
-#     colors {
-#         background $base00
-#         separator  $base01
-#         statusline $base04
+
+#   colors {
+#     background         $base
+#     statusline         $text
+#     focused_statusline $text
+#     focused_separator  $base
 #
-#         # State             Border  BG      Text
-#         focused_workspace   $base05 $base0D $base00
-#         active_workspace    $base05 $base03 $base00
-#         inactive_workspace  $base03 $base01 $base05
-#         urgent_workspace    $base08 $base08 $base00
-#         binding_mode        $base00 $base0A $base00
-#     }
+#     # target           border bg        text
+#     focused_workspace  $base  $mauve    $crust
+#     active_workspace   $base  $surface2 $text
+#     inactive_workspace $base  $base     $text
+#     urgent_workspace   $base  $red      $crust
+#   }
 # }

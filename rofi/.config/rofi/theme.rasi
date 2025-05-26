@@ -1,135 +1,114 @@
-@import "default"
+/**
+ * Gruvbox Material (Medium) theme
+ * Taken from: https://user-images.githubusercontent.com/58662350/213884019-cbcd5f00-5bef-4a37-9139-0570770330b6.png
+ * Repository: https://github.com/hiimsergey/rofi-gruvbox-material
+ */
 
 * {
-	bg: #191724;
-	cur: #1f1d2e;
-	fgd: #e0def4;
-	cmt: #6e6a86;
-	cya: #9ccfd8;
-	grn: #31748f;
-	ora: #ebbcba;
-	pur: #c4a7e7;
-	red: #eb6f92;
-	yel: #f6c177;
+    bg0: #282828;
+    bg1: #32302f;
+    grey0: #7c6f64;
+    fg0: #d4be98;
 
-	font: "Cartograph CF 12";
+    blue: #7daea3;
+    red: #ea6962;
+    orange: #e78a4e;
+    green: #a9b665;
+    bgStatusline3: #504945;
 
-	foreground: @fgd;
-	background: @bg;
-	active-background: @grn;
-	urgent-background: @red;
-
-	selected-background: @active-background;
-	selected-urgent-background: @urgent-background;
-	selected-active-background: @active-background;
-	separatorcolor: @active-background;
-	bordercolor: @ora;
+    background-color: @bg0;
 }
 
-#window {
-	background-color: @background;
-	border:           3;
-	border-radius:    6;
-	border-color:     @bordercolor;
-	padding:          5;
+window {
+    height: 600;
+    width: 800;
+
+    border: 1;
+    border-radius: 10;
+    border-color: @bgStatusline3;
 }
-#mainbox {
-	border:  0;
-	padding: 5;
+
+mainbox {
+    spacing: 0;
+    children: [inputbar, message, listview];
 }
-#message {
-	border:       1px dash 0px 0px ;
-	border-color: @separatorcolor;
-	padding:      1px ;
+
+inputbar {
+    color: @fg0;
+    padding: 14;
+    background-color: @bg0;
 }
-#textbox {
-	text-color: @foreground;
+
+message {
+    padding: 10;
+    background-color: @grey0;
 }
-#listview {
-	fixed-height: 0;
-	border:       2px dash 0px 0px ;
-	border-color: @bordercolor;
-	spacing:      2px ;
-	scrollbar:    false;
-	padding:      2px 0px 0px ;
+
+listview {
+    padding: 8;
+    border-radius: 0 0 10 10;
+    border: 2 2 2 2;
+    border-color: @bg0;
+    background-color: @bg0;
+    dynamic: false;
 }
-#element {
-	border:  0;
-	padding: 1px ;
+
+textbox {
+    text-color: @fg0;
+    background-color: inherit;
 }
-#element.normal.normal {
-	background-color: @background;
-	text-color:       @foreground;
+
+error-message {
+    border: 20 20 20 20;
 }
-#element.normal.urgent {
-	background-color: @urgent-background;
-	text-color:       @urgent-foreground;
+
+entry, prompt, case-indicator {
+    text-color: inherit;
 }
-#element.normal.active {
-	background-color: @active-background;
-	text-color:       @background;
+
+prompt {
+    margin: 0 10 0 0;
 }
-#element.selected.normal {
-	background-color: @selected-background;
-	text-color:       @foreground;
+
+element {
+    padding: 5;
+    vertical-align: 0.5;
+    border-radius: 10;
+    background-color: @bg1;
 }
-#element.selected.urgent {
-	background-color: @selected-urgent-background;
-	text-color:       @foreground;
+
+element.selected.normal {
+    background-color: @grey0;
 }
-#element.selected.active {
-	background-color: @selected-active-background;
-	text-color:       @background;
+
+element.alternate.normal {
+    background-color: inherit;
 }
-#element.alternate.normal {
-	background-color: @background;
-	text-color:       @foreground;
+
+element.normal.active, element.alternate.active {
+    background-color: @orange;
 }
-#element.alternate.urgent {
-	background-color: @urgent-background;
-	text-color:       @foreground;
+
+element.selected.active {
+    background-color: @green;
 }
-#element.alternate.active {
-	background-color: @active-background;
-	text-color:       @foreground;
+
+element.normal.urgent, element.alternate.urgent {
+    background-color: @red;
 }
-#scrollbar {
-	width:        2px ;
-	border:       0;
-	handle-width: 8px ;
-	padding:      0;
+
+element.selected.urgent {
+    background-color: @blue;
 }
-#sidebar {
-	border:       2px dash 0px 0px ;
-	border-color: @separatorcolor;
+
+element-text, element-icon {
+    size: 40;
+    margin: 0 10 0 0;
+    vertical-align: 0.5;
+    background-color: inherit;
+    text-color: @fg0;
 }
-#button.selected {
-	background-color: @selected-background;
-	text-color:       @foreground;
-}
-#inputbar {
-	spacing:    0;
-	text-color: @foreground;
-	padding:    1px ;
-}
-#case-indicator {
-	spacing:    0;
-	text-color: @foreground;
-}
-#entry {
-	spacing:    0;
-	text-color: @cya;
-}
-#prompt {
-	spacing:    0;
-	text-color: @grn;
-}
-#inputbar {
-	children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
-}
-#textbox-prompt-colon {
-	expand:     false;
-	str:        ":";
-	margin:     0px 0.3em 0em 0em;
-	text-color: @grn;
+
+element-text .active, element-text .urgent {
+    text-color: @bg0;
 }

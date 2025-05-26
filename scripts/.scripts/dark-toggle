@@ -1,0 +1,41 @@
+#!/usr/bin/env fish
+
+if test (gsettings get org.gnome.desktop.interface color-scheme) = "'prefer-light'"
+    # dark side
+    # ---------------------------------------
+    echo 'dark' > ~/.local/share/colorscheme
+    darkman set dark
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+    gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Dark'
+    ln -sf ~/.config/alacritty/alacritty-dark.yml ~/.config/alacritty/alacritty.yml
+    ln -sf ~/.config/foot/foot-dark.ini ~/.config/foot/foot.ini
+    ln -sf ~/.config/sway/themes/dark ~/.config/sway/colorscheme
+    ln -sf ~/.config/waybar/themes/dark.css ~/.config/waybar/style.css
+    ln -sf ~/.local/share/nwg-look/dark ~/.local/share/nwg-look/gsettings
+
+    echo "set -g @catppuccin_flavor 'mocha'" > ~/.tmux.theme
+    yes | fish_config theme save "gruvbox_dark"
+
+    notify-send "  Theme" "Current theme is Dark"
+else
+    # light side
+    # ---------------------------------------
+    echo 'light' > ~/.local/share/colorscheme
+    darkman set light
+    gsettings set org.gnome.desktop.interface color-scheme prefer-light
+    gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Light'
+    ln -sf ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
+    ln -sf ~/.config/foot/foot-light.ini ~/.config/foot/foot.ini
+    ln -sf ~/.config/sway/themes/light ~/.config/sway/colorscheme
+    ln -sf ~/.config/waybar/themes/light.css ~/.config/waybar/style.css
+    ln -sf ~/.local/share/nwg-look/light ~/.local/share/nwg-look/gsettings
+
+    echo "set -g @catppuccin_flavor 'frappe'" > ~/.tmux.theme
+    yes | fish_config theme save "gruvbox_light"
+
+    notify-send "  Theme" "Current theme is light"
+end
+
+
+nwg-look -a
+swaymsg reload

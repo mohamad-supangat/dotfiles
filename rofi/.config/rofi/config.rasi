@@ -1,20 +1,21 @@
 
 configuration{
     modi: "run,drun,window,tmuxp:rofi-tmuxp";
-    icon-theme: "Oranchelo";
     show-icons: false;
-    terminal: "alacritty";
+    font: "Iosevka 18";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: true;
     hide-scrollbar: true;
-    display-drun: "   Apps ";
-    display-run: "   Run ";
-    display-window: "   Window";
-    display-Network: " 󰤨  Network";
-    /* sidebar-mode: true; */
+    display-ssh:    "";
+    display-run:    "";
+    display-drun:   " ";
+    display-window: "";
+    display-combi:  "";
+    /*sidebar-mode: true; */
 
     /* font: " 10"; */
+    kb-remove-word-back: "Control+Alt+h,Control+BackSpace,Alt+BackSpace";
     kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
     kb-row-down: "Down,Control+j";
     kb-accept-entry: "Control+m,Return,KP_Enter";
@@ -27,4 +28,3 @@ configuration{
 
 
 @theme "./theme.rasi"
-/* @theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi" */

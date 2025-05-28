@@ -61,12 +61,12 @@ window#waybar.hidden {
   box-shadow: inherit;
   text-shadow: inherit;
   color: #1e1e2e;
-  background-color: #cdd6f4;
+  background-color: @fg;
 }
 
 #workspaces button.active {
   color: #1e1e2e;
-  background-color: #89b4fa;
+  background-color: @fg;
 }
 
 #workspaces button.urgent {

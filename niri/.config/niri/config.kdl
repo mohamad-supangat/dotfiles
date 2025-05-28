@@ -124,7 +124,10 @@ binds {
         spawn "nautilus"
     }
     Ctrl+Alt+h hotkey-overlay-title="Show Clipboard Manager: rofi" {
-        spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        //spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        //spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist-img -show clipboard -show-icons"
+        spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist -show clipboard"
+
     }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }

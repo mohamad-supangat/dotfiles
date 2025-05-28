@@ -8,9 +8,10 @@ configuration{
     disable-history: true;
     hide-scrollbar: true;
     display-ssh:    "";
-    display-run:    "";
-    display-drun:   " ";
-    display-window: "";
+    display-run:    "  Script";
+    display-drun:   "  Application";
+    display-window: "󱃔";
+    display-clipboard: "󰨸 Clipboard";
     display-combi:  "";
     /*sidebar-mode: true; */
 

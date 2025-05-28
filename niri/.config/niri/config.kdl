@@ -546,7 +546,8 @@ binds {
     }
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E {
-        quit
+        spawn "~/.config/rofi/module/powermenu/type-5/powermenu.sh"
+        // quit
     }
     Ctrl+Alt+Delete {
         quit

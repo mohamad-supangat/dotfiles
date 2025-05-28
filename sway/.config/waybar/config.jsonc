@@ -24,10 +24,8 @@
     "battery",
     "tray",
   ],
-  "hyprland/submap": {
-    "format": "✌️ {}",
-    "max-length": 8,
-    "tooltip": false,
+  "wlr/taskbar": {
+    "tooltip-format": "{title} | {app_id}",
   },
   "hyprland/workspaces": {
     "format": "{icon}",

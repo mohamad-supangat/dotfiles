@@ -7,7 +7,7 @@
   "gtk-layer-shell": true,
   "passthrough": false,
   "fixed-center": true,
-  "modules-left": ["sway/workspaces", "hyprland/workspaces"],
+  "modules-left": ["niri/workspaces", "sway/workspaces", "hyprland/workspaces"],
   "modules-center": [
     "sway/mode",
     "hyprland/window",

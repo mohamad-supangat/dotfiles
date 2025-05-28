@@ -9,7 +9,7 @@ input {
         tap
         natural-scroll
     }
-    warp-mouse-to-focus
+    // warp-mouse-to-focus
 }
 output "eDP-1" {
     scale 1
@@ -60,6 +60,7 @@ layout {
     }
 }
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
 spawn-at-startup "start-waybar"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"
 

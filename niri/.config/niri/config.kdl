@@ -117,6 +117,29 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
+
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
+
 binds {
     Mod+Shift+Slash {
         show-hotkey-overlay
@@ -491,6 +514,9 @@ binds {
     Mod+Shift+F {
         fullscreen-window
     }
+    Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
+    Ctrl+Alt+F { set-dynamic-cast-window; }
+
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F {

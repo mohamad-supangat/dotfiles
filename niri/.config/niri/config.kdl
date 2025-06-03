@@ -24,7 +24,7 @@ gestures {
 }
 overview {
     zoom 0.6
-    backdrop-color "#282828"
+    backdrop-color "#2e3436"
     workspace-shadow {
         off
     }
@@ -59,8 +59,8 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         width 4
-        active-gradient from="#ebdbb2" to="#ebdbb2" angle=45
-        inactive-gradient from="#282828" to="#282828" angle=45 relative-to="workspace-view"
+        active-gradient from="#f6f6f6" to="#f6f6f6" angle=45
+        inactive-gradient from="#2e3436" to="#2e3436" angle=45 relative-to="workspace-view"
     }
     // You can also add a border. It's similar to the focus ring, but always visible.
     border {

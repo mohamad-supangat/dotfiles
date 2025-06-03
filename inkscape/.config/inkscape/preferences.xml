@@ -95,7 +95,7 @@
      id="template">
     <group
        id="base"
-       pagecolor="#ffffff"
+       pagecolor="#f6f6f6"
        deskcolor="#d1d1d1"
        pageopacity="0.0"
        pagecheckerboard="0"
@@ -559,7 +559,7 @@
          black="1"
          rgb808080="1"
          gray-50="1"
-         rgbffffff="1"
+         rgbf6f6f6="1"
          white="1" />
     </group>
   </group>

@@ -38,4 +38,4 @@ end
 
 
 nwg-look -a
-# swaymsg reload
+swaymsg reload

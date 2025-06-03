@@ -1,3 +1,7 @@
+animations {
+    off
+}
+
 input {
     keyboard {
         xkb {
@@ -27,7 +31,7 @@ overview {
 }
 
 output "eDP-1" {
-    scale 1
+    scale 1.1
 }
 environment {
     DISPLAY ":0"
@@ -75,7 +79,12 @@ layout {
         color "#0007"
     }
 }
-spawn-at-startup "xwayland-satellite"
+
+workspace "browser"
+workspace "terminal"
+workspace "filemanager"
+
+//spawn-at-startup "xwayland-satellite"
 spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
 spawn-at-startup "start-waybar"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"

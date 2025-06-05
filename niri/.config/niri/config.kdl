@@ -89,6 +89,21 @@ spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
 spawn-at-startup "start-waybar"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"
 
+
+window-rule {
+    match app-id=r#"^(floorp|firefox|chrome|zen)$"#
+    open-on-workspace "browser"
+}
+
+window-rule {
+    match app-id=r#"^(foot|alacritty)$"#
+    open-on-workspace "terminal"
+}
+window-rule {
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    open-on-workspace "filemanager"
+}
+
 prefer-no-csd
 window-rule {
     match app-id="^org\\.wezfurlong\\.wezterm$"

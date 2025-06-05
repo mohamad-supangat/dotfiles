@@ -17,12 +17,12 @@
     "clock#simpleclock",
   ],
   "modules-right": [
+    "tray",
     "network",
     "cpu",
     "memory",
     "pulseaudio",
     "battery",
-    "tray",
   ],
   "wlr/taskbar": {
     "tooltip-format": "{title} | {app_id}",

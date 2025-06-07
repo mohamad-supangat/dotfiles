@@ -4,7 +4,6 @@ if test (gsettings get org.gnome.desktop.interface color-scheme) = "'prefer-ligh
     # dark side
     # ---------------------------------------
     echo 'dark' > ~/.local/share/colorscheme
-    darkman set dark
     gsettings set org.gnome.desktop.interface color-scheme prefer-dark
     gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Dark'
     ln -sf ~/.config/alacritty/alacritty-dark.yml ~/.config/alacritty/alacritty.yml
@@ -21,7 +20,6 @@ else
     # light side
     # ---------------------------------------
     echo 'light' > ~/.local/share/colorscheme
-    darkman set light
     gsettings set org.gnome.desktop.interface color-scheme prefer-light
     gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Light'
     ln -sf ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml

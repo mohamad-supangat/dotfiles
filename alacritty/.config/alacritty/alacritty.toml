@@ -1,41 +1,42 @@
+
 [colors]
 
 [colors.bright]
-black = "#555555"    # Dark gray (brighter black for contrast)
-blue = "#5294e2"     # Adwaita blue (bright variant)
-cyan = "#34e2e2"     # Adwaita cyan (bright)
-green = "#8cc85f"    # Adwaita green (bright)
-magenta = "#b48ead"  # Adwaita purple (bright)
-red = "#e06262"      # Adwaita red (bright)
-white = "#ffffff"    # Pure white for bright text
-yellow = "#f0c674"   # Adwaita yellow (bright)
+black = "#928374"
+blue = "#83a598"
+cyan = "#8ec07c"
+green = "#b8bb26"
+magenta = "#d3869b"
+red = "#fb4934"
+white = "#f6f6f6"
+yellow = "#fabd2f"
 
 [colors.cursor]
-cursor = "#d3d7cf"   # Light gray cursor (Adwaita neutral highlight)
-text = "#2e3436"     # Dark text for cursor background
+cursor = "#f6f6f6" # foreground from foot.ini
+text = "#2e3436"   # background from foot.ini
 
 [colors.normal]
-black = "#2e3436"    # Adwaita dark gray (standard black)
-blue = "#3465a4"     # Adwaita blue
-cyan = "#06989a"     # Adwaita cyan
-green = "#4e9a06"    # Adwaita green
-magenta = "#75507b"  # Adwaita purple
-red = "#cc0000"      # Adwaita red
-white = "#d3d7cf"    # Adwaita light gray (standard white)
-yellow = "#c4a000"   # Adwaita yellow
+black = "#2e3436"
+blue = "#458588"
+cyan = "#689d6a"
+green = "#98971a"
+magenta = "#b16286"
+red = "#cc241d"
+white = "#a89984"
+yellow = "#d79921"
 
 [colors.primary]
-background = "#2e3436"  # Adwaita dark background
-foreground = "#eeeeec"  # Adwaita light foreground for text
+background = "#2e3436"
+foreground = "#f6f6f6"
 
 [env]
 TERM = "xterm-256color"
 
 [font]
-size = 12
+size = 14
 
 [font.normal]
-family = "Iosevka"
+family = "Iosevka Nerd Font"
 style = "Regular"
 
 [[keyboard.bindings]]

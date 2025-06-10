@@ -168,14 +168,14 @@ binds {
     Mod+Shift+Slash {
         show-hotkey-overlay
     }
-    Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: foot" {
-        spawn "foot"
+    Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: alacritty" {
+        spawn "alacritty"
     }
     Mod+Return hotkey-overlay-title="Open a tmux session" {
-        spawn "~/.scripts/tmux_session.sh" "foot"
+        spawn "~/.scripts/tmux_session.sh" "alacritty"
     }
     Mod+Shift+Return hotkey-overlay-title="Open a tmux project" {
-        spawn "~/.scripts/rofi-tmuxp.sh" "foot"
+        spawn "~/.scripts/rofi-tmuxp.sh" "alacritty"
     }
     Mod+D hotkey-overlay-title="Run Command: rofi" {
         spawn "rofi" "-modi" "run" "-show" "run"

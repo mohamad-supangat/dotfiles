@@ -14,7 +14,6 @@
     "hyprland/submap",
     "custom/notification",
     "clock",
-    "clock#simpleclock",
   ],
   "modules-right": [
     "tray",
@@ -84,11 +83,31 @@
   },
   "clock#simpleclock": {
     "tooltip": false,
-    "format": "  {:%H:%M}",
+    "format": "{:%H:%M}",
   },
   "clock": {
-    "format": "  {:L%a %d %b}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:L%d %b %Y | %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><span size='12pt' font='Iosevka'>{calendar}</span></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
+      "actions": {
+        "on-click-right": "mode",
+        "on-scroll-up": "tz_up",
+        "on-scroll-down": "tz_down",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down",
+      },
+    },
   },
   "cpu": {
     "format": "  {usage}%",

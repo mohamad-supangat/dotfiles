@@ -48,3 +48,6 @@ wget -P ~/.local/bin/ https://github.com/bebasid/bebasid/releases/download/v1.1/
 
 # editorconfig generator
 pnpm add -g generate generate-editorconfig
+
+
+wget -P /tmp https://rubjo.github.io/victor-mono/VictorMonoAll.zip && mkdir -p ~/.local/share/fonts/VictorMono && cd ~/.local/share/fonts/VictorMono && unzip /tmp/VictorMonoAll.zip

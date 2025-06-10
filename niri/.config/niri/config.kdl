@@ -96,7 +96,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^(foot|alacritty)$"#
+    match app-id=r#"^(foot|alacritty|ghostty)$"#
     open-on-workspace "terminal"
 }
 window-rule {
@@ -168,14 +168,14 @@ binds {
     Mod+Shift+Slash {
         show-hotkey-overlay
     }
-    Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: alacritty" {
-        spawn "alacritty"
+    Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: foot" {
+        spawn "foot"
     }
     Mod+Return hotkey-overlay-title="Open a tmux session" {
-        spawn "~/.scripts/tmux_session.sh" "alacritty"
+        spawn "~/.scripts/tmux_session.sh" "foot"
     }
     Mod+Shift+Return hotkey-overlay-title="Open a tmux project" {
-        spawn "~/.scripts/rofi-tmuxp.sh" "alacritty"
+        spawn "~/.scripts/rofi-tmuxp.sh" "foot"
     }
     Mod+D hotkey-overlay-title="Run Command: rofi" {
         spawn "rofi" "-modi" "run" "-show" "run"

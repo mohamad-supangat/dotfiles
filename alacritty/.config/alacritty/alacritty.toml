@@ -1,33 +1,32 @@
-
 [colors]
 
 [colors.bright]
-black = "#8c847f"
-blue = "#4c83bf"
-cyan = "#4dbda8"
-green = "#95b548"
-magenta = "#a04bbd"
-red = "#bd4b76"
-white = "#848484"
-yellow = "#bd814b"
+black = "#555555"    # Dark gray (brighter black for contrast)
+blue = "#5294e2"     # Adwaita blue (bright variant)
+cyan = "#34e2e2"     # Adwaita cyan (bright)
+green = "#8cc85f"    # Adwaita green (bright)
+magenta = "#b48ead"  # Adwaita purple (bright)
+red = "#e06262"      # Adwaita red (bright)
+white = "#ffffff"    # Pure white for bright text
+yellow = "#f0c674"   # Adwaita yellow (bright)
 
 [colors.cursor]
-cursor = "#f6f6f6"
-text = "#000000"
+cursor = "#d3d7cf"   # Light gray cursor (Adwaita neutral highlight)
+text = "#2e3436"     # Dark text for cursor background
 
 [colors.normal]
-black = "#666666"
-blue = "#657a99"
-cyan = "#65998d"
-green = "#889965"
-magenta = "#8b6599"
-red = "#996578"
-white = "#a5a5a4"
-yellow = "#998565"
+black = "#2e3436"    # Adwaita dark gray (standard black)
+blue = "#3465a4"     # Adwaita blue
+cyan = "#06989a"     # Adwaita cyan
+green = "#4e9a06"    # Adwaita green
+magenta = "#75507b"  # Adwaita purple
+red = "#cc0000"      # Adwaita red
+white = "#d3d7cf"    # Adwaita light gray (standard white)
+yellow = "#c4a000"   # Adwaita yellow
 
 [colors.primary]
-background = "#181616"
-foreground = "#c5c9c5"
+background = "#2e3436"  # Adwaita dark background
+foreground = "#eeeeec"  # Adwaita light foreground for text
 
 [env]
 TERM = "xterm-256color"

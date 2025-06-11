@@ -110,12 +110,12 @@
     },
   },
   "cpu": {
-    "format": "  {usage}%",
+    "format": "CPU: {usage}%",
     "tooltip": true,
     "interval": 1,
   },
   "memory": {
-    "format": " {used:0.2f}G {icon}",
+    "format": "RAM: {used:0.2f}G",
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -145,14 +145,12 @@
     "format": "⏻ ",
   },
   "network": {
-    "format-wifi": "  {bandwidthTotalBytes} {icon}",
-    "format-ethernet": " {bandwidthTotalBytes} {icon}",
-    "format-linked": " ",
-    "format-disconnected": "睊",
-    "tooltip-format-linked": "{ifname}  ",
+    "format-wifi": "{bandwidthTotalBytes} {icon}",
+    "format-ethernet": "{bandwidthTotalBytes} {icon}",
+    "tooltip-format-linked": "{ifname}",
     "tooltip-format-disconnected": "Disconnected",
     "tooltip-format-wifi": "Signal Strenght: {signalStrength}%  {essid} {ipaddr}",
-    "tooltip-format-ethernet": "{ifname}  ",
+    "tooltip-format-ethernet": "{ifname} ",
   },
   "battery": {
     "states": {

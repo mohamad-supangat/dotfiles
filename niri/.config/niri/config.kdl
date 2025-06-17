@@ -14,9 +14,9 @@ input {
         dwtp
         tap
         natural-scroll
-        accel-speed 0.1
+        accel-speed 0.3
         accel-profile "flat"
-        scroll-factor 0.1
+        // scroll-factor 0.5
         // scroll-method "two-finger"
         // scroll-button 273
     }

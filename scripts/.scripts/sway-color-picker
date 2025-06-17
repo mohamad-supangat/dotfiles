@@ -8,7 +8,7 @@ icon="/tmp/icon.png"
 
 grim -g "$(slurp -p)" - >$image
 hexcode=$(magick $image -colors 1 txt: | awk 'NR==2 {print $3}')
-magick convert $image -filter point -resize 96x96 -bordercolor $bordercolor -border $border $icon
+magick $image -filter point -resize 96x96 -bordercolor $bordercolor -border $border $icon
 notify-send -i $icon "  Color Picker" "The hex code is $hexcode"
 wl-copy -n $hexcode
 rm -f $image $icon

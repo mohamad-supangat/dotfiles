@@ -3,7 +3,11 @@ hotkey-overlay {
 }
 
 animations {
-    off
+    // off
+}
+
+hotkey-overlay {
+    skip-at-startup
 }
 
 input {
@@ -97,6 +101,7 @@ workspace "filemanager"
 spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
 spawn-at-startup "waybar"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"
+spawn-at-startup "blueman-applet"
 
 
 window-rule {
@@ -185,7 +190,7 @@ binds {
     Mod+Shift+Slash {
         show-hotkey-overlay
     }
-    Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: foot" {
+    Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: footclient" {
         spawn "footclient"
     }
     Mod+Return hotkey-overlay-title="Open a tmux session" {

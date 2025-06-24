@@ -40,7 +40,7 @@ overview {
 }
 
 output "eDP-1" {
-    scale 1.1
+    scale 1
 }
 environment {
     DISPLAY ":0"
@@ -123,12 +123,20 @@ window-rule {
 window-rule {
     match title="^Picture-in-Picture$"
     open-floating true
+    default-floating-position x=32 y=32 relative-to="top-right"
 }
+
 window-rule {
     match app-id="^org\\.keepassxc\\.KeePassXC$"
     match app-id="^org\\.gnome\\.World\\.Secrets$"
     block-out-from "screen-capture"
  // block-out-from "screencast"
+}
+
+
+window-rule {
+    match app-id="^evince$"
+    default-column-display "tabbed"
 }
 
 layer-rule {
@@ -194,6 +202,9 @@ binds {
     }
     Mod+Shift+g hotkey-overlay-title="Run Geary" {
         spawn "geary"
+    }
+    Mod+Shift+c hotkey-overlay-title="Run Calendar" {
+        spawn "gnome-calendar"
     }
     Mod+Shift+n hotkey-overlay-title="Show Notification Control Panel" {
         spawn "swaync-client" "-t" "-sw"

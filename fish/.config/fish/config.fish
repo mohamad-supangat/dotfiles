@@ -91,9 +91,4 @@ fish_add_path /opt/flutter/bin/
 # fish_add_path $ANDROID_HOME/tools
 
 
-# phpenv
-set -x PHPENV_ROOT "/home/deve/.phpenv"
-if test -d "/home/deve/.phpenv"
-  set -x PATH "/home/deve/.phpenv/bin" $PATH
-  status --is-interactive; and . (phpenv init -|psub)
-end
+source ~/.private-env

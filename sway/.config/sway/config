@@ -31,6 +31,9 @@ gaps bottom 10
 
 # hide_edge_borders smart
 for_window [class="^.*"] border pixel 4
+set $opacity 0.9
+for_window [class=".*"] opacity $opacity
+for_window [app_id=".*"] opacity $opacity
 
 for_window [title="KeePassXC - Browser Access Request"] floating enable
 for_window [class="Pavucontrol"] floating enable

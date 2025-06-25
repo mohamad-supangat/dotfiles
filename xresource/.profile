@@ -44,7 +44,7 @@ export PATH="/opt/android-sdk/build-tools/30.0.3:$PATH"
 # default editor
 export EDITOR=nvim
 # export TERMINAL=/usr/bin/alacritty
-export TERMINAL=/usr/bin/alacritty
+export TERMINAL=/usr/bin/footclient
 export PATH=$PATH:~/.scripts
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 

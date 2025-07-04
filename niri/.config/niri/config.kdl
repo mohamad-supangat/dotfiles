@@ -106,7 +106,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^(foot|footclient|alacritty|ghostty)$"#
+    match app-id=r#"^(foot|footclient|alacritty|Alacritty|ghostty)$"#
     open-on-workspace "terminal"
 }
 window-rule {

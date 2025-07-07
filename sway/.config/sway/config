@@ -2,7 +2,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term foot
+set $term footclient
 set $menu rofi -modi drun -show drun
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
@@ -24,14 +24,14 @@ shadows enable
 # scratchpad_minimize enable
 
 # smart_gaps on
-gaps inner 10
-gaps outer 10
-gaps bottom 10
+gaps inner 2
+gaps outer 2
+gaps bottom 2
 
 
 # hide_edge_borders smart
-for_window [class="^.*"] border pixel 4
-set $opacity 0.9
+for_window [class="^.*"] border pixel 5
+set $opacity 0.88
 for_window [class=".*"] opacity $opacity
 for_window [app_id=".*"] opacity $opacity
 
@@ -143,6 +143,7 @@ bindsym --locked XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec  brightnessctl set +500
 bindsym XF86MonBrightnessDown exec brightnessctl set 500-
 
+output "eDP-1" scale 1.2
 # Idle configuration
 # exec swayidle \
 #     timeout 300 'exec $lock' \
@@ -200,6 +201,8 @@ bindsym $mod+Control+l resize grow width 10 px or 10
 # bindsym $mod+Shift+Control+Up resize shrink height 1 px or 1
 # bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
 
+bindsym --no-repeat $mod+Tab workspace back_and_forth
+
 bindsym --no-repeat $mod+1 workspace number 1; exec "echo 1 > /tmp/sovpipe"
 bindsym --no-repeat $mod+2 workspace number 2; exec "echo 1 > /tmp/sovpipe"
 bindsym --no-repeat $mod+3 workspace number 3; exec "echo 1 > /tmp/sovpipe"
@@ -246,7 +249,7 @@ bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 # Swap focus between the tiling area and the floating area
 # bindsym $mod+space focus mode_toggle
-bindsym $mod+Tab focus mode_toggle
+# bindsym $mod+Tab focus mode_toggle
 
 # move focus to the parent container
 bindsym $mod+a focus parent

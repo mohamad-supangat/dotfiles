@@ -1,4 +1,4 @@
 gui:
-  showIcons: true
+  showIcons: false
 git:
   parseEmoji: true

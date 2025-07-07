@@ -45,6 +45,7 @@ output "eDP-1" {
 environment {
     DISPLAY ":0"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
+    SDL_VIDEODRIVER "wayland"
 }
 
 layout {

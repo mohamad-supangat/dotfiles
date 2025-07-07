@@ -6,7 +6,7 @@
 
 * {
     /* Adwaita Dark Colors */
-    bg0: #3E4246;     /* Dark background */
+    bg0: #3E424650;    /* Transparent background */
     bg1: #4C5054;     /* Slightly lighter background */
     grey0: #7D8083;   /* Mid-tone grey */
     fg0: #F6F5F4;     /* Foreground text */

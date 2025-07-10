@@ -1,3 +1,4 @@
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -102,7 +103,7 @@ spawn-at-startup "blueman-applet"
 
 
 window-rule {
-    match app-id=r#"^(floorp|firefox|chrome|zen)$"#
+    match app-id=r#"^(floorp|firefox|chrome|zen|chromium)$"#
     open-on-workspace "browser"
 }
 

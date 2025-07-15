@@ -41,7 +41,7 @@ overview {
 }
 
 output "eDP-1" {
-    scale 1.2
+   //  scale 1.2
 }
 environment {
     DISPLAY ":0"
@@ -50,7 +50,7 @@ environment {
 
 layout {
     background-color "transparent"
-    gaps 8
+    gaps 10
     // center-focused-column "on-overflow"
     center-focused-column "never"
 
@@ -59,6 +59,7 @@ layout {
         proportion 0.66667
         proportion 1.0
     }
+
     preset-window-heights {
         proportion 0.5
         proportion 1.0
@@ -69,9 +70,10 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         width 4
-        active-gradient from="#f6f6f6" to="#f6f6f6" angle=45
-        inactive-gradient from="#2e3436" to="#2e3436" angle=45 relative-to="workspace-view"
+        active-gradient from="#ff0000" to="#00ff00" angle=30
+        inactive-gradient from="#2e3436" to="#2e3436" angle=45
     }
+
     // You can also add a border. It's similar to the focus ring, but always visible.
     border {
         off
@@ -80,8 +82,9 @@ layout {
         active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
+
     shadow {
-        on
+        // on
         draw-behind-window true
         softness 30
         spread 5
@@ -164,6 +167,7 @@ window-rule {
     match is-window-cast-target=true
 
     focus-ring {
+        width 10
         active-color "#f38ba8"
         inactive-color "#7d0d2d"
     }
@@ -622,6 +626,11 @@ binds {
     Ctrl+Print {
         screenshot-screen
     }
+
+    Mod+Shift+Print {
+        spawn "record-screen"
+    }
+
     Alt+Print {
         screenshot-window
     }

@@ -103,7 +103,7 @@ spawn-at-startup "blueman-applet"
 
 
 window-rule {
-    match app-id=r#"^(floorp|firefox|chrome|zen|chromium)$"#
+    match app-id=r#"^(floorp|firefox|chrome|zen|chromium|zen-twilight)$"#
     open-on-workspace "browser"
 }
 

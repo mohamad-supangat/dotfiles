@@ -109,7 +109,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^(foot|footclient|alacritty|ghostty)$"#
+    match app-id=r#"^(foot|footclient|alacritty|ghostty|kitty)$"#
     open-on-workspace "terminal"
 }
 window-rule {
@@ -191,13 +191,13 @@ binds {
         show-hotkey-overlay
     }
     Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: foot" {
-        spawn "footclient"
+        spawn "kitty"
     }
     Mod+Return hotkey-overlay-title="Open a tmux session" {
-        spawn "~/.scripts/tmux_session.sh" "footclient"
+        spawn "~/.scripts/tmux_session.sh" "kitty"
     }
     Mod+Shift+Return hotkey-overlay-title="Open a tmux project" {
-        spawn "~/.scripts/rofi-tmuxp.sh" "footclient"
+        spawn "~/.scripts/rofi-tmuxp.sh" "kitty"
     }
     Mod+D hotkey-overlay-title="Run Command: rofi" {
         spawn "rofi" "-modi" "run" "-show" "run"

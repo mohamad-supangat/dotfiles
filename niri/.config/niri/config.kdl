@@ -105,6 +105,11 @@ spawn-at-startup "blueman-applet"
 
 
 window-rule {
+    opacity 0.95
+    draw-border-with-background false
+}
+
+window-rule {
     match app-id=r#"^(floorp|firefox|chrome|zen|chromium|zen-twilight)$"#
     open-on-workspace "browser"
 }
@@ -192,13 +197,13 @@ binds {
         show-hotkey-overlay
     }
     Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: foot" {
-        spawn "kitty"
+        spawn "footclient"
     }
     Mod+Return hotkey-overlay-title="Open a tmux session" {
-        spawn "~/.scripts/tmux_session.sh" "kitty"
+        spawn "~/.scripts/tmux_session.sh" "footclient"
     }
     Mod+Shift+Return hotkey-overlay-title="Open a tmux project" {
-        spawn "~/.scripts/rofi-tmuxp.sh" "kitty"
+        spawn "~/.scripts/rofi-tmuxp.sh" "footclient"
     }
     Mod+D hotkey-overlay-title="Run Command: rofi" {
         spawn "rofi" "-modi" "run" "-show" "run"

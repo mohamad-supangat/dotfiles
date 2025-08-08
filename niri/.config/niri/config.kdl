@@ -45,12 +45,13 @@ output "eDP-1" {
 }
 environment {
     DISPLAY ":0"
+    GDK_SCALE "0"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 layout {
     background-color "transparent"
-    gaps 10
+    gaps 8
     // center-focused-column "on-overflow"
     center-focused-column "never"
 
@@ -102,9 +103,8 @@ spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
 spawn-at-startup "start-waybar"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"
 
-
 window-rule {
-    match app-id=r#"^(floorp|firefox|chrome|zen|chromium)$"#
+    match app-id=r#"^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"#
     open-on-workspace "browser"
 }
 
@@ -191,13 +191,13 @@ binds {
         show-hotkey-overlay
     }
     Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: foot" {
-        spawn "kitty"
+        spawn "footclient"
     }
     Mod+Return hotkey-overlay-title="Open a tmux session" {
-        spawn "~/.scripts/tmux_session.sh" "kitty"
+        spawn "~/.scripts/tmux_session.sh" "footclient"
     }
     Mod+Shift+Return hotkey-overlay-title="Open a tmux project" {
-        spawn "~/.scripts/rofi-tmuxp.sh" "kitty"
+        spawn "~/.scripts/rofi-tmuxp.sh" "footclient"
     }
     Mod+D hotkey-overlay-title="Run Command: rofi" {
         spawn "rofi" "-modi" "run" "-show" "run"
@@ -529,7 +529,7 @@ binds {
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
     // Switches focus between the current and the previous workspace.
     Mod+Tab {
-        focus-workspace-previous
+        focus-window-previous
     }
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
@@ -621,7 +621,7 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
     Print {
         //screenshot
-        spawn "sh" "-c" "grim -g \"$(slurp -d)\" - | satty --filename -"
+        spawn "sh" "-c" "sleep 2 && grim -g \"$(slurp -d)\" - | satty --filename -"
     }
     Ctrl+Print {
         screenshot-screen

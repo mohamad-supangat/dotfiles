@@ -10,7 +10,7 @@ fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
 fish_add_path /usr/lib/jvm/java-8-openjdk/bin
 fish_add_path /opt/android-sdk/build-tools/30.0.3
 fish_add_path ~/go/bin
-
+fish_add_path /home/deve/HDD/data1/SOAR/bin
 
 # init starship default prompts
 # starship init fish | source

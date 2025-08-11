@@ -2,7 +2,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term footclient
+set $term foot
 set $menu rofi -modi drun -show drun
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
@@ -35,6 +35,13 @@ set $opacity 0.88
 for_window [class=".*"] opacity $opacity
 for_window [app_id=".*"] opacity $opacity
 
+layer_effects "waybar" {
+    blur enable;
+    blur_xray enable;
+    blur_ignore_transparent enable;
+    shadows enable;
+    corner_radius 20;
+}
 for_window [title="KeePassXC - Browser Access Request"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="ColorGrab"] floating enable

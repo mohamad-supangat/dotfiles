@@ -44,13 +44,14 @@ output "eDP-1" {
 }
 environment {
     DISPLAY ":0"
+    GDK_SCALE "0"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     SDL_VIDEODRIVER "wayland"
 }
 
 layout {
     background-color "transparent"
-    gaps 10
+    gaps 8
     // center-focused-column "on-overflow"
     center-focused-column "never"
 
@@ -103,14 +104,8 @@ spawn-at-startup "waybar"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"
 spawn-at-startup "blueman-applet"
 
-
 window-rule {
-    opacity 0.95
-    draw-border-with-background false
-}
-
-window-rule {
-    match app-id=r#"^(floorp|firefox|chrome|zen|chromium|zen-twilight)$"#
+    match app-id=r#"^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"#
     open-on-workspace "browser"
 }
 
@@ -535,7 +530,7 @@ binds {
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
     // Switches focus between the current and the previous workspace.
     Mod+Tab {
-        focus-workspace-previous
+        focus-window-previous
     }
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
@@ -627,7 +622,7 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
     Print {
         //screenshot
-        spawn "sh" "-c" "grim -g \"$(slurp -d)\" - | satty --filename -"
+        spawn "sh" "-c" "sleep 2 && grim -g \"$(slurp -d)\" - | satty --filename -"
     }
     Ctrl+Print {
         screenshot-screen

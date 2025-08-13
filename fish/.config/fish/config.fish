@@ -12,6 +12,12 @@ fish_add_path /opt/android-sdk/build-tools/30.0.3
 fish_add_path ~/go/bin
 
 
+if test -f "~/.private-env"
+  source ~/.private-env
+end
+
+set --export EDITOR nvim
+
 # init starship default prompts
 # starship init fish | source
 

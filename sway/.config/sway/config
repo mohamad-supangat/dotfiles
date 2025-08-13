@@ -29,6 +29,10 @@ gaps outer 2
 gaps bottom 2
 
 
+
+set $ws1 "Browser"
+set $ws2 "Terminal"
+
 # hide_edge_borders smart
 for_window [class="^.*"] border pixel 5
 set $opacity 0.88
@@ -304,8 +308,10 @@ exec wl-paste --watch cliphist -max-items 10000 store
 
 exec start-waybar
 exec swaync
-exec eval $(gnome-keyring-daemon --start)
-exec geary
+exec_always {
+    eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+    export SSH_AUTH_SOCK
+}
 
 ## include generate config and color scheme
 include colorscheme

@@ -64,7 +64,7 @@ window#waybar.hidden {
   background-color: @fg;
 }
 
-#workspaces button.active {
+#workspaces button.active,#workspaces button.focused {
   color: #1e1e2e;
   background-color: @fg;
 }

@@ -14,7 +14,7 @@ set $browser-selector floorp -P
 
 floating_modifier $mod
 
-font xft:Iosevka 11
+font xft:Iosevka 8
 blur enable
 corner_radius 10
 # smart_corner_radius on
@@ -147,8 +147,8 @@ bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
 
 # Bind brightness keys to light interface
-bindsym XF86MonBrightnessUp exec  brightnessctl set +500
-bindsym XF86MonBrightnessDown exec brightnessctl set 500-
+bindsym XF86MonBrightnessUp exec  brightnessctl set +50
+bindsym XF86MonBrightnessDown exec brightnessctl set 50-
 
 output "eDP-1" scale 1.0
 # Idle configuration

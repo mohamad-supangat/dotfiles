@@ -100,13 +100,13 @@ layout {
 
 workspace "browser"
 workspace "terminal"
-workspace "filemanager"
+// workspace "filemanager"
 
 //spawn-at-startup "xwayland-satellite"
 spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
 spawn-at-startup "waybar"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"
-spawn-at-startup "blueman-applet"
+// spawn-at-startup "blueman-applet"
 
 window-rule {
     match app-id=r#"^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"#

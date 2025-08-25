@@ -35,9 +35,9 @@ set $ws2 "Terminal"
 
 # hide_edge_borders smart
 for_window [class="^.*"] border pixel 5
-set $opacity 0.88
-for_window [class=".*"] opacity $opacity
-for_window [app_id=".*"] opacity $opacity
+# set $opacity 0.95
+# for_window [class=".*"] opacity $opacity
+# for_window [app_id=".*"] opacity $opacity
 
 layer_effects "waybar" {
     blur enable;

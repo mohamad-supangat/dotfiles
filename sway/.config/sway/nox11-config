@@ -6,4 +6,4 @@ include config
 # ganti scrcpy dengan qtscrcpy ketika menggunakan native wayland
 # unbindsym $mod+Shift+s
 # bindsym $mod+Shift+s exec pkill QtScrcpy;exec qtscrcpy
-# xwayland disable
+xwayland disable

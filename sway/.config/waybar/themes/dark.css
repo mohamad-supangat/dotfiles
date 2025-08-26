@@ -64,7 +64,8 @@ window#waybar.hidden {
   background-color: @fg;
 }
 
-#workspaces button.active,#workspaces button.focused {
+#workspaces button.active,
+#workspaces button.focused {
   color: #1e1e2e;
   background-color: @fg;
 }
@@ -73,6 +74,7 @@ window#waybar.hidden {
   background-color: #f38ba8;
 }
 
+#custom-adaptive-light,
 #custom-notification,
 #clock,
 #pulseaudio,

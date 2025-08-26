@@ -4,7 +4,7 @@ hotkey-overlay {
 }
 
 animations {
-    off
+    // off
 }
 
 input {
@@ -96,7 +96,7 @@ layout {
 
 workspace "browser"
 workspace "terminal"
-workspace "filemanager"
+// workspace "filemanager"
 
 //spawn-at-startup "xwayland-satellite"
 spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"

@@ -36,5 +36,6 @@ export TERMINAL=/usr/bin/alacritty
 
 export GPG_TTY=$(tty)
 
-exec dbus-run-session Hyprland
+exec Hyprland
+# exec dbus-run-session Hyprland
 

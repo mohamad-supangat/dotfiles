@@ -627,6 +627,10 @@ binds {
         //screenshot
         spawn "sh" "-c" "sleep 2 && grim -g \"$(slurp -d)\" - | satty --filename -"
     }
+    Mod+Shift+MouseRight {
+        //screenshot
+        spawn "sh" "-c" "sleep 2 && grim -g \"$(slurp -d)\" - | satty --filename -"
+    }
     Ctrl+Print {
         screenshot-screen
     }

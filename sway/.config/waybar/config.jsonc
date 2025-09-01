@@ -21,6 +21,7 @@
     "cpu",
     "memory",
     "custom/adaptive-light",
+    "backlight",
     "pulseaudio",
     "battery",
   ],
@@ -179,4 +180,15 @@
     "exec-if": "/home/deve/.config/waybar/modules/wluma.sh check",
     "signal": 12,
   },
+  "backlight/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "intel_backlight",
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""]
+}
 }

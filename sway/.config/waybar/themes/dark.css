@@ -29,12 +29,7 @@
 }
 
 window#waybar {
-  /* transition-property: background-color; */
-  /* transition-duration: 0.5s; */
-  /* background-color: #1e1e2e; */
-  /* background-color: #181825; */
-  background-color: rgba(24, 24, 37, 0.3);
-  /* background-color: transparent; */
+  background-color: @bg;
 }
 
 window#waybar.hidden {
@@ -92,8 +87,9 @@ window#waybar.hidden {
   min-height: 0;
   padding: 2px 10px;
   border-radius: 8px;
+  border: 1px solid #888;
   margin: 4px 4px;
-  background-color: @bg;
+  /* background-color: @bg; */
 }
 
 @keyframes blink {

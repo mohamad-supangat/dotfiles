@@ -20,6 +20,8 @@
     "network",
     "cpu",
     "memory",
+    "custom/adaptive-light",
+    "backlight",
     "pulseaudio",
     "battery",
   ],
@@ -167,4 +169,26 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true,
   },
+  "custom/adaptive-light": {
+    "interval": "once",
+    "tooltip": true,
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": { "on": "", "off": "" },
+    "exec": "/home/deve/.config/waybar/modules/wluma.sh",
+    "on-click": "/home/deve/.config/waybar/modules/wluma.sh toggle; pkill -RTMIN+12 waybar",
+    "exec-if": "/home/deve/.config/waybar/modules/wluma.sh check",
+    "signal": 12,
+  },
+  "backlight/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "intel_backlight",
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""]
+}
 }

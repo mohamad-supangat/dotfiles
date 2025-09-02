@@ -64,7 +64,8 @@ window#waybar.hidden {
   background-color: @fg;
 }
 
-#workspaces button.active,#workspaces button.focused {
+#workspaces button.active,
+#workspaces button.focused {
   color: #1e1e2e;
   background-color: @fg;
 }
@@ -73,6 +74,7 @@ window#waybar.hidden {
   background-color: #f38ba8;
 }
 
+#custom-adaptive-light,
 #custom-notification,
 #clock,
 #pulseaudio,
@@ -84,6 +86,7 @@ window#waybar.hidden {
 #memory,
 #network,
 #battery,
+#backlight,
 #window {
   color: @fg;
   min-height: 0;
@@ -102,4 +105,26 @@ window#waybar.hidden {
 
 tooltip {
   border-radius: 8px;
+}
+
+#backlight-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+#backlight-slider trough {
+  min-height: 10px;
+  min-width: 80px;
+  border-radius: 5px;
+  background-color: black;
+}
+
+#backlight-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+  background-color: red;
 }

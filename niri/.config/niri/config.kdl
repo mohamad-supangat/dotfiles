@@ -41,6 +41,7 @@ overview {
 }
 
 output "eDP-1" {
+    // scale 1
 }
 environment {
     DISPLAY ":0"
@@ -51,7 +52,7 @@ environment {
 
 layout {
     background-color "transparent"
-    gaps 8
+    gaps 1
     // center-focused-column "on-overflow"
     center-focused-column "never"
 
@@ -218,6 +219,9 @@ binds {
     }
     Mod+Shift+n hotkey-overlay-title="Show Notification Control Panel" {
         spawn "swaync-client" "-t" "-sw"
+    }
+    Mod+Shift+s hotkey-overlay-title="Run Screen Copy Android" {
+        spawn "start-scrcpy"
     }
     Mod+n hotkey-overlay-title="Run File Manager" {
         spawn "nautilus"
@@ -625,6 +629,10 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
     Print {
+        //screenshot
+        spawn "sh" "-c" "sleep 2 && grim -g \"$(slurp -d)\" - | satty --filename -"
+    }
+    Mod+Shift+MouseRight {
         //screenshot
         spawn "sh" "-c" "sleep 2 && grim -g \"$(slurp -d)\" - | satty --filename -"
     }

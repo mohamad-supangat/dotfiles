@@ -41,56 +41,14 @@ output * bg /usr/share/backgrounds/scroll/Sway_Wallpaper_Blue_1920x1080.png fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: scrollmsg -t get_outputs
-output "eDP-1" scale 1.2
-output "eDP-1" scale_filter nearest
+# output "eDP-1" scale 1
+# output "eDP-1" scale_filter nearest
 
-
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'scrollmsg "output * power off"' resume 'scrollmsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-### Input configuration
-#
-# Example configuration:
-#
-  input type:touchpad {
-	events enabled
-	pointer_accel 0.1
-	accel_profile adaptive
-	natural_scroll enabled
-	left_handed disabled
-	scroll_factor 0.8
-	middle_emulation disabled
-	scroll_method two_finger
-	dwt enabled
-	tap enabled
-	tap_button_map lrm
-	click_method clickfinger
-    }
-#
-#   input type:keyboard {
-#       xkb_layout "eu"
-#   }
-#
-# You can also configure each device individually.
-# Read `man 5 scroll-input` for more information about this section.
 
 ### Windows defaults
-default_border pixel 2
-gaps inner 4
-gaps outer 10
-client.focused #15439e #000000 #e0e0e0 #2e9ef4 #15439e
-client.focused_inactive #595959 #000000 #e0e0e0 #2e9ef4 #595959
-client.unfocused #595959 #000000 #e0e0e0 #2e9ef4 #595959
+default_border pixel 10
+gaps inner 0
+gaps outer 0
 
 # Idle inhibit for fullscreen windows
 for_window [all] inhibit_idle fullscreen
@@ -291,14 +249,14 @@ animations {
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+z move scratchpad
+    bindsym $mod+Shift+b move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+z scratchpad show
-    bindsym --no-repeat $mod+Alt+z scratchpad jump
+    bindsym $mod+b scratchpad show
+    bindsym --no-repeat $mod+Alt+b scratchpad jump
 
-    bindsym $mod+Ctrl+z workspace back_and_forth
+    bindsym $mod+Ctrl+b workspace back_and_forth
 
 #
 # Mode modifiers
@@ -329,44 +287,44 @@ bindsym $mod+minus cycle_size h prev
 bindsym $mod+equal cycle_size h next
 bindsym $mod+Shift+minus cycle_size v prev
 bindsym $mod+Shift+equal cycle_size v next
-
-mode "setsizeh" {
-    bindsym 1 set_size h 0.125; mode default
-    bindsym 2 set_size h 0.1666666667; mode default
-    bindsym 3 set_size h 0.25; mode default
-    bindsym 4 set_size h 0.333333333; mode default
-    bindsym 5 set_size h 0.375; mode default
-    bindsym 6 set_size h 0.5; mode default
-    bindsym 7 set_size h 0.625; mode default
-    bindsym 8 set_size h 0.6666666667; mode default
-    bindsym 9 set_size h 0.75; mode default
-    bindsym 0 set_size h 0.833333333; mode default
-    bindsym minus set_size h 0.875; mode default
-    bindsym equal set_size h 1.0; mode default
-
-    # Return to default mode
-    bindsym Escape mode "default"
-}
-bindsym $mod+b mode "setsizeh"
-
-mode "setsizev" {
-    bindsym 1 set_size v 0.125; mode default
-    bindsym 2 set_size v 0.1666666667; mode default
-    bindsym 3 set_size v 0.25; mode default
-    bindsym 4 set_size v 0.333333333; mode default
-    bindsym 5 set_size v 0.375; mode default
-    bindsym 6 set_size v 0.5; mode default
-    bindsym 7 set_size v 0.625; mode default
-    bindsym 8 set_size v 0.6666666667; mode default
-    bindsym 9 set_size v 0.75; mode default
-    bindsym 0 set_size v 0.833333333; mode default
-    bindsym minus set_size v 0.875; mode default
-    bindsym equal set_size v 1.0; mode default
-
-    # Return to default mode
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+b mode "setsizev"
+#
+# mode "setsizeh" {
+#     bindsym 1 set_size h 0.125; mode default
+#     bindsym 2 set_size h 0.1666666667; mode default
+#     bindsym 3 set_size h 0.25; mode default
+#     bindsym 4 set_size h 0.333333333; mode default
+#     bindsym 5 set_size h 0.375; mode default
+#     bindsym 6 set_size h 0.5; mode default
+#     bindsym 7 set_size h 0.625; mode default
+#     bindsym 8 set_size h 0.6666666667; mode default
+#     bindsym 9 set_size h 0.75; mode default
+#     bindsym 0 set_size h 0.833333333; mode default
+#     bindsym minus set_size h 0.875; mode default
+#     bindsym equal set_size h 1.0; mode default
+#
+#     # Return to default mode
+#     bindsym Escape mode "default"
+# }
+# bindsym $mod+b mode "setsizeh"
+#
+# mode "setsizev" {
+#     bindsym 1 set_size v 0.125; mode default
+#     bindsym 2 set_size v 0.1666666667; mode default
+#     bindsym 3 set_size v 0.25; mode default
+#     bindsym 4 set_size v 0.333333333; mode default
+#     bindsym 5 set_size v 0.375; mode default
+#     bindsym 6 set_size v 0.5; mode default
+#     bindsym 7 set_size v 0.625; mode default
+#     bindsym 8 set_size v 0.6666666667; mode default
+#     bindsym 9 set_size v 0.75; mode default
+#     bindsym 0 set_size v 0.833333333; mode default
+#     bindsym minus set_size v 0.875; mode default
+#     bindsym equal set_size v 1.0; mode default
+#
+#     # Return to default mode
+#     bindsym Escape mode "default"
+# }
+# bindsym $mod+Shift+b mode "setsizev"
 
 mode "resize" {
     # left will shrink the containers width
@@ -380,8 +338,10 @@ mode "resize" {
 
     # Return to default mode
     bindsym Escape mode "default"
+    bindsym Return mode "default"
+
 }
-bindsym $mod+Shift+r mode "resize"
+bindsym $mod+r mode "resize"
 
 mode "align" {
     bindsym c align center; mode default
@@ -392,6 +352,7 @@ mode "align" {
     bindsym $up align up; mode default
     bindsym $down align down; mode default
     bindsym Escape mode "default"
+    bindsym Return mode "default"
 }
 bindsym $mod+c mode "align"
 
@@ -527,32 +488,28 @@ bindgesture swipe:4:up scale_workspace overview
 # Opens a terminal when creating workspace 6
 # workspace 6 exec kitty
 
-exec eval $(gnome-keyring-daemon --start)
-exec export SSH_AUTH_SOCK
+exec_always {
+    eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+    export SSH_AUTH_SOCK
+}
 exec dex -a
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
 exec start-waybar
 exec swaync
 # exec ~/.config/sway/bin/random-wallpaper.sh
 
-#
-# Status Bar:
-#
-# Read `man 5 scroll-bar` for more information about this section.
-# bar {
-#     position top
-#
-#     # When the status_command prints a new line to stdout, scrollbar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-#
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#         scroller #2F343AFF #055E20FF #FFFFFFFF
-#     }
-# }
-#
+include ~/.config/sway/colorscheme
+include ~/.config/sway/.generated_settings/input_pointer.conf
+include ~/.config/sway/.generated_settings/input_touchpad.conf
+
+
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
+
 include /etc/scroll/config.d/*

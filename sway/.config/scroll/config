@@ -95,6 +95,7 @@ animations {
     bindsym $mod+Shift+Return exec ~/.scripts/rofi-tmuxp.sh $term
     bindsym Print exec $screenshot
 
+    bindsym --whole-window $mod+BTN_RIGHT exec $screenshot
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -492,7 +493,9 @@ exec_always {
     eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
     export SSH_AUTH_SOCK
 }
-exec dex -a
+
+# auto start XDG
+# exec dex -a
 # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
 exec start-waybar

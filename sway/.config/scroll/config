@@ -41,7 +41,7 @@ output * bg /usr/share/backgrounds/scroll/Sway_Wallpaper_Blue_1920x1080.png fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: scrollmsg -t get_outputs
-# output "eDP-1" scale 1
+output "eDP-1" scale 1.2
 # output "eDP-1" scale_filter nearest
 
 
@@ -94,7 +94,7 @@ animations {
     bindsym $mod+Return exec ~/.scripts/tmux_session.sh $term
     bindsym $mod+Shift+Return exec ~/.scripts/rofi-tmuxp.sh $term
     bindsym Print exec $screenshot
-
+    bindsym $mod+Shift+r exec $recordscreen
     bindsym --whole-window $mod+BTN_RIGHT exec $screenshot
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -497,6 +497,7 @@ exec_always {
 # auto start XDG
 # exec dex -a
 # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 exec wl-paste --watch cliphist -max-items 10000 store
 exec start-waybar
 exec swaync
@@ -516,3 +517,5 @@ client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
 
 include /etc/scroll/config.d/*
+
+xwayland disable

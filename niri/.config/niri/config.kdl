@@ -51,7 +51,7 @@ environment {
 
 layout {
     background-color "transparent"
-    gaps 1
+    gaps 5
     // center-focused-column "on-overflow"
     center-focused-column "never"
 
@@ -103,6 +103,7 @@ workspace "terminal"
 spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
 spawn-at-startup "start-waybar"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"
+spawn-at-startup "nsticky"
 
 window-rule {
     match app-id=r#"^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"#
@@ -253,6 +254,9 @@ binds {
     Mod+Shift+Space repeat=false {
         toggle-window-floating
     }
+
+    Mod+Ctrl+Space { spawn "nsticky" "toggle-active"; }
+
     Mod+Shift+Q {
         close-window
     }

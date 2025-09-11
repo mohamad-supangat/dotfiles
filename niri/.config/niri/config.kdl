@@ -52,8 +52,8 @@ environment {
 layout {
     background-color "transparent"
     gaps 5
-    // center-focused-column "on-overflow"
-    center-focused-column "never"
+    center-focused-column "on-overflow"
+    // center-focused-column "never"
 
     preset-column-widths {
         proportion 0.5
@@ -100,7 +100,7 @@ workspace "terminal"
 // workspace "filemanager"
 
 //spawn-at-startup "xwayland-satellite"
-spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
+// spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
 spawn-at-startup "start-waybar"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"
 spawn-at-startup "nsticky"
@@ -223,9 +223,9 @@ binds {
         spawn "nautilus"
     }
     Ctrl+Alt+h hotkey-overlay-title="Show Clipboard Manager: rofi" {
-        //spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        spawn "sh" "-c" "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
         //spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist-img -show clipboard -show-icons"
-        spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist -show clipboard"
+        // spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist -show clipboard"
 
     }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }

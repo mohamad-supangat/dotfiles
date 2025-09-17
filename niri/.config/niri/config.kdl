@@ -196,6 +196,9 @@ binds {
     Mod+Shift+Slash {
         show-hotkey-overlay
     }
+    Mod+Shift+p hotkey-overlay-title="Color Picker" {
+        spawn "sway-color-picker"
+    }
     Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: foot" {
         spawn "footclient"
     }
@@ -227,9 +230,9 @@ binds {
         spawn "nautilus"
     }
     Ctrl+Alt+h hotkey-overlay-title="Show Clipboard Manager: rofi" {
-        //spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         //spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist-img -show clipboard -show-icons"
-        spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist -show clipboard"
+       //  spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist -show clipboard"
 
     }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
@@ -668,7 +671,7 @@ binds {
     }
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P {
-        power-off-monitors
-    }
+    //Mod+Shift+P {
+    //    power-off-monitors
+    //}
 }

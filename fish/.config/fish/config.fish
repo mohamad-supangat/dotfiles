@@ -92,9 +92,11 @@ set --export PATH $BUN_INSTALL/bin $PATH
 fish_add_path /opt/flutter/bin/
 
 # android -sdk
-# fish_add_path $ANDROID_HOME/platform-tools
-# fish_add_path $ANDROID_HOME/cmdline-tools/bin
-# fish_add_path $ANDROID_HOME/tools
+set --export ANDROID_HOME $HOME/Android/sdk
+fish_add_path $ANDROID_HOME/platform-tools
+fish_add_path $ANDROID_HOME/cmdline-tools/bin
+fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
+fish_add_path $ANDROID_HOME/tools
 
 
 source ~/.private-env

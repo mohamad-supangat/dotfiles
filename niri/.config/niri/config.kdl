@@ -107,6 +107,7 @@ workspace "terminal"
 spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
 spawn-at-startup "waybar"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"
+spawn-at-startup "clightd"
 // spawn-at-startup "blueman-applet"
 
 window-rule {

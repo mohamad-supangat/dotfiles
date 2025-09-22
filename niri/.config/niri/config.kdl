@@ -102,7 +102,7 @@ workspace "terminal"
 //spawn-at-startup "xwayland-satellite"
 // spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
 spawn-at-startup "start-waybar"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
 spawn-at-startup "nsticky"
 
 window-rule {

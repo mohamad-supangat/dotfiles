@@ -40,6 +40,6 @@ if [[ $1 == *"x11"* ]]; then
     config=~/.config/sway/config
 fi
 
-# exec /usr/bin/sway --config $config
-exec sway
+exec /usr/bin/sway --config $config
+# exec sway
 # exec dbus-run-session /usr/bin/sway --config $config

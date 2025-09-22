@@ -2,7 +2,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term alacritty
+set $term foot
 set $menu rofi -modi drun -show drun
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
@@ -15,13 +15,7 @@ set $browser-selector floorp -P
 floating_modifier $mod
 
 font xft:Iosevka 11
-blur enable
-corner_radius 10
-# smart_corner_radius on
 
-shadows enable
-# default_dim_inactive 0.7
-# scratchpad_minimize enable
 
 # smart_gaps on
 gaps inner 2
@@ -38,14 +32,6 @@ for_window [class="^.*"] border pixel 5
 set $opacity 0.95
 for_window [class=".*"] opacity $opacity
 for_window [app_id=".*"] opacity $opacity
-
-layer_effects "waybar" {
-    blur enable;
-    blur_xray enable;
-    blur_ignore_transparent enable;
-    shadows false;
-    corner_radius 0;
-}
 
 for_window [title="KeePassXC - Browser Access Request"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -322,7 +308,7 @@ include .generated_settings/input_touchpad.conf
 include /etc/sway/config.d/*
 
 # Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused          $base05 $base05 $base00 $base0D $base05
 client.focused_inactive $base01 $base01 $base05 $base03 $base01
 client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08

@@ -41,7 +41,7 @@ overview {
 }
 
 output "eDP-1" {
-    // scale 1
+    scale 1
 }
 environment {
     DISPLAY ":0"
@@ -222,6 +222,11 @@ binds {
     Mod+n hotkey-overlay-title="Run File Manager" {
         spawn "nautilus"
     }
+
+    Mod+Shift+P {
+        spawn "sway-color-picker"
+    }
+
     Ctrl+Alt+h hotkey-overlay-title="Show Clipboard Manager: rofi" {
         spawn "sh" "-c" "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
         //spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist-img -show clipboard -show-icons"
@@ -667,7 +672,7 @@ binds {
     }
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P {
-        power-off-monitors
-    }
+    // Mod+Shift+P {
+    //     power-off-monitors
+    // }
 }

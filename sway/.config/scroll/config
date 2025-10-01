@@ -43,14 +43,20 @@ default_border pixel 5
 gaps inner 5
 gaps outer 5
 
+for_window [class="^.*"] border pixel 5
+set $opacity 0.95
+for_window [class=".*"] opacity $opacity
+for_window [app_id=".*"] opacity $opacity
+
+
 # Idle inhibit for fullscreen windows
 for_window [all] inhibit_idle fullscreen
-
 
 
 for_window [title=".* — Sharing Indicator"] floating enable, kill
 for_window [title=".* - Choose User Profile"] floating enable, sticky enable, resize set 30
 for_window [title="Picture-in-Picture"] floating enable, sticky enable
+#for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable,resize set 0 80
 
 
 # Layout settings

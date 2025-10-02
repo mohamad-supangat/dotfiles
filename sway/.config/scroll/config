@@ -578,16 +578,18 @@ bar {
 
 
     colors {
-                background #ffffff11
+        background $base0733
         # background $base00
-        separator  $base01
+        separator  #ffffff
+        statusline #ffffff
         statusline $base04
 
         # State             Border  BG      Text
-        focused_workspace   $base05 $base0D $base00
-        active_workspace    $base05 $base03 $base00
+        focused_workspace   $base04 $base05 $base00
+        active_workspace    $base04 $base03 $base00
         inactive_workspace  $base03 $base01 $base05
         urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
+        binding_mode        $base00 $base05 $base00
+        scroller            $base04 $base03 $base07
     }
 }

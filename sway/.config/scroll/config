@@ -572,17 +572,17 @@ xwayland disable
 
 
 bar {
-    font xft:JetBrains Mono 13
+    font xft:JetBrains Mono 11
     # font xft:JetBrains Mono 10, FontAwesome 8
     status_command i3status-rs
 
 
     colors {
-        background $base0733
+        background $base02
         # background $base00
-        separator  #ffffff
-        statusline #ffffff
-        statusline $base04
+        separator  $base04
+        statusline $base07
+        # statusline $base04
 
         # State             Border  BG      Text
         focused_workspace   $base04 $base05 $base00

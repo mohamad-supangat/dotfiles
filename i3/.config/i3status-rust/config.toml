@@ -1,8 +1,8 @@
 [theme]
-theme = "gruvbox-dark"
+theme = "native"
 
 [icons]
-icons = "awesome6"
+icons = "emoji"
 
 
 [[block]]

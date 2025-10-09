@@ -44,8 +44,8 @@ block = "cpu"
 # block = "storage"
 
 
-# [[ block ]]
-# block = "battery"
+[[ block ]]
+block = "battery"
 
 [[block]]
 block = "notify"

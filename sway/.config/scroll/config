@@ -55,10 +55,14 @@ for_window [class="^.*"] border pixel 5
 for_window [all] inhibit_idle fullscreen
 
 
+# auto kill sharing indicator firefox etc
 for_window [title=".* — Sharing Indicator"] floating enable, kill
 for_window [title=".* - Choose User Profile"] floating enable, sticky enable, resize set 30
-for_window [title="Picture-in-Picture"] floating enable, sticky enable
+# Picture in Picture
+for_window [title="Picture-in-Picture"] floating enable, sticky enable, resize set 30
 #for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable,resize set 0 80
+# mpv video player
+for_window [app_id="mpv"] floating enable, resize set 30 ppt
 
 
 # Layout settings
@@ -219,7 +223,7 @@ animations {
     bindsym $mod+Shift+Ctrl+period scale_workspace reset
 
     # Overview
-    # bindsym --no-repeat $mod+o scale_workspace overview
+    bindsym --no-repeat $mod+o scale_workspace overview
     bindsym --whole-window button8 scale_workspace overview
 
     # Jump
@@ -231,7 +235,7 @@ animations {
     bindsym --no-repeat $mod+Shift+slash jump container
     bindsym --no-repeat $mod+Ctrl+slash jump workspaces
     bindsym --no-repeat $mod+Alt+slash jump floating
-    bindsym --no-repeat $mod+o jump workspaces
+    # bindsym --no-repeat $mod+o jump workspaces
 
 
     # Content

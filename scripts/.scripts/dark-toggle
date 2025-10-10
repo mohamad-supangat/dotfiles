@@ -37,5 +37,5 @@ else
 end
 
 
-nwg-look -a
+# nwg-look -a
 swaymsg reload

@@ -41,7 +41,7 @@ overview {
 }
 
 output "eDP-1" {
-    // scale 1
+    scale 1.2
 }
 environment {
     DISPLAY ":0"
@@ -52,9 +52,9 @@ environment {
 
 layout {
     background-color "transparent"
-    gaps 1
-    // center-focused-column "on-overflow"
-    center-focused-column "never"
+    gaps 5
+    center-focused-column "on-overflow"
+    // center-focused-column "never"
 
     preset-column-widths {
         proportion 0.5
@@ -104,11 +104,10 @@ workspace "terminal"
 // workspace "filemanager"
 
 //spawn-at-startup "xwayland-satellite"
-spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
-spawn-at-startup "waybar"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "10000" "store"
-spawn-at-startup "clightd"
-// spawn-at-startup "blueman-applet"
+// spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
+spawn-at-startup "start-waybar"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
+spawn-at-startup "nsticky"
 
 window-rule {
     match app-id=r#"^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"#
@@ -116,7 +115,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^(foot|footclient|alacritty|ghostty|kitty)$"#
+    match app-id=r#"^(foot|alacritty|ghostty|kitty)$"#
     open-on-workspace "terminal"
 }
 window-rule {
@@ -201,13 +200,13 @@ binds {
         spawn "sway-color-picker"
     }
     Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: foot" {
-        spawn "footclient"
+        spawn "foot"
     }
     Mod+Return hotkey-overlay-title="Open a tmux session" {
-        spawn "~/.scripts/tmux_session.sh" "footclient"
+        spawn "~/.scripts/tmux_session.sh" "foot"
     }
     Mod+Shift+Return hotkey-overlay-title="Open a tmux project" {
-        spawn "~/.scripts/rofi-tmuxp.sh" "footclient"
+        spawn "~/.scripts/rofi-tmuxp.sh" "foot"
     }
     Mod+D hotkey-overlay-title="Run Command: rofi" {
         spawn "rofi" "-modi" "run" "-show" "run"
@@ -230,10 +229,15 @@ binds {
     Mod+n hotkey-overlay-title="Run File Manager" {
         spawn "nautilus"
     }
+
+    Mod+Shift+P {
+        spawn "sway-color-picker"
+    }
+
     Ctrl+Alt+h hotkey-overlay-title="Show Clipboard Manager: rofi" {
-        spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        spawn "sh" "-c" "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
         //spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist-img -show clipboard -show-icons"
-       //  spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist -show clipboard"
+        // spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist -show clipboard"
 
     }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
@@ -262,6 +266,9 @@ binds {
     Mod+Shift+Space repeat=false {
         toggle-window-floating
     }
+
+    Mod+Ctrl+Space { spawn "nsticky" "toggle-active"; }
+
     Mod+Shift+Q {
         close-window
     }
@@ -672,7 +679,7 @@ binds {
     }
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    //Mod+Shift+P {
-    //    power-off-monitors
-    //}
+    // Mod+Shift+P {
+    //     power-off-monitors
+    // }
 }

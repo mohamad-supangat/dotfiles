@@ -6,10 +6,10 @@
 
 * {
     /* Adwaita Dark Colors */
-    bg0: #3E424650;    /* Transparent background */
-    bg1: #4C5054;     /* Slightly lighter background */
+    bg0: #2e3436;    /* Transparent background */
+    bg1: #3e4446;     /* Slightly lighter background */
     grey0: #7D8083;   /* Mid-tone grey */
-    fg0: #F6F5F4;     /* Foreground text */
+    fg0: #ffffff;     /* Foreground text */
 
     blue: #62A0EA;    /* Adwaita blue */
     red: #ED333B;     /* Adwaita red */

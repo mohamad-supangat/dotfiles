@@ -7,9 +7,9 @@ if ! pkill -INT -P "$(pgrep -xo record-screen)" wf-recorder 2>/dev/null; then
         notify-send "  Recording"
 
         file=~/Videos/Recordings/"screen-record-$(date +%Y-%m-%d-%H-%M-%S).mp4"
-        # wf-recorder -f $file -g "$geometry"
+        wf-recorder -f $file -g "$geometry"
         #
-        wf-recorder -f $file -g "$geometry" --force-yuv
+        # wf-recorder -f $file -g "$geometry" --force-yuv
         # wl-screenrec -f $file -g "$geometry"
 
         gdrive_file=/tmp/record_to_gdrive.txt

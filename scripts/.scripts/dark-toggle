@@ -4,8 +4,9 @@ if test (gsettings get org.gnome.desktop.interface color-scheme) = "'prefer-ligh
     # dark side
     # ---------------------------------------
     echo 'dark' > ~/.local/share/colorscheme
+    # darkman set dark
     gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-    gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Dark'
+    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
     ln -sf ~/.config/alacritty/alacritty-dark.yml ~/.config/alacritty/alacritty.yml
     ln -sf ~/.config/foot/foot-dark.ini ~/.config/foot/foot.ini
     ln -sf ~/.config/sway/themes/dark ~/.config/sway/colorscheme
@@ -13,15 +14,16 @@ if test (gsettings get org.gnome.desktop.interface color-scheme) = "'prefer-ligh
     ln -sf ~/.local/share/nwg-look/dark ~/.local/share/nwg-look/gsettings
 
     echo "set -g @catppuccin_flavor 'mocha'" > ~/.tmux.theme
-    yes | fish_config theme save "gruvbox_dark"
+    yes | fish_config theme save "Tomorrow Night Bright"
 
     notify-send "  Theme" "Current theme is Dark"
 else
     # light side
     # ---------------------------------------
     echo 'light' > ~/.local/share/colorscheme
+    # darkman set light
     gsettings set org.gnome.desktop.interface color-scheme prefer-light
-    gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Light'
+    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
     ln -sf ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
     ln -sf ~/.config/foot/foot-light.ini ~/.config/foot/foot.ini
     ln -sf ~/.config/sway/themes/light ~/.config/sway/colorscheme
@@ -29,11 +31,11 @@ else
     ln -sf ~/.local/share/nwg-look/light ~/.local/share/nwg-look/gsettings
 
     echo "set -g @catppuccin_flavor 'frappe'" > ~/.tmux.theme
-    yes | fish_config theme save "gruvbox_light"
+    yes | fish_config theme save "Tomorrow"
 
     notify-send "  Theme" "Current theme is light"
 end
 
 
-nwg-look -a
+# nwg-look -a
 swaymsg reload

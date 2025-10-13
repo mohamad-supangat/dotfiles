@@ -16,7 +16,6 @@ sudo pacman -S nodejs npm pnpm composer php php-gd
 # desktop application
 sudo pacman -S sway pcmanfm-gtk3 xarchiver
 
-
 # sublime merge
 sudo bash -c 'curl -O https://download.sublimetext.com/sublimehq-pub.gpg && pacman-key --add sublimehq-pub.gpg && pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
 echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | tee -a /etc/pacman.conf'
@@ -24,12 +23,8 @@ echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable
 # best commit reader based on local cbz
 bash <(curl -s https://raw.githubusercontent.com/yumenaka/comi/master/get_comigo.sh)
 
-
-
 # python
 sudo pacman -S python python-pipx
-
-
 
 # tmuxp
 sudo pacman -S tmuxp
@@ -44,11 +39,8 @@ pipx install rofi-tmuxp
 # install bebasid
 wget -P ~/.local/bin/ https://github.com/bebasid/bebasid/releases/download/v1.1/bebasid.sh && chmod +x ~/.local/bin/bebasid.sh && dos2unix ~/.local/bin/bebasid.sh
 
-
-
 # editorconfig generator
 pnpm add -g generate generate-editorconfig
-
 
 wget -P /tmp https://rubjo.github.io/victor-mono/VictorMonoAll.zip && mkdir -p ~/.local/share/fonts/VictorMono && cd ~/.local/share/fonts/VictorMono && unzip /tmp/VictorMonoAll.zip
 
@@ -56,3 +48,9 @@ wget -P /tmp https://rubjo.github.io/victor-mono/VictorMonoAll.zip && mkdir -p ~
 curl https://frankenphp.dev/install.sh | sh
 sudo mv frankenphp /usr/local/bin/
 sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/frankenphp
+
+# install bun.js
+curl -fsSL https://bun.com/install | bash # for macOS, Linux, and WSL
+
+# install quasar/cli
+$ bun install -g @quasar/cli

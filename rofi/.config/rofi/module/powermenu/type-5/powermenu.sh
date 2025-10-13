@@ -19,21 +19,20 @@ uptime="$(uptime -p | sed -e 's/up //g')"
 host=$(cat /etc/hostname)
 
 # Options
-hibernate=''
-shutdown=''
-reboot=''
-lock=''
-suspend=''
-logout=''
-yes=''
-no=''
+hibernate='Hibernate'
+shutdown='Shutdown'
+reboot='Reboot'
+lock='Lock'
+suspend='Suspend'
+logout='Logout'
+yes='Yes'
+no='No'
 
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
 		-p " $USER@$host" \
-		-mesg " Last Login: $lastlogin |  Uptime: $uptime" \
-		-theme ${dir}/${theme}.rasi
+		-mesg " Last Login: $lastlogin |  Uptime: $uptime"
 }
 
 # Confirmation CMD
@@ -46,7 +45,7 @@ confirm_cmd() {
 		-dmenu \
 		-p 'Confirmation' \
 		-mesg 'Are you Sure?' \
-		-theme ${dir}/${theme}.rasi
+		# -theme ${dir}/${theme}.rasi
 }
 
 # Ask for confirmation

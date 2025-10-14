@@ -29,7 +29,7 @@ set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/acroll/)
-output * bg /usr/share/backgrounds/scroll/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/deve/Pictures/wallpapers/1121331.png fill
 #
 # Example configuration:
 #
@@ -63,6 +63,13 @@ for_window [title="Picture-in-Picture"] floating enable, sticky enable, resize s
 #for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable,resize set 0 80
 # mpv video player
 for_window [app_id="mpv"] floating enable, resize set 30 ppt
+
+
+
+# -- auto move some apps to separate workspace
+for_window [app_id="^(foot|alacritty|ghostty|kitty)$"] move container to workspace 2; focus parent; workspace number 2
+for_window [app_id="^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"] move container to workspace 1; focus parent; workspace number 1
+
 
 
 # Layout settings
@@ -554,7 +561,7 @@ exec_always {
 exec wl-paste --watch cliphist -max-items 1000 store
 # exec start-waybar
 exec swaync
-exec swww-daemon
+# exec swww-daemon
 
 include ~/.config/sway/colorscheme
 include ~/.config/sway/.generated_settings/input_pointer.conf

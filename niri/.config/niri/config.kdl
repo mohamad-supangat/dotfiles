@@ -52,8 +52,8 @@ environment {
 layout {
     background-color "transparent"
     gaps 5
-    center-focused-column "on-overflow"
-    // center-focused-column "never"
+    // center-focused-column "on-overflow"
+    center-focused-column "never"
 
     preset-column-widths {
         proportion 0.5
@@ -114,10 +114,10 @@ window-rule {
     match app-id=r#"^(foot|alacritty|ghostty|kitty)$"#
     open-on-workspace "terminal"
 }
-window-rule {
-    match app-id=r#"^org\.gnome\.Nautilus$"#
-    open-on-workspace "filemanager"
-}
+// window-rule {
+//     match app-id=r#"^org\.gnome\.Nautilus$"#
+//     open-on-workspace "filemanager"
+// }
 
 prefer-no-csd
 window-rule {

@@ -13,3 +13,4 @@ fish/.config/fish/conf.d/theme.fish
 sway/.config/sway/colorscheme
 sway/.local/share/nwg-look/gsettings
 sway/.config/waybar/style.css
+alacritty/.config/alacritty/alacritty.toml

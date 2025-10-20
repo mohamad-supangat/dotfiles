@@ -1,23 +1,14 @@
 local wezterm = require("wezterm")
 local mappings = require("modules.mappings")
 
--- Show which key table is active in the status area
--- wezterm.on("update-right-status", function(window, pane)
--- 	local name = window:active_key_table()
--- 	if name then
--- 		name = "TABLE: " .. name
--- 	end
--- 	window:set_right_status(name or "")
--- end)
-
 return {
 	default_cursor_style = "BlinkingBlock",
-	color_scheme = "Poimandres",
-	colors = {
-		cursor_bg = "#A6ACCD",
-		cursor_border = "#A6ACCD",
-		cursor_fg = "#1B1E28",
-	},
+	-- color_scheme = "Poimandres",
+	-- colors = {
+	-- 	cursor_bg = "#A6ACCD",
+	-- 	cursor_border = "#A6ACCD",
+	-- 	cursor_fg = "#1B1E28",
+	-- },
 	-- font
 	font = wezterm.font("Iosevka Nerd Font"),
 	font_size = 15,

@@ -14,7 +14,7 @@
 set $mod Mod4
 
 # Your preferred terminal emulator
-set $term foot
+set $term alacritty
 # Your preferred application launcher
 set $menu rofi -modi drun -show drun
 set $dmenu rofi -modi run -show run

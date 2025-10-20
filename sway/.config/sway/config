@@ -106,16 +106,20 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 
 
 
+#-------------------
 # Default workspaces for common programs
+#-------------------
 
 # set $ws1 "Browser"
 # set $ws2 "Terminal"
 #
 assign [app_id="^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"] workspace number 1
 for_window [app_id="^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"] focus
-
 assign [app_id="^(foot|alacritty|ghostty|kitty)$"] workspace number 2
 for_window [app_id="^(foot|alacritty|ghostty|kitty)$"] focus
+assign [app_id="^(geary)$"] workspace number 3
+for_window [app_id="^(geary)$"] focus
+
 # assign [class="^Signal$"] $wsF1
 # assign [class="^Riot$"] $wsF1
 # assign [class="^Mailspring$"] $wsF2
@@ -319,7 +323,6 @@ bindsym $mod+Shift+e mode "$mode_system"
 exec ~/.config/sway/bin/random-wallpaper.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
-exec ~/projects/snippets/bin/auto-commit.sh
 
 exec start-waybar
 exec swaync

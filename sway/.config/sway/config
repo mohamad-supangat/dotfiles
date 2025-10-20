@@ -1,3 +1,8 @@
+# vim: ft=swayconfig
+
+#-------------------
+# some variable
+#-------------------
 set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
@@ -12,20 +17,20 @@ set $dmenu rofi -modi run -show run
 set $backgroundFill '#1D1F21'
 set $browser-selector floorp -P
 
+
+
+#-------------------
+# general settings
+#-------------------
+
 floating_modifier $mod
-
 font xft:Iosevka 11
-
 
 # smart_gaps on
 gaps inner 2
 gaps outer 2
 gaps bottom 2
 
-
-
-set $ws1 "Browser"
-set $ws2 "Terminal"
 
 # hide_edge_borders smart
 for_window [class="^.*"] border pixel 5
@@ -87,9 +92,17 @@ for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 p
 for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 1
 
 
+
 # Default workspaces for common programs
-# assign [class="^Chromium$"] $ws1
-# assign [class="^code-oss$"] $ws2
+
+# set $ws1 "Browser"
+# set $ws2 "Terminal"
+#
+assign [app_id="^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"] workspace number 1
+for_window [app_id="^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"] focus
+
+assign [app_id="^(foot|alacritty|ghostty|kitty)$"] workspace number 2
+for_window [app_id="^(foot|alacritty|ghostty|kitty)$"] focus
 # assign [class="^Signal$"] $wsF1
 # assign [class="^Riot$"] $wsF1
 # assign [class="^Mailspring$"] $wsF2
@@ -97,12 +110,18 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 # assign [class="^KeePass2$"] $wsF11
 # assign [class="^Spotify$"] $wsF12
 
-# Shortcuts
+
+
+#-------------------
+# keymapings
+#-------------------
+
+
+# Applications
 bindsym Control+Mod1+t exec $term
 bindsym $mod+Return exec ~/.scripts/tmux_session.sh $term
 bindsym $mod+Shift+Return exec ~/.scripts/rofi-tmuxp.sh $term
 bindsym Print exec $screenshot
-# color picker
 bindsym $mod+Shift+p exec sway-color-picker
 
 bindsym $mod+Shift+r exec $recordscreen
@@ -201,27 +220,17 @@ bindsym $mod+Control+l resize grow width 10 px or 10
 
 bindsym --no-repeat $mod+Tab workspace back_and_forth
 
-bindsym --no-repeat $mod+1 workspace number 1; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+2 workspace number 2; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+3 workspace number 3; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+4 workspace number 4; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+5 workspace number 5; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+6 workspace number 6; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+7 workspace number 7; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+8 workspace number 8; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+9 workspace number 9; exec "echo 1 > /tmp/sovpipe"
-bindsym --no-repeat $mod+0 workspace number 10; exec "echo 1 > /tmp/sovpipe"
+bindsym --no-repeat $mod+1 workspace number 1
+bindsym --no-repeat $mod+2 workspace number 2
+bindsym --no-repeat $mod+3 workspace number 3
+bindsym --no-repeat $mod+4 workspace number 4
+bindsym --no-repeat $mod+5 workspace number 5
+bindsym --no-repeat $mod+6 workspace number 6
+bindsym --no-repeat $mod+7 workspace number 7
+bindsym --no-repeat $mod+8 workspace number 8
+bindsym --no-repeat $mod+9 workspace number 9
+bindsym --no-repeat $mod+0 workspace number 10
 
-bindsym --release $mod+1 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+2 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+3 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+4 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+5 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+6 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+7 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+8 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+9 exec "echo 0 > /tmp/sovpipe"
-bindsym --release $mod+0 exec "echo 0 > /tmp/sovpipe"
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
@@ -288,7 +297,12 @@ mode "$mode_system" {
 
 bindsym $mod+Shift+e mode "$mode_system"
 
-# auto start apps section
+
+
+#-------------------
+# auto start apps
+#-------------------
+
 exec ~/.config/sway/bin/random-wallpaper.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
@@ -314,35 +328,3 @@ client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
-
-# bar {
-# colors {
-#     background $base00
-#     separator  $base01
-#     statusline $base04
-#
-#     # State             Border  BG      Text
-#     focused_workspace   $base05 $base0D $base00
-#     active_workspace    $base05 $base03 $base00
-#     inactive_workspace  $base03 $base01 $base05
-#     urgent_workspace    $base08 $base08 $base00
-#     binding_mode        $base00 $base0A $base00
-# }
-#
-  #     font pango:Iosevka, FontAwesome 8
-#     position bottom
-#     status_command i3status-rs
-
-#   colors {
-#     background         $base
-#     statusline         $text
-#     focused_statusline $text
-#     focused_separator  $base
-#
-#     # target           border bg        text
-#     focused_workspace  $base  $mauve    $crust
-#     active_workspace   $base  $surface2 $text
-#     inactive_workspace $base  $base     $text
-#     urgent_workspace   $base  $red      $crust
-#   }
-# }

@@ -32,6 +32,19 @@ gaps outer 2
 gaps bottom 2
 
 
+#-------------------
+# swayfx
+#-------------------
+blur enable
+corner_radius 10
+shadows enable
+default_dim_inactive 0.1
+# scratchpad_minimize enable
+
+#-------------------
+# window management
+#-------------------
+
 # hide_edge_borders smart
 for_window [class="^.*"] border pixel 5
 set $opacity 0.95

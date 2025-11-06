@@ -9,6 +9,7 @@ if test (gsettings get org.gnome.desktop.interface color-scheme) = "'prefer-ligh
     gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
     ln -sf ~/.config/alacritty/alacritty-dark.yml ~/.config/alacritty/alacritty.yml
     ln -sf ~/.config/foot/foot-dark.ini ~/.config/foot/foot.ini
+    ln -sf ~/.config/alacritty/alacritty_dark.toml ~/.config/alacritty/alacritty.toml
     ln -sf ~/.config/sway/themes/dark ~/.config/sway/colorscheme
     ln -sf ~/.config/waybar/themes/dark.css ~/.config/waybar/style.css
     ln -sf ~/.local/share/nwg-look/dark ~/.local/share/nwg-look/gsettings
@@ -26,6 +27,7 @@ else
     gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
     ln -sf ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
     ln -sf ~/.config/foot/foot-light.ini ~/.config/foot/foot.ini
+    ln -sf ~/.config/alacritty/alacritty_light.toml ~/.config/alacritty/alacritty.toml
     ln -sf ~/.config/sway/themes/light ~/.config/sway/colorscheme
     ln -sf ~/.config/waybar/themes/light.css ~/.config/waybar/style.css
     ln -sf ~/.local/share/nwg-look/light ~/.local/share/nwg-look/gsettings

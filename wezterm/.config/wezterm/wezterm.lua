@@ -11,7 +11,7 @@ local mappings = require("modules.mappings")
 -- end)
 
 return {
-	default_cursor_style = "BlinkingBlock",
+	default_cursor_style = "SteadyBlock",
 	color_scheme = "Poimandres",
 	colors = {
 		cursor_bg = "#A6ACCD",

@@ -48,4 +48,10 @@ wget -P /tmp https://rubjo.github.io/victor-mono/VictorMonoAll.zip && mkdir -p ~
 curl -fsSL https://bun.com/install | bash # for macOS, Linux, and WSL
 
 # install quasar/cli
-$ bun install -g @quasar/cli
+bun install -g @quasar/cli
+
+
+# install franken cli
+curl https://frankenphp.dev/install.sh | sh
+sudo mv frankenphp /usr/local/bin/
+sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/frankenphp

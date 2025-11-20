@@ -19,7 +19,7 @@ debug_echo() {
 }
 
 # Print the original command (if debugging is enabled)
-debug_echo "Original command: npm $args"
+#debug_echo "Original command: npm $args"
 
 # Handle the translation based on the new command
 if [ "$newcmd" = "yarn" ]; then
@@ -36,7 +36,7 @@ else
 fi
 
 # Print the transformed command (if debugging is enabled)
-debug_echo "Transformed command: $output"
+#debug_echo "Transformed command: $output"
 
 # Execute the transformed command
 eval "$output"

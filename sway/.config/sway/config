@@ -27,18 +27,18 @@ floating_modifier $mod
 font xft:Iosevka 11
 
 # smart_gaps on
-gaps inner 2
-gaps outer 2
-gaps bottom 2
+gaps inner 5
+gaps outer 5
+gaps bottom 5
 
 
 #-------------------
 # swayfx
 #-------------------
-blur enable
-corner_radius 10
-shadows enable
-default_dim_inactive 0.1
+# blur enable
+# corner_radius 10
+# shadows disable
+# default_dim_inactive 0.1
 # scratchpad_minimize enable
 
 #-------------------
@@ -47,9 +47,9 @@ default_dim_inactive 0.1
 
 # hide_edge_borders smart
 for_window [class="^.*"] border pixel 5
-set $opacity 0.95
-for_window [class=".*"] opacity $opacity
-for_window [app_id=".*"] opacity $opacity
+# set $opacity 0.95
+# for_window [class=".*"] opacity $opacity
+# for_window [app_id=".*"] opacity $opacity
 
 for_window [title="KeePassXC - Browser Access Request"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -58,6 +58,8 @@ for_window [class="xdman"] floating enable
 for_window [class="xpad"] floating enable
 for_window [app_id="ssh-askpass-sublime"] floating enable
 for_window [app_id="gnome-(calendar|calculator|power-statistics|control-center)"] floating enable
+for_window [app_id="(galculator|pantheon-calculator)"] floating enable
+
 # for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable
 for_window [app_id="(pavucontrol|psensor)"] floating enable
 for_window [app_id="evolution-alarm-notify"] floating enable
@@ -141,6 +143,7 @@ bindsym $mod+Shift+Return exec ~/.scripts/rofi-tmuxp.sh $term
 bindsym Print exec $screenshot
 bindsym $mod+Shift+p exec sway-color-picker
 
+bindsym $mod+Shift+w exec ~/.config/sway/bin/random-wallpaper.sh --internet
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 bindsym $mod+Shift+x exec $browser-selector
@@ -274,6 +277,8 @@ bindsym $mod+Shift+space floating toggle
 # Swap focus between the tiling area and the floating area
 # bindsym $mod+space focus mode_toggle
 # bindsym $mod+Tab focus mode_toggle
+bindsym $mod+y focus mode_toggle
+
 
 # move focus to the parent container
 bindsym $mod+a focus parent
@@ -320,7 +325,7 @@ bindsym $mod+Shift+e mode "$mode_system"
 # auto start apps
 #-------------------
 
-exec ~/.config/sway/bin/random-wallpaper.sh
+exec_always ~/.config/sway/bin/random-wallpaper.sh --internet
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
 

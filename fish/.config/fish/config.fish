@@ -37,7 +37,7 @@ alias tmuxproject="tmuxinator"
 alias se="sudo -E"
 alias composer7="~/projects/php/7.4/cli-no-port.sh composer"
 alias update-font-cache="fc-cache -f -v"
-
+alias mc="mariadb -uroot -pdocker -h127.0.0.1"
 # neovim drop in
 alias vi="nvim"
 alias v="nvim"

@@ -55,3 +55,8 @@ bun install -g @quasar/cli
 curl https://frankenphp.dev/install.sh | sh
 sudo mv frankenphp /usr/local/bin/
 sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/frankenphp
+
+
+### generator commit supaya lebih rapih dan standar
+### Ketik ccc pada terminal
+bun add -g @4s1/conventional-commit-creator

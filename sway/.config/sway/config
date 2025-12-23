@@ -7,7 +7,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term foot
+set $term alacritty
 set $menu rofi -modi drun -show drun
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
@@ -180,7 +180,7 @@ bindsym --locked XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec  brightnessctl set +500
 bindsym XF86MonBrightnessDown exec brightnessctl set 500-
 
-output "eDP-1" scale 1.2
+output "eDP-1" scale 1.5
 # Idle configuration
 # exec swayidle \
 #     timeout 300 'exec $lock' \
@@ -331,6 +331,7 @@ exec wl-paste --watch cliphist -max-items 10000 store
 
 exec start-waybar
 exec swaync
+exec wluma
 exec_always {
     eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
     export SSH_AUTH_SOCK

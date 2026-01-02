@@ -60,3 +60,9 @@ sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/frankenphp
 ### generator commit supaya lebih rapih dan standar
 ### Ketik ccc pada terminal
 bun add -g @4s1/conventional-commit-creator
+
+
+### composer
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+sudo mv composer.phar /usr/local/bin/composer

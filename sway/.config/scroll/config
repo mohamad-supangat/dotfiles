@@ -113,6 +113,7 @@ animations {
     bindsym $mod+Return exec ~/.scripts/tmux_session.sh $term
     bindsym $mod+Shift+Return exec ~/.scripts/rofi-tmuxp.sh $term
     bindsym Print exec $screenshot
+
     bindsym $mod+Print exec $screenshotFull
     bindsym $mod+Shift+r exec $recordscreen
     bindsym --whole-window $mod+Shift+BTN_RIGHT exec $screenshot
@@ -231,7 +232,7 @@ animations {
 
     # Overview
     bindsym --no-repeat $mod+o scale_workspace overview
-    bindsym --whole-window button8 scale_workspace overview
+
 
     # Jump
     jump_labels_color #9e1530FF
@@ -535,9 +536,17 @@ bindsym $mod+g mode "spaces"
 
 
 focus_wrapping no
+
+# swipe gestures
 bindgesture swipe:4:right workspace next
 bindgesture swipe:4:left workspace prev
 bindgesture swipe:3:up scale_workspace overview
+bindgesture swipe:3:down exec $screenshot
+bindgesture swipe:3:left focus left
+bindgesture swipe:3:right focus right
+
+
+
 
 gesture_scroll_enable true
 gesture_scroll_fingers 3

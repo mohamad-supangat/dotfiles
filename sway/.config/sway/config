@@ -320,6 +320,14 @@ mode "$mode_system" {
 bindsym $mod+Shift+e mode "$mode_system"
 
 
+# swipe gestures
+bindgesture swipe:4:right workspace next
+bindgesture swipe:4:left workspace prev
+bindgesture swipe:3:up scale_workspace overview
+bindgesture swipe:3:down exec $screenshot
+bindgesture swipe:3:left focus left
+bindgesture swipe:3:right focus right
+
 
 #-------------------
 # auto start apps

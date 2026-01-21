@@ -7,7 +7,7 @@ set $mod Mod4
 set $lock swaylock
 set $power ~/.config/rofi/modi/power
 set $wifi ~/.config/rofi/modi/nmcli
-set $term alacritty
+set $term foot
 set $menu rofi -modi drun -show drun
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
@@ -35,11 +35,11 @@ gaps bottom 5
 #-------------------
 # swayfx
 #-------------------
-# blur enable
-# corner_radius 10
-# shadows disable
-# default_dim_inactive 0.1
-# scratchpad_minimize enable
+blur enable
+corner_radius 10
+shadows disable
+default_dim_inactive 0.1
+scratchpad_minimize enable
 
 #-------------------
 # window management
@@ -47,9 +47,8 @@ gaps bottom 5
 
 # hide_edge_borders smart
 for_window [class="^.*"] border pixel 5
-# set $opacity 0.95
-# for_window [class=".*"] opacity $opacity
-# for_window [app_id=".*"] opacity $opacity
+for_window [class=".*"] opacity 0.88
+for_window [app_id=".*"] opacity 0.88
 
 for_window [title="KeePassXC - Browser Access Request"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -117,7 +116,7 @@ for_window [app_id="^dmenu$"] floating enable, sticky enable, resize set 30 ppt 
 #
 assign [app_id="^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"] workspace number 1
 for_window [app_id="^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"] focus
-assign [app_id="^(foot|alacritty|ghostty|kitty)$"] workspace number 2
+assign [app_id="^(foot|foot|ghostty|kitty)$"] workspace number 2
 for_window [app_id="^(foot|alacritty|ghostty|kitty)$"] focus
 assign [app_id="^(geary)$"] workspace number 3
 for_window [app_id="^(geary)$"] focus
@@ -147,6 +146,10 @@ bindsym $mod+Shift+w exec ~/.config/sway/bin/random-wallpaper.sh --internet
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 bindsym $mod+Shift+x exec $browser-selector
+
+# picgo upload
+bindsym $mod+Shift+u exec sway-picgo
+
 bindsym $mod+r exec $dmenu
 bindsym $mod+space exec $menu
 bindsym $mod+n exec $file_manager
@@ -339,7 +342,7 @@ exec wl-paste --watch cliphist -max-items 10000 store
 
 exec start-waybar
 exec swaync
-exec wluma
+# exec wluma
 exec_always {
     eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
     export SSH_AUTH_SOCK

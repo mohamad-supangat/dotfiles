@@ -5,6 +5,9 @@ notify-send "PicGo Prepare Upload" "Mohon tunggu..."
 # Menggunakan set untuk variabel dan string match untuk mencari URL
 set URL (picgo u --debug | string match -r 'https://\S+')
 
+echo "$URL" > /tmp/picgo-url
+#picgo u --debug >> /tmp/picgo-log
+
 if test -n "$URL"
     echo "$URL" | wl-copy
     notify-send "PicGo Upload Success" "$URL"

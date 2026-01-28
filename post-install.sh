@@ -66,3 +66,11 @@ bun add -g @4s1/conventional-commit-creator
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php
 sudo mv composer.phar /usr/local/bin/composer
+
+
+### picgo and piclist
+### https://github.com/Kuingsmile/PicList-Core
+### simple image uploader from cli
+
+bun add -g piclist
+picgo set uploader

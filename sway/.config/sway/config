@@ -340,7 +340,7 @@ exec_always ~/.config/sway/bin/random-wallpaper.sh --internet
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
 
-exec start-waybar
+# exec start-waybar
 exec swaync
 # exec wluma
 exec_always {
@@ -359,5 +359,12 @@ client.focused          $base05 $base05 $base00 $base0D $base05
 client.focused_inactive $base01 $base01 $base05 $base03 $base01
 client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background       $base07
+
+
+bar {
+    swaybar_command waybar
+    position top
+    hidden_state hide
+    mode hide
+    modifier Mod4
+}

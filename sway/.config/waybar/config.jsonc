@@ -1,12 +1,13 @@
 {
+// "mode": "hide",
   "ipc": true,
-  "layer": "top",
+  // "layer": "top",
   "position": "bottom",
   "height": 10,
   "spacing": 4,
-  "exclusive": true,
+  // "exclusive": true,
   "gtk-layer-shell": true,
-  "passthrough": false,
+  // "passthrough": false,
   "fixed-center": true,
   "modules-left": ["niri/workspaces", "sway/workspaces", "hyprland/workspaces"],
   "modules-center": [

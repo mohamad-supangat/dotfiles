@@ -568,7 +568,7 @@ exec_always {
 # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec wl-paste --watch cliphist -max-items 1000 store
-exec start-waybar
+# exec start-waybar
 exec swaync
 # exec swww-daemon
 
@@ -589,7 +589,13 @@ include /etc/scroll/config.d/*
 
 #xwayland disable
 
-
+# bar {
+#     swaybar_command waybar
+#     position top
+#     hidden_state hide
+#     mode hide
+#     modifier Mod4
+# }
 
 # bar {
 #     font xft:JetBrains Mono 11

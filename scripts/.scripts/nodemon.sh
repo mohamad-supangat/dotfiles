@@ -1,5 +1,5 @@
 #!/bin/bash
-
-while [ 1 ]; do
+while true; do
     $@
 done
+

@@ -1,0 +1,66 @@
+[colors.primary]
+background = "#DCE5E4"
+foreground = "#24292e"
+
+[colors.cursor]
+cursor = "#24292e"
+text = "#ffffff"
+
+[colors.normal]
+black = "#24292e"
+red = "#cb2431"
+green = "#22863a"
+yellow = "#d79a00"
+blue = "#0366d6"
+magenta = "#8250df"
+cyan = "#005cc5"
+white = "#6a737d"
+
+[colors.bright]
+black = "#586069"
+red = "#cb2431"
+green = "#22863a"
+yellow = "#d79a00"
+blue = "#0366d6"
+magenta = "#8250df"
+cyan = "#005cc5"
+white = "#f6f8fa"
+
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 12
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Paste"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Copy"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mode = "~Vi"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Alt"
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 1
+
+[window.padding]
+x = 15
+y = 10

@@ -1,8 +1,8 @@
 [theme]
-theme = "gruvbox-dark"
+theme = "native"
 
 [icons]
-icons = "awesome6"
+icons = "emoji"
 
 
 [[block]]
@@ -44,8 +44,8 @@ block = "cpu"
 # block = "storage"
 
 
-# [[ block ]]
-# block = "battery"
+[[ block ]]
+block = "battery"
 
 [[block]]
 block = "notify"

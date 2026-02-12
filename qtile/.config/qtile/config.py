@@ -211,7 +211,7 @@ screens = [
                 # widget.Spacer(),
                 # widget.Chord(
                 #     chords_colors={
-                #         "launch": ("#ff0000", "#ffffff"),
+                #         "launch": ("#ff0000", "#f6f6f6"),
                 #     },
                 #     name_transform=lambda name: name.upper(),
 

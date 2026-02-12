@@ -59,7 +59,7 @@ mods = "Alt"
 [window]
 decorations = "full"
 dynamic_title = true
-opacity = 0.9
+opacity = 1
 
 [window.padding]
 x = 15

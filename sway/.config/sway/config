@@ -11,7 +11,7 @@ set $term foot
 set $menu rofi -modi drun -show drun
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 set $recordscreen fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
-set $clipboard_manager cliphist list | rofi -dmenu | cliphist decode | wl-copy
+set $clipboard_manager cliphist list | rofi -dmenu | cliphist decode | wl-copy -n
 set $file_manager nautilus
 set $dmenu rofi -modi run -show run
 set $backgroundFill '#1D1F21'

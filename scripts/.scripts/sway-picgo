@@ -9,7 +9,7 @@ echo "$URL" > /tmp/picgo-url
 #picgo u --debug >> /tmp/picgo-log
 
 if test -n "$URL"
-    echo "$URL" | wl-copy
+    echo "$URL" | wl-copy -n
     notify-send "PicGo Upload Success" "$URL"
 else
     notify-send "PicGo Upload Failed" "Gagal mendapatkan URL. Periksa konfigurasi PicGo."

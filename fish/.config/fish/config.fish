@@ -31,6 +31,8 @@ alias art="php artisan"
 alias gi="lazygit"
 alias artisan="~/projects/php/8.3/cli-no-port.sh php artisan"
 alias artisan7="~/projects/php/7.4/cli-no-port.sh php artisan"
+alias artisan8.4="~/projects/php/8.4/cli-no-port.sh php artisan"
+
 alias dc="docker-compose"
 alias pm="python manage.py"
 alias tmuxproject="tmuxinator"

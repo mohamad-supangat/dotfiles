@@ -56,6 +56,10 @@ curl https://frankenphp.dev/install.sh | sh
 sudo mv frankenphp /usr/local/bin/
 sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/frankenphp
 
+# alternative without sudo
+mv frankenphp /usr/local/bin/
+setcap 'cap_net_bind_service=+ep' /usr/local/bin/frankenphp
+
 
 ### generator commit supaya lebih rapih dan standar
 ### Ketik ccc pada terminal

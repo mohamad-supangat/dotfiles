@@ -16,6 +16,11 @@ if test -f "~/.private-env"
   source ~/.private-env
 end
 
+
+if test -f ~/.cache/cwal/colors.fish
+    source ~/.cache/cwal/colors.fish
+end
+
 set --export EDITOR nvim
 
 # init starship default prompts
@@ -94,9 +99,9 @@ set --export PATH $BUN_INSTALL/bin $PATH
 fish_add_path /opt/flutter/bin/
 
 # android -sdk
-# fish_add_path $ANDROID_HOME/platform-tools
-# fish_add_path $ANDROID_HOME/cmdline-tools/bin
-# fish_add_path $ANDROID_HOME/tools
+fish_add_path $ANDROID_HOME/platform-tools
+fish_add_path $ANDROID_HOME/cmdline-tools/bin
+fish_add_path $ANDROID_HOME/tools
 
 
 # phpenv

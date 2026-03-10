@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cwal --random "~/Pictures/Wallpapers/Pixel Art/"
+cwal --random "~/Pictures/Wallpapers/"

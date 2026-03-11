@@ -40,7 +40,7 @@ overview {
 }
 
 output "eDP-1" {
-    scale 1.5
+    scale 1.2
 }
 environment {
     DISPLAY ":0"
@@ -100,7 +100,7 @@ workspace "terminal"
 
 //spawn-at-startup "xwayland-satellite"
 spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
-spawn-at-startup "start-waybar"
+spawn-at-startup "vibepanel"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
 spawn-at-startup "nsticky"
 

@@ -579,11 +579,11 @@ exec_always {
 # exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec wl-paste --watch cliphist -max-items 1000 store
-exec vibepanel
+# exec vibepanel
 
 
 # exec start-waybar
-# exec swaync
+exec swaync
 # exec swww-daemon
 # exec_always ~/.config/sway/bin/random-wallpaper.sh
 
@@ -617,23 +617,23 @@ xwayland disable
 #     modifier Mod4
 # }
 
-# bar {
-#     font xft:JetBrains Mono 11
-#     # font xft:JetBrains Mono 10, FontAwesome 8
-#     status_command i3status-rs
-#
-#
-#     colors {
-#         background $background
-#         separator  $color4
-#         statusline $color7
-#
-#         # State             Border  BG      Text
-#         focused_workspace   $color7 $color5 $color0
-#         active_workspace    $color7 $color3 $color0
-#         inactive_workspace  $color7 $color1 $color5
-#         urgent_workspace    $color8 $color8 $color0
-#         binding_mode        $color0 $color5 $color0
-#         scroller            $color7 $background $foreground
-#     }
-# }
+bar {
+    font xft:JetBrains Mono 11
+    # font xft:JetBrains Mono 10, FontAwesome 8
+    status_command i3status-rs
+
+
+    colors {
+        background $background
+        separator  $color4
+        statusline $color7
+
+        # State             Border  BG      Text
+        focused_workspace   $color7 $color5 $color0
+        active_workspace    $color7 $color3 $color0
+        inactive_workspace  $color7 $color1 $color5
+        urgent_workspace    $color8 $color8 $color0
+        binding_mode        $color0 $color5 $color0
+        scroller            $color7 $background $foreground
+    }
+}

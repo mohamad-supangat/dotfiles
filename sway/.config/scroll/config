@@ -39,6 +39,9 @@ output "eDP-1" scale 1.2
 
 ### Windows defaults
 default_border pixel 5
+titlebar_border_radius 8
+# default_decoration border_radius 12
+default_decoration border_radius 12 shadow true shadow_dynamic true shadow_size 40 shadow_blur 30 shadow_offset 40 40 shadow_color #00000070 dim false dim_color #00000040
 gaps inner 5
 gaps outer 5
 
@@ -69,8 +72,8 @@ for_window [app_id="scrcpy"] floating enable, resize set 35 ppt 100 ppt, move po
 
 
 # -- auto move some apps to separate workspace
-for_window [app_id="^(foot|alacritty|ghostty|kitty)$"] move container to workspace 2; focus parent; workspace number 2
-for_window [app_id="^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"] move container to workspace 1; focus parent; workspace number 1
+# for_window [app_id="^(foot|alacritty|ghostty|kitty)$"] move container to workspace 2; focus parent; workspace number 2
+# for_window [app_id="^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"] move container to workspace 1; focus parent; workspace number 1
 
 
 
@@ -89,6 +92,8 @@ animations {
     window_open yes 100 var 3 [ 0 0 1 1 ]
     window_move yes 100 var 3 [ 0.215 0.61 0.355 1 ] off 0.05 6 [0 0.6 0.4 0 1 0 0.4 -0.6 1 -0.6]
     window_size yes 100 var 3 [ -0.35 0 0 0.5 ]
+    workspace_switch yes 500 var simple [ 0.215 0.61 0.355 1 ]
+    window_fullscreen yes 500 var simple [ 0.3 0.5 0.4 1 ]
 }
 
 ### Key bindings

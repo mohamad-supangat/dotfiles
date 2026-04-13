@@ -2,7 +2,7 @@
 theme = "native"
 
 [icons]
-icons = "emoji"
+icons = "material-nf"
 
 
 [[block]]

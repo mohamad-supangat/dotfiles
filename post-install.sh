@@ -53,4 +53,33 @@ sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/frankenphp
 curl -fsSL https://bun.com/install | bash # for macOS, Linux, and WSL
 
 # install quasar/cli
-$ bun install -g @quasar/cli
+bun install -g @quasar/cli
+
+
+# install franken cli
+curl https://frankenphp.dev/install.sh | sh
+sudo mv frankenphp /usr/local/bin/
+sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/frankenphp
+
+# alternative without sudo
+mv frankenphp /usr/local/bin/
+setcap 'cap_net_bind_service=+ep' /usr/local/bin/frankenphp
+
+
+### generator commit supaya lebih rapih dan standar
+### Ketik ccc pada terminal
+bun add -g @4s1/conventional-commit-creator
+
+
+### composer
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+sudo mv composer.phar /usr/local/bin/composer
+
+
+### picgo and piclist
+### https://github.com/Kuingsmile/PicList-Core
+### simple image uploader from cli
+
+bun add -g piclist
+picgo set uploader

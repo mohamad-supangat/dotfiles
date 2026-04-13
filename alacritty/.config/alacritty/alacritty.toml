@@ -1,42 +1,17 @@
 
-[colors]
-
-[colors.bright]
-black = "#928374"
-blue = "#83a598"
-cyan = "#8ec07c"
-green = "#b8bb26"
-magenta = "#d3869b"
-red = "#fb4934"
-white = "#f6f6f6"
-yellow = "#fabd2f"
-
-[colors.cursor]
-cursor = "#f6f6f6" # foreground from foot.ini
-text = "#2e3436"   # background from foot.ini
-
-[colors.normal]
-black = "#2e3436"
-blue = "#458588"
-cyan = "#689d6a"
-green = "#98971a"
-magenta = "#b16286"
-red = "#cc241d"
-white = "#a89984"
-yellow = "#d79921"
-
-[colors.primary]
-background = "#2e3436"
-foreground = "#f6f6f6"
+[general]
+import = [
+  "~/.cache/wal/colors-alacritty.toml"
+]
 
 [env]
 TERM = "xterm-256color"
 
 [font]
-size = 14
+size = 12
 
 [font.normal]
-family = "Iosevka Nerd Font"
+family = "JetBrains Mono"
 style = "Regular"
 
 [[keyboard.bindings]]
@@ -66,3 +41,4 @@ opacity = 1
 [window.padding]
 x = 15
 y = 10
+

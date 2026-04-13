@@ -13,7 +13,7 @@ export FONT_NAME="JetBrainsMono Nerd Font 10"
 # For Gradle
 # export JAVA_HOME=/usr/lib/jvm/java-20-openjdk
 # export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
-export ANDROID_HOME=/opt/android-sdk
+export ANDROID_HOME=/home/deve/Android/sdk
 
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/lib/:$PATH
@@ -47,7 +47,7 @@ export EDITOR=nvim
 export TERMINAL=/usr/bin/footclient
 export PATH=$PATH:~/.scripts
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
-
+export PUPPETEER_SKIP_DOWNLOAD=true
 
 # export FZF_DEFAULT_OPTS=" \
 # --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \

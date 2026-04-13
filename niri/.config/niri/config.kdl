@@ -1,4 +1,3 @@
-
 hotkey-overlay {
     skip-at-startup
 }
@@ -47,7 +46,6 @@ environment {
     DISPLAY ":0"
     GDK_SCALE "0"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
-    SDL_VIDEODRIVER "wayland"
 }
 
 layout {
@@ -80,11 +78,8 @@ layout {
     // You can also add a border. It's similar to the focus ring, but always visible.
     border {
         // off
-        width 5
+        width 4
         urgent-color "#9b0000"
-        // active-color "#83a598"
-        // inactive-color "#1d2021"
-
         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
@@ -104,10 +99,11 @@ workspace "terminal"
 // workspace "filemanager"
 
 //spawn-at-startup "xwayland-satellite"
-// spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
-spawn-at-startup "start-waybar"
+spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
+spawn-at-startup "vibepanel"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
 spawn-at-startup "nsticky"
+
 
 window-rule {
     match app-id=r#"^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"#
@@ -196,8 +192,8 @@ binds {
     Mod+Shift+Slash {
         show-hotkey-overlay
     }
-    Mod+Shift+p hotkey-overlay-title="Color Picker" {
-        spawn "sway-color-picker"
+    Mod+Shift+W hotkey-overlay-title="Change Random Wallpaper" {
+        spawn "~/.config/sway/bin/random-wallpaper.sh"
     }
     Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: foot" {
         spawn "foot"
@@ -255,10 +251,10 @@ binds {
         spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"
     }
     XF86MonBrightnessUp allow-when-locked=true {
-        spawn "brightnessctl" "set" "+50"
+        spawn "brightnessctl" "set" "+500"
     }
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn "brightnessctl" "set" "50-"
+        spawn "brightnessctl" "set" "500-"
     }
     Mod+O repeat=false {
         toggle-overview

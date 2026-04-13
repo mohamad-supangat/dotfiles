@@ -10,10 +10,15 @@ fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
 fish_add_path /usr/lib/jvm/java-8-openjdk/bin
 fish_add_path /opt/android-sdk/build-tools/30.0.3
 fish_add_path ~/go/bin
-fish_add_path /home/deve/HDD/data1/SOAR/bin
+
 
 if test -f "~/.private-env"
   source ~/.private-env
+end
+
+
+if test -f ~/.cache/cwal/colors.fish
+    source ~/.cache/cwal/colors.fish
 end
 
 set --export EDITOR nvim
@@ -31,13 +36,15 @@ alias art="php artisan"
 alias gi="lazygit"
 alias artisan="~/projects/php/8.3/cli-no-port.sh php artisan"
 alias artisan7="~/projects/php/7.4/cli-no-port.sh php artisan"
+alias artisan8.4="~/projects/php/8.4/cli-no-port.sh php artisan"
+
 alias dc="docker-compose"
 alias pm="python manage.py"
 alias tmuxproject="tmuxinator"
 alias se="sudo -E"
 alias composer7="~/projects/php/7.4/cli-no-port.sh composer"
 alias update-font-cache="fc-cache -f -v"
-
+alias mc="mariadb -uroot -pdocker -h127.0.0.1"
 # neovim drop in
 alias vi="nvim"
 alias v="nvim"
@@ -92,11 +99,14 @@ set --export PATH $BUN_INSTALL/bin $PATH
 fish_add_path /opt/flutter/bin/
 
 # android -sdk
-set --export ANDROID_HOME $HOME/Android/sdk
 fish_add_path $ANDROID_HOME/platform-tools
 fish_add_path $ANDROID_HOME/cmdline-tools/bin
-fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
 fish_add_path $ANDROID_HOME/tools
 
 
-source ~/.private-env
+# phpenv
+set -x PHPENV_ROOT "/home/deve/.phpenv"
+if test -d "/home/deve/.phpenv"
+  set -x PATH "/home/deve/.phpenv/bin" $PATH
+  status --is-interactive; and . (phpenv init -|psub)
+end

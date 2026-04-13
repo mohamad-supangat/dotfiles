@@ -28,4 +28,4 @@ configuration{
 
 
 
-@theme "./theme.rasi"
+@theme "~/.cache/cwal/colors-rofi.rasi"

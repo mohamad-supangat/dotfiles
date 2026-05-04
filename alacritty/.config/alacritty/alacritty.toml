@@ -11,7 +11,7 @@ TERM = "xterm-256color"
 size = 12
 
 [font.normal]
-family = "JetBrains Mono"
+family = "Iosevka"
 style = "Regular"
 
 [[keyboard.bindings]]

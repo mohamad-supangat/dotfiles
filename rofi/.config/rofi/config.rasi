@@ -28,4 +28,5 @@ configuration{
 
 
 
-@theme "~/.cache/cwal/colors-rofi.rasi"
+@import "~/.cache/wal/colors-rofi-dark"
+// @theme "~/.cache/cwal/colors-rofi.rasi"

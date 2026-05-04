@@ -28,3 +28,6 @@ end
 
 # nwg-look -a
 swaymsg reload
+scroll reload
+
+

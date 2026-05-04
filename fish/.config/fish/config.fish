@@ -17,8 +17,8 @@ if test -f "~/.private-env"
 end
 
 
-if test -f ~/.cache/cwal/colors.fish
-    source ~/.cache/cwal/colors.fish
+if test -f ~/.cache/wal/colors.fish
+    source ~/.cache/wal/colors.fish
 end
 
 set --export EDITOR nvim
@@ -96,7 +96,7 @@ set --export PATH $BUN_INSTALL/bin $PATH
 # ruby gem
 
 #flutter
-fish_add_path /opt/flutter/bin/
+fish_add_path ~/Android/flutter/bin/
 
 # android -sdk
 fish_add_path $ANDROID_HOME/platform-tools

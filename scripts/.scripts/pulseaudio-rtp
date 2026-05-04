@@ -1,5 +1,7 @@
 #!/bin/env bash
 
+# usage with the current ip address
+
 pactl unload-module module-null-sink
 pactl unload-module module-rtp-send
 pactl load-module module-null-sink sink_name=rtp format=s16be channels=2 rate=48000

@@ -1,33 +1,63 @@
 #!/usr/bin/env fish
 
-if test (gsettings get org.gnome.desktop.interface color-scheme) = "'prefer-light'"
-    # dark side
-    # ---------------------------------------
-    echo 'dark' > ~/.local/share/colorscheme
-    # darkman set dark
-    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
-    ln -sf ~/.local/share/nwg-look/dark ~/.local/share/nwg-look/gsettings
+# Konfigurasi Path & Nama
+set COLOR_FILE "$HOME/.local/share/colorscheme"
+set WALLPAPER_DIR "$HOME/Pictures/Wallpapers"
+set WAL_POST "$HOME/.config/wal/post.sh"
+set ALACRITTY_CONF "$HOME/.config/alacritty/alacritty.toml" # Pastikan ekstensi sesuai (.toml/.yml)
 
-    cwal --mode dark --random "~/Pictures/Wallpapers/"
-    notify-send "  Theme" "Current theme is Dark"
+# Deteksi Mode Saat Ini
+set current_mode (gsettings get org.gnome.desktop.interface color-scheme)
+
+if test "$current_mode" = "'prefer-light'"
+    # SWITCH TO DARK SIDE
+    set mode dark
+    set gtk_theme adw-gtk3-dark
+    set gsettings_scheme prefer-dark
 else
-    # light side
-    # ---------------------------------------
-    echo 'light' > ~/.local/share/colorscheme
-    # darkman set light
-    gsettings set org.gnome.desktop.interface color-scheme prefer-light
-    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'
-    ln -sf ~/.config/alacritty/alacritty-light.yml ~/.config/alacritty/alacritty.yml
-    ln -sf ~/.local/share/nwg-look/light ~/.local/share/nwg-look/gsettings
-
-    cwal --mode light --random "~/Pictures/Wallpapers/"
-    notify-send "  Theme" "Current theme is light"
+    # SWITCH TO LIGHT SIDE
+    set mode light
+    set gtk_theme adw-gtk3
+    set gsettings_scheme prefer-light
 end
 
+# 1. Update GSettings
+gsettings set org.gnome.desktop.interface color-scheme $gsettings_scheme
+gsettings set org.gnome.desktop.interface gtk-theme $gtk_theme
 
-# nwg-look -a
-swaymsg reload
-scroll reload
+# 2. Update Local State & Symlinks
+echo $mode >$COLOR_FILE
 
+# Symlink nwg-look
+ln -sf "$HOME/.local/share/nwg-look/$mode" "$HOME/.local/share/nwg-look/gsettings"
 
+# Symlink Alacritty (Jika file ada)
+set alacritty_source "$HOME/.config/alacritty/alacritty-$mode.toml"
+if test -f "$alacritty_source"
+    ln -sf "$alacritty_source" "$ALACRITTY_CONF"
+end
+
+# 3. Wallpaper & Pywal
+if type -q cwal
+    cwal --mode $mode --random "$WALLPAPER_DIR"
+end
+
+if type -q wal
+    if test "$mode" = dark
+        wal -i "$WALLPAPER_DIR" -o "$WAL_POST"
+    else
+        wal -l -i "$WALLPAPER_DIR" -o "$WAL_POST"
+    end
+end
+
+# 4. Notifikasi
+notify-send --icon=preferences-desktop-theme Theme "Current theme is $mode"
+
+# 5. Reload Window Manager / Compositor
+if type -q swaymsg
+    swaymsg reload
+end
+
+if type -q scrollmsg
+    scrollmsg reload
+end

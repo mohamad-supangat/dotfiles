@@ -18,9 +18,9 @@ set $term foot
 # Your preferred application launcher
 set $menu rofi -modi drun -show drun
 set $dmenu rofi -modi run -show run
-set $filemanager nautilus
+set $filemanager nemo
 set $clipboard_manager cliphist list | rofi -dmenu | cliphist decode | wl-copy
-
+set $mailclient betterbird
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 set $screenshotFull grim - | satty --filename -
 
@@ -115,7 +115,7 @@ animations {
     bindsym $mod+n exec $filemanager
     bindsym Mod1+Control+h exec $clipboard_manager
     bindsym $mod+Shift+n exec swaync-client -t -sw
-    bindsym $mod+Shift+g exec geary
+    bindsym $mod+Shift+g exec $mailclient
     bindsym $mod+Shift+p exec sway-color-picker
 
     bindsym $mod+Return exec ~/.scripts/tmux_session.sh $term
@@ -128,7 +128,7 @@ animations {
     bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 
 
-    bindsym $mod+Shift+w exec ~/.config/sway/bin/random-wallpaper.sh
+    bindsym $mod+Shift+w exec random-wallpaper
 
     # picgo upload
     bindsym $mod+Shift+u exec sway-picgo
@@ -613,7 +613,7 @@ client.background       $background
 
 include /etc/scroll/config.d/*
 
-# xwayland disable
+xwayland disable
 
 # bar {
 #     swaybar_command waybar

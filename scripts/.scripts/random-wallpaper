@@ -1,0 +1,13 @@
+#!/usr/bin/env fish
+
+set WALLPAPER_DIR "$HOME/Pictures/Wallpapers"
+set WAL_POST "$HOME/.config/wal/post.sh"
+
+set -l mode (gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null)
+
+if test "$mode" = "'prefer-dark'"
+    wal -i "$WALLPAPER_DIR" -o "$WAL_POST"
+else
+    wal -l -i "$WALLPAPER_DIR" -o "$WAL_POST"
+
+end

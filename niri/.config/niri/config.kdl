@@ -99,7 +99,7 @@ workspace "terminal"
 // workspace "filemanager"
 
 //spawn-at-startup "xwayland-satellite"
-spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
+spawn-at-startup "random-wallpaper"
 spawn-at-startup "vibepanel"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
 spawn-at-startup "nsticky"
@@ -193,7 +193,7 @@ binds {
         show-hotkey-overlay
     }
     Mod+Shift+W hotkey-overlay-title="Change Random Wallpaper" {
-        spawn "~/.config/sway/bin/random-wallpaper.sh"
+        spawn "random-wallpaper"
     }
     Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: foot" {
         spawn "foot"
@@ -210,8 +210,8 @@ binds {
     Mod+Space hotkey-overlay-title="Run Applications: rofi" {
         spawn "rofi" "-modi" "drun" "-show" "drun"
     }
-    Mod+Shift+g hotkey-overlay-title="Run Geary" {
-        spawn "geary"
+    Mod+Shift+g hotkey-overlay-title="Run Email Client" {
+        spawn "aerion"
     }
     Mod+Shift+c hotkey-overlay-title="Run Calendar" {
         spawn "gnome-calendar"
@@ -223,7 +223,7 @@ binds {
         spawn "start-scrcpy"
     }
     Mod+n hotkey-overlay-title="Run File Manager" {
-        spawn "nautilus"
+        spawn "pcmanfm"
     }
 
     Mod+Shift+P {

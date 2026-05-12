@@ -1,3 +1,5 @@
+include "~/.cache/wal/colors-niri.kdl"
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -33,7 +35,6 @@ gestures {
 }
 overview {
     zoom 0.6
-    backdrop-color "#2e3436"
     workspace-shadow {
         off
     }
@@ -71,17 +72,12 @@ layout {
     focus-ring {
         off
         width 4
-        active-gradient from="#ff0000" to="#00ff00" angle=30
-        inactive-gradient from="#2e3436" to="#2e3436" angle=45
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
     border {
         // off
-        width 4
-        urgent-color "#9b0000"
-        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        width 8
     }
 
     shadow {
@@ -90,7 +86,6 @@ layout {
         softness 30
         spread 5
         offset x=0 y=5
-        color "#0007"
     }
 }
 
@@ -98,21 +93,42 @@ workspace "browser"
 workspace "terminal"
 // workspace "filemanager"
 
+spawn-at-startup "start-waybar"
 //spawn-at-startup "xwayland-satellite"
-spawn-at-startup "~/.config/sway/bin/random-wallpaper.sh"
-spawn-at-startup "vibepanel"
+spawn-at-startup "random-wallpaper"
+// spawn-at-startup "vibepanel"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
-spawn-at-startup "nsticky"
+// spawn-at-startup "nsticky"
 
 
 window-rule {
     match app-id=r#"^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"#
     open-on-workspace "browser"
+    open-maximized true
+    background-effect {
+        blur true
+        xray true
+    }
 }
 
 window-rule {
     match app-id=r#"^(foot|alacritty|ghostty|kitty)$"#
     open-on-workspace "terminal"
+
+    background-effect {
+        blur true
+        xray true
+    }
+}
+
+// Enable blur behind the fuzzel launcher.
+layer-rule {
+    match namespace="^launcher$"
+
+    background-effect {
+        blur true
+        xray true
+    }
 }
 // window-rule {
 //     match app-id=r#"^org\.gnome\.Nautilus$"#
@@ -163,6 +179,7 @@ window-rule {
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+    draw-border-with-background false
 }
 
 window-rule {
@@ -170,17 +187,12 @@ window-rule {
 
     focus-ring {
         width 10
-        active-color "#f38ba8"
-        inactive-color "#7d0d2d"
     }
 
     border {
         inactive-color "#7d0d2d"
     }
 
-    shadow {
-        color "#7d0d2d70"
-    }
 
     tab-indicator {
         active-color "#f38ba8"
@@ -193,7 +205,7 @@ binds {
         show-hotkey-overlay
     }
     Mod+Shift+W hotkey-overlay-title="Change Random Wallpaper" {
-        spawn "~/.config/sway/bin/random-wallpaper.sh"
+        spawn "random-wallpaper"
     }
     Ctrl+Alt+T hotkey-overlay-title="Open a Terminal: foot" {
         spawn "foot"
@@ -210,8 +222,8 @@ binds {
     Mod+Space hotkey-overlay-title="Run Applications: rofi" {
         spawn "rofi" "-modi" "drun" "-show" "drun"
     }
-    Mod+Shift+g hotkey-overlay-title="Run Geary" {
-        spawn "geary"
+    Mod+Shift+g hotkey-overlay-title="Run Email Client" {
+        spawn "aerion"
     }
     Mod+Shift+c hotkey-overlay-title="Run Calendar" {
         spawn "gnome-calendar"
@@ -263,7 +275,7 @@ binds {
         toggle-window-floating
     }
 
-    Mod+Ctrl+Space { spawn "nsticky" "toggle-active"; }
+    // Mod+Ctrl+Space { spawn "nsticky" "toggle-active"; }
 
     Mod+Shift+Q {
         close-window

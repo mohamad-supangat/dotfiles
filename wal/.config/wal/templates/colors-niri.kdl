@@ -1,0 +1,32 @@
+// Pywal colors for Niri
+layout {
+    focus-ring {
+        active-gradient from="{color2}" to="{color4}" angle=30
+        inactive-gradient from="{color0}" to="{color8}" angle=45
+    }
+
+    border {
+        active-color "{color2}"
+        inactive-color "{color0}"
+        urgent-color "{color1}"
+    }
+
+    shadow {
+        color "{color0}70"
+    }
+}
+
+overview {
+    backdrop-color "{color0}A0" // Menambahkan transparansi (A0) pada backdrop
+}
+
+window-rule {
+    match is-window-cast-target=true
+    focus-ring {
+        active-color "{color5}"
+        inactive-color "{color8}"
+    }
+    shadow {
+        color "{color5}70"
+    }
+}

@@ -18,9 +18,9 @@ set $term foot
 # Your preferred application launcher
 set $menu rofi -modi drun -show drun
 set $dmenu rofi -modi run -show run
-set $filemanager nautilus
+set $filemanager nemo
 set $clipboard_manager cliphist list | rofi -dmenu | cliphist decode | wl-copy
-
+set $mailclient aerion
 set $screenshot grim -g "$(slurp -d)" - | satty --filename -
 set $screenshotFull grim - | satty --filename -
 
@@ -42,8 +42,9 @@ default_border pixel 5
 titlebar_border_radius 8
 default_decoration border_radius 12
 # default_decoration border_radius 12 shadow true shadow_dynamic true shadow_size 40 shadow_blur 30 shadow_offset 40 40 shadow_color #00000070 dim false dim_color #00000040
-gaps inner 5
-gaps outer 5
+
+gaps inner 2
+gaps outer 2
 
 for_window [class="^.*"] border pixel 5
 # set $opacity 0.95
@@ -114,7 +115,7 @@ animations {
     bindsym $mod+n exec $filemanager
     bindsym Mod1+Control+h exec $clipboard_manager
     bindsym $mod+Shift+n exec swaync-client -t -sw
-    bindsym $mod+Shift+g exec geary
+    bindsym $mod+Shift+g exec $mailclient
     bindsym $mod+Shift+p exec sway-color-picker
 
     bindsym $mod+Return exec ~/.scripts/tmux_session.sh $term
@@ -127,7 +128,7 @@ animations {
     bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 
 
-    bindsym $mod+Shift+w exec ~/.config/sway/bin/random-wallpaper.sh
+    bindsym $mod+Shift+w exec random-wallpaper
 
     # picgo upload
     bindsym $mod+Shift+u exec sway-picgo
@@ -587,7 +588,7 @@ exec wl-paste --watch cliphist -max-items 1000 store
 # exec vibepanel
 
 
-# exec start-waybar
+exec start-waybar
 exec swaync
 # exec swww-daemon
 # exec_always ~/.config/sway/bin/random-wallpaper.sh
@@ -622,23 +623,23 @@ xwayland disable
 #     modifier Mod4
 # }
 
-bar {
-    font xft:JetBrains Mono 11
-    # font xft:JetBrains Mono 10, FontAwesome 8
-    status_command i3status-rs
-
-
-    colors {
-        background $background
-        separator  $color4
-        statusline $color7
-
-        # State             Border  BG      Text
-        focused_workspace   $color7 $color5 $color0
-        active_workspace    $color7 $color3 $color0
-        inactive_workspace  $color7 $color1 $color5
-        urgent_workspace    $color8 $color8 $color0
-        binding_mode        $color0 $color5 $color0
-        scroller            $color7 $background $foreground
-    }
-}
+# bar {
+#     font xft:JetBrains Mono 11
+#     # font xft:JetBrains Mono 10, FontAwesome 8
+#     status_command i3status-rs
+#
+#
+#     colors {
+#         background $background
+#         separator  $color4
+#         statusline $color7
+#
+#         # State             Border  BG      Text
+#         focused_workspace   $color7 $color5 $color0
+#         active_workspace    $color7 $color3 $color0
+#         inactive_workspace  $color7 $color1 $color5
+#         urgent_workspace    $color8 $color8 $color0
+#         binding_mode        $color0 $color5 $color0
+#         scroller            $color7 $background $foreground
+#     }
+# }

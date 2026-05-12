@@ -6,9 +6,8 @@ set $wifi ~/.config/rofi/modi/nmcli
 set $term /usr/bin/alacritty
 set $menu rofi -modi drun -show drun
 # set $menu rofi -m $(swaymsg -t get_outputs | jq 'map(select(.active) | .focused) | index(true)') -show drun -run-command 'swaymsg exec -- {cmd}'
-set $screenshot grim -g "$(slurp)" - | swappy -f -
-# set $screenshot /usr/share/sway/scripts/grimshot --notify save area - | swappy -f -
-set $screenshot flameshot gui
+
+set $screenshot maim -s | xclip -selection clipboard -t image/png
 set $screenanonation flameshot gui --region all
 
 # set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
@@ -350,4 +349,8 @@ include auto-starts
 #show scratchpad
 bindsym $mod+Shift+b move scratchpad
 bindsym $mod+b scratchpad show
+
+
+bindsym --whole-window button19 workspace prev
+bindsym --whole-window button17 workspace next
 

@@ -1,35 +1,43 @@
-@define-color bg #2e3436;
-@define-color fg #f6f6f6;
+@import "../../.cache/wal/colors-waybar.css";
+
+/* Definisikan alias tambahan jika ingin lebih mudah dibaca */
+@define-color warning @color3;
+@define-color critical @color1;
+@define-color active_bg @color4; /* Warna untuk workspace aktif */
 
 @keyframes blink-warning {
   70% {
-    color: @light;
+    color: @foreground;
   }
-
   to {
-    color: @light;
+    color: @background;
     background-color: @warning;
   }
 }
 
 @keyframes blink-critical {
   70% {
-    color: @light;
+    color: @foreground;
   }
-
   to {
-    color: @light;
+    color: @background;
     background-color: @critical;
   }
 }
 
 * {
-  font-family: Iosevka;
-  font-size: 1rem;
+  font-family: "Iosevka", "Font Awesome 6 Free";
+  font-size: 14px;
 }
 
 window#waybar {
-  background-color: @bg;
+  background-color: rgba(
+    16,
+    29,
+    37,
+    0.1
+  ); /* Menggunakan background dengan transparansi */
+  /* atau gunakan @background jika ingin solid */
 }
 
 window#waybar.hidden {
@@ -38,35 +46,33 @@ window#waybar.hidden {
 
 #workspaces {
   background-color: transparent;
+  margin: 4px;
 }
 
 #workspaces button {
   all: initial;
-  min-width: 0;
-  box-shadow: inset 0 -3px transparent;
   padding: 2px 10px;
-  min-height: 0;
-  margin: 4px 4px;
+  margin: 0 2px;
   border-radius: 8px;
-  background-color: @bg;
-  color: @fg;
+  background-color: @color8; /* Warna muted untuk inactive */
+  color: @foreground;
 }
 
 #workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
-  color: #1e1e2e;
-  background-color: @fg;
+  color: @background;
+  background-color: @color6;
 }
 
 #workspaces button.active,
 #workspaces button.focused {
-  color: #1e1e2e;
-  background-color: @fg;
+  color: @background;
+  background-color: @active_bg;
+  border-bottom: 2px solid @foreground;
 }
 
 #workspaces button.urgent {
-  background-color: #f38ba8;
+  background-color: @critical;
+  color: @foreground;
 }
 
 #custom-adaptive-light,
@@ -83,44 +89,56 @@ window#waybar.hidden {
 #battery,
 #backlight,
 #window {
-  color: @fg;
-  min-height: 0;
+  color: @foreground;
   padding: 2px 10px;
   border-radius: 8px;
-  border: 1px solid #888;
-  margin: 4px 4px;
-  /* background-color: @bg; */
+  border: 1px solid @color8; /* Gunakan variabel untuk border agar senada */
+  margin: 4px;
+  background-color: @color8;
+}
+
+/* Modul spesifik agar lebih berwarna (opsional) */
+#clock {
+  color: @foreground;
+}
+#pulseaudio {
+  color: @foreground;
+}
+#network {
+  color: @foreground;
+}
+#battery.critical {
+  color: @critical;
+  animation: blink 0.5s linear infinite alternate;
 }
 
 @keyframes blink {
   to {
-    background-color: #f38ba8;
-    color: #181825;
+    background-color: @critical;
+    color: @background;
   }
 }
 
 tooltip {
+  background: @background;
+  border: 1px solid @color4;
   border-radius: 8px;
 }
 
-#backlight-slider slider {
-  min-height: 0px;
-  min-width: 0px;
-  opacity: 0;
-  background-image: none;
-  border: none;
-  box-shadow: none;
+tooltip label {
+  color: @foreground;
 }
 
+/* Slider styling dengan variabel */
 #backlight-slider trough {
   min-height: 10px;
   min-width: 80px;
   border-radius: 5px;
-  background-color: black;
+  background-color: @color0;
 }
 
 #backlight-slider highlight {
   min-width: 10px;
   border-radius: 5px;
-  background-color: red;
+  background-color: @color4;
 }

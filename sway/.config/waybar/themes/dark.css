@@ -99,13 +99,13 @@ window#waybar.hidden {
 
 /* Modul spesifik agar lebih berwarna (opsional) */
 #clock {
-  color: @color4;
+  color: @foreground;
 }
 #pulseaudio {
-  color: @color5;
+  color: @foreground;
 }
 #network {
-  color: @color6;
+  color: @foreground;
 }
 #battery.critical {
   color: @critical;

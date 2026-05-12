@@ -104,7 +104,9 @@ spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
 window-rule {
     match app-id=r#"^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"#
     open-on-workspace "browser"
+    open-maximized true
     background-effect {
+        blur true
         xray true
     }
 }
@@ -114,6 +116,7 @@ window-rule {
     open-on-workspace "terminal"
 
     background-effect {
+        blur true
         xray true
     }
 }
@@ -123,6 +126,7 @@ layer-rule {
     match namespace="^launcher$"
 
     background-effect {
+        blur true
         xray true
     }
 }
@@ -175,6 +179,7 @@ window-rule {
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+    draw-border-with-background false
 }
 
 window-rule {

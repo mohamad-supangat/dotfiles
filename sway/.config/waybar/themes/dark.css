@@ -35,7 +35,7 @@ window#waybar {
     16,
     29,
     37,
-    0.8
+    0.1
   ); /* Menggunakan background dengan transparansi */
   /* atau gunakan @background jika ingin solid */
 }
@@ -94,7 +94,7 @@ window#waybar.hidden {
   border-radius: 8px;
   border: 1px solid @color8; /* Gunakan variabel untuk border agar senada */
   margin: 4px;
-  background-color: @background;
+  background-color: @color8;
 }
 
 /* Modul spesifik agar lebih berwarna (opsional) */

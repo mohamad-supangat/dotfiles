@@ -1,0 +1,1 @@
+complete --command install-release --no-files --arguments "(env _INSTALL_RELEASE_COMPLETE=complete_fish _TYPER_COMPLETE_FISH_ACTION=get-args _TYPER_COMPLETE_ARGS=(commandline -cp) install-release)" --condition "env _INSTALL_RELEASE_COMPLETE=complete_fish _TYPER_COMPLETE_FISH_ACTION=is-args _TYPER_COMPLETE_ARGS=(commandline -cp) install-release"

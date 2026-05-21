@@ -50,11 +50,13 @@ environment {
 }
 
 layout {
+    // empty-workspace-above-first
     background-color "transparent"
     gaps 5
-    // center-focused-column "on-overflow"
+    center-focused-column "on-overflow"
     // center-focused-column "never"
-    center-focused-column "always"
+    // center-focused-column "always"
+    always-center-single-column
 
 
     preset-column-widths {

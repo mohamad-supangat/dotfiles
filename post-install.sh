@@ -77,3 +77,12 @@ picgo set uploader
 
 ### install sqlit dengan mariadb dan mysql tools
 uv tool install sqlit-tui --with psycopg2-binary --with mariadb --with PyMySQL
+
+
+### Zana 🌈 aims to be an editor-agnostic 🫶 package manager 📦 for Tree-sitter parsers, LSP servers, DAP servers, linters and formatters and more.
+
+curl -sSL https://getzana.net/install.sh | sh
+
+
+## install relesae
+uv tool install-release

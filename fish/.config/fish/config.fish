@@ -11,6 +11,8 @@ fish_add_path /opt/android-sdk/build-tools/30.0.3
 fish_add_path ~/go/bin
 fish_add_path ~/bin
 fish_add_path ~/.local/share/zana/bin
+fish_add_path ~/.cargo/bin
+
 if test -f "~/.private-env"
     source ~/.private-env
 end

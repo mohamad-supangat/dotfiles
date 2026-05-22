@@ -1,6 +1,5 @@
 set fish_greeting "Semangat jangan menyerah 😃"
 
-
 # add some path
 fish_add_path ~/.scripts
 fish_add_path ~/.local/bin
@@ -10,12 +9,13 @@ fish_add_path ~/.local/share/gem/ruby/3.0.0/bin
 fish_add_path /usr/lib/jvm/java-8-openjdk/bin
 fish_add_path /opt/android-sdk/build-tools/30.0.3
 fish_add_path ~/go/bin
-
+fish_add_path ~/bin
+fish_add_path ~/.local/share/zana/bin
+fish_add_path ~/.cargo/bin
 
 if test -f "~/.private-env"
-  source ~/.private-env
+    source ~/.private-env
 end
-
 
 if test -f ~/.cache/wal/colors.fish
     source ~/.cache/wal/colors.fish
@@ -49,6 +49,7 @@ alias mc="mariadb -uroot -pdocker -h127.0.0.1"
 alias vi="nvim"
 alias v="nvim"
 alias vim="nvim"
+# alias nvim="helix"
 
 alias create-laravel-project="composer create-project laravel/laravel"
 alias create-vite-project="pnpm create vite"
@@ -74,24 +75,20 @@ alias de="docker exec"
 # alias glab-jvm="GITLAB_TOKEN=$GITLAB_JVM_TOKEN glab"
 # alias release-it-jvm="GITLAB_TOKEN=$GITLAB_JVM_TOKEN release-it --gitlab.release"
 
-
-
 # auto start sway
 # if test (tty) = /dev/tty1
 #     exec tbsm
 # end
 
-
 # pnpm
 set -gx PNPM_HOME "/home/deve/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
-
 
 # ruby gem
 
@@ -103,10 +100,9 @@ fish_add_path $ANDROID_HOME/platform-tools
 fish_add_path $ANDROID_HOME/cmdline-tools/bin
 fish_add_path $ANDROID_HOME/tools
 
-
 # phpenv
 set -x PHPENV_ROOT "/home/deve/.phpenv"
 if test -d "/home/deve/.phpenv"
-  set -x PATH "/home/deve/.phpenv/bin" $PATH
-  status --is-interactive; and . (phpenv init -|psub)
+    set -x PATH "/home/deve/.phpenv/bin" $PATH
+    status --is-interactive; and . (phpenv init -|psub)
 end

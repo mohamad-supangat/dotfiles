@@ -41,7 +41,7 @@ overview {
 }
 
 output "eDP-1" {
-    scale 1.2
+    scale 1
 }
 environment {
     DISPLAY ":0"
@@ -263,10 +263,10 @@ binds {
         spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"
     }
     XF86MonBrightnessUp allow-when-locked=true {
-        spawn "brightnessctl" "set" "+500"
+        spawn "brightnessctl" "set" "+20"
     }
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn "brightnessctl" "set" "500-"
+        spawn "brightnessctl" "set" "20-"
     }
     Mod+O repeat=false {
         toggle-overview

@@ -12,6 +12,7 @@ fish_add_path ~/go/bin
 fish_add_path ~/bin
 fish_add_path ~/.local/share/zana/bin
 fish_add_path ~/.cargo/bin
+fish_add_path ~/.local/share/nvim/mason/bin
 
 if test -f "~/.private-env"
     source ~/.private-env
@@ -106,3 +107,4 @@ if test -d "/home/deve/.phpenv"
     set -x PATH "/home/deve/.phpenv/bin" $PATH
     status --is-interactive; and . (phpenv init -|psub)
 end
+set -gx PATH $HOME/bin $PATH

@@ -116,7 +116,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^(foot|alacritty|ghostty|kitty)$"#
+    match app-id=r#"^(foot|Alacritty|ghostty|kitty)$"#
     open-on-workspace "terminal"
 
     background-effect {
@@ -165,10 +165,10 @@ window-rule {
     default-column-display "tabbed"
 }
 
-layer-rule {
-    match namespace="^wallpaper$"
-    place-within-backdrop true
-}
+// layer-rule {
+//     match namespace="^wallpaper$"
+//     place-within-backdrop true
+// }
 
 layer-rule {
     match namespace="^notifications$"

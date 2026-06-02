@@ -1,5 +1,5 @@
 gui:
-  showIcons: false
+  showIcons: true
 git:
   parseEmoji: true
 customCommands:

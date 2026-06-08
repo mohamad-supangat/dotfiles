@@ -63,6 +63,15 @@ alias pac="sudo pacman"
 alias comigo="comi -c ~/.config/comigo/config.toml"
 alias de="docker exec"
 
+# lsd ls but for rust
+if type -q lsd
+    alias ls='lsd'
+    alias l='lsd -l'
+    alias la='lsd -a'
+    alias lla='lsd -la'
+    alias lt='lsd --tree'
+end
+
 # alias sync-odoo-addons-pangat="rsync -azP ~/odoo/addons/ pangat@192.168.10.112:/home/pangat/odoo-15/addons/"
 # alias sync-odoo-addons="rsync -azP ~/odoo/addons/ root@192.168.10.112:/home/saverid/odoo_22/addons/"
 

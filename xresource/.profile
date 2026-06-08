@@ -20,8 +20,6 @@ export PATH=$ANDROID_HOME/cmdline-tools/latest/lib/:$PATH
 export PATH=$ANDROID_HOME/emulator/:$PATH
 export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
-
-
 # add some global path
 export PATH="/home/$(whoami)/.scripts:$PATH"
 export PATH="/home/$(whoami)/.local/bin:$PATH"
@@ -32,10 +30,6 @@ export PATH="/home/$(whoami)/go/bin:$PATH"
 export PATH="/usr/lib/jvm/java-8-openjdk/bin:$PATH"
 export PATH="/opt/android-sdk/build-tools/30.0.3:$PATH"
 
-
-
-
-
 # # for ruby
 # export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 # export PATH="$PATH:$GEM_HOME/bin"
@@ -43,8 +37,8 @@ export PATH="/opt/android-sdk/build-tools/30.0.3:$PATH"
 
 # default editor
 export EDITOR=nvim
+export TERMINAL=foot
 # export TERMINAL=/usr/bin/alacritty
-export TERMINAL=/usr/bin/footclient
 export PATH=$PATH:~/.scripts
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 export PUPPETEER_SKIP_DOWNLOAD=true
@@ -59,8 +53,7 @@ export PUPPETEER_SKIP_DOWNLOAD=true
 # export ICON_THEME="Breeze Dark"
 [ -f "${HOME}/.gdrive-downloader/gdl" ] && [ -x "${HOME}/.gdrive-downloader/gdl" ] && PATH="${HOME}/.gdrive-downloader:${PATH}"
 
-if [ -e ~/.private-env ]
-then
-    source ~/.private-env
+if [ -e ~/.private-env ]; then
+  source ~/.private-env
 fi
 #. "/home/deve/.deno/env"

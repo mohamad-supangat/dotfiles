@@ -1,5 +1,14 @@
 include "~/.cache/wal/colors-niri.kdl"
 
+environment {
+    DISPLAY ":0"
+    GDK_SCALE "0"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    TERMINAL "foot"
+    EDITOR "nvim"
+    FILEMANAGER "nautilus"
+}
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -41,13 +50,9 @@ overview {
 }
 
 output "eDP-1" {
-    scale 1.1
+    scale 1.2
 }
-environment {
-    DISPLAY ":0"
-    GDK_SCALE "0"
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-}
+
 
 layout {
     // empty-workspace-above-first
@@ -97,7 +102,7 @@ workspace "browser"
 workspace "terminal"
 // workspace "filemanager"
 
-spawn-at-startup "start-waybar"
+// spawn-at-startup "start-waybar"
 //spawn-at-startup "xwayland-satellite"
 spawn-at-startup "random-wallpaper"
 // spawn-at-startup "vibepanel"
@@ -497,6 +502,8 @@ binds {
     Mod+Ctrl+Shift+WheelScrollUp {
         move-column-left
     }
+
+    // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
     // Similarly, you can bind touchpad scroll "ticks".
     // Touchpad scrolling is continuous, so for these binds it is split into
     // discrete intervals.
@@ -645,7 +652,7 @@ binds {
     // Mod+V {
     //     toggle-window-floating
     // }
-    
+
     Mod+Shift+Space repeat=false {
         toggle-window-floating
     }
@@ -670,12 +677,18 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
     Print {
         //screenshot
-        spawn "sh" "-c" "sleep 2 && grim -g \"$(slurp -d)\" - | satty --filename -"
+        spawn "sh" "-c" "grim -g \"$(slurp -d)\" - | satty --filename -"
     }
     Mod+Shift+MouseRight {
         //screenshot
-        spawn "sh" "-c" "sleep 2 && grim -g \"$(slurp -d)\" - | satty --filename -"
+        spawn "sh" "-c" "grim -g \"$(slurp -d)\" - | satty --filename -"
     }
+
+    // Mod+Shift+TouchpadScrollDown {
+    //     //screenshot
+    //     spawn "sh" "-c" "sleep 1 && grim -g \"$(slurp -d)\" - | satty --filename -"
+    // }
+
     Ctrl+Print {
         screenshot-screen
     }

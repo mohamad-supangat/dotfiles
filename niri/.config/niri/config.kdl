@@ -102,6 +102,7 @@ workspace "browser"
 workspace "terminal"
 // workspace "filemanager"
 
+spawn-at-startup "vibepanel"
 // spawn-at-startup "start-waybar"
 //spawn-at-startup "xwayland-satellite"
 spawn-at-startup "random-wallpaper"

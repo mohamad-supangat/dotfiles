@@ -72,6 +72,10 @@ if type -q lsd
     alias lt='lsd --tree'
 end
 
+if type -q yazi
+    alias n='yazi'
+end
+
 # alias sync-odoo-addons-pangat="rsync -azP ~/odoo/addons/ pangat@192.168.10.112:/home/pangat/odoo-15/addons/"
 # alias sync-odoo-addons="rsync -azP ~/odoo/addons/ root@192.168.10.112:/home/saverid/odoo_22/addons/"
 

@@ -110,6 +110,19 @@ spawn-at-startup "random-wallpaper"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
 spawn-at-startup "nsticky"
 
+window-rule {
+    opacity 0.86
+    background-effect {
+        blur true
+        xray false
+    }
+    popups {
+        opacity 0.8
+        background-effect {
+            blur true
+        }
+    }
+}
 
 window-rule {
     match app-id=r#"^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"#
@@ -137,13 +150,18 @@ layer-rule {
 
     background-effect {
         blur true
-        xray true
     }
 }
-// window-rule {
-//     match app-id=r#"^org\.gnome\.Nautilus$"#
-//     open-on-workspace "filemanager"
-// }
+
+
+
+window-rule {
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    // open-on-workspace "filemanager"
+    background-effect {
+        blur true
+    }
+}
 
 prefer-no-csd
 window-rule {

@@ -1,0 +1,26 @@
+/* @import url("file://~/.cache/wal/colors.css"); */
+@import url("file:///home/deve/.cache/wal/colors.css");
+
+:root {
+  --color-accent-primary: var(--color2);
+}
+
+.notification-toast,
+.notification-popover {
+  /* background-color: rgba(0, 0, 255, 0.8); */
+  /* max-width: 600px; */
+}
+
+.notification-toast-app {
+  /* font-size: 1em; */
+}
+.notification-summary,
+.notification-toast-summary {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.notification-body,
+.notification-toast-body {
+  font-size: 1.1em;
+}

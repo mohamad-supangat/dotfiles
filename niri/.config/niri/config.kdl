@@ -1,5 +1,14 @@
 include "~/.cache/wal/colors-niri.kdl"
 
+environment {
+    DISPLAY ":0"
+    GDK_SCALE "0"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    TERMINAL "foot"
+    EDITOR "nvim"
+    FILEMANAGER "nautilus"
+}
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -43,11 +52,7 @@ overview {
 output "eDP-1" {
     scale 1
 }
-environment {
-    DISPLAY ":0"
-    GDK_SCALE "0"
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-}
+
 
 layout {
     // empty-workspace-above-first
@@ -97,13 +102,27 @@ workspace "browser"
 workspace "terminal"
 // workspace "filemanager"
 
-spawn-at-startup "start-waybar"
+spawn-at-startup "vibepanel"
+// spawn-at-startup "start-waybar"
 //spawn-at-startup "xwayland-satellite"
 spawn-at-startup "random-wallpaper"
 // spawn-at-startup "vibepanel"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
-// spawn-at-startup "nsticky"
+spawn-at-startup "nsticky"
 
+window-rule {
+    opacity 0.86
+    background-effect {
+        blur true
+        xray false
+    }
+    popups {
+        opacity 0.8
+        background-effect {
+            blur true
+        }
+    }
+}
 
 window-rule {
     match app-id=r#"^(floorp|firefox|chrome|zen|chromium|firefox-developer-edition|zen-twilight)$"#
@@ -131,13 +150,18 @@ layer-rule {
 
     background-effect {
         blur true
-        xray true
     }
 }
-// window-rule {
-//     match app-id=r#"^org\.gnome\.Nautilus$"#
-//     open-on-workspace "filemanager"
-// }
+
+
+
+window-rule {
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    // open-on-workspace "filemanager"
+    background-effect {
+        blur true
+    }
+}
 
 prefer-no-csd
 window-rule {
@@ -150,6 +174,16 @@ window-rule {
     match title="^Picture-in-Picture$"
     open-floating true
     default-floating-position x=32 y=32 relative-to="top-right"
+    default-column-width { fixed 480; }
+    default-window-height { fixed 270; }
+}
+
+window-rule {
+    match app-id="mpv"
+    open-floating true
+    default-floating-position x=32 y=32 relative-to="top-right"
+    default-column-width { fixed 480; }
+    default-window-height { fixed 270; }
 }
 
 window-rule {
@@ -278,11 +312,8 @@ binds {
     Mod+O repeat=false {
         toggle-overview
     }
-    Mod+Shift+Space repeat=false {
-        toggle-window-floating
-    }
 
-    // Mod+Ctrl+Space { spawn "nsticky" "toggle-active"; }
+    Mod+Ctrl+Space { spawn "nsticky" "sticky" "toggle-active"; }
 
     Mod+Shift+Q {
         close-window
@@ -490,6 +521,8 @@ binds {
     Mod+Ctrl+Shift+WheelScrollUp {
         move-column-left
     }
+
+    // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
     // Similarly, you can bind touchpad scroll "ticks".
     // Touchpad scrolling is continuous, so for these binds it is split into
     // discrete intervals.
@@ -635,10 +668,17 @@ binds {
         set-window-height "+10%"
     }
     // Move the focused window between the floating and the tiling layout.
-    Mod+V {
+    // Mod+V {
+    //     toggle-window-floating
+    // }
+
+    Mod+Shift+Space repeat=false {
         toggle-window-floating
     }
     Mod+Shift+V {
+        switch-focus-between-floating-and-tiling
+    }
+    Alt+Ctrl+Space {
         switch-focus-between-floating-and-tiling
     }
     // Toggle tabbed column display mode.
@@ -656,12 +696,18 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
     Print {
         //screenshot
-        spawn "sh" "-c" "sleep 2 && grim -g \"$(slurp -d)\" - | satty --filename -"
+        spawn "sh" "-c" "grim -g \"$(slurp -d)\" - | satty --filename -"
     }
     Mod+Shift+MouseRight {
         //screenshot
-        spawn "sh" "-c" "sleep 2 && grim -g \"$(slurp -d)\" - | satty --filename -"
+        spawn "sh" "-c" "grim -g \"$(slurp -d)\" - | satty --filename -"
     }
+
+    // Mod+Shift+TouchpadScrollDown {
+    //     //screenshot
+    //     spawn "sh" "-c" "sleep 1 && grim -g \"$(slurp -d)\" - | satty --filename -"
+    // }
+
     Ctrl+Print {
         screenshot-screen
     }

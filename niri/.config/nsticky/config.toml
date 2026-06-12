@@ -1,0 +1,8 @@
+[sticky.picture-in-picture]
+title=".*Picture-in-Picture*."
+
+[sticky.mpv]
+app_id="mpv"
+
+
+

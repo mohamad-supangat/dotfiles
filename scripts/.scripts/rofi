@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+# Inisialisasi variabel mode fuzzel (default: launcher aplikasi)
+FUZZEL_MODE=""
+
+# Loop untuk membaca semua argumen yang masuk
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+  -dmenu)
+    # Jika rofi diminta menjadi dmenu, ubah ke mode dmenu fuzzel
+    FUZZEL_MODE="-d"
+    shift
+    ;;
+  -show)
+    # Menangani parameter '-show drun' atau '-show run'
+    if [[ "$2" == "drun" || "$2" == "run" ]]; then
+      FUZZEL_MODE=""
+    fi
+    shift 2
+    ;;
+  -p | -prompt)
+    # Meneruskan teks prompt ke fuzzel
+    PROMPT_ARG=("-p" "$2")
+    shift 2
+    ;;
+  -lines | -l)
+    # Mengatur jumlah baris tampilan
+    LINES_ARG=("-l" "$2")
+    shift 2
+    ;;
+  *)
+    # Abaikan parameter rofi lain yang tidak didukung fuzzel (seperti -theme, -modi)
+    shift
+    ;;
+  esac
+done
+
+# Jalankan fuzzel dengan parameter yang sudah diterjemahkan
+if [ "$FUZZEL_MODE" = "-d" ]; then
+  # Jika mode dmenu, teruskan data dari stdin (Standard Input)
+  exec fuzzel -d "${PROMPT_ARG[@]}" "${LINES_ARG[@]}"
+else
+  # Jika mode launcher aplikasi biasa
+  exec fuzzel "${PROMPT_ARG[@]}" "${LINES_ARG[@]}"
+fi

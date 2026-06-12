@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# Cari binary Bun di sistem
+BUN_BIN=$(which bun)
+
+if [ -z "$BUN_BIN" ]; then
+    echo "[Shim Error]: Bun tidak ditemukan di sistem ini. Mengalihkan ke Node asli..."
+    # Jika Bun tidak ada, jalankan node asli (pastikan node asli bukan script ini sendiri)
+    # Kita panggil command node bypass alias/shim
+    command node "$@"
+    exit $?
+fi
+
+# Jika tidak ada argumen sama sekali, buka REPL Bun
+if [ $# -eq 0 ]; then
+    exec "$BUN_BIN" repl
+fi
+
+# Parsing argumen untuk menyesuaikan behavior Node vs Bun
+ARGS=()
+WHILE_LOOP_FLAGS=true
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -v|--version)
+            # Menampilkan versi bun jika user mengecek versi node
+            exec "$BUN_BIN" --version
+            ;;
+        -e|--eval)
+            # Node: node -e "code" -> Bun: bun eval "code"
+            shift
+            exec "$BUN_BIN" eval "$1"
+            ;;
+        --max-old-space-size=*)
+            # Flag memory limit Node tidak dibutuhkan di Bun (V8 vs JSC)
+            # Kita abaikan flag ini agar tidak error di Bun
+            shift
+            ;;
+        *)
+            # Masukkan argumen sisanya
+            ARGS+=("$1")
+            shift
+            ;;
+    esac
+done
+
+# Jalankan script menggunakan Bun
+# Bun mendeteksi secara otomatis apakah itu file .js, .ts, atau script package.json
+exec "$BUN_BIN" "${ARGS[@]}"

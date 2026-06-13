@@ -55,6 +55,9 @@ output "eDP-1" {
 
 
 layout {
+
+
+
     // empty-workspace-above-first
     background-color "transparent"
     gaps 5
@@ -85,7 +88,7 @@ layout {
 
     // You can also add a border. It's similar to the focus ring, but always visible.
     border {
-        // off
+        off
         width 5
     }
 
@@ -111,7 +114,7 @@ spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
 spawn-at-startup "nsticky"
 
 window-rule {
-    opacity 0.86
+    opacity 0.92
     background-effect {
         blur true
         xray false
@@ -215,7 +218,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 20
     clip-to-geometry true
     draw-border-with-background false
 }

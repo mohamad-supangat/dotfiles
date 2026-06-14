@@ -9,6 +9,11 @@ environment {
     FILEMANAGER "nautilus"
 }
 
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -105,13 +110,21 @@ workspace "browser"
 workspace "terminal"
 // workspace "filemanager"
 
-spawn-at-startup "vibepanel"
 // spawn-at-startup "start-waybar"
 //spawn-at-startup "xwayland-satellite"
 spawn-at-startup "random-wallpaper"
 // spawn-at-startup "vibepanel"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
 spawn-at-startup "nsticky"
+spawn-at-startup "qs" "-c" "noctalia-shell"
+
+blur {
+  passes 2        // more passes = stronger blur (default: 3)
+  offset 3.0      // sample distance per pass (default: 3.0)
+  noise 0.03      // grain overlay (default: 0.02)
+  saturation 1.0  // color saturation boost (default: 1.5)
+}
+
 
 window-rule {
     opacity 0.92
@@ -154,6 +167,11 @@ layer-rule {
     background-effect {
         blur true
     }
+}
+
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
 }
 
 

@@ -114,7 +114,7 @@ workspace "terminal"
 //spawn-at-startup "xwayland-satellite"
 spawn-at-startup "random-wallpaper"
 // spawn-at-startup "vibepanel"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
+// spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
 spawn-at-startup "nsticky"
 spawn-at-startup "qs" "-c" "noctalia-shell"
 
@@ -127,7 +127,7 @@ blur {
 
 
 window-rule {
-    opacity 0.92
+    // opacity 0.92
     background-effect {
         blur true
         xray false
@@ -282,7 +282,8 @@ binds {
         spawn "rofi" "-modi" "run" "-show" "run"
     }
     Mod+Space hotkey-overlay-title="Run Applications: rofi" {
-        spawn "rofi" "-modi" "drun" "-show" "drun"
+        spawn-sh "qs -c noctalia-shell ipc call launcher toggle";
+        // spawn "rofi" "-modi" "drun" "-show" "drun"
     }
     Mod+Shift+g hotkey-overlay-title="Run Email Client" {
         spawn "aerion"
@@ -305,7 +306,8 @@ binds {
     }
 
     Ctrl+Alt+h hotkey-overlay-title="Show Clipboard Manager: rofi" {
-        spawn "sh" "-c" "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
+        spawn-sh "qs -c noctalia-shell ipc call launcher clipboard ";
+        // spawn "sh" "-c" "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
         //spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist-img -show clipboard -show-icons"
         // spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist -show clipboard"
 

@@ -20,7 +20,7 @@ while [[ $# -gt 0 ]]; do
     ;;
   -p | -prompt)
     # Meneruskan teks prompt ke fuzzel
-    PROMPT_ARG=("-p" "$2")
+    PROMPT_ARG=("-p" "$2 > ")
     shift 2
     ;;
   -lines | -l)

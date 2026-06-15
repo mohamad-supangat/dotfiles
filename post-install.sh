@@ -44,6 +44,11 @@ pnpm add -g generate generate-editorconfig
 
 wget -P /tmp https://rubjo.github.io/victor-mono/VictorMonoAll.zip && mkdir -p ~/.local/share/fonts/VictorMono && cd ~/.local/share/fonts/VictorMono && unzip /tmp/VictorMonoAll.zip
 
+# install frankenphp
+curl https://frankenphp.dev/install.sh | sh
+sudo mv frankenphp /usr/local/bin/
+sudo setcap 'cap_net_bind_service=+ep' /usr/local/bin/frankenphp
+
 # install bun.js
 curl -fsSL https://bun.com/install | bash # for macOS, Linux, and WSL
 

@@ -9,6 +9,11 @@ environment {
     FILEMANAGER "nautilus"
 }
 
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -50,11 +55,14 @@ overview {
 }
 
 output "eDP-1" {
-    scale 1.2
+    scale 1
 }
 
 
 layout {
+
+
+
     // empty-workspace-above-first
     background-color "transparent"
     gaps 5
@@ -85,7 +93,7 @@ layout {
 
     // You can also add a border. It's similar to the focus ring, but always visible.
     border {
-        // off
+        off
         width 5
     }
 
@@ -102,16 +110,24 @@ workspace "browser"
 workspace "terminal"
 // workspace "filemanager"
 
-spawn-at-startup "vibepanel"
 // spawn-at-startup "start-waybar"
 //spawn-at-startup "xwayland-satellite"
 spawn-at-startup "random-wallpaper"
 // spawn-at-startup "vibepanel"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
+// spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
 spawn-at-startup "nsticky"
+spawn-at-startup "qs" "-c" "noctalia-shell"
+
+blur {
+  passes 2        // more passes = stronger blur (default: 3)
+  offset 3.0      // sample distance per pass (default: 3.0)
+  noise 0.03      // grain overlay (default: 0.02)
+  saturation 1.0  // color saturation boost (default: 1.5)
+}
+
 
 window-rule {
-    opacity 0.86
+    // opacity 0.92
     background-effect {
         blur true
         xray false
@@ -135,7 +151,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^(foot|alacritty|ghostty|kitty)$"#
+    match app-id=r#"^(foot|Alacritty|ghostty|kitty)$"#
     open-on-workspace "terminal"
 
     background-effect {
@@ -151,6 +167,11 @@ layer-rule {
     background-effect {
         blur true
     }
+}
+
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
 }
 
 
@@ -199,10 +220,10 @@ window-rule {
     default-column-display "tabbed"
 }
 
-layer-rule {
-    match namespace="^wallpaper$"
-    place-within-backdrop true
-}
+// layer-rule {
+//     match namespace="^wallpaper$"
+//     place-within-backdrop true
+// }
 
 layer-rule {
     match namespace="^notifications$"
@@ -215,7 +236,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 20
     clip-to-geometry true
     draw-border-with-background false
 }
@@ -261,7 +282,8 @@ binds {
         spawn "rofi" "-modi" "run" "-show" "run"
     }
     Mod+Space hotkey-overlay-title="Run Applications: rofi" {
-        spawn "rofi" "-modi" "drun" "-show" "drun"
+        spawn-sh "qs -c noctalia-shell ipc call launcher toggle";
+        // spawn "rofi" "-modi" "drun" "-show" "drun"
     }
     Mod+Shift+g hotkey-overlay-title="Run Email Client" {
         spawn "aerion"
@@ -284,7 +306,8 @@ binds {
     }
 
     Ctrl+Alt+h hotkey-overlay-title="Show Clipboard Manager: rofi" {
-        spawn "sh" "-c" "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
+        spawn-sh "qs -c noctalia-shell ipc call launcher clipboard ";
+        // spawn "sh" "-c" "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
         //spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist-img -show clipboard -show-icons"
         // spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist -show clipboard"
 
@@ -304,10 +327,10 @@ binds {
         spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"
     }
     XF86MonBrightnessUp allow-when-locked=true {
-        spawn "brightnessctl" "set" "+500"
+        spawn "brightnessctl" "set" "+20"
     }
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn "brightnessctl" "set" "500-"
+        spawn "brightnessctl" "set" "20-"
     }
     Mod+O repeat=false {
         toggle-overview

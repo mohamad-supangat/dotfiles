@@ -2,11 +2,11 @@
 gtk-theme=MacTahoe-Dark-solid
 icon-theme=MacTahoe-dark
 font-name=Adwaita Sans 11
-cursor-theme=Adwaita
-cursor-size=24
+cursor-theme=MacTahoe
+cursor-size=27
 toolbar-style=both-horiz
 toolbar-icons-size=large
-font-hinting=medium
+font-hinting=slight
 font-antialiasing=grayscale
 font-rgba-order=rgb
 text-scaling-factor=1.0

@@ -61,7 +61,7 @@ toast_position = "top-center"  # "top-left", "top-center", "top-right", "bottom-
 # See documentation for all widget options.
 
 [theme]
-mode = "auto"  # "auto", "dark", "light", "gtk"
+mode = "gtk"  # "auto", "dark", "light", "gtk"
 # "auto" = wallpaper-adaptive theming
 #               (detects from hyprpaper, awww/swww, wpaperd, waypaper)
 # scheme = "dark" # Material You polarity: "dark", "light", or "gtk" (auto mode only)

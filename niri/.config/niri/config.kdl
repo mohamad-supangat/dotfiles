@@ -8,11 +8,11 @@ environment {
     EDITOR "nvim"
     FILEMANAGER "nautilus"
 }
-
-debug {
-  // Allows notification actions and window activation from Noctalia.
-  honor-xdg-activation-with-invalid-serial
-}
+//
+// debug {
+//   // Allows notification actions and window activation from Noctalia.
+//   honor-xdg-activation-with-invalid-serial
+// }
 
 hotkey-overlay {
     skip-at-startup
@@ -55,17 +55,14 @@ overview {
 }
 
 output "eDP-1" {
-    scale 1
+    scale 1.2
 }
 
 
 layout {
-
-
-
     // empty-workspace-above-first
     background-color "transparent"
-    gaps 5
+    gaps 10
     center-focused-column "on-overflow"
     // center-focused-column "never"
     // center-focused-column "always"
@@ -93,8 +90,7 @@ layout {
 
     // You can also add a border. It's similar to the focus ring, but always visible.
     border {
-        off
-        width 5
+        width 7
     }
 
     shadow {
@@ -113,10 +109,10 @@ workspace "terminal"
 // spawn-at-startup "start-waybar"
 //spawn-at-startup "xwayland-satellite"
 spawn-at-startup "random-wallpaper"
-// spawn-at-startup "vibepanel"
-// spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
+spawn-at-startup "vibepanel"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "-max-items" "1000" "store"
 spawn-at-startup "nsticky"
-spawn-at-startup "qs" "-c" "noctalia-shell"
+// spawn-at-startup "qs" "-c" "noctalia-shell"
 
 blur {
   passes 2        // more passes = stronger blur (default: 3)
@@ -306,8 +302,8 @@ binds {
     }
 
     Ctrl+Alt+h hotkey-overlay-title="Show Clipboard Manager: rofi" {
-        spawn-sh "qs -c noctalia-shell ipc call launcher clipboard ";
-        // spawn "sh" "-c" "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
+        // spawn-sh "qs -c noctalia-shell ipc call launcher clipboard ";
+        spawn "sh" "-c" "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
         //spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist-img -show clipboard -show-icons"
         // spawn "sh" "-c" "rofi -modi clipboard:~/.config/rofi/module/cliphist -show clipboard"
 

@@ -323,10 +323,10 @@ binds {
         spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"
     }
     XF86MonBrightnessUp allow-when-locked=true {
-        spawn "brightnessctl" "set" "+20"
+        spawn "brightnessctl" "set" "+1%"
     }
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn "brightnessctl" "set" "20-"
+        spawn "brightnessctl" "set" "1%-"
     }
     Mod+O repeat=false {
         toggle-overview

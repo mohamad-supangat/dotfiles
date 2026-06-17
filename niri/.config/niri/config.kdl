@@ -50,7 +50,7 @@ gestures {
 overview {
     zoom 0.6
     workspace-shadow {
-        off
+        // off
     }
 }
 
@@ -165,10 +165,10 @@ layer-rule {
     }
 }
 
-layer-rule {
-  match namespace="^noctalia-overview*"
-  place-within-backdrop true
-}
+// layer-rule {
+//   match namespace="^noctalia-overview*"
+//   place-within-backdrop true
+// }
 
 
 
@@ -278,8 +278,8 @@ binds {
         spawn "rofi" "-modi" "run" "-show" "run"
     }
     Mod+Space hotkey-overlay-title="Run Applications: rofi" {
-        spawn-sh "qs -c noctalia-shell ipc call launcher toggle";
-        // spawn "rofi" "-modi" "drun" "-show" "drun"
+        // spawn-sh "qs -c noctalia-shell ipc call launcher toggle";
+        spawn "rofi" "-modi" "drun" "-show" "drun"
     }
     Mod+Shift+g hotkey-overlay-title="Run Email Client" {
         spawn "aerion"

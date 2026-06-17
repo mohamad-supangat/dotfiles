@@ -10,7 +10,7 @@ arguments = ["img", "--transition-type", "center"]
 
 
 [templates.rofi]
-input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+input_path = './templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
 
 [templates.fuzzel]
@@ -28,3 +28,9 @@ output_path = '~/.config/foot/colors.ini'
 post_hook   = '''
   touch "$HOME/.config/foot/foot.ini" || :
 '''
+
+
+[templates.nvim]
+input_path = './templates/nvim-colors.vim'
+output_path = '~/.config/nvim/colors/matugen.vim'
+post_hook = 'pkill -SIGUSR1 nvim'

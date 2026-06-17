@@ -1,8 +1,9 @@
-[config]
-# Menetapkan apakah akan mengatur wallpaper (set) dan menjalankan perintah (command)
+[config.wallpaper]
 set = true
-# command = "swww"
-# arguments = ["img", "--transition-type", "grow", "{{image}}"]
+# command = "swaybg"
+# arguments = ["-i", "{{image}}", "-m", "fill"]
+command = "awww"
+arguments = ["img", "--transition-type", "center"]
 
 # Hooks untuk menyegarkan aplikasi setelah warna dihasilkan (misalnya, untuk Waybar di Hyprland)
 # post_hook = "pkill waybar && waybar &"
@@ -15,3 +16,15 @@ output_path = '~/.config/rofi/colors.rasi'
 [templates.fuzzel]
 input_path = './templates/fuzzel.ini'
 output_path = '~/.config/fuzzel/colors.ini'
+
+
+[templates.niri]
+input_path = './templates/niri-colors.kdl'
+output_path = '~/.config/niri/colors.kdl'
+
+[templates.foot]
+input_path = './templates/foot-colors.ini'
+output_path = '~/.config/foot/colors.ini'
+post_hook   = '''
+  touch "$HOME/.config/foot/foot.ini" || :
+'''

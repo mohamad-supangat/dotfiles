@@ -16,3 +16,5 @@ sway/.local/share/nwg-look/gsettings
 # alacritty/.config/alacritty/alacritty.toml
 sway/.config/fuzzel/colors.ini
 rofi/.config/rofi/colors.rasi
+/niri/.config/niri/colors.kdl
+/foot/.config/foot/colors.ini

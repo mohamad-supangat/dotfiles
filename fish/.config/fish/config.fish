@@ -50,7 +50,6 @@ alias mc="mariadb -uroot -pdocker -h127.0.0.1"
 alias vi="nvim"
 alias v="nvim"
 alias vim="nvim"
-# alias nvim="helix"
 
 alias create-laravel-project="composer create-project laravel/laravel"
 alias create-vite-project="pnpm create vite"
@@ -71,6 +70,14 @@ if type -q lsd
     alias la='lsd -a'
     alias lla='lsd -la'
     alias lt='lsd --tree'
+end
+
+# jika ada helix maka gunakan helix sebagai text editor utama
+if type -q hx
+    alias vi="hx"
+    alias v="hx"
+    alias vim="hx"
+    alias nvim="hx"
 end
 
 if type -q yazi

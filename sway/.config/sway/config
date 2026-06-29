@@ -43,8 +43,8 @@ gaps bottom 5
 #===============================================================================
 # Default borders and opacity
 for_window [class="^.*"] border pixel 5
-for_window [class=".*"] opacity 0.9
-for_window [app_id=".*"] opacity 0.9
+# for_window [class=".*"] opacity 0.9
+# for_window [app_id=".*"] opacity 0.9
 # hide_edge_borders smart
 
 # Generic Utility & System Tools

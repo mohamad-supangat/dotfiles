@@ -115,12 +115,18 @@ spawn-at-startup "nsticky"
 // spawn-at-startup "qs" "-c" "noctalia-shell"
 
 blur {
-  passes 2        // more passes = stronger blur (default: 3)
+  passes 2
   offset 3.0      // sample distance per pass (default: 3.0)
   noise 0.03      // grain overlay (default: 0.02)
   saturation 1.0  // color saturation boost (default: 1.5)
 }
 
+
+
+xwayland-satellite {
+    // off
+    path "xwayland-satellite"
+}
 
 window-rule {
     // opacity 0.92

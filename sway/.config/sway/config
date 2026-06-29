@@ -47,8 +47,8 @@ gaps bottom 5
 
 # hide_edge_borders smart
 for_window [class="^.*"] border pixel 5
-for_window [class=".*"] opacity 0.88
-for_window [app_id=".*"] opacity 0.88
+for_window [class=".*"] opacity 0.9
+for_window [app_id=".*"] opacity 0.9
 
 for_window [title="KeePassXC - Browser Access Request"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -242,6 +242,8 @@ bindsym $mod+Control+l resize grow width 10 px or 10
 # bindsym $mod+Shift+Control+Right resize grow width 1 px or 1
 
 bindsym --no-repeat $mod+Tab workspace back_and_forth
+bindsym --no-repeat Mod1+Tab workspace back_and_forth
+
 
 bindsym --no-repeat $mod+1 workspace number 1
 bindsym --no-repeat $mod+2 workspace number 2
@@ -363,11 +365,3 @@ client.focused_inactive $color8   $color8   $color15  $color8   $color8
 client.unfocused        $color0   $color0   $color7   $color0   $color0
 client.urgent           $color1   $color1   $color15  $color1   $color1
 client.background       $background
-
-# bar {
-#     swaybar_command waybar
-#     position top
-#     hidden_state hide
-#     mode hide
-#     modifier Mod4
-# }

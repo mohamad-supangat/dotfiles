@@ -43,8 +43,8 @@ if command -v fuzzel >/dev/null 2>&1; then
 else
   # Jika fuzzel tidak ada, fallback ke rofi
   if [ "$FUZZEL_MODE" = "-d" ]; then
-    exec rofi -dmenu "${PROMPT_ARG[@]}" "${LINES_ARG[@]}"
+    exec /usr/bin/rofi -dmenu "${PROMPT_ARG[@]}" "${LINES_ARG[@]}"
   else
-    exec rofi -show drun "${PROMPT_ARG[@]}" "${LINES_ARG[@]}"
+    exec /usr/bin/rofi -show drun "${PROMPT_ARG[@]}" "${LINES_ARG[@]}"
   fi
 fi

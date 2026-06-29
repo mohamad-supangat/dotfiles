@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+if command -v fuzzel >/dev/null 2>&1; then
+  echo "fuzzel tersedia"
+else
+  /usr/bin/rofi $@
+  exit
+fi
 
 # Inisialisasi variabel mode fuzzel (default: launcher aplikasi)
 FUZZEL_MODE=""

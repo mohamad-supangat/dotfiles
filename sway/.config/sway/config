@@ -35,11 +35,11 @@ gaps bottom 5
 #-------------------
 # swayfx
 #-------------------
-blur enable
-corner_radius 10
-shadows disable
-default_dim_inactive 0.1
-scratchpad_minimize enable
+# blur enable
+# corner_radius 10
+# shadows disable
+# default_dim_inactive 0.1
+# scratchpad_minimize enable
 
 #-------------------
 # window management
@@ -142,7 +142,7 @@ bindsym $mod+Shift+Return exec ~/.scripts/rofi-tmuxp.sh $term
 bindsym Print exec $screenshot
 bindsym $mod+Shift+p exec sway-color-picker
 
-bindsym $mod+Shift+w exec ~/.config/sway/bin/random-wallpaper.sh --internet
+bindsym $mod+Shift+w exec ~/.config/sway/bin/random-wallpaper.sh
 bindsym $mod+Shift+r exec $recordscreen
 bindsym $mod+Shift+s exec ~/.scripts/start-scrcpy
 bindsym $mod+Shift+x exec $browser-selector
@@ -183,7 +183,7 @@ bindsym --locked XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec  brightnessctl set +500
 bindsym XF86MonBrightnessDown exec brightnessctl set 500-
 
-output "eDP-1" scale 1.5
+# output "eDP-1" scale 1.5
 # Idle configuration
 # exec swayidle \
 #     timeout 300 'exec $lock' \
@@ -336,7 +336,9 @@ bindgesture swipe:3:right focus right
 # auto start apps
 #-------------------
 
-exec_always ~/.config/sway/bin/random-wallpaper.sh --internet
+
+
+exec ~/.config/sway/bin/random-wallpaper.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
 
@@ -349,22 +351,23 @@ exec_always {
 }
 
 ## include generate config and color scheme
-include colorscheme
 include .generated_settings/input_pointer.conf
 include .generated_settings/input_touchpad.conf
 include /etc/sway/config.d/*
+include ~/.cache/wal/colors-sway
+output * bg $wallpaper fill
 
-# Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $base05 $base05 $base00 $base0D $base05
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
+# target                 border    bg        text      indicator child_border
+client.focused          $color4   $color4   $color0   $color6   $color4
+client.focused_inactive $color8   $color8   $color15  $color8   $color8
+client.unfocused        $color0   $color0   $color7   $color0   $color0
+client.urgent           $color1   $color1   $color15  $color1   $color1
+client.background       $background
 
-
-bar {
-    swaybar_command waybar
-    position top
-    hidden_state hide
-    mode hide
-    modifier Mod4
-}
+# bar {
+#     swaybar_command waybar
+#     position top
+#     hidden_state hide
+#     mode hide
+#     modifier Mod4
+# }

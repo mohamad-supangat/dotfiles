@@ -125,7 +125,7 @@ bindsym $mod+Shift+g             exec geary
 # --- Utilities & Tools ---
 bindsym Print                    exec $screenshot
 bindsym $mod+Shift+p             exec sway-color-picker
-bindsym $mod+Shift+w             exec ~/.config/sway/bin/random-wallpaper.sh
+bindsym $mod+Shift+w             exec ~/.scripts/random-wallpaper
 bindsym $mod+Shift+r             exec $recordscreen
 bindsym $mod+Shift+s             exec ~/.scripts/start-scrcpy
 bindsym $mod+Shift+u             exec sway-picgo
@@ -184,6 +184,7 @@ bindsym $mod+e                   layout toggle split
 bindsym $mod+f                   fullscreen
 bindsym $mod+Shift+space         floating toggle
 bindsym $mod+y                   focus mode_toggle
+bindsym $mod+Ctrl+space          focus mode_toggle
 bindsym $mod+a                   focus parent
 
 # --- Scratchpad ---
@@ -274,7 +275,8 @@ bindgesture swipe:3:right        focus right
 exec ~/.config/sway/bin/random-wallpaper.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
-exec swaync
+# exec swaync
+exec vibepanel
 
 exec_always {
     eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)

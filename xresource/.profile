@@ -20,8 +20,11 @@ export PATH=$ANDROID_HOME/cmdline-tools/latest/lib/:$PATH
 export PATH=$ANDROID_HOME/emulator/:$PATH
 export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
+
 # add some global path
 export PATH="/home/$(whoami)/.scripts:$PATH"
+export PATH="/home/$(whoami)/bin:$PATH"
+export PATH="/home/$(whoami)/.bin:$PATH"
 export PATH="/home/$(whoami)/.local/bin:$PATH"
 export PATH="/home/$(whoami)/.config/composer/vendor/bin:$PATH"
 export PATH="/home/$(whoami)/.local/share/gem/ruby/3.0.0/bin:$PATH"

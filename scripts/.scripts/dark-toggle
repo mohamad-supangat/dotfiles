@@ -29,7 +29,7 @@ gsettings set org.gnome.desktop.interface gtk-theme $gtk_theme
 echo $mode >$COLOR_FILE
 
 # Symlink nwg-look
-ln -sf "$HOME/.local/share/nwg-look/$mode" "$HOME/.local/share/nwg-look/gsettings"
+# ln -sf "$HOME/.local/share/nwg-look/$mode" "$HOME/.local/share/nwg-look/gsettings"
 
 # Symlink Alacritty (Jika file ada)
 set alacritty_source "$HOME/.config/alacritty/alacritty-$mode.toml"

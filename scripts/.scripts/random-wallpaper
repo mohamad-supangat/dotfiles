@@ -10,11 +10,9 @@ set -l RANDOM_WALLP (find "$WALLPAPER_DIR" -type f | shuf -n 1)
 # Detect System Theme (Dark/Light)
 set -l mode (gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null)
 
-notify-send "Random Wallpaper"
-
 if type -q matugen
     echo "Applying theme with Matugen using: $RANDOM_WALLP"
-    if test "$mode" = "prefer-dark"
+    if test "$mode" = "'prefer-dark'"
         matugen image "$RANDOM_WALLP" -m dark
     else
         matugen image "$RANDOM_WALLP" -m light
@@ -22,7 +20,7 @@ if type -q matugen
 
 else if type -q wal
     echo "Applying theme with Pywal..."
-    if test "$mode" = "prefer-dark"
+    if test "$mode" = "'prefer-dark'"
         wal -i "$WALLPAPER_DIR" -o "$WAL_POST"
     else
         wal -l -i "$WALLPAPER_DIR" -o "$WAL_POST"

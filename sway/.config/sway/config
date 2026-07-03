@@ -31,6 +31,8 @@ gaps inner 5
 gaps outer 5
 gaps bottom 5
 
+xwayland disable
+
 # SwayFX Settings (Uncomment to enable)
 # blur enable
 # corner_radius 10

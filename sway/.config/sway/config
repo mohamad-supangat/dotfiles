@@ -148,8 +148,8 @@ bindsym --locked XF86AudioPlay   exec playerctl play-pause
 bindsym --locked XF86AudioNext   exec playerctl next
 bindsym --locked XF86AudioPrev   exec playerctl previous
 
-bindsym XF86MonBrightnessUp      exec brightnessctl set +500
-bindsym XF86MonBrightnessDown    exec brightnessctl set 500-
+bindsym XF86MonBrightnessUp      exec brightnessctl set +1%
+bindsym XF86MonBrightnessDown    exec brightnessctl set 1%
 
 # --- Focus Navigation (Vim-style & Arrows) ---
 bindsym $mod+h                   focus left

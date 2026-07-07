@@ -1,29 +1,40 @@
 #!/usr/bin/env bash
 
-# Cari binary Bun di sistem
+# Cari binary Node.js di sistem
+NODE_BIN="/usr/bin/node"
+
+if [ -n "$NODE_BIN" ]; then
+    # print "[Shim Info]: Mencoba menggunakan Node.js..."
+    # Jika Node.js ditemukan, jalankan menggunakan Node asli (bypass alias/shim)
+    # Menggunakan 'command' untuk memastikan tidak memanggil script ini lagi jika di-alias
+    command /usr/bin/node "$@"
+    exit $?
+fi
+
+echo "[Shim Info]: Node.js tidak ditemukan. Mencoba mengalihkan ke Bun..."
+
+# Jika Node.js tidak ada, cari binary Bun di sistem
 BUN_BIN=$(which bun)
 
 if [ -z "$BUN_BIN" ]; then
-    echo "[Shim Error]: Bun tidak ditemukan di sistem ini. Mengalihkan ke Node asli..."
-    # Jika Bun tidak ada, jalankan node asli (pastikan node asli bukan script ini sendiri)
-    # Kita panggil command node bypass alias/shim
-    command node "$@"
-    exit $?
+    echo "[Shim Error]: Node.js maupun Bun tidak ditemukan di sistem ini."
+    exit 1
 fi
+
+# --- LOGIK BALIKAN JIKA MENGGUNAKAN BUN ---
 
 # Jika tidak ada argumen sama sekali, buka REPL Bun
 if [ $# -eq 0 ]; then
     exec "$BUN_BIN" repl
 fi
 
-# Parsing argumen untuk menyesuaikan behavior Node vs Bun
+# Parsing argumen untuk menyesuaikan behavior Node ke Bun
 ARGS=()
-WHILE_LOOP_FLAGS=true
 
 while [ $# -gt 0 ]; do
     case "$1" in
         -v|--version)
-            # Menampilkan versi bun jika user mengecek versi node
+            # Menampilkan versi bun jika user mengecek versi (karena fallback ke bun)
             exec "$BUN_BIN" --version
             ;;
         -e|--eval)
@@ -32,8 +43,7 @@ while [ $# -gt 0 ]; do
             exec "$BUN_BIN" eval "$1"
             ;;
         --max-old-space-size=*)
-            # Flag memory limit Node tidak dibutuhkan di Bun (V8 vs JSC)
-            # Kita abaikan flag ini agar tidak error di Bun
+            # Flag memory limit Node tidak dibutuhkan di Bun, abaikan saja
             shift
             ;;
         *)
@@ -44,6 +54,5 @@ while [ $# -gt 0 ]; do
     esac
 done
 
-# Jalankan script menggunakan Bun
-# Bun mendeteksi secara otomatis apakah itu file .js, .ts, atau script package.json
+# Jalankan script menggunakan Bun sebagai fallback terakhir
 exec "$BUN_BIN" "${ARGS[@]}"

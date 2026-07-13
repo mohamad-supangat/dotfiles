@@ -26,7 +26,15 @@ else if type -q wal
         wal -l -i "$WALLPAPER_DIR" -o "$WAL_POST"
     end
 
+else if type -q cwal
+    echo "Applying theme with Pywal..."
+    if test "$mode" = "'prefer-dark'"
+        cwal -r --mode dark
+    else
+        cwal -r --mode light
+    end
+
 else
-    echo "Error: Neither 'matugen' nor 'wal' found."
+    notify-send "No wallpaper application found"
     exit 1
 end

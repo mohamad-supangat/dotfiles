@@ -31,8 +31,9 @@ function getDevices() {
 function startApps() {
     devices=$(getDevices)
     if [ -n "${devices}" ]; then
+        scrcpy -s $devices
         # if [[ $devices == *'10.5.50.38:7777'* ]]; then
-            scrcpy -SwK -s $devices
+            # scrcpy -SwK -s $devices
         # else
             # scrcpy -Sw --always-on-top -s $devices
         # fi
@@ -43,7 +44,3 @@ function startApps() {
 }
 
 startApps
-
-
-
-

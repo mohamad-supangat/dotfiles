@@ -3,6 +3,7 @@
 
 :root {
   --color-accent-primary: var(--color2);
+  /* --color-background-bar: var(--color0); */
 }
 
 .notification-toast,

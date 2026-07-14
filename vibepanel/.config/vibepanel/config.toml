@@ -1,24 +1,25 @@
 [bar]
 position = "bottom"  # "top", "bottom", "left", or "right"
-size = 30
-border_radius = 15
-background_opacity = 0.0  # 0.0 = transparent (islands), 1.0 = solid
-# outline = true         # Override theme.outline for the bar (omit = inherit)
+size = 25
+border_radius = 0
+background_opacity = 0.4
+screen_margin = 0
 
 [widgets]
-left = ["workspaces", "media"]
-center = ["notifications", "clock"]
+left = ["workspaces"]
+center = ["clock", "media"]
 right = [
   "tray",
   # "updates",
   "cpu",
   "quick_settings",
   "battery",
+  "notifications"
 ]
 border_radius = 40
-background_opacity = 0.8
+background_opacity = 0
 popover_background_opacity = 0.9  # Override popover opacity (default: max of bar and widget opacity)
-outline = true  # Override theme.outline for widgets (omit = inherit)
+outline = false  # Override theme.outline for widgets (omit = inherit)
 
 # Per-widget options use [widgets.<name>] sections.
 # Example:
@@ -72,7 +73,7 @@ mode = "gtk"  # "auto", "dark", "light", "gtk"
 animations = true  # Enable/disable all CSS transitions and animations
 ripple = true  # Enable/disable Material Design ripple effect on click
 blur = true  # Enable compositor blur via ext-background-effect-v1 (requires niri with blur)
-outline = true  # Decorative outline on bar, widgets, and surfaces (CSS border)
+outline = false  # Decorative outline on bar, widgets, and surfaces (CSS border)
 # outline_width = 1  # Outline width in pixels (0..=4; 0 disables visibly)
 # outline_color = "accent"  # "subtle" | "accent" | "foreground" | "#rrggbb"
 # outline_opacity = 1.0  # 0.0 = transparent, 1.0 = opaque

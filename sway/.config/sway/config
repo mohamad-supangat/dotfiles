@@ -19,6 +19,8 @@ set $clipboard_manager       cliphist list | rofi -dmenu | cliphist decode | wl-
 
 set $backgroundFill          '#1D1F21'
 
+output eDP-1 scale 1.2
+
 #===============================================================================
 # GENERAL SETTINGS
 #===============================================================================
@@ -27,9 +29,9 @@ font xft:Iosevka 11
 
 # Gaps Configuration
 # smart_gaps on
-gaps inner 5
-gaps outer 5
-gaps bottom 5
+# gaps inner 5
+# gaps outer 5
+# gaps bottom 5
 
 # xwayland disable
 

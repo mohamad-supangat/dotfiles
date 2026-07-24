@@ -4,7 +4,8 @@ size = 25
 border_radius = 0
 background_opacity = 0.4
 screen_margin = 0
-
+padding = 0
+inset = 0
 [widgets]
 left = ["workspaces"]
 center = ["clock", "media"]
@@ -16,7 +17,7 @@ right = [
   "battery",
   "notifications"
 ]
-border_radius = 40
+# border_radius = 40
 background_opacity = 0
 popover_background_opacity = 0.9  # Override popover opacity (default: max of bar and widget opacity)
 outline = false  # Override theme.outline for widgets (omit = inherit)

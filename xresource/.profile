@@ -5,7 +5,7 @@ export CM_DIR=~/.cache/clipmenu
 # export LC_ALL=en_US.UTF-8
 export QT_QPA_PLATFORMTHEME=qt5ct
 export FONT_NAME="JetBrainsMono Nerd Font 10"
-
+export RIPGREP_CONFIG_PATH=~/.ripgreprc
 # For Android Studio
 # export _JAVA_AWT_WM_NONREPARENTING=1
 

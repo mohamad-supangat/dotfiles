@@ -281,7 +281,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
 # exec swaync
 exec vibepanel
-
+exec wluma # auto brightness control
 exec_always {
     eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
     export SSH_AUTH_SOCK

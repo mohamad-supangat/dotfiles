@@ -1,6 +1,6 @@
 GOOSE_CLI_MIN_PRIORITY: 0.0
 GOOSE_CLI_NEWLINE_KEY: n
-GOOSE_MODE: approve
+GOOSE_MODE: chat
 GOOSE_TELEMETRY_ENABLED: true
 extensions:
   developer:

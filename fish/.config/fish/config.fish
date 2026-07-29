@@ -120,7 +120,8 @@ fish_add_path ~/Android/flutter/bin/
 fish_add_path $ANDROID_HOME/platform-tools
 fish_add_path $ANDROID_HOME/cmdline-tools/bin
 fish_add_path $ANDROID_HOME/tools
-
+alias dart_build='dart run build_runner build --delete-confli
+cting-outputs'
 # phpenv
 set -x PHPENV_ROOT "/home/deve/.phpenv"
 if test -d "/home/deve/.phpenv"

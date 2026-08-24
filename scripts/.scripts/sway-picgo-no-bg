@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+notify-send "PicGo & Remove BG" "Memproses gambar dari clipboard..."
+
+# 1. Tentukan file temporer
+TEMP_IN="/tmp/picgo_nobg_in.png"
+TEMP_OUT="/tmp/picgo_nobg_out.png"
+FUZZ="5%"
+
+# 2. Ambil gambar dari clipboard (Wayland & X11)
+if command -v wl-paste &>/dev/null; then
+    wl-paste -t image/png >"$TEMP_IN" 2>/dev/null
+elif command -v xclip &>/dev/null; then
+    xclip -selection clipboard -t image/png -o >"$TEMP_IN" 2>/dev/null
+fi
+
+# Cek apakah clipboard berisi gambar
+if [ ! -s "$TEMP_IN" ]; then
+    notify-send "PicGo Process Failed" "Gagal: Tidak ada gambar di clipboard!"
+    exit 1
+fi
+
+# 3. Deteksi perintah ImageMagick
+MAGICK_CMD=""
+if command -v magick &>/dev/null; then
+    MAGICK_CMD="magick"
+elif command -v convert &>/dev/null; then
+    MAGICK_CMD="convert"
+else
+    notify-send "PicGo Process Failed" "ImageMagick belum terinstall!"
+    exit 1
+fi
+
+# 4. Ambil lebar (width) & tinggi (height) secara terpisah agar aman
+WIDTH=$($MAGICK_CMD identify -format "%w" "$TEMP_IN")
+HEIGHT=$($MAGICK_CMD identify -format "%h" "$TEMP_IN")
+
+# Hitung koordinat maksimum (bebas dari error matematika)
+MAX_X=$((WIDTH - 1))
+MAX_Y=$((HEIGHT - 1))
+
+# 5. Jalankan Remove Background (Floodfill 4 Sudut - ImageMagick)
+$MAGICK_CMD "$TEMP_IN" \
+    -alpha set \
+    -fuzz "$FUZZ" \
+    -fill "rgba(0,0,0,0)" \
+    -draw "color 0,0 floodfill" \
+    -draw "color ${MAX_X},0 floodfill" \
+    -draw "color 0,${MAX_Y} floodfill" \
+    -draw "color ${MAX_X},${MAX_Y} floodfill" \
+    "$TEMP_OUT"
+
+if [ ! -f "$TEMP_OUT" ]; then
+    notify-send "PicGo Process Failed" "Gagal menghapus background gambar."
+    exit 1
+fi
+
+# 6. Upload gambar transparan ($TEMP_OUT) menggunakan PicGo
+notify-send "PicGo Prepare Upload" "Mengunggah gambar tanpa background..."
+
+URL=$(picgo u "$TEMP_OUT" --debug | grep -oP 'https://\S+' | head -n 1)
+
+echo "$URL" >/tmp/picgo-url
+
+# 7. Penanganan Hasil Upload
+if [ -n "$URL" ]; then
+    if command -v wl-copy &>/dev/null; then
+        echo -n "$URL" | wl-copy -n
+    elif command -v xclip &>/dev/null; then
+        echo -n "$URL" | xclip -selection clipboard
+    fi
+    notify-send "PicGo Upload Success" "$URL"
+else
+    notify-send "PicGo Upload Failed" "Gagal mendapatkan URL. Periksa konfigurasi PicGo."
+fi
+
+# Cleanup
+rm -f "$TEMP_IN" "$TEMP_OUT"

@@ -3,5 +3,6 @@
 --glob=!/**/.git
 --glob=!/**/node_modules
 --glob=!/vendor
+--glob=!/dist
 --glob=!/public/build
 --glob=!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm,pdf,doc,docx,mp3,cache,gitkeep,gitignore}

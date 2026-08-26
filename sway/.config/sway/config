@@ -132,7 +132,7 @@ bindsym $mod+Shift+p             exec sway-color-picker
 bindsym $mod+Shift+w             exec ~/.scripts/random-wallpaper
 bindsym $mod+Shift+r             exec $recordscreen
 bindsym $mod+Shift+s             exec ~/.scripts/start-scrcpy
-bindsym $mod+Shift+u             exec sway-picgo-no-bg
+bindsym $mod+Shift+u             exec sway-picgo
 bindsym $mod+Shift+i             exec sway-picgo
 bindsym $mod+Shift+n             exec swaync-client -t -sw
 

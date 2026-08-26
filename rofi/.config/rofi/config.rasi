@@ -29,4 +29,5 @@ configuration{
 
 
 @import "~/.cache/wal/colors-rofi-dark"
+@import "~/.config/rofi/themes/rounded-corners.rasi"
 // @theme "~/.cache/cwal/colors-rofi.rasi"

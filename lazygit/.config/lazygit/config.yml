@@ -1,4 +1,30 @@
 gui:
+  authorColors: {}
+  branchColors: {}
+  scrollHeight: 2
+  scrollPastBottom: true
+  mouseEvents: true
+  nerdFontsVersion: "3"
+  skipDiscardChangeWarning: false
+  skipStashWarning: false
+  sidePanelWidth: 0.3333
+  expandFocusedSidePanel: false
+  mainPanelSplitMode: flexible
+  language: auto
+  timeFormat: 02 Jan 06 15:04 IST
+  commitLength:
+  show: true
+  skipNoStagedFilesWarning: false
+  showListFooter: true
+  showFileTree: true
+  showRandomTip: true
+  showCommandLog: true
+  showBottomLine: true
+  commandLogSize: 8
+  splitDiff: auto
+  theme:
+      selectedLineBgColor:
+          - reverse
   showIcons: true
 git:
   parseEmoji: true

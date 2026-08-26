@@ -15,11 +15,9 @@ set $browser-selector        browser-selector.sh
 
 set $screenshot              grim -g "$(slurp -d)" - | satty --filename -
 set $recordscreen            fish -c "/bin/bash -c /home/deve/.scripts/record-screen"
-set $clipboard_manager       cliphist list | rofi -dmenu | cliphist decode | wl-copy -n
+set $clipboard_manager       ~/.config/rofi/scripts/cliphist.sh
 
 set $backgroundFill          '#1D1F21'
-
-output eDP-1 scale 1.2
 
 #===============================================================================
 # GENERAL SETTINGS
@@ -33,7 +31,7 @@ font xft:Iosevka 11
 # gaps outer 5
 # gaps bottom 5
 
-# xwayland disable
+xwayland disable
 
 # SwayFX Settings (Uncomment to enable)
 # blur enable
@@ -289,8 +287,8 @@ exec_always {
 }
 
 # Include External Configs
-include .generated_settings/input_pointer.conf
-include .generated_settings/input_touchpad.conf
+include conf.d/*
+include outputs
 include /etc/sway/config.d/*
 include ~/.cache/wal/colors-sway
 
@@ -299,7 +297,7 @@ output * bg $wallpaper fill
 #
 # Window Colors          border           bg               text             indicator        child_border
 client.focused           $color4          $color4          $color0          $color6          $color4
-# client.focused_inactive  $color8          $color8          $color15         $color8          $color8
-# client.unfocused         $color0          $color0          $color7          $color0          $color0
-# client.urgent            $color1          $color1          $color15         $color1          $color1
-# client.background        $background
+client.focused_inactive  $color8          $color8          $color15         $color8          $color8
+client.unfocused         $color0          $color0          $color7          $color0          $color0
+client.urgent            $color1          $color1          $color15         $color1          $color1
+client.background        $background

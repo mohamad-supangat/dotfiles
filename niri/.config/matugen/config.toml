@@ -1,42 +1,49 @@
-[config.wallpaper]
-set = false
-# command = "swaybg"
-# arguments = ["-i", "{{image}}", "-m", "fill"]
-command = "awww"
-arguments = ["img", "--transition-type", "center"]
-
-# Hooks untuk menyegarkan aplikasi setelah warna dihasilkan (misalnya, untuk Waybar di Hyprland)
-# post_hook = "pkill waybar && waybar &"
+# Global Configs
+[config]
+version_check = false
 
 
 [templates.rofi]
-input_path = './templates/rofi-colors.rasi'
-output_path = '~/.cache/wal/colors-rofi-dark'
+input_path = '~/.config/matugen/templates/rofi.rasi'
+output_path = '~/.cache/wal/colors-rofi.rasi'
 
 [templates.sway]
-input_path = './templates/sway-colors.conf'
+input_path = '~/.config/matugen/templates/sway.conf'
 output_path = '~/.cache/wal/colors-sway'
 post_hook   = 'swaymsg reload'
 
+[templates.fish]
+input_path = '~/.config/matugen/templates/colors.fish'
+output_path = '~/.cache/wal/colors.fish'
+
+
+[templates.css]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.cache/wal/colors.css'
+
 #
 # [templates.fuzzel]
-# input_path = './templates/fuzzel.ini'
+# input_path = '~/.config/matugen/templates/fuzzel.ini'
 # output_path = '~/.config/fuzzel/colors.ini'
 #
 #
 # [templates.niri]
-# input_path = './templates/niri-colors.kdl'
+# input_path = '~/.config/matugen/templates/niri-colors.kdl'
 # output_path = '~/.config/niri/colors.kdl'
 #
 [templates.foot]
-input_path = './templates/foot-colors.ini'
+input_path = '~/.config/matugen/templates/foot.ini'
 output_path = '~/.cache/wal/colors-foot.ini'
 post_hook   = '''
-  touch "$HOME/.config/foot/foot.ini" || :
+
 '''
 
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
 
-# [templates.nvim]
-# input_path = './templates/nvim-colors.vim'
-# output_path = '~/.config/nvim/colors/matugen.vim'
-# post_hook = 'pkill -SIGUSR1 nvim'
+
+[templates.neovim]
+input_path = "~/.config/matugen/templates/nvim.json"
+output_path = "~/.cache/wal/colors-nvim.json"
+post_hook = "pkill -SIGUSR1 nvim"

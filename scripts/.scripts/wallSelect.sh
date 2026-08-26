@@ -3,19 +3,28 @@
 #  ┃┃┃┣┫┃ ┃ ┗┓┣ ┃ ┣ ┃  ┃
 #  ┗┻┛┛┗┗┛┗┛┗┛┗┛┗┛┗┛┗┛ ┻
 #
-# WallSelect + Auto Theme Engine - Unified Script
-# Modified: Rofi Wallpaper Picker integrated with Matugen/Pywal/Cwal detection
 
-# Configuration
-wall_dir="$HOME/Pictures/Wallpapers"
+# Thank you gh0stzk for the script 🤲 means a lot
+# Copyright (C) 2021-2025 gh0stzk <z0mbi3.zk@protonmail.com>
+# Licensed under GPL-3.0 license
+
+# WallSelect - Dynamic wallpaper selector with intelligent caching system
+# Modified: Removed Hyprland dependencies. Now WM-Agnostic.
+
+# Set dir variable
+wall_dir="$HOME/Pictures/Wallpapers/"
 cacheDir="$HOME/.cache/wallcache"
-wal_post="$HOME/.config/wal/post.sh"
+
+# UBAH INI: Tentukan lokasi baru untuk matugenMagick.sh karena bukan di .config/hypr lagi
+scriptsDir="$HOME/.scripts"
 
 # Create cache dir if not exists
 [ -d "$cacheDir" ] || mkdir -p "$cacheDir"
 
-# Rofi setup (Sesuaikan ukuran icon jika perlu)
+# Ukuran icon statis (karena tidak lagi menggunakan hyprctl untuk kalkulasi resolusi monitor)
+# Sesuaikan angka ini (dalam pixel) jika ikon di Rofi terlalu besar atau kecil.
 icon_size=280
+
 rofi_override="element-icon{size:${icon_size}px;}"
 rofi_command="rofi -i -show -dmenu -theme $HOME/.config/rofi/applets/wallSelect.rasi -theme-str $rofi_override"
 
@@ -47,7 +56,7 @@ process_image() {
   ) 200>"$lock_file"
 }
 
-# Export variables & functions for xargs
+# Export variables & functions
 export -f process_image
 export wall_dir cacheDir
 
@@ -55,7 +64,7 @@ export wall_dir cacheDir
 rm -f "${cacheDir}"/.lock_* 2>/dev/null || true
 
 # Process files in parallel
-find "$wall_dir" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.webp" \) -print0 |
+find "$wall_dir" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.gif" \) -print0 |
   xargs -0 -P "$PARALLEL_JOBS" -I {} bash -c 'process_image "{}"'
 
 # Clean orphaned cache files and their locks
@@ -84,48 +93,12 @@ wall_selection=$(find "${wall_dir}" -type f \( -iname "*.jpg" -o -iname "*.jpeg"
   LC_ALL=C sort -V |
   while IFS= read -r A; do
     if [[ "$A" =~ \.gif$ ]]; then
-      printf "%s\n" "$A"
+      printf "%s\n" "$A" # Handle gifs by showing only file name
     else
-      printf '%s\x00icon\x1f%s/%s\n' "$A" "${cacheDir}" "$A"
+      printf '%s\x00icon\x1f%s/%s\n' "$A" "${cacheDir}" "$A" # Non-gif files with icon convention
     fi
   done | $rofi_command)
 
-# =========================================================================
-# THEME APPLICATION LOGIC
-# =========================================================================
-
-if [[ -n "$wall_selection" ]]; then
-  TARGET_WALLP="${wall_dir}/${wall_selection}"
-
-  # Detect System Theme (Dark/Light)
-  mode=$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null)
-
-  if command -v matugen &>/dev/null; then
-    echo "Applying theme with Matugen using: $TARGET_WALLP"
-    if [[ "$mode" == "'prefer-dark'" ]]; then
-      matugen image "$TARGET_WALLP" -m dark --source-color-index 0
-    else
-      matugen image "$TARGET_WALLP" -m light --source-color-index 0
-    fi
-
-  elif command -v wal &>/dev/null; then
-    echo "Applying theme with Pywal using: $TARGET_WALLP"
-    if [[ "$mode" == "'prefer-dark'" ]]; then
-      wal -i "$TARGET_WALLP" -o "$wal_post"
-    else
-      wal -l -i "$TARGET_WALLP" -o "$wal_post"
-    fi
-
-  elif command -v cwal &>/dev/null; then
-    echo "Applying theme with Cwal using: $TARGET_WALLP"
-    if [[ "$mode" == "'prefer-dark'" ]]; then
-      cwal -i "$TARGET_WALLP" --mode dark
-    else
-      cwal -i "$TARGET_WALLP" --mode light
-    fi
-
-  else
-    notify-send "Theme Error" "No wallpaper application (Matugen/Pywal/Cwal) found"
-    exit 1
-  fi
-fi
+# Run matugen script
+# sleep 0.5
+[[ -n "$wall_selection" ]] && "$scriptsDir/matugenMagick.sh" "${wall_dir}/${wall_selection}" --dark

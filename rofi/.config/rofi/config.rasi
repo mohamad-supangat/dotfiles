@@ -27,7 +27,5 @@ configuration{
 }
 
 
-
-@import "~/.cache/wal/colors-rofi-dark"
+@import "~/.cache/wal/colors-rofi.rasi"
 @import "~/.config/rofi/themes/rounded-corners.rasi"
-// @theme "~/.cache/cwal/colors-rofi.rasi"

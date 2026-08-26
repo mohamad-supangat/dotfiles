@@ -12,6 +12,12 @@ arguments = ["img", "--transition-type", "center"]
 [templates.rofi]
 input_path = './templates/rofi-colors.rasi'
 output_path = '~/.cache/wal/colors-rofi-dark'
+
+[templates.sway]
+input_path = './templates/sway-colors.conf'
+output_path = '~/.cache/wal/colors-sway'
+post_hook   = 'swaymsg reload'
+
 #
 # [templates.fuzzel]
 # input_path = './templates/fuzzel.ini'

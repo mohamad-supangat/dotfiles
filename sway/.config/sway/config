@@ -296,10 +296,10 @@ include ~/.cache/wal/colors-sway
 
 # Final Theme Styling
 output * bg $wallpaper fill
-
+#
 # Window Colors          border           bg               text             indicator        child_border
 client.focused           $color4          $color4          $color0          $color6          $color4
-client.focused_inactive  $color8          $color8          $color15         $color8          $color8
-client.unfocused         $color0          $color0          $color7          $color0          $color0
-client.urgent            $color1          $color1          $color15         $color1          $color1
-client.background        $background
+# client.focused_inactive  $color8          $color8          $color15         $color8          $color8
+# client.unfocused         $color0          $color0          $color7          $color0          $color0
+# client.urgent            $color1          $color1          $color15         $color1          $color1
+# client.background        $background

@@ -1,15 +1,14 @@
 #!/usr/bin/env sh
 
 if [ -e ~/.profile ]; then
-    source ~/.profile
+  source ~/.profile
 fi
 
 if [ -e ~/.private-env ]; then
-    source ~/.private-env
+  source ~/.private-env
 fi
 
 export QT_QPA_PLATFORM=wayland
-# export QT_STYLE_OVERRIDE=kvantum
 # export QT_STYLE_OVERRIDE=kvantum
 # export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
@@ -35,11 +34,24 @@ export GPG_TTY=$(tty)
 # import all systemd environment
 # systemctl --user import-environment
 
-config=~/.config/sway/config
-if [[ $1 == *"x11"* ]]; then
-    config=~/.config/sway/config
+# ---------------------------------------------------------
+# LOGIK PENENTUAN CONFIG
+# ---------------------------------------------------------
+if [ -n "$1" ]; then
+  # Jika parameter pertama diisi (contoh: 'swayfx'), gunakan file tersebut
+  config=~/.config/sway/"$1"
+else
+  # Default jika script dijalankan tanpa parameter (hanya 'start-sway')
+  config=~/.config/sway/config
 fi
 
-exec /usr/bin/sway --config $config
+# Validasi apakah file config benar-benar ada
+if [ ! -f "$config" ]; then
+  echo "Error: File konfigurasi '$config' tidak ditemukan!"
+  exit 1
+fi
+
+# Eksekusi sway dengan config yang sudah ditentukan
+exec /usr/bin/sway --config "$config"
 # exec sway
-# exec dbus-run-session /usr/bin/sway --config $config
+# exec dbus-run-session /usr/bin/sway --config "$config"

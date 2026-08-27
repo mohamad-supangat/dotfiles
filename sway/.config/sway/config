@@ -275,7 +275,7 @@ bindgesture swipe:3:right        focus right
 #===============================================================================
 # AUTOSTART & INCLUDES
 #===============================================================================
-exec ~/.config/sway/bin/random-wallpaper.sh
+# exec ~/.config/sway/bin/random-wallpaper.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
 # exec swaync

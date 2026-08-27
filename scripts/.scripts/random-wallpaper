@@ -103,9 +103,9 @@ if [[ -n "$wall_selection" ]]; then
   if command -v matugen &>/dev/null; then
     echo "Applying theme with Matugen using: $TARGET_WALLP"
     if [[ "$mode" == "'prefer-dark'" ]]; then
-      matugen image "$TARGET_WALLP" -m dark --source-color-index 0
+      matugen image "$TARGET_WALLP" -m dark --source-color-index 1
     else
-      matugen image "$TARGET_WALLP" -m light --source-color-index 0
+      matugen image "$TARGET_WALLP" -m light --source-color-index 1
     fi
 
   elif command -v wal &>/dev/null; then

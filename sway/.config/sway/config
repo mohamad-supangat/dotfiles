@@ -31,7 +31,6 @@ font xft:Iosevka 11
 # gaps outer 5
 # gaps bottom 5
 
-xwayland disable
 
 # SwayFX Settings (Uncomment to enable)
 # blur enable

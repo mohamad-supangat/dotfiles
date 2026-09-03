@@ -20,6 +20,12 @@ output_path = '~/.cache/wal/colors.fish'
 [templates.css]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.cache/wal/colors.css'
+post_hook = """
+
+# restart vibe panel karena menggunakan colors.css
+pgrep -x "vibepanel" &>/dev/null && pkill -USR1 vibepanel || true
+vibepanel &
+"""
 
 #
 # [templates.fuzzel]
@@ -60,3 +66,5 @@ post_hook = "pkill -SIGUSR1 nvim"
 input_path = "~/.config/matugen/templates/nvim.lua"
 output_path = "~/.cache/wal/colors-nvim.lua"
 post_hook = "pkill -SIGUSR1 nvim"
+
+

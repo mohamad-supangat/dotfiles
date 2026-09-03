@@ -50,7 +50,13 @@ post_hook = '~/.config/matugen/post-hook-scripts/gtk-theme-reload.sh'
 
 # ...
 
-[templates.neovim]
+[templates.neovim-json]
 input_path = "~/.config/matugen/templates/nvim.json"
 output_path = "~/.cache/wal/colors-nvim.json"
+post_hook = "pkill -SIGUSR1 nvim"
+
+
+[templates.neovim-lua]
+input_path = "~/.config/matugen/templates/nvim.lua"
+output_path = "~/.cache/wal/colors-nvim.lua"
 post_hook = "pkill -SIGUSR1 nvim"

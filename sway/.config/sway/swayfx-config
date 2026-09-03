@@ -4,7 +4,7 @@ include config
 # ganti scrcpy dengan qtscrcpy ketika menggunakan native wayland
 # unbindsym $mod+Shift+s
 # bindsym $mod+Shift+s exec pkill QtScrcpy;exec qtscrcpy
-xwayland disable
+xwayland enable
 
 
 blur enable
@@ -17,7 +17,7 @@ gaps outer 5
 gaps bottom 5
 
 
-animation_duration_ms 499
+animation_duration_ms 250
 layer_effects "vibepanel" {
     blur enable;
     blur_xray enable;

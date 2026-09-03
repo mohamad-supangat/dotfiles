@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-# Cari binary Node.js di sistem
+# Tentukan path binary Node.js
 NODE_BIN="/usr/bin/node"
 
-if [ -n "$NODE_BIN" ]; then
-    # print "[Shim Info]: Mencoba menggunakan Node.js..."
-    # Jika Node.js ditemukan, jalankan menggunakan Node asli (bypass alias/shim)
-    # Menggunakan 'command' untuk memastikan tidak memanggil script ini lagi jika di-alias
-    command /usr/bin/node "$@"
-    exit $?
+# Cek apakah file benar-benar ada dan bisa dieksekusi di sistem
+if [ -x "$NODE_BIN" ]; then
+  # Jika Node.js ditemukan, jalankan menggunakan Node asli
+  command /usr/bin/node "$@"
+  exit $?
 fi
 
 echo "[Shim Info]: Node.js tidak ditemukan. Mencoba mengalihkan ke Bun..."
@@ -17,41 +16,37 @@ echo "[Shim Info]: Node.js tidak ditemukan. Mencoba mengalihkan ke Bun..."
 BUN_BIN=$(which bun)
 
 if [ -z "$BUN_BIN" ]; then
-    echo "[Shim Error]: Node.js maupun Bun tidak ditemukan di sistem ini."
-    exit 1
+  echo "[Shim Error]: Node.js maupun Bun tidak ditemukan di sistem ini."
+  exit 1
 fi
 
 # --- LOGIK BALIKAN JIKA MENGGUNAKAN BUN ---
 
 # Jika tidak ada argumen sama sekali, buka REPL Bun
 if [ $# -eq 0 ]; then
-    exec "$BUN_BIN" repl
+  exec "$BUN_BIN" repl
 fi
 
 # Parsing argumen untuk menyesuaikan behavior Node ke Bun
 ARGS=()
 
 while [ $# -gt 0 ]; do
-    case "$1" in
-        -v|--version)
-            # Menampilkan versi bun jika user mengecek versi (karena fallback ke bun)
-            exec "$BUN_BIN" --version
-            ;;
-        -e|--eval)
-            # Node: node -e "code" -> Bun: bun eval "code"
-            shift
-            exec "$BUN_BIN" eval "$1"
-            ;;
-        --max-old-space-size=*)
-            # Flag memory limit Node tidak dibutuhkan di Bun, abaikan saja
-            shift
-            ;;
-        *)
-            # Masukkan argumen sisanya
-            ARGS+=("$1")
-            shift
-            ;;
-    esac
+  case "$1" in
+  -v | --version)
+    exec "$BUN_BIN" --version
+    ;;
+  -e | --eval)
+    shift
+    exec "$BUN_BIN" eval "$1"
+    ;;
+  --max-old-space-size=*)
+    shift
+    ;;
+  *)
+    ARGS+=("$1")
+    shift
+    ;;
+  esac
 done
 
 # Jalankan script menggunakan Bun sebagai fallback terakhir

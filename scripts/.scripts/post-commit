@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Mendapatkan nama branch saat ini
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+echo "Menjalankan auto-push ke remote origin branch $branch..."
+git push origin "$branch"

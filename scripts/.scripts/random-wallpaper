@@ -97,6 +97,8 @@ wall_selection=$(find "${wall_dir}" -type f \( -iname "*.jpg" -o -iname "*.jpeg"
 if [[ -n "$wall_selection" ]]; then
   TARGET_WALLP="${wall_dir}/${wall_selection}"
 
+  ln -sf "$TARGET_WALLP" ~/.cache/currwall
+
   # Detect System Theme (Dark/Light)
   mode=$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null)
 

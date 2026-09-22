@@ -105,8 +105,8 @@ assign [app_id="^(foot|ghostty|kitty|alacritty)$"] workspace number 2
 for_window [app_id="^(foot|ghostty|kitty|alacritty)$"] focus
 
 # Workspace 3: Mail
-assign [app_id="^(geary)$"] workspace number 3
-for_window [app_id="^(geary)$"] focus
+assign [app_id="^(geary|com.flectar.mail)$"] workspace number 3
+for_window [app_id="^(geary|com.flectar.mail)$"] focus
 
 #===============================================================================
 # KEYBINDINGS
@@ -121,7 +121,7 @@ bindsym $mod+space               exec $menu
 bindsym $mod+n                   exec $file_manager
 bindsym Mod1+Control+h           exec $clipboard_manager
 bindsym $mod+Shift+x             exec $browser-selector
-bindsym $mod+Shift+g             exec geary
+bindsym $mod+Shift+g             exec flectar
 
 # --- Utilities & Tools ---
 bindsym Print                    exec $screenshot
@@ -279,7 +279,6 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste --watch cliphist -max-items 10000 store
 # exec swaync
 exec vibepanel
-exec wluma # auto brightness control
 exec_always {
     eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
     export SSH_AUTH_SOCK

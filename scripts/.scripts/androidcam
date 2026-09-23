@@ -1,0 +1,195 @@
+#!/usr/bin/env bash
+
+# Android phone as webcam for Linux via scrcpy + v4l2loopback.
+#
+# Initial setup recap:
+# 1. Install build/runtime dependencies if needed:
+#      sudo apt install ffmpeg libsdl2-2.0-0 adb wget \
+#        gcc git pkg-config meson ninja-build libsdl2-dev \
+#        libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
+#        libswresample-dev libusb-1.0-0 libusb-1.0-0-dev \
+#        v4l2loopback-dkms v4l-utils
+# 2. Install scrcpy from source if needed:
+#      git clone https://github.com/Genymobile/scrcpy
+#      cd scrcpy
+#      ./install_release.sh
+# 3. On the phone, enable Developer options and USB/Wireless debugging.
+# 4. Pair/connect the phone once via ADB.
+# 5. This script creates /dev/video10 with v4l2loopback if needed and
+#    streams the selected Android camera into that virtual webcam.
+#    Default resolution: 1280x720.
+# 6. Update the public gist after local changes with:
+#      gh gist edit 807acb0055a0b6ce0c78bd2e4af075e5 /home/tin/.local/bin/androidcam
+#
+# Usage:
+#   androidcam                # back camera over Wi-Fi
+#   androidcam front          # front camera over Wi-Fi
+#   androidcam back usb       # back camera over USB
+#   androidcam front wifi
+#   androidcam --disable-internal
+#   androidcam --rotate
+#   androidcam --flip
+#   androidcam --help
+
+set -euo pipefail
+
+device_mode="wifi"
+camera_name="back"
+camera_id="0"
+video_device="/dev/video10"
+card_label="AndroidCam"
+camera_size="1280x720"
+disable_internal="no"
+internal_disabled="no"
+rotate_video="no"
+flip_video="no"
+
+usage() {
+  cat <<'EOUSAGE'
+Usage:
+  androidcam [front|back] [wifi|usb] [--disable-internal] [--rotate] [--flip]
+
+Examples:
+  androidcam
+  androidcam front
+  androidcam back usb
+  androidcam --disable-internal
+  androidcam front --rotate
+  androidcam front --flip
+
+Notes:
+  - Uses camera-id 0 for back and 1 for front on this Motorola.
+  - Exposes the phone as /dev/video10 (label: AndroidCam).
+  - By default, keeps the internal webcam visible.
+  - Use --disable-internal to unload uvcvideo while AndroidCam runs.
+  - Use --rotate to rotate the captured video 90 degrees for portrait use.
+  - Use --flip to mirror the captured video horizontally.
+  - Select "AndroidCam" in Meet/Chrome.
+EOUSAGE
+}
+
+for arg in "$@"; do
+  case "$arg" in
+    front)
+      camera_name="front"
+      camera_id="1"
+      ;;
+    back)
+      camera_name="back"
+      camera_id="0"
+      ;;
+    wifi|tcpip)
+      device_mode="wifi"
+      ;;
+    usb)
+      device_mode="usb"
+      ;;
+    --disable-internal)
+      disable_internal="yes"
+      ;;
+    --rotate)
+      rotate_video="yes"
+      ;;
+    --flip)
+      flip_video="yes"
+      ;;
+    -h|--help|help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "Unknown argument: $arg" >&2
+      usage >&2
+      exit 1
+      ;;
+  esac
+done
+
+require_cmd() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    echo "Missing required command: $1" >&2
+    exit 1
+  fi
+}
+
+require_cmd scrcpy
+require_cmd adb
+
+restore_internal_camera() {
+  if [ "$internal_disabled" = "yes" ]; then
+    sudo modprobe uvcvideo || true
+  fi
+}
+
+trap restore_internal_camera EXIT
+
+if [ ! -e "$video_device" ]; then
+  echo "Creating virtual webcam on $video_device..."
+  sudo modprobe v4l2loopback video_nr=10 card_label="$card_label" exclusive_caps=1
+fi
+
+if [ "$disable_internal" = "yes" ]; then
+  if lsmod | awk '{print $1}' | grep -qx 'uvcvideo'; then
+    echo "Disabling internal webcam (uvcvideo) so apps prefer AndroidCam..."
+    sudo modprobe -r uvcvideo || true
+    internal_disabled="yes"
+  fi
+fi
+
+effective_rotate="$rotate_video"
+
+orientation_value="0"
+if [ "$effective_rotate" = "yes" ] && [ "$flip_video" = "yes" ]; then
+  orientation_value="flip90"
+elif [ "$effective_rotate" = "yes" ]; then
+  orientation_value="90"
+elif [ "$flip_video" = "yes" ]; then
+  orientation_value="flip0"
+fi
+
+orientation_args=()
+if [ "$orientation_value" != "0" ]; then
+  orientation_args=(--capture-orientation="$orientation_value")
+fi
+
+if ! adb devices | awk 'NR>1 && $2=="device" {found=1} END{exit !found}'; then
+  cat >&2 <<'EOERR'
+No ADB device is ready.
+
+Quick checklist:
+  - Connect the phone by USB at least once
+  - Enable USB or Wireless debugging on Android
+  - Accept the trust prompt on the phone
+  - Verify with: adb devices
+EOERR
+  exit 1
+fi
+
+scrcpy_device_flag="-e"
+if [ "$device_mode" = "usb" ]; then
+  scrcpy_device_flag="-d"
+fi
+
+echo "Starting Android webcam:"
+echo "  Camera: $camera_name (camera-id=$camera_id)"
+echo "  Mode:   $device_mode"
+echo "  Device: $video_device"
+echo "  Disable internal: $disable_internal"
+echo "  Rotate: $effective_rotate"
+echo "  Flip: $flip_video"
+echo
+
+scrcpy_args=(
+  "$scrcpy_device_flag"
+  --video-source=camera
+  --camera-id="$camera_id"
+  --camera-size="$camera_size"
+  --v4l2-sink="$video_device"
+  --no-playback
+)
+
+if [ ${#orientation_args[@]} -gt 0 ]; then
+  scrcpy_args+=("${orientation_args[@]}")
+fi
+
+exec scrcpy "${scrcpy_args[@]}"

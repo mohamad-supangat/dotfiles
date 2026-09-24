@@ -7,7 +7,7 @@ screen_margin = 0
 padding = 0
 inset = 0
 [widgets]
-left = ["workspaces"]
+left = ["workspaces", "mango_layout"]
 center = [
   "notifications",
   "clock",

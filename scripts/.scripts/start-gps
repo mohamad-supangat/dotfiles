@@ -1,0 +1,6 @@
+#!/bin/bash
+## digunakan untuk menghidupkan gps
+/usr/lib/geoclue-2.0/demos/agent
+
+## digunakan untuk testing gps
+/usr/lib/geoclue-2.0/demos/where-am-i

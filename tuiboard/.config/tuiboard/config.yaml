@@ -1,0 +1,14 @@
+boards:
+  - path: "/home/deve/Documents/Obsidian/AuraKomputer/kanban-progress.md"
+    name: "AuraKomputer - Progress"
+
+  - path: "/home/deve/Documents/Obsidian/Reksa/kanban-progress.md"
+    name: "Reksa - Progress"
+
+done_column: Done
+archive_column: Archive
+
+zones:
+  planner: on      # Today/Tomorrow panel          (toggle at runtime with F1)
+  agenda: on       # 24h agenda + calendars        (F2)
+  agents: off

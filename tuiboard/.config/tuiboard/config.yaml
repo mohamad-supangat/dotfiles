@@ -10,5 +10,5 @@ archive_column: Archive
 
 zones:
   planner: on      # Today/Tomorrow panel          (toggle at runtime with F1)
-  agenda: on       # 24h agenda + calendars        (F2)
+  agenda: off       # 24h agenda + calendars        (F2)
   agents: off

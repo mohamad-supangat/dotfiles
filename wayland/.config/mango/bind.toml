@@ -6,6 +6,7 @@
 "SUPER+Return" = "spawn,~/.scripts/tmux_session.sh foot"
 "SUPER+SHIFT+Return" = "spawn,~/.scripts/rofi-tmuxp.sh foot"
 
+"SUPER+r" = "spawn,rofi -modi run -show run"
 "SUPER+space" = "spawn,rofi -modi drun -show drun"
 "SUPER+n" = "spawn,nautilus"
 "ALT+CTRL+h" = "spawn_shell,cliphist list | rofi -dmenu | cliphist decode | wl-copy -n"

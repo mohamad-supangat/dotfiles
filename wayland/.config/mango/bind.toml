@@ -1,0 +1,127 @@
+
+# --- Key Bindings ---
+[bind.default]
+# Applications & Custom Commands
+"CTRL+ALT+t" = "spawn,foot"
+"SUPER+Return" = "spawn,~/.scripts/tmux_session.sh foot"
+"SUPER+SHIFT+Return" = "spawn,~/.scripts/rofi-tmuxp.sh foot"
+
+"SUPER+space" = "spawn,rofi -modi drun -show drun"
+"SUPER+n" = "spawn,nautilus"
+"ALT+CTRL+h" = "spawn_shell,cliphist list | rofi -dmenu | cliphist decode | wl-copy -n"
+"SUPER+SHIFT+x" = "spawn,browser-selector.sh"
+"SUPER+SHIFT+g" = "spawn,flectar"
+
+# Utilities & Tools
+"Print" = "spawn_shell,screenshot.sh freeze-region"
+"SUPER+SHIFT+p" = "spawn,sway-color-picker"
+"SUPER+SHIFT+w" = "spawn,~/.scripts/random-wallpaper"
+"SUPER+SHIFT+r" = "spawn,fish -c \"/bin/bash -c /home/deve/.scripts/record-screen\""
+"SUPER+SHIFT+s" = "spawn,~/.scripts/start-scrcpy"
+"SUPER+SHIFT+u" = "spawn,sway-picgo"
+"SUPER+SHIFT+n" = "spawn,swaync-client -t -sw"
+
+# Window & Session Control
+"SUPER+SHIFT+q" = "killclient"
+"SUPER+o" = "toggleoverview"
+
+"SUPER+SHIFT+c" = "reload_config"
+
+# Media & Hardware Keys
+"XF86AudioRaiseVolume" = "spawn,wpctl set-volume @DEFAULT_SINK@ 1%+"
+"XF86AudioLowerVolume" = "spawn,wpctl set-volume @DEFAULT_SINK@ 1%-"
+"XF86AudioMute" = "spawn,wpctl set-mute @DEFAULT_SINK@ toggle"
+"SHIFT+XF86AudioMute" = "spawn,wpctl set-mute @DEFAULT_SOURCE@ toggle"
+
+"XF86AudioPlay" = "spawn,playerctl play-pause"
+"XF86AudioNext" = "spawn,playerctl next"
+"XF86AudioPrev" = "spawn,playerctl previous"
+
+"XF86MonBrightnessUp" = "spawn,brightnessctl set +1%"
+"XF86MonBrightnessDown" = "spawn,brightnessctl set 1%-"
+
+# Focus Navigation
+"SUPER+h" = "focusdir,left"
+"SUPER+j" = "focusdir,down"
+"SUPER+k" = "focusdir,up"
+"SUPER+l" = "focusdir,right"
+
+"SUPER+Left" = "focusdir,left"
+"SUPER+Down" = "focusdir,down"
+"SUPER+Up" = "focusdir,up"
+"SUPER+Right" = "focusdir,right"
+
+# Window Movement
+"SUPER+SHIFT+h" = "move_client,left"
+"SUPER+SHIFT+j" = "move_client,down"
+"SUPER+SHIFT+k" = "move_client,up"
+"SUPER+SHIFT+l" = "move_client,right"
+
+"SUPER+SHIFT+Left" = "move_client,left"
+"SUPER+SHIFT+Down" = "move_client,down"
+"SUPER+SHIFT+Up" = "move_client,up"
+"SUPER+SHIFT+Right" = "move_client,right"
+
+# Layouts & Window States
+"SUPER+f" = "togglefullscreen"
+"SUPER+SHIFT+space" = "togglefloating"
+"SUPER+m" = "zoom"
+
+# Inline Window Resizing
+"SUPER+CTRL+Left" = "resizewin,-20,0"
+"SUPER+CTRL+Right" = "resizewin,20,0"
+"SUPER+CTRL+Up" = "resizewin,0,-20"
+"SUPER+CTRL+Down" = "resizewin,0,20"
+
+"SUPER+CTRL+h" = "resizewin,-20,0"
+"SUPER+CTRL+l" = "resizewin,20,0"
+"SUPER+CTRL+k" = "resizewin,0,-20"
+"SUPER+CTRL+j" = "resizewin,0,20"
+
+# Tags (Workspaces 1-9)
+"SUPER+1" = "view,1"
+"SUPER+2" = "view,2"
+"SUPER+3" = "view,3"
+"SUPER+4" = "view,4"
+"SUPER+5" = "view,5"
+"SUPER+6" = "view,6"
+"SUPER+7" = "view,7"
+"SUPER+8" = "view,8"
+"SUPER+9" = "view,9"
+"SUPER+b" = "toggle_special_tag"
+
+"SUPER+Tab" = "focuslast"
+"ALT+Tab" = "switcher"
+
+"SUPER+SHIFT+1" = "tag,1"
+"SUPER+SHIFT+2" = "tag,2"
+"SUPER+SHIFT+3" = "tag,3"
+"SUPER+SHIFT+4" = "tag,4"
+"SUPER+SHIFT+5" = "tag,5"
+"SUPER+SHIFT+6" = "tag,6"
+"SUPER+SHIFT+7" = "tag,7"
+"SUPER+SHIFT+8" = "tag,8"
+"SUPER+SHIFT+9" = "tag,9"
+"SUPER+SHIFT+b" = "tag_special_tag"
+
+
+# Key Mode Table (setkeymode)
+[bind.session]
+"SUPER+SHIFT+e" = "setkeymode,session"
+
+
+# --- Mouse Bindings ---
+[mousebind.default]
+"SUPER+btn_left" = "moveresize,curmove"
+"SUPER+btn_right" = "moveresize,curresize"
+"SUPER+CTRL+btn_right" = "killclient"
+
+
+# --- Touchpad Gestures ---
+[gesturebind.default]
+"none+left+3" = "viewnext_have_client"
+"none+right+3" = "viewprev_have_client"
+"none+down+3" = "spawn_shell,screenshot.sh freeze-region"
+"none+up+3" = "toggleoverview"
+"none+up+4" = "toggleoverview"
+"none+down+4" = "toggleoverview"

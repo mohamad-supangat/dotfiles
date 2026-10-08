@@ -11,6 +11,11 @@ pre_hook = "kill $(pgrep -o swaybg)"
 input_path = '~/.config/matugen/templates/rofi.rasi'
 output_path = '~/.cache/wal/colors-rofi.rasi'
 
+[templates.mangowm]
+input_path = '~/.config/matugen/templates/mangowm.toml'
+output_path = '~/.cache/wal/colors-mangowm.toml'
+
+
 [templates.sway]
 input_path = '~/.config/matugen/templates/sway.conf'
 output_path = '~/.cache/wal/colors-sway'

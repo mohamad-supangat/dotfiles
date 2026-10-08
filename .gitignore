@@ -19,3 +19,4 @@ rofi/.config/rofi/colors.rasi
 /niri/.config/niri/colors.kdl
 /foot/.config/foot/colors.ini
 /sway/.config/sway/outputs
+/wayland/.config/mango/monitor.toml

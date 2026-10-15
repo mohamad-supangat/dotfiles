@@ -92,3 +92,13 @@ source_optional = [
   './monitor.toml',
   '~/.cache/wal/colors-mangowm.toml',
 ]
+
+
+[[rule.tag_rule]]
+id = 0
+layout_name = center_tile
+
+
+[[rule.tag_rule]]
+id = 3
+layout_name = scroller

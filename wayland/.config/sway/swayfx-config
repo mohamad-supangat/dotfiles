@@ -23,5 +23,5 @@ layer_effects "vibepanel" {
     blur_xray enable;
     blur_ignore_transparent enable;
     shadows disable;
-    corner_radius 20;
+    #corner_radius 20;
 }

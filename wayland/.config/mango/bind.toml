@@ -14,7 +14,7 @@
 "SUPER+SHIFT+g" = "spawn,flectar"
 
 # Utilities & Tools
-"Print" = "spawn_shell,screenshot.sh freeze-region"
+"Print" = "spawn_shell,screenshot.sh region"
 "SUPER+SHIFT+p" = "spawn,sway-color-picker"
 "SUPER+SHIFT+w" = "spawn,~/.scripts/random-wallpaper"
 "SUPER+SHIFT+r" = "spawn,fish -c \"/bin/bash -c /home/deve/.scripts/record-screen\""
@@ -122,7 +122,7 @@
 [gesturebind.default]
 "none+left+3" = "viewnext_have_client"
 "none+right+3" = "viewprev_have_client"
-"none+down+3" = "spawn_shell,screenshot.sh freeze-region"
+"none+down+3" = "spawn_shell,screenshot.sh region"
 "none+up+3" = "toggleoverview"
 "none+up+4" = "toggleoverview"
 "none+down+4" = "toggleoverview"

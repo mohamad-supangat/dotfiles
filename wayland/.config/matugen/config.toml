@@ -83,3 +83,8 @@ post_hook = "pkill -SIGUSR1 nvim"
 input_path = "~/.config/matugen/templates/nvim.lua"
 output_path = "~/.cache/wal/colors-nvim.lua"
 post_hook = "pkill -SIGUSR1 nvim"
+
+
+[templates.firefox_websites]
+input_path = '~/.config/matugen/templates/firefox_websites.css'
+output_path = '~/.config/matugen/generated/firefox_websites.css'

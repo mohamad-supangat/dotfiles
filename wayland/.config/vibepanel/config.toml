@@ -1,3 +1,6 @@
+[polkit]
+enabled = true
+
 [bar]
 position = "bottom"  # "top", "bottom", "left", or "right"
 size = 25
@@ -67,13 +70,6 @@ toast_position = "top-center"  # "top-left", "top-center", "top-right", "bottom-
 
 [theme]
 mode = "gtk"  # "auto", "dark", "light", "gtk"
-# "auto" = wallpaper-adaptive theming
-#               (detects from hyprpaper, awww/swww, wpaperd, waypaper)
-# scheme = "dark" # Material You polarity: "dark", "light", or "gtk" (auto mode only)
-#                  "gtk" follows your GTK/system dark or light preference;
-#                  if no preference is set, it's derived from wallpaper luminance
-# wallpaper = "/path/to/image.png"  # Explicit wallpaper for auto mode (default: auto-detect)
-# accent = "#adabe0" # "gtk", "none", or hex color (overrides wallpaper accent in auto mode)
 animations = true  # Enable/disable all CSS transitions and animations
 ripple = true  # Enable/disable Material Design ripple effect on click
 blur = true  # Enable compositor blur via ext-background-effect-v1 (requires niri with blur)

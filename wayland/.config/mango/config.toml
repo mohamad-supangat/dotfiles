@@ -78,9 +78,8 @@ special_dim = 0.5
 
 # Auto Start
 exec_once = [
-  "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1",
   "vibepanel",
-  "wl-paste --type text --watch cliphist -max-items 1000 store",
+  "wl-paste --watch cliphist -max-items 1000 store",
   "swaybg -m fill -i ~/.cache/currwall"
 ]
 

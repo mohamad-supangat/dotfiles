@@ -26,7 +26,6 @@ gap_outer_horizontal=10
 gap_outer_vertical=10
 
 
-
 border_radius = 15
 # no_radius_when_single = 0
 focused_opacity = 1.0
@@ -93,6 +92,10 @@ tab_bar_decorate_padding_y=5
 tab_bar_decorate_border_width=1
 tab_bar_decorate_font_desc=monospace 10
 
+
+monocle_tab_mode=1
+monocle_no_gap=0
+monocle_no_border=1
 
 # Auto Start
 exec_once = [

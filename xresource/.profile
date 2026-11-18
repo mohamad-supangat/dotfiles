@@ -60,3 +60,7 @@ if [ -e ~/.private-env ]; then
   source ~/.private-env
 fi
 #. "/home/deve/.deno/env"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/deve/.local/bin:$PATH"

@@ -129,3 +129,7 @@ if test -d "/home/deve/.phpenv"
     status --is-interactive; and . (phpenv init -|psub)
 end
 set -gx PATH $HOME/bin $PATH
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/deve/.local/bin" $PATH

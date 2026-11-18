@@ -1,0 +1,1 @@
+nvim -c "connect ssh://$1"

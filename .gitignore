@@ -20,3 +20,4 @@ rofi/.config/rofi/colors.rasi
 /foot/.config/foot/colors.ini
 /sway/.config/sway/outputs
 /wayland/.config/mango/monitor.toml
+/wayland/.config/sway/outputs

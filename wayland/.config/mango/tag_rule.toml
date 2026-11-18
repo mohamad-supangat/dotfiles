@@ -1,22 +1,39 @@
 
+
 [[rule.tag_rule]]
 id = 0
 layout_name = center_tile
 
 [[rule.tag_rule]]
 id = 1
-layout_name = monocle
+layout_name = stack
 
 
 [[rule.tag_rule]]
 id = 2
-layout_name = monocle
+layout_name = stack
 
 
 [[rule.tag_rule]]
 id = 3
-layout_name = monocle
+layout_name = stack
 
 [[rule.tag_rule]]
 id = 4
 layout_name = scroller
+
+[[rule.window_rule]]
+is_floating = 1
+width = 800
+height = 900
+app_id = "mpv"
+
+[[rule.window_rule]]
+app_id = "foot"
+tags = 2
+
+
+
+[[rule.window_rule]]
+app_id = "firefox"
+tags = 1

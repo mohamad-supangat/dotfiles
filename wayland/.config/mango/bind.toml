@@ -1,4 +1,3 @@
-
 # --- Key Bindings ---
 [bind.default]
 # Applications & Custom Commands
@@ -52,12 +51,6 @@
 "SUPER+Up" = "focusdir,up"
 "SUPER+Right" = "focusdir,right"
 
-# Window Movement
-"SUPER+SHIFT+h" = "move_client,left"
-"SUPER+SHIFT+j" = "move_client,down"
-"SUPER+SHIFT+k" = "move_client,up"
-"SUPER+SHIFT+l" = "move_client,right"
-
 "SUPER+SHIFT+Left" = "move_client,left"
 "SUPER+SHIFT+Down" = "move_client,down"
 "SUPER+SHIFT+Up" = "move_client,up"
@@ -69,15 +62,10 @@
 "SUPER+m" = "zoom"
 
 # Inline Window Resizing
-"SUPER+CTRL+Left" = "resizewin,-20,0"
-"SUPER+CTRL+Right" = "resizewin,20,0"
-"SUPER+CTRL+Up" = "resizewin,0,-20"
-"SUPER+CTRL+Down" = "resizewin,0,20"
-
-"SUPER+CTRL+h" = "resizewin,-20,0"
-"SUPER+CTRL+l" = "resizewin,20,0"
-"SUPER+CTRL+k" = "resizewin,0,-20"
-"SUPER+CTRL+j" = "resizewin,0,20"
+"SUPER+CTRL+h" = "resizewin,-5,+0"
+"SUPER+CTRL+l" = "resizewin,+5,+0"
+"SUPER+CTRL+k" = "resizewin,+0,-5"
+"SUPER+CTRL+j" = "resizewin,+0,+5"
 
 # Tags (Workspaces 1-9)
 "SUPER+1" = "view,1"
@@ -93,6 +81,7 @@
 
 "SUPER+Tab" = "focuslast"
 "ALT+Tab" = "switcher"
+"SUPER+w" = "switch_layout,stack,monocle"
 
 "SUPER+SHIFT+1" = "tag,1"
 "SUPER+SHIFT+2" = "tag,2"
@@ -105,18 +94,22 @@
 "SUPER+SHIFT+9" = "tag,9"
 "SUPER+SHIFT+b" = "tag_special_tag"
 
+[bind.default.conflict]
+# Window Movement (tiling swap + floating move)
+"SUPER+SHIFT+h" = ["move_client,left", "movewin,-20,+0"]
+"SUPER+SHIFT+j" = ["move_client,down", "movewin,+0,+20"]
+"SUPER+SHIFT+k" = ["move_client,up", "movewin,+0,-20"]
+"SUPER+SHIFT+l" = ["move_client,right", "movewin,+20,+0"]
 
 # Key Mode Table (setkeymode)
 [bind.session]
 "SUPER+SHIFT+e" = "setkeymode,session"
-
 
 # --- Mouse Bindings ---
 [mousebind.default]
 "SUPER+btn_left" = "moveresize,curmove"
 "SUPER+btn_right" = "moveresize,curresize"
 "SUPER+CTRL+btn_right" = "killclient"
-
 
 # --- Touchpad Gestures ---
 [gesturebind.default]

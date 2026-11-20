@@ -82,7 +82,7 @@ scratchpad_width_ratio = 0.8
 scratchpad_height_ratio = 0.9
 
 # Special Settings
-special_dim = 0.5
+special_dim = 0
 
 
 # monocle
@@ -96,6 +96,10 @@ tab_bar_decorate_font_desc=Iosevka 10
 monocle_tab_mode=1
 monocle_no_gap=0
 monocle_no_border=1
+
+
+circle_layout = ["tile", "monocle"]
+
 
 # Auto Start
 exec_once = [

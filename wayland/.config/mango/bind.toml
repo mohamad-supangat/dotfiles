@@ -40,12 +40,6 @@
 "XF86MonBrightnessUp" = "spawn,brightnessctl set +1%"
 "XF86MonBrightnessDown" = "spawn,brightnessctl set 1%-"
 
-# Focus Navigation
-"SUPER+h" = "focusdir,left"
-"SUPER+j" = "focusdir,down"
-"SUPER+k" = "focusdir,up"
-"SUPER+l" = "focusdir,right"
-
 "SUPER+Left" = "focusdir,left"
 "SUPER+Down" = "focusdir,down"
 "SUPER+Up" = "focusdir,up"
@@ -100,6 +94,12 @@
 "SUPER+SHIFT+j" = ["move_client,down", "movewin,+0,+20"]
 "SUPER+SHIFT+k" = ["move_client,up", "movewin,+0,-20"]
 "SUPER+SHIFT+l" = ["move_client,right", "movewin,+20,+0"]
+
+# Focus Navigation
+"SUPER+h" = ["focusstack,prev", "focusdir,left"]
+"SUPER+j" = ["focusstack,prev", "focusdir,down"]
+"SUPER+k" = ["focusstack,next", "focusdir,up"]
+"SUPER+l" = ["focusstack,next", "focusdir,right"]
 
 # Key Mode Table (setkeymode)
 [bind.session]

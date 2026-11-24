@@ -96,10 +96,10 @@
 "SUPER+SHIFT+l" = ["move_client,right", "movewin,+20,+0"]
 
 # Focus Navigation
-"SUPER+h" = ["focusstack,prev", "focusdir,left"]
-"SUPER+j" = ["focusstack,prev", "focusdir,down"]
-"SUPER+k" = ["focusstack,next", "focusdir,up"]
-"SUPER+l" = ["focusstack,next", "focusdir,right"]
+"SUPER+h" = ["focusdir,left"]
+"SUPER+j" = ["focusdir,down"]
+"SUPER+k" = ["focusdir,up"]
+"SUPER+l" = ["focusdir,right"]
 
 # Key Mode Table (setkeymode)
 [bind.session]

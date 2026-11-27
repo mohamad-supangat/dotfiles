@@ -35,6 +35,8 @@ if [ -n "$active_layout" ] && [ "$active_layout" != "M" ]; then
   mmsg dispatch "move_client,${direction}"
 fi
 
+# mmsg dispatch "togglegroupbar"
+
 if [ "$is_floating" = "true" ]; then
   echo is_floating
   case "$direction" in

@@ -93,6 +93,8 @@ monocle_tab_mode = 1
 monocle_no_gap = 0
 monocle_no_border = 1
 
+# deck_tab_mode=1
+
 circle_layout = ["tile", "monocle"]
 
 # Auto Start

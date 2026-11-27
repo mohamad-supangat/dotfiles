@@ -10,11 +10,12 @@
 "SUPER+n" = "spawn,nautilus"
 "ALT+CTRL+h" = "spawn_shell,cliphist list | rofi -dmenu | cliphist decode | wl-copy -n"
 "SUPER+SHIFT+x" = "spawn,browser-selector.sh"
-"SUPER+SHIFT+g" = "spawn,flectar"
+"SUPER+SHIFT+g" = "spawn,sealwax"
 
 # Utilities & Tools
 "Print" = "spawn_shell,screenshot.sh region"
 "SUPER+SHIFT+p" = "spawn,sway-color-picker"
+
 "SUPER+SHIFT+w" = "spawn,~/.scripts/random-wallpaper"
 "SUPER+SHIFT+r" = "spawn,fish -c \"/bin/bash -c /home/deve/.scripts/record-screen\""
 "SUPER+SHIFT+s" = "spawn,~/.scripts/start-scrcpy"
@@ -56,10 +57,10 @@
 "SUPER+m" = "zoom"
 
 # Inline Window Resizing
-"SUPER+CTRL+h" = "resizewin,-5,+0"
-"SUPER+CTRL+l" = "resizewin,+5,+0"
-"SUPER+CTRL+k" = "resizewin,+0,-5"
-"SUPER+CTRL+j" = "resizewin,+0,+5"
+"SUPER+CTRL+h" = "resizewin,-20,+0"
+"SUPER+CTRL+l" = "resizewin,+20,+0"
+"SUPER+CTRL+k" = "resizewin,+0,-20"
+"SUPER+CTRL+j" = "resizewin,+0,+20"
 
 # Tags (Workspaces 1-9)
 "SUPER+1" = "view,1"
@@ -90,10 +91,11 @@
 
 [bind.default.conflict]
 # Window Movement (tiling swap + floating move)
-"SUPER+SHIFT+h" = ["move_client,left", "movewin,-20,+0"]
-"SUPER+SHIFT+j" = ["move_client,down", "movewin,+0,+20"]
-"SUPER+SHIFT+k" = ["move_client,up", "movewin,+0,-20"]
-"SUPER+SHIFT+l" = ["move_client,right", "movewin,+20,+0"]
+"SUPER+SHIFT+h" = "spawn,$HOME/.scripts/mango-move.sh left"
+"SUPER+SHIFT+j" = "spawn,$HOME/.scripts/mango-move.sh down"
+"SUPER+SHIFT+k" = "spawn,$HOME/.scripts/mango-move.sh up"
+"SUPER+SHIFT+l" = "spawn,$HOME/.scripts/mango-move.sh right"
+
 
 # Focus Navigation
 "SUPER+h" = ["focusdir,left"]

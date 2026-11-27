@@ -22,6 +22,9 @@ layout_name = stack
 id = 4
 layout_name = scroller
 
+
+
+# window rules
 [[rule.window_rule]]
 is_floating = 1
 width = 800
@@ -33,7 +36,10 @@ app_id = "foot"
 tags = 2
 
 
-
 [[rule.window_rule]]
 app_id = "firefox"
 tags = 1
+
+[[rule.window_rule]]
+app_id = "io.github.pixdevsapps.Sealwax"
+is_floating = 1
